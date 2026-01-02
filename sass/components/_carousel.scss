@@ -1,0 +1,37 @@
+/*
+carousel configuration  ------------------------------------ */
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d5d5d5;
+  margin: 5px 4px 0 4px;
+  border: 2px solid #d5d5d5;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #232323;
+  border-color: #232323;
+}
+
+.owl-theme p {
+  color: white;
+}
+
+/* -------------------- MEDIA-QUERY max-width 991px START --------------------*/
+@media screen and (max-width: 991px) {
+  .testimonials .owl-theme .owl-dots {
+    margin-top: 30px !important;
+  }
+}
+
+/* -------------------- MEDIA-QUERY max-width 991px END --------------------*/
+
+/* -------------------- MEDIA-QUERY max-width 767px START --------------------*/
+@media screen and (max-width: 767px) {
+  .testimonials .owl-theme .owl-dots {
+    margin-top: 20px !important;
+  }
+}

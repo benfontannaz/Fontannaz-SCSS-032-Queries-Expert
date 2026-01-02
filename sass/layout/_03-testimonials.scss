@@ -1,0 +1,128 @@
+.testimonials h4 {
+  font-size: 16px;
+  margin: 0;
+  line-height: normal;
+  font-weight: 600;
+}
+.testimonials p {
+  margin-bottom: 0;
+  line-height: 28px;
+}
+.testimonials h6 {
+  font-size: 12px;
+  margin: 0;
+}
+
+.testimonials {
+  width: 75%;
+  margin: 0 auto;
+  /* box-shadow: 3rem 3rem 6rem rgba($color-black, 0.3); */
+  /* background-color: rgba($color-white, 0.6); */
+  border-radius: 0.3rem;
+  padding: 6rem;
+  padding-left: 9rem;
+  /* transform: skewX(-12deg); */
+  z-index: 11;
+
+  @include respond(tab-port) {
+    // width < 900?
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    // width < 900?
+    transform: skewX(0);
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    /* background-color: orangered; */
+    float: left;
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+
+    @include respond(phone) {
+      // width < 900?
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+
+  &__image {
+    height: 80dvh;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all 0.5s;
+    backface-visibility: hidden; // fixes glitch at the end of the animation
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      // width < 900?
+      transform: skewX(0);
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden; // fixes glitch at the end of the animation
+  }
+
+  &:hover &__caption {
+    opacity: 0.85;
+    transform: translate(-50%, -49%);
+  }
+
+  &:hover &__image {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(0.3rem) brightness(80%);
+  }
+}
+
+.testimonials__stack-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    to right top,
+    rgba($color-white, 0.8),
+    rgba($color-white, 0.7)
+  );
+
+  z-index: 0;
+}
+
+.testimonials,
+.testimonials__index {
+  position: relative;
+  z-index: 5;
+}
+
+.testimonials .owl-theme .owl-dots {
+  margin-top: 40px !important;
+}
+.testimonials .owl-theme .owl-dots .owl-dot span {
+  border-color: 1px solid #fff;
+  width: 10px;
+  height: 10px;
+}
+
+.fa-quote-left {
+  color: $color-white;
+}

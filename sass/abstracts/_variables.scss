@@ -1,0 +1,248 @@
+//FONTS
+$default-font-size: 1.6rem;
+$header-secondary-color: #777;
+$header-secondary-color-top: #777;
+$header-secondary-color-bottom: #354b57;
+
+// $color-primary-light: #8db7d0;
+// $color-primary-dark: #354B57;
+
+// COLORS
+$color-white: rgba(255, 255, 255, 0.906);
+$color-black: #000;
+
+// $clip-path-polygon-1: 100% 0, 100% 100vh, 50% 100%, 0 100vh, 0 0; // center arrow
+$clip-path-polygon-1: 100% 0, 100% 100dvh, 50% 108dvh, 0 100dvh, 0 0; // center arrow
+$clip-path-polygon-2: 100% 0, 100% 126dvh, 50% 134dvh, 0 126dvh, 0 0; // center arrow
+$clip-path-polygon-2b: 100% 0, 100% 222dvh, 50% 230dvh, 0 222dvh, 0 0; // center arrow
+$clip-path-polygon-2c: 0 0, 50% 10%, 100% 0, 100% 90%, 50% 100%, 0 90%;
+$clip-path-polygon-2d: 0 0, 50% 8dvh, 100% 0, 100% 192dvh, 50% 200dvh, 0 192dvh;
+$clip-path-polygon-2e: 0 0, 50% 8dvh, 100% 0, 100% 202dvh, 50% 210dvh, 0 202dvh;
+
+$clip-path-polygon-3: 100% 0, 100% 100%, 50% 126dvh, 0 100%, 0 0; // cemnter arrow
+$clip-path-polygon-4: 0 0, 100% 0, 100% 100vh, 0 100%; //up rihgt line
+$clip-path-polygon-5: 0 58%, 100% 50%, 100% 100%, 0% 100%; //up rihgt line
+
+$clip-path-polygon-services: 0 0, 50% 8dvh, 100% 0, 100% 212dvh, 50% 220dvh,
+  0 212dvh;
+$clip-path-polygon-experiences: 0 0, 50% 8dvh, 100% 0, 100% 292dvh, 50% 300dvh,
+  0 292dvh;
+$clip-path-polygon-education: 0 0, 50% 8dvh, 100% 0, 100% 222dvh, 50% 230dvh,
+  0 222dvh;
+$clip-path-polygon-projects: 0 0, 50% 8dvh, 100% 0, 100% 202dvh, 50% 210dvh,
+  0 202dvh;
+$clip-path-polygon-resources: 0 0, 50% 8dvh, 100% 0, 100% 222dvh, 50% 230dvh,
+  0 222dvh;
+
+$clip-path-polygon-contact: 0 0, 50% 8dvh, 100% 0, 100% 75dvh, 50% 83dvh,
+  0 75dvh;
+
+// ======= BODY COLORS  =========
+$color-body-light-theme: #777;
+
+// ======= HEADER COLORS  =========
+
+$header-color-background-image-top: rgba(0, 0, 0, 0.4);
+$header-color-background-image-bottom: rgba(0, 0, 0, 0.4);
+$header-color-background-image-top-black: rgba(223, 223, 223, 0.856);
+$header-color-background-image-bottom-black: rgba(107, 107, 107, 0.455);
+$header-ben-only-color-background-image-top: rgba(0, 0, 0, 0.4);
+$header-ben-only-color-background-image-bottom: rgba(0, 0, 0, 0.4);
+
+$header-logo-box-color-shadow: rgb(0, 0, 0, 0.2);
+$header-primary-color: #ece7e7d6;
+$header-primary-color-black: rgba(36, 35, 35, 0.897);
+
+// ===== NAVIGATION COLORS  =======
+$nav-boutton-color-background: $color-white;
+$nav-boutton-color-shadow: #3f3f3f;
+$nav-boutton-color-link-visited: $color-white;
+$nav-boutton-color-link-active: #6b8898;
+$nav-boutton-color-link-background-image: $color-white;
+
+$nav-color-background-image-top: #738896;
+$nav-color-background-image-bottom: #5c7a8a;
+
+// $nav-color-background-image-top: #71747a;
+// $nav-color-background-image-bottom: #475057;
+
+$nav-icon-color-background-after: #333;
+
+// ======= BOUTON COLORS  =========
+
+$boutton-color-shadow: rgb(
+  0,
+  0,
+  0,
+  0.2
+); // Ombre = X Y blur color&transparency button pressed
+
+// ======= boutton WHITE _ SOLID
+// ======= boutton WHITE - background color
+$boutton-solid-white-background: #f8f7f7e1;
+$boutton-solid-white-background-active: rgb(255, 255, 255);
+$boutton-solid-white-background-after: #fff;
+// ======= boutton WHITE - text color
+$boutton-solid-white: #777;
+$boutton-solid-white-visited: #777;
+$boutton-solid-white-active: rgba(24, 23, 23, 0.925);
+
+// ======= boutton WHITE - TRANSPARENT
+$boutton-transparent-white-background: #ffffff14;
+$boutton-transparent-white-background-active: rgba(41, 40, 40, 0.622);
+$boutton-transparent-white-background-after: #ffffff14;
+
+$boutton-transparent-white: rgba(211, 211, 211, 0.884);
+$boutton-transparent-white-active: rgba(253, 252, 252, 0.9);
+$boutton-transparent-white-visited: rgba(211, 211, 211, 0.884);
+
+$boutton-transparent-white-border: rgba(255, 255, 255, 0.572);
+$boutton-transparent-white-border-active: rgba(222, 220, 220, 0.574);
+
+// ======= boutton GREY
+// ======= boutton GREY - background color
+$boutton-solid-grey-background: rgba(114, 114, 114, 0.959);
+$boutton-solid-grey-background-active: rgba(20, 19, 19, 0.882);
+$boutton-solid-grey-background-after: rgba(114, 114, 114, 0.767);
+// ======= boutton GREY - text color
+$boutton-solid-grey: rgba(247, 247, 247, 0.979);
+$boutton-solid-grey-visited: rgba(233, 231, 231, 0.952);
+$boutton-solid-grey-active: rgba(247, 247, 247, 0.979);
+
+// ======= boutton GREY - TRANSPARENT
+$boutton-transparent-grey-background: #ffffff14;
+$boutton-transparent-grey-background-active: rgba(41, 40, 40, 0.622);
+$boutton-transparent-grey-background-after: #ffffff14;
+
+$boutton-transparent-grey: rgba(211, 211, 211, 0.884);
+$boutton-transparent-grey-active: rgba(253, 252, 252, 0.9);
+$boutton-transparent-grey-visited: rgba(211, 211, 211, 0.884);
+
+$boutton-transparent-grey-border: rgba(255, 255, 255, 0.572);
+$boutton-transparent-grey-border-active: rgba(222, 220, 220, 0.574);
+
+// ======= SERVICES COLORS  =========
+$services-cards-front-background-color: rgba(255, 255, 255, 0.986);
+$services-cards-front-lines-color: #999;
+
+// ======= SERVICES COLORS  =========
+$services-cards-front-background-color: rgba(255, 255, 255, 0.986);
+$services-cards-front-lines-color: #999;
+
+// ====== CARDS COLORS - FRONT - BACKGROUND
+$services-card1-front-color-background-image-top: rgba(127, 127, 129, 0.855);
+$services-card1-front-color-background-image-bottom: rgba(88, 89, 92, 0.773);
+$services-card2-front-color-background-image-top: rgba(141, 183, 208, 0.91);
+$services-card2-front-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+$services-card3-front-color-background-image-top: rgba(159, 194, 228, 0.507);
+$services-card3-front-color-background-image-bottom: rgba(61, 89, 150, 0.664);
+
+// $services-card3-front-color-background-image-top: rgba(103, 128, 172, 0.377);
+// $services-card3-front-color-background-image-bottom: rgba(4, 62, 253, 0.479);
+// $services-card1-front-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+// $services-card1-front-color-background-image-top: rgba(141, 183, 208, 0.91);
+// $services-card2-front-color-background-image-top: rgba(119, 119, 119, 0.773);
+// $services-card2-front-color-background-image-bottom: rgba(153, 153, 153, 0.855);
+// $services-card3-front-color-background-image-top: rgba(41, 152, 255, 0.822);
+// $services-card3-front-color-background-image-bottom: rgba(86, 67, 250, 0.884);
+// $services-card1-front-color-background-image-top: rgba(46, 196, 58, 0.801);
+// $services-card1-front-color-background-image-bottom: rgba(20, 126, 29, 0.705);
+// $services-card1-front-color-background-image-top: rgba(141, 183, 208, 0.91);
+// $services-card1-front-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+// $services-card3-front-color-background-image-top: rgba(141, 183, 208, 0.91);
+// $services-card3-front-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+// $services-card1-back-color-background-image-top: rgba(141, 183, 208, 0.37);
+// $services-card1-back-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+// $services-card2-back-color-background-image-top: rgba(119, 119, 119, 0.773);
+// $services-card2-back-color-background-image-bottom: rgba(153, 153, 153, 0.855);
+// $services-card3-back-color-background-image-top: rgba(41, 152, 255, 0.651);
+// $services-card3-back-color-background-image-bottom: rgba(86, 67, 250, 0.514);
+
+// ====== CARDS COLORS - FRONT - HEADLINE SPAN
+$services-card1-front-color-headingspan-top: rgba(150, 153, 161, 0.855);
+$services-card1-front-color-headingspan-bottom: rgba(34, 41, 48, 0.507);
+$services-card2-front-color-headingspan-top: rgba(141, 183, 208, 0.37);
+$services-card2-front-color-headingspan-bottom: rgba(53, 75, 87, 0.965);
+$services-card3-front-color-headingspan-top: rgba(108, 172, 233, 0.692);
+$services-card3-front-color-headingspan-bottom: rgba(12, 72, 236, 0.904);
+// $services-card3-front-color-headingspan-top: rgba(46, 196, 58, 0.801);
+// $services-card3-front-color-headingspan-bottom: rgba(20, 126, 29, 0.705);
+
+// ====== CARDS COLORS - BACK - BACKGROUND
+$services-card1-back-color-background-image-top: rgba(150, 153, 161, 0.855);
+$services-card1-back-color-background-image-bottom: rgba(34, 41, 48, 0.507);
+$services-card2-back-color-background-image-top: rgba(141, 183, 208, 0.37);
+$services-card2-back-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+$services-card3-back-color-background-image-top: rgba(66, 153, 235, 0.815);
+$services-card3-back-color-background-image-bottom: rgba(22, 71, 206, 0.829);
+
+// $services-card1-back-color-background-image-top: rgba(46, 196, 58, 0.801);
+// $services-card1-back-color-background-image-bottom: rgba(20, 126, 29, 0.705);
+// $services-card1-back-color-background-image-top: rgba(141, 183, 208, 0.37);
+// $services-card1-back-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+// $services-card3-back-color-background-image-top: rgba(41, 152, 255, 0.651);
+// $services-card3-back-color-background-image-bottom: rgba(86, 67, 250, 0.514);
+// $services-card3-back-color-background-image-top: rgba(102, 166, 226, 0.541);
+// $services-card3-back-color-background-image-bottom: rgba(23, 53, 224, 0.479);
+// $services-card3-back-color-background-image-top: rgba(141, 183, 208, 0.37);
+// $services-card3-back-color-background-image-bottom: rgba(53, 75, 87, 0.965);
+
+// GRID Variables
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+
+// ==================================================================================================
+// ==================================================================================================
+// ==================================================================================================
+$color-primary: #6b8898;
+$color-primary-light: rgb(141, 183, 208);
+$color-primary-dark: rgb(53, 75, 87);
+
+$color-nav-background: #3f3f3f;
+// $color-header-background-top: #acaaaa;
+// $color-header-background-bottom: #3f3f3f;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-light-3: rgba(247, 246, 243, 0.438);
+
+$color-grey-dark: #777777;
+$color-grey-dark-2: #999999;
+$color-grey-dark-3: #333;
+
+// COLORS
+// $color-primary: #6b8898;
+// $color-primary-light: #8db7d0;
+// $color-primary-dark: #354B57;
+
+// $color-secondary-light: #ffb900;
+// $color-secondary-dark: #ff7730;
+
+// $color-tertiary-light: #2998ff;
+// $color-tertiary-dark: #5643fa;
+
+// ===================================================================
+// Light Theme
+// ===================================================================
+
+// $color-header-primary-1: #f7f7f7;
+// $color-grey-light-2: #eee;
+// $color-grey-light-3: rgba(247, 246, 243, 0.438);
+
+// ===================================================================
+// Dark Theme
+// ===================================================================
+// $color-grey-dark: #777;
+// $color-grey-dark-2: #999;
+// $color-grey-dark-3: #333;
+
+// $color-white: rgba(255, 255, 255, 0.906);
+// $color-black: #000;

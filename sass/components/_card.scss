@@ -1,0 +1,463 @@
+.carte {
+  // FUNCTIONALITY (flip card animation)
+  perspective: 150rem;
+  position: relative;
+  height: 52rem;
+
+  &__side {
+    height: 52rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.3rem;
+    // overflow: hidden; // to hide ouside card rounded defined corners coming from background-blend-mode: screen;
+    box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $services-cards-front-background-color;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        // background-position: -4rem;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: linear-gradient(
+            to right bottom,
+            $services-card1-back-color-background-image-top,
+            $services-card1-back-color-background-image-bottom
+          ),
+          // url(/img/chess/Chess-07-flipped-centered.jpeg);
+          url(/img/chess/Chess-07-centered.jpeg);
+        // background-position: left;
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+            to right bottom,
+            $services-card2-back-color-background-image-top,
+            $services-card2-back-color-background-image-bottom
+          ),
+          url(/img/Chess/wall-of-gears.jpg);
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+            to right bottom,
+            $services-card3-back-color-background-image-top,
+            $services-card3-back-color-background-image-bottom
+          ),
+          url(/img/Mockups/AppleDevicesBundleMockup_002_cropped@0.25x-Expanded.png);
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $services-card1-front-color-background-image-top,
+          $services-card1-front-color-background-image-bottom
+        ),
+        url(/img/chess/Chess-07-flipped.jpeg);
+      // background-position: center;
+      // configuration without the use of the background-blend-mode on the parent
+      // background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $services-card2-front-color-background-image-top,
+          $services-card2-front-color-background-image-bottom
+        ),
+        url(/img/Chess/wall-of-gears.jpg);
+      background-position: bottom;
+      background-repeat: no-repeat;
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $services-card3-front-color-background-image-top,
+          $services-card3-front-color-background-image-bottom
+        ),
+        url(/img/Mockups/AppleDevicesBundleMockup_002_cropped@0.25x-top.png);
+      background-position: top;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__heading {
+    font-size: 2.7rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 14.5rem;
+    right: 1rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone; // to apply padding identically for each element when a break occurs
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card1-front-color-headingspan-top, 0.85),
+        rgba($services-card1-front-color-headingspan-bottom, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card2-front-color-headingspan-top, 0.85),
+        rgba($services-card2-front-color-headingspan-bottom, 0.85)
+      );
+      // color: $color-black;
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card3-front-color-headingspan-top, 0.85),
+        rgba($services-card3-front-color-headingspan-bottom, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid $services-cards-front-lines-color;
+        }
+      }
+    }
+  }
+
+  // BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+
+  // Change of the card visual for width < 900? (tab-port) or if the device is a touch device.
+
+  @media only screen and (max-width: 56.25em) {
+    // width < 900? only screen and (hover: none) {
+    // for touch devices that can't hover
+
+    height: auto;
+    border-radius: 0.3rem;
+    background-color: $color-white;
+    box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0deg);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    // FRONT SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0%;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
+  }
+}
+
+.carte__side--back-p1,
+.carte__side--back-p2,
+.carte__side--back-p3 {
+  color: $color-white;
+  // text-justify: top;
+  font-size: 1.8rem;
+  text-align: justify;
+  position: relative;
+  margin-bottom: 10rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.cartes-icons {
+  font-size: 4rem;
+  color: $color-white;
+}
+
+.icon-strategy,
+.icon-presentation,
+.icon-tools,
+.icon-gears {
+  margin: 0 1rem 3rem 1rem;
+}
+
+.icon-desktop,
+.icon-laptop,
+.icon-mobile {
+  margin: 0 0rem 3rem 0rem;
+}
+
+.icon-laptop,
+.icon-mobile {
+  font-size: 3rem;
+}
+
+.services-row-1 {
+  background-size: cover;
+  width: 30dvw;
+  height: auto;
+  background-blend-mode: screen;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+  &--1 {
+    background-image: linear-gradient(
+        to right bottom,
+        $services-card1-front-color-background-image-top,
+        $services-card1-front-color-background-image-bottom
+      ),
+      url(/img//Chess/Chess-07-flipped.jpeg);
+    // background-position: center;
+    // configuration without the use of the background-blend-mode on the parent
+    // background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../img/nat-5.jpg);
+  }
+}
+
+.services-details-box {
+  position: relative;
+  align-items: center;
+  height: 30dvw;
+  margin: 0 30dvw;
+  background-blend-mode: screen;
+
+  box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+  &-1 {
+    height: 30dvw;
+    width: 40dvw;
+    background-size: Cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+        to right bottom,
+        $services-card1-front-color-background-image-top,
+        $services-card1-front-color-background-image-bottom
+      ),
+      url(/img/Chess/wall-of-gears-landscape.jpg);
+
+    &--image-1 {
+      background-color: rgba(255, 255, 4, 0.473);
+      // background-position: center;
+      // configuration without the use of the background-blend-mode on the parent
+      // background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../img/nat-5.jpg);
+    }
+
+    // background-position: center;
+    // configuration without the use of the background-blend-mode on the parent
+    // background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../img/nat-5.jpg);
+  }
+}
+
+/*
+.services-details-box {
+  // FUNCTIONALITY (flip card animation)
+  perspective: 150rem;
+  position: relative;
+  height: 52rem;
+
+  &-1 {
+    height: 52rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.3rem;
+    // overflow: hidden; // to hide ouside card rounded defined corners coming from background-blend-mode: screen;
+    box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--image-1 {
+      background-color: $services-cards-front-background-color;
+    }
+  }
+}
+*/
+
+.services-details-head {
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  color: $color-white;
+  position: absolute;
+  top: 30rem;
+  right: 1rem;
+  width: 50%;
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone; // to apply padding identically for each element when a break occurs
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card1-front-color-headingspan-top, 0.85),
+        rgba($services-card1-front-color-headingspan-bottom, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card2-front-color-headingspan-top, 0.85),
+        rgba($services-card2-front-color-headingspan-bottom, 0.85)
+      );
+      // color: $color-black;
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card3-front-color-headingspan-top, 0.85),
+        rgba($services-card3-front-color-headingspan-bottom, 0.85)
+      );
+    }
+  }
+}
+
+.services-details-head-2 {
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  color: $color-white;
+  position: absolute;
+  top: 30rem;
+  right: 1rem;
+  width: 25%;
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone; // to apply padding identically for each element when a break occurs
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card1-front-color-headingspan-top, 0.85),
+        rgba($services-card1-front-color-headingspan-bottom, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card2-front-color-headingspan-top, 0.85),
+        rgba($services-card2-front-color-headingspan-bottom, 0.85)
+      );
+      // color: $color-black;
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card3-front-color-headingspan-top, 0.85),
+        rgba($services-card3-front-color-headingspan-bottom, 0.85)
+      );
+    }
+  }
+}
+
+.services-details-head-2-box {
+  position: relative;
+  top: -10%;
+  margin: 0 40%;
+}

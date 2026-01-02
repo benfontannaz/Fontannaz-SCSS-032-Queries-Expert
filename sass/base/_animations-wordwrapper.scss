@@ -1,0 +1,57 @@
+/* --------------------- Banner-words-wrapper -------------------- */
+
+.banner-words-wrapper {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+
+.banner-words-wrapper b {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+}
+
+.banner-words-wrapper b.is-visible {
+  position: relative;
+}
+
+.no-js .banner-words-wrapper b {
+  opacity: 1;
+}
+
+.no-js .banner-words-wrapper b.is-visible {
+  opacity: 1;
+}
+
+.banner-headline.clip span {
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+.banner-headline.clip .banner-words-wrapper {
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.banner-headline.clip .banner-words-wrapper:after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 2px;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.banner-headline.clip b {
+  opacity: 0;
+}
+
+.banner-headline b.is-visible {
+  opacity: 1;
+}
+
+/* --------------------- END Banner-words-wrapper -------------------- */

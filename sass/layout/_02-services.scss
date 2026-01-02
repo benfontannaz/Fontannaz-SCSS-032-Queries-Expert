@@ -1,0 +1,362 @@
+// GRID Variables
+// $grid-width: 114rem;
+// $gutter-vertical: 8rem;
+// $gutter-vertical-small: 6rem;
+// $gutter-horizontal: 6rem;
+
+#popup-services-1,
+#popup-services-2,
+#popup-services-3 {
+  z-index: 2000;
+}
+
+.ligne {
+  max-width: $grid-width; // corresponding to 1140px devided by 10 to get our rem
+  // background-color: #eee;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    // width < 900?
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
+  // every row exept the last row
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      // width < 900?
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include clearfix;
+
+  // all classes that "^=" starting with, "$=" ending with or "*=" containing
+  [class^="col-"] {
+    // background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        // width < 900?
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      // width < 900?
+      // width: 100% !important;
+    }
+  }
+}
+
+.fa-arrow-right-card-back {
+  color: $color-grey-dark-3;
+}
+
+/*
+.container-services {
+  overflow: hidden;
+}
+*/
+
+/* Configuration pour cacher le dépassement en largeur de l'animation du Mockup*/
+.section-services {
+  overflow: hidden;
+}
+
+.container-services {
+  margin: auto;
+  width: 60%;
+  max-width: 1270px;
+}
+
+.container-services-3 {
+  padding: 0 5dvw;
+}
+
+.Services-heading-1-box,
+.Services-heading-2-box,
+.Services-heading-3-box {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  max-width: 1270px;
+}
+
+.Services-heading-1-box--p,
+.Services-heading-2-box--p,
+.Services-heading-3-box--p {
+  font-size: 1.8rem;
+  color: grey;
+  text-align: justify;
+  align-items: center;
+}
+
+.services-row-1 {
+  margin: auto;
+}
+
+.services-row-2 {
+  margin: auto;
+}
+
+.services-row-3 {
+  margin: auto;
+}
+
+.services-image-box-1,
+.services-image-box-2 {
+  padding: 0;
+  height: 40dvh;
+  width: auto;
+  max-width: 40dvw;
+  // padding: 0 7dvw;
+  background-image: cover;
+}
+
+/*
+.services-image-box-2 {
+  padding: 0;
+  width: auto;
+  max-width: 40dvw;
+}
+  */
+
+/*  SERVICES CARTE DETAILS - BUSINESS STRATEY ===== */
+.carte-details {
+  // FUNCTIONALITY (flip card animation)
+  position: relative;
+  height: 65dvh;
+  margin-bottom: 10dvh;
+  padding-bottom: 5dvh;
+  &__front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.3rem;
+    // overflow: hidden; // to hide ouside card rounded defined corners coming from background-blend-mode: screen;
+    background-color: $services-cards-front-background-color;
+    box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    background-position: center;
+    height: 32dvh;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $services-card1-front-color-background-image-top,
+          $services-card1-front-color-background-image-bottom
+        ),
+        url(/img/chess/Chess-07-flipped.jpeg);
+      background-position: 50% 75%;
+      // background-position: center;
+      // configuration without the use of the background-blend-mode on the parent
+      // background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8)), url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $services-card2-front-color-background-image-top,
+          $services-card2-front-color-background-image-bottom
+        ),
+        url(/img/Chess/wall-of-gears.jpg);
+      background-position: 40% 65%;
+      background-attachment: relative;
+      background-repeat: no-repeat;
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $services-card3-front-color-background-image-top,
+          $services-card3-front-color-background-image-bottom
+        ),
+        url(/img/Mockups/AppleDevicesBundleMockup_005_cropped@0.25x-Expanded.png);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__heading {
+    font-size: 5rem;
+    line-height: 7rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 19dvh;
+    right: 2rem;
+    width: 60%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone; // to apply padding identically for each element when a break occurs
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card1-front-color-headingspan-top, 0.85),
+        rgba($services-card1-front-color-headingspan-bottom, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card2-front-color-headingspan-top, 0.85),
+        rgba($services-card2-front-color-headingspan-bottom, 0.85)
+      );
+      // color: $color-black;
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($services-card3-front-color-headingspan-top, 0.85),
+        rgba($services-card3-front-color-headingspan-bottom, 0.85)
+      );
+    }
+  }
+
+  &__box {
+    padding: 5rem;
+    text-align: justify;
+
+    &-icons {
+      text-align: center;
+    }
+  }
+
+  // Change of the card visual for width < 900? (tab-port) or if the device is a touch device.
+
+  @media only screen and (max-width: 56.25em) {
+    // width < 900? only screen and (hover: none) {
+    // for touch devices that can't hover
+
+    height: auto;
+    border-radius: 0.3rem;
+    background-color: $color-white;
+    box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+    }
+
+    /*
+    &:hover &__side--front {
+      transform: rotateY(0deg);
+    }
+    */
+
+    &__details {
+      padding: 1rem 3rem;
+      padding: 0 0 !important;
+    }
+
+    // FRONT SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0%;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+  }
+}
+
+.carte-details__box-icons-1-1,
+.carte-details__box-icons-1-2,
+.carte-details__box-icons-2-1,
+.carte-details__box-icons-2-2,
+.carte-details__box-icons-3-2 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.carte-details__box-icons-3-1,
+.carte-details__box-icons-3-3 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.carte-details__box-p1 p,
+.carte-details__box-p2 p,
+.carte-details__box-p3 p {
+  font-size: 1.8rem;
+}
+
+.cartes-details-box-boutton {
+  text-align: center;
+  padding-bottom: 6dvh;
+}
+
+.cartes-details-box-boutton .cartes-details-box-boutton-1 {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.906);
+}
+
+.cartes-details-box-boutton .cartes-details-box-boutton-1 i {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.906);
+}
+
+.carte-details-section-row {
+  height: 89dvh;
+  margin-bottom: 5dvh;
+}
+
+.carte__details ul {
+  width: 88%;
+  padding: 0 0;
+}
+
+.services-heading-2-areas {
+  margin-top: 5dvh;
+  margin-bottom: 12dvh;
+}
+
+.heading-3-services {
+  display: block;
+  text-align: center;
+  margin: 16dvh auto 5dvh auto;
+  // text-transform: capitalize;
+  // align-items: center;
+}
+
+.heading-3-services h3 {
+  // text-transform: capitalize;
+  text-transform: uppercase;
+  font-size: 3.2rem;
+}
+
+.boutton-services--bottom {
+  margin-top: 8dvh;
+}
+
+.boutton--grey-about {
+  font-size: 1.2rem !important;
+  padding: 0.5dvw 2dvw !important;
+}

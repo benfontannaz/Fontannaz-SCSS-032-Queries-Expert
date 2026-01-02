@@ -1,0 +1,250 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet Portait
+900 - 1200px:   Tablet landscape
+[1200 - 1800]:  is where our normal styles apply
+1800px + :      Big Desktop
+
+*/
+
+// @mixin respond-phone {
+//     @media (max-width: 37.5em) { @content };
+// }
+
+/*
+$breakpoint argument choices:
+- phone-xxs         (max-width: 350px) and (max-height: 580px)  21.5em x 36.25em
+- phone-xxs-land    (max-width: 350px) and (max-height: 580px)  36.25em x 21.5em
+- phone-xs          400px   =   25em
+- phone             600px   =   37.5em
+- desk-small        600px   =   37.5em  (all that can't NOT hover = all non touch)
+- tab-port          900px   =   56.25em
+- tab-land          1200px  =   75em
+- desk-big          1800px  =   112.5em
+
+Breakpoints     Resolutions     Width   em          Height  em    
+tab-l-land	    1340 x 1030	    1340	83.75	    1030	64.375
+tab-m-land	    1290 x 840	    1290	80.625	    840	    52.5
+tab-l	        1030 x 1340	    1030	64.375	    1340	83.75
+tab-s-land	    970 x 610	    970	    60.625	    610	    38.125
+phone-l-land	910 x 425	    910	    56.875	    425	    26.5625
+desk-xs-1	    desk-900	    900	    56.25		
+tab-m	        840 x 1290	    840	    52.5	    1290	80.625
+phone-land	    820 x 395	    820	    51.25	    395	    24.6875
+phone-m-land	750 x 425	    750	    46.875	    425	    26.5625
+phone-xs-land	750 x 370	    750	    46.875	    370	    23.125
+phone-s-land	680 x 390	    680	    42.5	    390	    24.375
+tab-s	        610 x 970	    610	    38.125	    970	    60.625
+desk-xs-2	    desk-600	    600	    37.5		
+phone-xxs-land	580 x 330	    580	    36.25	    330	    20.625
+phone-l	        425 x 910	    425	    26.5625	    910	    56.875
+phone-m	        425 x 750	    425	    26.5625	    750	    46.875
+desk-xs-3	    desk-400	    400	    25		
+phone	        395 x 820	    395	    24.6875	    820	    51.25
+phone-s	        390 x 680	    390	    24.375	    680	    42.5
+phone-xs	    370 x 750 	    370	    23.125	    750	    46.875
+phone-xxs	    330 x 580	    330	    20.625	    580	    36.25
+desk-s	        1450 x 910	    1250	78.125	    760	    47.5
+desk-m	        1700 x 1100	    1650	103.125	    1040	65
+desk-l	        1950 x 1100	    1900	118.75	    1050	65.625
+desk-xl	        2570 x 1450	    2290	143.125	    1400	87.5
+
+"em" measurement unit have been indicated by experts as the best to use for media queries as Safari does not support px in media queries properly
+-> 1em = 16px or px / 16 = em
+
+ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Components
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == tab-l-land {
+    @media only screen and (max-width: 85.625em) and (max-height: 64.375em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-m-land {
+    @media only screen and (max-width: 80.625em) and (max-height: 52.5em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-l {
+    @media only screen and (max-width: 64.375em) and (max-height: 85.625em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-s-land {
+    @media only screen and (max-width: 60.625em) and (max-height: 38.125em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-l-land {
+    @media only screen and (max-width: 56.875em) and (max-height: 26.5625em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk-xs-1 {
+    @media only screen and (max-width: 56.25em) and (orientation: portrait) and (hover: hover) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-m {
+    @media only screen and (max-width: 52.5em) and (max-height: 80.625em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-land {
+    @media only screen and (max-width: 51.25em) and (max-height: 24.6875em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-m-land {
+    @media only screen and (max-width: 46.875em) and (max-height: 26.5625em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-xs-land {
+    @media only screen and (max-width: 46.875em) and (max-height: 23.125em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-s-land {
+    @media only screen and (max-width: 42.5em) and (max-height: 24.375em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-s {
+    @media only screen and (max-width: 38.125em) and (max-height: 60.625em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk-xs-2 {
+    @media only screen and (max-width: 37.5em) and (orientation: portrait) and (hover: hover) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-xxs-land {
+    @media only screen and (max-width: 36.25em) and (max-height: 20.625em) and (orientation: landscape) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-l {
+    @media only screen and (max-width: 26.5625em) and (max-height: 56.875em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-m {
+    @media only screen and (max-width: 26.5625em) and (max-height: 46.875em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk-xs-3 {
+    @media only screen and (max-width: 25em) and (orientation: portrait) and (hover: hover) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 24.6875em) and (max-height: 51.25em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-s {
+    @media only screen and (max-width: 24.375em) and (max-height: 42.5em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-xs {
+    @media only screen and (max-width: 23.125em) and (max-height: 46.875em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone-xxs {
+    @media only screen and (max-width: 20.625em) and (max-height: 36.25em) and (orientation: portrait) and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk-s {
+    @media only screen and (min-width: 78.125em) and (min-height: 47.5em) and (hover: hover) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk-m {
+    @media only screen and (min-width: 103.125em) and (min-height: 65em) and (hover: hover) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk-l {
+    @media only screen and (min-width: 118.75em) and (min-height: 65.625em) and (hover: hover) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk-xl {
+    @media only screen and (min-width: 143.125em) and (min-height: 87.5em) and (hover: hover) {
+      @content;
+    }
+  }
+}
+
+// @if $breakpoint == phone-xxs {
+//     @media only screen and (max-width: 21.5em) { @content };
+// }
+
+// @if $breakpoint == phone-xs {
+//     @media only screen and (max-width: 25em) { @content };
+// }
+
+// @if $breakpoint == phone {
+//     @media only screen and (max-width: 37.5em) { @content };
+// }
+
+// @if $breakpoint == desk-xs {
+//     @media only screen and (max-width: 37.5em), not all and (hover: none) { @content };
+// }
+
+// @if $breakpoint == tab-port {
+//     @media only screen and (max-width: 56.25em) { @content };
+// }
+
+// @if $breakpoint == tab-land {
+//     @media only screen and (max-width: 75em) { @content };
+// }

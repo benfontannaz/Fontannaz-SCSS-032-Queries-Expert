@@ -1,0 +1,80 @@
+.book {
+  // gradient line configuration or how to use gradient to have a line separation
+  max-width: 100%;
+  max-height: 100dvh;
+  padding: 35vh 0 0dvh 0;
+  margin-top: -27dvh;
+  margin-bottom: 100dvh;
+  overflow: hidden;
+
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 40%,
+      transparent 40%
+    ),
+    url(../img/nat-10.jpg);
+
+  background-size: cover;
+  border-radius: 0.3rem;
+  box-shadow: 1.5rem 1.5rem 3rem rgba($color-black, 0.3);
+
+  // height: 100%;
+  // padding: 30rem 0;
+  // margin: -20rem 0 30rem 0;
+  // background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+  //clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+
+  // max-width: 100%;
+  //max-height: 100%;
+
+  // height: 50rem;
+
+  @include respond(tab-m-land) {
+    // width < 900?
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 65%,
+        transparent 65%
+      ),
+      url(../img/nat-10.jpg);
+  }
+
+  @include respond(tab-m) {
+    // width < 900?
+    background-image: linear-gradient(
+        to right,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 100%
+      ),
+      url(../img/nat-10.jpg);
+  }
+
+  &__form {
+    width: 40%;
+    padding: 4rem 6rem;
+
+    @include respond(tab-m-land) {
+      // width < 900?
+      width: 65%;
+    }
+
+    @include respond(tab-m) {
+      // width < 900?
+      width: 100%;
+    }
+  }
+}
+
+// .row__book {
+//     position: relative;
+//     display: block;
+//     top: 0;
+//     left: 0;
+//     max-width: 100%;
+//     max-height: 100%;
+//     height: 100%;
+//     width: 100%;
+// }

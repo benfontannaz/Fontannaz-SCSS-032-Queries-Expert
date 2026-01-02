@@ -1,0 +1,365 @@
+.main-timeline {
+  position: relative;
+}
+
+.section-experiences h2 {
+  margin-bottom: 7dvh;
+}
+
+/* Center line of the timeline */
+.main-timeline:before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: #c6c6c6;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.main-timeline .timeline {
+  margin-bottom: 40px;
+  position: relative;
+}
+.main-timeline .timeline:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.main-timeline .icon {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.main-timeline .icon:before,
+.main-timeline .icon:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.33s ease-out 0s;
+}
+.main-timeline .icon:before {
+  background: #fff;
+  border: 2px solid #232323;
+  left: -3px;
+}
+.main-timeline .icon:after {
+  border: 2px solid #c6c6c6;
+  left: 3px;
+}
+.main-timeline .timeline:hover .icon:before {
+  left: 3px;
+}
+.main-timeline .timeline:hover .icon:after {
+  left: -3px;
+}
+.main-timeline .date-content {
+  width: 50%;
+  float: left;
+  margin-top: 22px;
+  position: relative;
+}
+.main-timeline .date-content:before {
+  content: "";
+  width: 36.5%;
+  height: 2px;
+  background: #c6c6c6;
+  margin: auto 0;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+}
+.main-timeline .date-outer {
+  width: 125px;
+  height: 125px;
+  font-size: 16px;
+  text-align: center;
+  margin: auto;
+  z-index: 1;
+}
+.main-timeline .date-outer:before,
+.main-timeline .date-outer:after {
+  content: "";
+  width: 125px;
+  height: 125px;
+  margin: 0 auto;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.33s ease-out 0s;
+}
+.main-timeline .date-outer:before {
+  background: #fff;
+  border: 2px solid #232323;
+  left: -6px;
+}
+.main-timeline .date-outer:after {
+  border: 2px solid #c6c6c6;
+  left: 6px;
+}
+.main-timeline .timeline:hover .date-outer:before {
+  left: 6px;
+}
+.main-timeline .timeline:hover .date-outer:after {
+  left: -6px;
+}
+.main-timeline .date {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  top: 24%;
+  left: 0;
+}
+.main-timeline .month {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.main-timeline .year {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #232323;
+  line-height: 1.9rem;
+}
+.main-timeline .timeline-content {
+  width: 50%;
+  padding: 20px 0 20px 50px;
+  float: right;
+}
+.main-timeline .title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0 0 15px 0;
+}
+.main-timeline .description {
+  margin-bottom: 0;
+  text-align: justify;
+}
+
+.main-timeline .descrip-right {
+  margin-bottom: 0;
+  text-align: right, justify;
+}
+
+.main-timeline .timeline:nth-child(2n) .date-content {
+  float: right;
+}
+.main-timeline .timeline:nth-child(2n) .date-content:before {
+  left: 10px;
+}
+.main-timeline .timeline:nth-child(2n) .timeline-content {
+  padding: 20px 50px 20px 0;
+  text-align: right;
+}
+
+.experiences-skills-box {
+  display: flex;
+  justify-content: center;
+}
+
+.experiences-skills {
+  margin: 0dvh 0.3dvw 0.3dvw 0.3dvw;
+  font-size: 1.2rem;
+  font-weight: 300;
+  // line-height: 1.7rem;
+  color: white;
+  padding: 0.2rem 1.5rem;
+  border-radius: 100px; /* used to round the left and right extremities of the button*/
+  // background-color: rgba(37, 56, 112, 0.907);
+  // background-color: rgba(9, 15, 33, 0.907);
+}
+
+.experiences-skills-1 {
+  background-color: rgba(227, 43, 6, 0.907);
+}
+
+.experiences-skills-2 {
+  background-color: rgba(14, 20, 37, 0.907);
+}
+
+.experiences-skills-3 {
+  background-color: rgba(19, 93, 62, 0.907);
+}
+
+.experiences-skills-4 {
+  background-color: rgba(14, 20, 37, 0.907);
+}
+
+.experiences-skills-5 {
+  background-color: rgba(70, 143, 195, 0.907);
+}
+
+.experiences-skills-6 {
+  background-color: rgba(14, 20, 37, 0.907);
+}
+
+.timeline .title {
+  margin-bottom: 0.5dvw;
+}
+
+/* -------------------- MEDIA-QUERY max-width 991px --------------------*/
+@media only screen and (max-width: 991px) {
+  .main-timeline .date-content {
+    margin-top: 35px;
+  }
+  .main-timeline .date-content:before {
+    width: 22.5%;
+  }
+  .main-timeline .timeline-content {
+    padding: 10px 0 10px 30px;
+  }
+  .main-timeline .title {
+    font-size: 17px;
+  }
+  .main-timeline .timeline:nth-child(2n) .timeline-content {
+    padding: 10px 30px 10px 0;
+  }
+}
+
+/* -------------------- MEDIA-QUERY max-width 767px  START --------------------*/
+@media only screen and (max-width: 767px) {
+  .Heading-2-sm {
+    font-size: 2.5rem;
+  }
+
+  /* Center line of the timeline */
+  .main-timeline:before {
+    margin: 0;
+    width: 0px; /* deleted left side timeline line*/
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .main-timeline .timeline {
+    margin-bottom: 20px;
+  }
+  .main-timeline .timeline:last-child {
+    margin-bottom: 0;
+  }
+  .main-timeline .icon {
+    margin: auto 0;
+  }
+  .main-timeline .date-content {
+    width: 100%;
+    display: inline-block;
+    margin-top: 0;
+  }
+  .main-timeline .date-content:before {
+    display: none;
+  }
+  .main-timeline .date-outer {
+    width: 110px;
+    height: 110px;
+  }
+  .main-timeline .date-outer:before,
+  .main-timeline .date-outer:after {
+    width: 110px;
+    height: 110px;
+  }
+  .main-timeline .date {
+    top: 30%;
+  }
+  .main-timeline .year {
+    font-size: 24px;
+  }
+  .main-timeline .timeline-content,
+  .main-timeline .timeline:nth-child(2n) .timeline-content {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .main-timeline .title {
+    margin-bottom: 10px;
+  }
+}
+
+/* Experience section logo  -> Logos greyed out, with color appearing on hover or visited  ---- START ---- */
+
+.assura img,
+.bloomio-box a,
+.bloomio img,
+.dell img {
+  filter: grayscale(100%);
+  text-decoration: none;
+}
+
+.fontaconsult img,
+.artmyn img {
+  filter: brightness(200%) opacity(40%);
+}
+
+.bloomio-box a:hover,
+.assura img:hover,
+.bloomio img:hover,
+.dell img:hover,
+.fontaconsult img:hover,
+.artmyn img:hover,
+.bloomio img:visited,
+.dell img:visited,
+.fontaconsult img:visited,
+.artmyn img:visited {
+  filter: none;
+  text-decoration: none;
+}
+
+.bloomio-box {
+  margin-top: 2dvh;
+}
+
+.bloomio-placeholder {
+  position: relative;
+  // padding: 2dvh 2dvh;
+  padding: 1rem 0;
+  // height: 7rem;
+  width: 33%;
+  margin: auto;
+  // align-items: center;
+  border: 2px solid #e5ffa8;
+  border-radius: 100px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to right bottom, #4e8b32de, #0e693ab4),
+    url(/img/video-main-placeholder.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: #ffffffa8;
+  text-decoration: none;
+  line-height: 2rem;
+
+  &:hover {
+    text-decoration: none;
+    color: #ffffffe7;
+  }
+}
+
+/* Experience section logo ----- END ---- */
+
+ul .section-experiences-list {
+  // list-style-type: circle;
+  list-style-position: outside;
+}
+
+.section-experiences-list li {
+  font-size: 1.4rem;
+  text-align: justify;
+  color: rgb(119, 119, 119);
+  list-style-type: disc;
+}

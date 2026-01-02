@@ -1,0 +1,281 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $nav-boutton-color-background;
+    height: 4.5rem;
+    width: 4.5rem;
+    position: fixed;
+    top: 1.4rem;
+    right: 2.5rem;
+    border-radius: 100rem;
+    box-shadow: 1rem 1rem 3rem rgba($nav-boutton-color-shadow, 0.2);
+    text-align: center;
+    cursor: pointer;
+    backface-visibility: hidden; // fixes glitch at the end of the animation
+    z-index: 2000;
+  }
+
+  &__background {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 1.4rem;
+    right: 2.5rem;
+    background-image: radial-gradient(
+      $nav-color-background-image-top,
+      $nav-color-background-image-bottom
+    );
+
+    transition: transform 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+    z-index: 1000;
+  }
+
+  &__nav {
+    height: 100dvh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0; // making the nav box invisible
+    width: 0; // making the nav box width = 0, disabling any invisible nav links to be still active
+    transition: all 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6); //  transition: opacity .5s; to have the text not moving from left to center
+    // backface-visibility: hidden;  // fixes glitch at the end of the animation
+    z-index: 1500;
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    // backface-visibility: hidden;  // fixes glitch at the end of the animation
+  }
+
+  &__item {
+    margin: 2rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $nav-boutton-color-link-visited;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $nav-boutton-color-link-background-image 50%
+      );
+      background-size: 240%;
+      transition: all 0.4s;
+
+      span {
+        display: inline-block;
+        margin-right: 1.5rem;
+      }
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $nav-boutton-color-link-active;
+      transform: translateX(1rem);
+    }
+  }
+
+  // FUNCTIONALITY
+  &__checkbox:checked ~ &__background {
+    transform: scale(250);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1; // making the nav box visible again
+    width: 100%; // making the nav box back to 100%, re-enbling nav links to be visible and active
+  }
+
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: 2.2rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 2.5rem;
+      height: 2px;
+      background-color: $nav-icon-color-background-after;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+    // &::before { top: -.8rem; transform-origin: right; } defines the origin point that will be use with a transform, here the rotation central point will be defined on the right of the element and not in the center like it would normally be the case
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+
+/* ========= MEDIA QUERIES ======= START */
+
+@include respond(mobile) {
+  /* Breakpoint = mobile | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = portrait | Hover = none  */
+  .navigation__button {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .navigation__background {
+    top: 2rem;
+    right: 2rem;
+  }
+}
+
+@include respond(mobile-land) {
+  /* Breakpoint = mobile-land | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = landscape | Hover = none  */
+  .navigation__button {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .navigation__background {
+    top: 2rem;
+    right: 2rem;
+  }
+}
+
+@include respond(tab-s) {
+  /* Breakpoint = tablet-s | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = portrait | Hover = none  */
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+
+@include respond(tab-s-land) {
+  /* Breakpoint = tablet-s-land | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = landscape | Hover = none  */
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+
+@include respond(tab-m) {
+  /* Breakpoint = tablet-m | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = portrait | Hover = none  */
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+
+@include respond(tab-m-land) {
+  /* Breakpoint = tablet-m-land | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = landscape | Hover = none  */
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+
+@include respond(tab-l) {
+  /* Breakpoint = tablet-l | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = portrait | Hover = none  */
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+
+@include respond(tab-l-land) {
+  /* Breakpoint = tablet-l-land | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = landscape | Hover = none  */
+  .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .navigation__background {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+
+@include respond(pc-s) {
+  /* Breakpoint = pc-s | min-Width= 992px or 62em | Hover = hover */
+}
+
+@include respond(pc-m) {
+  /* Breakpoint = pc-m | min-Width= 1025px or 64.063em | Hover = hover */
+}
+
+@include respond(pc-l) {
+  /* Breakpoint = pc-l | min-Width= 1281px or 80.063em | Hover = hover */
+}
+
+@include respond(pc-xl) {
+  /* Breakpoint = pc-xl | min-Width= 2560px or 160em | Hover = hover */
+}

@@ -1,0 +1,32 @@
+// ================ NORMALIZE YOUR CSS FILE ===> START
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+// ================ NORMALIZE YOUR CSS FILE ===> END
+
+// ================ Root Font Size of the Project ===> START
+html {
+  font-size: 62.5%;
+}
+// ================ Root Font Size of the Project ===> END
+
+// ================ Body config ===> START
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: $color-body-light-theme;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  // overflow: hidden;
+  /* padding: 30px; */
+  /* fixed 30px padding all around the body of the site */
+}
+// ================ Body config ===> END

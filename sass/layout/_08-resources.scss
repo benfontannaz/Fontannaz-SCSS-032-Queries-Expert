@@ -1,0 +1,544 @@
+/* ======= SECTION RESOURCES  ======= START === */
+/* SECTION RESOURCES TITLE H2 */
+.heading-2-resources {
+  position: relative;
+  margin-top: 7dvh;
+}
+
+/* SECTION RESOURCES SUB-TITLE H3 */
+.heading-3-resources h3 {
+  margin: 2dvh 0 1dvh 0;
+  font-size: 3rem;
+}
+
+.resources-container {
+  margin-left: 0dvw; //Marge pour recentrer les
+  margin: auto; // pour centrer les containers éducation
+  // background-color: rgba(240, 240, 17, 0.858);
+}
+
+.resources-container-0 {
+  height: 3dvh;
+  margin-top: 5dvh;
+  margin-bottom: 1.5dvh;
+  // background-color: rgba(24, 183, 211, 0.858);
+}
+
+.resources-container-1 {
+  height: 25dvh;
+  margin-top: 7dvh;
+  margin-bottom: 1.5dvh;
+  // background-color: rgba(245, 245, 220, 0.858);
+}
+
+.resources-container-2 {
+  height: 90dvh;
+  margin-top: 7dvh;
+  margin-bottom: 1.5dvh;
+  // background-color: rgba(245, 245, 220, 0.858);
+}
+
+.resources-row {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.resources-row-1 {
+  width: 80%;
+  height: 20dvh;
+  margin: 0 auto 2dvh auto;
+  // margin-bottom: 2dvh;
+  // background-color: rgba(255, 255, 0, 0.89);
+}
+
+.resources-row-title {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    $header-secondary-color-top,
+    $header-secondary-color-bottom
+  );
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+  text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  margin-bottom: 0.5dvh; // margin bottom below Business School Name
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 2.2rem;
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 2.2rem;
+  }
+
+  &:hover {
+    // transform: skewY(2deg) skewX(15deg) scale(1.1);
+    // text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+
+    // transform: skewY(0deg) skewX(0deg) scale(1.1);
+    text-shadow: 0rem 0rem 0rem rgba($color-black, 0);
+  }
+}
+
+.resources-row-title {
+  height: 4dvh;
+}
+
+.resources-row-title-1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  font-style: italic;
+  font-family: "Montserrat", sans-serif;
+}
+
+.resources-row-title-2 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
+.resources-row-book {
+  height: 10dvh;
+  flex-direction: left;
+  padding: 0 0;
+  margin-bottom: 5dvh;
+}
+
+.resources-box-book-1,
+.resources-box-book-2,
+.resources-box-book-3 {
+  padding: 0 0;
+}
+
+.resources-row-book-1,
+.resources-row-book-2,
+.resources-row-book-3 {
+  display: inline-flex;
+  margin: 0 0;
+}
+
+.resources-box-book-1,
+.resources-box-book-2,
+.resources-box-book-3 {
+  display: flex;
+  height: 11dvh;
+  margin: 0;
+}
+
+.resources-book-skills-box,
+.resources-book-expeditions-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resources-book-skills {
+  margin: 0.2dvh 0.3dvw;
+  font-size: 1.2rem;
+  font-weight: 300;
+  // line-height: 1.7rem;
+  color: white;
+  padding: 0.2rem 1.5rem;
+  border-radius: 100px; /* used to round the left and right extremities of the button*/
+  // background-color: rgba(37, 56, 112, 0.907);
+  background-color: rgba(9, 15, 33, 0.907);
+}
+
+.resources-book-skills:first-of-type {
+  margin-left: 0;
+}
+
+.resources-book-skills:last-of-type {
+  margin-right: 0;
+}
+
+/* ====== RESOURCES - BOOK CARD - SIDE Left -  BOOK COVER Logo */
+.book-cover-currently {
+  margin-right: 2.5dvh !important; // margin to make space between the cover and the book details on the right
+  height: 21dvh !important;
+  width: 14dvh !important;
+}
+
+.book-cover-currently,
+.book-cover-currently:link,
+.book-cover-currently:visited {
+  // background-color: rgba(255, 60, 0, 0.493);
+  background-image: url("/img/books/Start-With-Why.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 0;
+  // padding-top: 2rem;
+  transform: perspective(1500px) rotateY(25deg);
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  transition: transform 1s ease 0s;
+}
+
+.book-cover-currently:hover {
+  background-image: url("/img/books/Start-With-Why.jpg"); // Change on hover
+  transform: perspective(3000px) rotateY(5deg);
+}
+
+.book-cover-1 {
+  // background-color: rgba(255, 60, 0, 0.493);
+  background-image: url("/img/LogoStudies/EU-University-Cropped.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 0;
+  // padding-top: 2rem;
+}
+
+.book-cover-1:hover {
+  background-image: url("/img/LogoStudies/EU-University-Cropped.png"); // Change on hover
+}
+
+/* ====== RESOURCES - BOOK CARD - SIDE Right - BOOK Description */
+
+.resources-book-lignes {
+  display: block;
+  // background-color: rgba(153, 205, 50, 0.762);
+}
+
+.resources-book-ligne-0,
+.resources-book-ligne-1,
+.resources-book-ligne-2,
+.resources-book-ligne-3,
+.resources-book-ligne-4 {
+  display: block;
+  margin: 0.5dvh 0.3dvw 0.8dvh 0.3dvw;
+}
+
+.resources-book-ligne-1 {
+  display: block;
+  margin: 0.5dvh 0.3dvw 0.8dvh 0.3dvw;
+}
+
+.resources-book-skills-box,
+.resources-book-expeditions-box {
+  display: inline-flex;
+}
+
+.resources-book-details {
+  text-transform: uppercase;
+  width: 12rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  margin-bottom: 0dvh;
+  margin-right: 0.2dvw;
+  margin-right: 0.2dvw;
+  text-align: left;
+}
+
+.resources-book-title,
+.resources-book-author,
+.resources-book-release {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin-bottom: 0dvh;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+.resources-book-rating {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-bottom: 0dvh;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+.resources-book-ligne-3 .resources-book-details {
+  padding: 0.4rem 0;
+}
+
+.resources-book-ligne-4 .resources-book-details {
+  padding: 0.7rem 0;
+}
+
+.resources-book-title {
+  font-weight: 700;
+  color: rgba(19, 17, 17, 0.819);
+}
+
+.resources-book-author,
+.resources-book-release,
+.resources-book-rating {
+  font-weight: 500;
+  font-size: 1.6rem;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+.book-cover {
+  height: 15dvh; // photo container size for book-cover-imd & -eu
+  width: 10dvh; // photo container size for book-cover-imd & -eu
+}
+
+.resources-row {
+  display: block;
+}
+
+.resources-book-ligne-0,
+.resources-book-ligne-1,
+.resources-book-ligne-2,
+.resources-book-ligne-3,
+.resources-book-ligne-4 {
+  display: flex;
+}
+
+.resources-box-book-2 {
+  width: 33.33%;
+}
+
+.stars {
+  margin-top: 0dvh;
+  margin-bottom: 0dvh;
+}
+
+/* ============= SECTION RECOMMENDED BOOKS ===> START */
+
+.resources-container-1 {
+  text-align: center; /*centers the "CURRENTLY READING" Title in the containter */
+  height: 35dvh;
+}
+
+.resources-row-title-1,
+.resources-row-title-2 {
+  display: block;
+  position: relative;
+  text-transform: uppercase;
+  margin-top: 6dvh;
+  margin-bottom: 6dvh;
+}
+
+.resources-row-2,
+.resources-row-3,
+.resources-row-4,
+.resources-row-5 {
+  width: 100%;
+  height: 20dvh;
+  margin: 0 auto 2dvh auto;
+  // margin-bottom: 2dvh;
+  // background-color: rgba(30, 255, 0, 0.89);
+}
+
+.book-cover {
+  margin-right: 0.5dvh; // margin to make space @ the right og the degree logo
+}
+
+.book-cover,
+.book-cover:link,
+.book-cover:visited {
+  // background-color: rgba(255, 60, 0, 0.493);
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 0;
+  // padding-top: 2rem;
+  transform: perspective(1500px) rotateY(25deg);
+  border-radius: 1rem;
+  // box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  filter: drop-shadow(0 1rem 2rem $boutton-color-shadow);
+  transition: transform 1s ease 0s;
+  filter: grayscale(100%);
+  text-decoration: none;
+}
+
+.book-cover:hover {
+  transform: perspective(3000px) rotateY(5deg);
+  filter: none;
+  filter: drop-shadow(0 1rem 2rem $boutton-color-shadow);
+  text-decoration: none;
+}
+
+.book-cover-2-1 {
+  background-image: url("/img/books/Make-Time.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Make-Time.jpg"); // Change on hover
+  }
+}
+
+.book-cover-2-2 {
+  background-image: url("/img/books/Building-a-Second-Brain.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Building-a-Second-Brain.jpg"); // Change on hover
+  }
+}
+
+.book-cover-2-3 {
+  background-image: url("/img/books/The-PARA-Method.jpg");
+
+  &:hover {
+    background-image: url("/img/books/The-PARA-Method.jpg"); // Change on hover
+  }
+}
+
+.book-cover-3-1 {
+  background-image: url("/img/books/Feel-Good-Productivity.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Feel-Good-Productivity.jpg"); // Change on hover
+  }
+}
+
+.book-cover-3-2 {
+  background-image: url("/img/books/Atomic-Habits.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Atomic-Habits.jpg"); // Change on hover
+  }
+}
+
+.book-cover-3-3 {
+  background-image: url("/img/books/Limitless.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Limitless.jpg"); // Change on hover
+  }
+}
+
+.book-cover-4-1 {
+  background-image: url("/img/books/Finance-for-Executives.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Finance-for-Executives.jpg"); // Change on hover
+  }
+}
+
+.book-cover-4-2 {
+  background-image: url("/img/books/Business-Model-Generation.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Business-Model-Generation.jpg"); // Change on hover
+  }
+}
+
+.book-cover-4-3 {
+  background-image: url("/img/books/Good-Strategy-Bad-Strategy.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Good-Strategy-Bad-Strategy.jpg"); // Change on hover
+  }
+}
+
+.book-cover-5-1 {
+  background-image: url("/img/books/EA-as-Strategy.jpg");
+
+  &:hover {
+    background-image: url("/img/books/EA-as-Strategy.jpg"); // Change on hover
+  }
+}
+
+.book-cover-5-2 {
+  background-image: url("/img/books/EA-at-Work.jpg");
+
+  &:hover {
+    background-image: url("/img/books/EA-at-Work.jpg"); // Change on hover
+  }
+}
+
+.book-cover-5-3 {
+  background-image: url("/img/books/Mastering-Archimate.jpg");
+
+  &:hover {
+    background-image: url("/img/books/Mastering-Archimate.jpg"); // Change on hover
+  }
+}
+
+.resources-row-book-2 .resources-book-author,
+.resources-row-book-2 .resources-book-release,
+.resources-row-book-3 .resources-book-author,
+.resources-row-book-3 .resources-book-release,
+.resources-row-book-4 .resources-book-author,
+.resources-row-book-4 .resources-book-release,
+.resources-row-book-5 .resources-book-author,
+.resources-row-book-5 .resources-book-release {
+  font-family: "Lato", sans-serif;
+  color: #000;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: 0dvh;
+  padding: 0.1rem 0;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+.resources-row-book-2 .resources-book-details,
+.resources-row-book-3 .resources-book-details,
+.resources-row-book-4 .resources-book-details,
+.resources-row-book-5 .resources-book-details {
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  width: 8rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  margin-bottom: 0dvh;
+  margin-right: 0.2dvw;
+  padding: 0.1rem 0;
+}
+
+.resources-row-book-2 .resources-book-title,
+.resources-row-book-3 .resources-book-title,
+.resources-row-book-4 .resources-book-title,
+.resources-row-book-5 .resources-book-title {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.6rem;
+  line-height: 2rem !important;
+  margin-bottom: 0dvh;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+.resources-book-title-description {
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.resources-row-book-2 .resources-book-title,
+.resources-row-book-2 .resources-book-author,
+.resources-row-book-2 .resources-book-release,
+.resources-row-book-3 .resources-book-title,
+.resources-row-book-3 .resources-book-author,
+.resources-row-book-3 .resources-book-release,
+.resources-row-book-4 .resources-book-title,
+.resources-row-book-4 .resources-book-author,
+.resources-row-book-4 .resources-book-release,
+.resources-row-book-5 .resources-book-title,
+.resources-row-book-5 .resources-book-author,
+.resources-row-book-5 .resources-book-release {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: 0dvh;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+/* ============= SECTION RECOMMENDED BOOKS ===> END */
+
+/* ============= SECTION MY TOOLS ===> START */
+.resources-row-6 {
+  width: 100%;
+  height: 20dvh;
+  margin-bottom: 2dvh;
+  // background-color: rgba(63, 63, 186, 0.709);
+}
+
+/* ============= SECTION MY TOOLS ===> END */

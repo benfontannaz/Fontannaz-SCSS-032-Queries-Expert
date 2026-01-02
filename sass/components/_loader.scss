@@ -1,0 +1,40 @@
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: white;
+    display: table;
+    text-align: center;
+
+    .preloader__loader {
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+
+    .preloader__loader--icon {
+        width: 80px;
+        height: 80px;
+        border: 5px solid #232323;
+        border-right-color: $color-grey-light-2;
+        border-radius: 50%;
+        position: relative;
+        animation: loader-rotate 1s linear infinite;
+        margin: 0 auto;
+    }
+}
+   
+@keyframes loader-rotate {
+    0% {
+        transform:rotate(0);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}

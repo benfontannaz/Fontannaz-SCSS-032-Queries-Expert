@@ -1,0 +1,187 @@
+/* .boutton:link,.boutton:visited are put together so that the state of the button remain the same as before once visited (clicked) */
+.boutton:link,
+.boutton:visited {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* padding: 0.7dvw 1.6dvw; */
+  padding: 0.4dvw 3dvw;
+  display: inline-block;
+  border-radius: 100px; /* used to round the left and right extremities of the button*/
+  transition: all 0.2s; /* we define the animation parameters on the link & visited stated of the button*/
+  position: relative;
+}
+
+.boutton:hover {
+  transform: translateY(-0.3rem);
+  text-shadow: 0 1rem 2rem $boutton-color-shadow; /* Ombre X Y blur color&transparency button hovered*/
+}
+
+.boutton:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.boutton:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem $boutton-color-shadow; /* Ombre = X Y blur color&transparency button pressed*/
+}
+
+/* the after element is treated like a child element of the boutton element*/
+.boutton::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* defines the position of elements when they are one on another */
+  transition: all 0.4s;
+}
+
+//======== BUTTTON WHITE - SOLILD === START
+.boutton--white {
+  background-color: $boutton-solid-white-background;
+  color: $boutton-solid-white;
+  // margin-right: 5dvw;
+  animation: moveInBottom 0.45s ease-out 0.75s;
+  animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+
+  &:visited {
+    color: $boutton-solid-white-visited;
+  }
+}
+
+.boutton--white:active {
+  background-color: $boutton-solid-white-background-active;
+  color: $boutton-solid-white-active;
+}
+
+/* animation dd'effet d'onde de choc ou d'amplification du bouton jusqu'à sa disparition */
+.boutton--white::after {
+  background-color: $boutton-solid-white-background-after;
+}
+//======== BUTTTON WHITE - SOLILD === END
+
+//======== BUTTTON WHITE - TRANSPARENT === START
+.boutton--white-trans {
+  background-color: $boutton-transparent-white-background;
+  color: $boutton-transparent-white;
+  border: 0.15rem solid $boutton-transparent-white-border; /* White border defintion of the transparent button */
+  animation: moveInBottom 0.65s ease-out 0.75s;
+  animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+
+  &:visited {
+    color: $boutton-transparent-white-visited;
+  }
+}
+
+.boutton--white-trans:active {
+  background-color: $boutton-transparent-white-background-active;
+  color: $boutton-transparent-white-active;
+  border: 0.15rem solid $boutton-transparent-white-border-active; /* White border defintion of the transparent button */
+}
+
+/* animation dd'effet d'onde de choc ou d'amplification du bouton jusqu'à sa disparition */
+.boutton--white-trans::after {
+  background-color: $boutton-transparent-white-background-after;
+}
+//======== BUTTTON WHITE - TRANSPARENT === END
+
+//======== BUTTTON GREY - SOLILD === START
+.boutton--grey {
+  background-color: $boutton-solid-grey-background;
+  color: $boutton-solid-grey;
+  // margin-right: 5dvw;
+  animation: moveInBottom 0.45s ease-out 0.75s;
+  animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+
+  &:visited {
+    color: $boutton-solid-grey-visited;
+  }
+}
+
+.boutton--grey:active {
+  background-color: $boutton-solid-grey-background-active;
+  color: $boutton-solid-grey-active;
+}
+
+/* animation dd'effet d'onde de choc ou d'amplification du bouton jusqu'à sa disparition */
+.boutton--grey::after {
+  background-color: $boutton-solid-grey-background-after;
+}
+//======== BUTTTON GREY - SOLILD === END
+
+//======== BUTTTON GREY - TRANSPARENT === START
+.boutton--grey-trans {
+  background-color: $boutton-transparent-grey-background;
+  color: $boutton-transparent-grey;
+  border: 0.15rem solid $boutton-transparent-grey-border; /* White border defintion of the transparent button */
+  animation: moveInBottom 0.65s ease-out 0.75s;
+  animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+
+  &:visited {
+    color: $boutton-transparent-grey-visited;
+  }
+}
+
+.boutton--grey-trans:active {
+  background-color: $boutton-transparent-grey-background-active;
+  color: $boutton-transparent-grey-active;
+  border: 0.15rem solid $boutton-transparent-grey-border-active; /* White border defintion of the transparent button */
+}
+
+/* animation dd'effet d'onde de choc ou d'amplification du bouton jusqu'à sa disparition */
+.boutton--grey-trans::after {
+  background-color: $boutton-transparent-grey-background-after;
+}
+
+//======== BUTTTON GREY - Transparent === END
+
+//======== BUTTTON COMPLEMENTS
+.boutton--header-left {
+  margin-right: 5dvw;
+}
+
+.boutton-services--bottom {
+  margin-bottom: 2dvh;
+}
+
+.boutton-services--box {
+  height: 6dvh;
+}
+
+//======== BUTTTON FFA FONTS COLORS
+
+/* ==== Header Buttons Logos ====*/
+.header .fa-phone-flip {
+  font-size: 1.5rem;
+  color: rgb(33, 49, 63);
+}
+
+.header .fa-phone-flip:hover {
+  color: rgb(33, 49, 63);
+}
+
+.header .fa-arrow-right {
+  color: rgba(248, 248, 248, 0.808);
+  font-size: 1.2rem;
+}
+
+.header .fa-arrow-right:hover {
+  color: rgba(248, 248, 248, 0.959);
+}
+
+.fa-arrow-right-about-me,
+.fa-arrow-right-about-me:active {
+  color: $boutton-solid-grey;
+}
+
+.fa-arrow-right-about-me:visited {
+  color: $boutton-solid-grey-visited;
+}

@@ -1,0 +1,47 @@
+:root {
+  --star-size: 30px;
+  --star-color: rgba(39, 34, 34, 0.801);
+  --star-color: rgba(226, 218, 218, 0.521);
+  --star-background: rgba(255, 204, 0, 0.952);
+  --star-background: rgba(119, 111, 111, 0.521);
+  --star-background: rgba(39, 34, 34, 0.801);
+  --star-background: rgba(255, 208, 0, 0.945);
+}
+
+.stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; // make sure ★ appears correctly
+  line-height: 0.75;
+
+  &::before {
+    content: "★★★★★";
+    letter-spacing: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--star-background) var(--percent),
+      var(--star-color) var(--percent)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+// Just to make a preview more beautifull
+/* 
+body {
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+*/

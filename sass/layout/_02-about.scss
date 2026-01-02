@@ -1,0 +1,74 @@
+/* 
+section ABOUT ---------------------------------------- */
+
+.about-h4 {
+  text-align: center !important;
+  margin: 10px 0px 5px 0px;
+}
+
+/* -------------------- ABOUT ME SECTION --------------------*/
+.about-box {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2) inset;
+  display: block;
+  margin-right: 0;
+  margin-top: 0;
+  position: relative;
+}
+
+.bg-extra-medium-gray .about-box,
+.bg-dark-gray .about-box {
+  -webkit-box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
+}
+
+.about-para-box-1 {
+  display: block;
+  width: 60% !important;
+  max-width: 1270px !important;
+  margin: 0 auto !important;
+  margin-bottom: 0 !important;
+}
+
+.about-para {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: grey;
+  text-align: justify;
+  line-height: 1.4;
+  word-spacing: 1px;
+}
+.about-h4 {
+  text-align: center !important;
+  margin: 10px 0px 5px 0px;
+}
+
+.imd-logo {
+  /* scale: 1; */
+  width: auto;
+  height: 20px;
+  position: relative;
+  bottom: 7px;
+  margin: 0 5px;
+}
+
+.services-heading-3 {
+  margin-top: 15dvh;
+  margin-bottom: 2dvh;
+}
+
+.certified-logo {
+  margin-top: 1dvh;
+}
+
+.signature-box {
+  margin-top: 1.5dvh;
+  margin-left: 1dvh;
+}
+
+.signature-img {
+  height: 7dvh;
+  width: auto;
+}

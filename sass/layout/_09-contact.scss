@@ -1,0 +1,54 @@
+/* ======== SECTION - CONTACT FORM =====> START */
+.container-contact {
+  display: block;
+  position: relative;
+}
+
+.contact .map {
+  padding: 0;
+  position: relative;
+  z-index: 4;
+  height: 400px;
+}
+
+.contact .info .item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: none;
+}
+
+.contact .info .item .icon {
+  text-align: center;
+}
+
+.contact .info .item .cont h6 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  line-height: normal;
+}
+
+.contact .info .item .cont p {
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .contact .info .item .cont h6 {
+    font-size: 16px;
+  }
+}
+
+.mailform .row {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.boutton-contact--box {
+  margin: 2dvw 0 0.5dvw 0 !important;
+}
+
+.boutton--grey-contact {
+  font-size: 1.3rem !important;
+  padding: 0.5dvw 2dvw !important;
+}

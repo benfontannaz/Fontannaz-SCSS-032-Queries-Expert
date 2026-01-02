@@ -1,0 +1,144 @@
+/* 
+Banner-words-wrapper ---------------------------------------- */
+
+.section-about {
+  display: block;
+  align-content: center;
+  overflow: hidden;
+}
+
+// .about_row {
+//     position: relative;
+//     width: 1140px
+// }
+
+.about__banner {
+  position: absolute;
+  text-align: center;
+}
+
+.hover-white a:hover {
+  color: #fff;
+}
+
+.timeline-center {
+  align-items: center;
+  text-align: center;
+  align-self: center;
+}
+
+/*  
+MOCKUPS  -------------------------------------------------------- */
+
+/* MOCKUPS BUNDLE ----------------------------------------------- */
+
+.mockup-scene {
+  position: relative;
+}
+
+.bundle-ipad,
+.bundle-iphone,
+.bundle-macbookpro {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// .bundle-macbookpro {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+// }
+
+/* MOCKUPS iPhone ----------------------------------------------- */
+
+.mockup-iphone {
+  display: block;
+  margin-right: 0px;
+  padding-right: 0px;
+  position: relative;
+  right: -15.5px;
+}
+
+#video-id-xs {
+  /* position: relative; */
+  margin-bottom: 85px;
+  z-index: 3;
+}
+
+/*
+carousel configuration  ------------------------------------ */
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d5d5d5;
+  margin: 5px 4px 0 4px;
+  border: 2px solid #d5d5d5;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #232323;
+  border-color: #232323;
+}
+
+.owl-theme p {
+  color: white;
+}
+
+.bg-vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* -------------------- ABOUT ME SECTION --------------------*/
+
+/* Experience section logo  -> Logos greyed out, with color appearing on hover or visited  ---- START ---- */
+.bloomio img,
+.dell img {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+}
+
+.fontaconsult img,
+.artmyn img {
+  filter: brightness(200%) opacity(40%);
+  -webkit-filter: brightness(200%) opacity(40%);
+  -moz-filter: brightness(200%) opacity(40%);
+}
+
+.bloomio img:hover,
+.dell img:hover,
+.fontaconsult img:hover,
+.artmyn img:hover,
+.bloomio img:visited,
+.dell img:visited,
+.fontaconsult img:visited,
+.artmyn img:visited {
+  filter: none;
+}
+
+/* Experience section logo ----- END ---- */
+
+.about-box {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2) inset;
+  display: block;
+  margin-right: 0;
+  margin-top: 0;
+  position: relative;
+}
+
+.bg-extra-medium-gray .about-box,
+.bg-dark-gray .about-box {
+  -webkit-box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
+}

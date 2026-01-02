@@ -1,0 +1,135 @@
+.header {
+  height: 108vh;
+  background-image: linear-gradient(
+      to right bottom,
+      $header-color-background-image-top,
+      $header-color-background-image-bottom
+    ),
+    url(../img/Image-Camion.jpg);
+  background-size: cover;
+  background-position: center;
+
+  position: relative; /* The position relative indicates the anchor from which logo-box will define its position */
+
+  /*  Indique l'emplacement des 4 points du polygon du header qui commence en haut à gauche 
+      puis dans le sens des aiguilles d'une montre */
+  /* clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%); */
+  clip-path: polygon($clip-path-polygon-1);
+  z-index: 100;
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 1.4rem;
+  left: 2.5rem;
+}
+
+.header__logo {
+  height: 3.5rem; /* height of the logo */
+}
+
+.header__logo {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s; /* we define the animation parameters on the link & visited stated of the button*/
+    position: relative;
+  }
+}
+
+.header__logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px $header-logo-box-color-shadow; /* Ombre X Y blur color&transparency button hovered*/
+}
+
+.header__logo:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px $header-logo-box-color-shadow; /* Ombre X Y blur color&transparency button pressed*/
+}
+
+.header__header-box {
+  position: absolute;
+  top: 44%; /* realtive position from the top where the upper left corner of the taxt-box starts within the header */
+  left: 50%; /* relative position from the left where the upper left corner of the taxt-box starts within the headerr */
+  /* background-color: rgba(255,255,0,0.507);*/ /* color to use to view the text-box*/
+  transform: translate(
+    -50%,
+    -50%
+  ); /* tansform-transloate allows up to place the center of the text-box at the relative position indicated above here the center of the header */
+  text-align: center; /* This configuration allows to center the btn at the center of the text-box*/
+}
+
+.header__box-title {
+  width: 60dvw;
+  height: 15dvw;
+  /* background-color: rgba(255, 255, 0, 0.494); */
+  /*background-position: top center;
+  position: absolute; */
+  /* top: 10vh;*/
+  /* right: -5vw; */
+  z-index: 0;
+  /* overflow: hidden; */
+
+  /* backface-visibility: hidden; /* to be used on an element where the animation flickers of blicks at the end of the animation */
+  /* margin-bottom: 40px; /* This margin provides spaces between the heading-primary-main and heading-primary-sub and the button inline block below*/
+  margin-bottom: 4rem; /* This margin provides spaces between the heading-primary-main and heading-primary-sub and the button inline block below*/
+}
+
+.header__box-title--scuderi {
+  display: block;
+  width: 100%;
+
+  /* line-height: 1; */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  line-height: 1;
+  /*
+  animation-iteration-count: 3;
+  animation-delay: 3s;
+  */
+  z-index: 1;
+}
+
+.header__box-title--renovation {
+  display: block;
+  width: 100%;
+
+  animation: moveInRight 1s ease-out; /* same as writing the 3 below lines: 
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  */
+}
+
+/* .title-box {
+  height: 4dvw;
+}
+*/
+
+.header-primary {
+  color: $header-primary-color;
+  text-transform: uppercase;
+
+  // animation Flickering correction
+  backface-visibility: hidden; /* to be used on an element where the animation flickers of blicks at the end of the animation */
+  /* margin-bottom: 40px; /* This margin provides spaces between the heading-primary-main and heading-primary-sub and the button inline block below*/
+}
+
+.header-primary--sub {
+  display: block;
+  text-transform: capitalize;
+  font-size: 1.4dvw;
+  font-weight: 400;
+  letter-spacing: 1.11dvw;
+
+  // animation
+  animation: moveInBottom 0.5s ease-out 0.4s;
+  /*animation: moveInBottom 1s ease-out ; /* same as writing the 3 below lines: 
+    animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  */
+  animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+}

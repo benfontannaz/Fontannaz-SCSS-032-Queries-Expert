@@ -1,0 +1,225 @@
+/* ==== Header Social media Logos ====*/
+
+/* ==== Grouped initial parameters & color ==== */
+.header .fab,
+.header .fas,
+.header .fa-brands,
+.header .fa-linkedin-in,
+.header .fa-meetup,
+.header .fa-twitter,
+.header .fa-x-twitter,
+.header .fa-microsoft,
+.header .fa-whatsapp,
+.header .fa-envelope,
+.header .fa-mobile-alt,
+.header .fa-github,
+.header .fa-globe,
+.header .fa-signal-messenger {
+  font-size: 2.2rem;
+  margin: 0 2rem;
+  color: rgba(219, 219, 219, 0.945);
+}
+
+/* ==== Individual additional parameters & color on hover ==== */
+.header .fa-linkedin-in {
+  position: relative;
+  top: -0.1rem;
+  // margin: 0 2.5rem !important;
+}
+
+.header .fa-linkedin-in:hover {
+  color: #2f43eeef;
+}
+
+.header .credly-logo {
+  display: inline-block;
+  // background-color: rgba(255, 255, 0, 0.493);
+  background-image: url("/img/credly-custom-grey.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  height: 2.5rem;
+  width: 4.8rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  z-index: 0;
+  background-position: center;
+  // padding-top: 2rem;
+  position: relative;
+  top: 0.7rem;
+}
+
+.header .credly-logo:hover {
+  background-image: url("/img/favicon/credly-custom-blue.svg"); // Change on hover
+}
+
+.header .icon-strategy {
+  position: relative;
+  top: 0.4rem;
+  font-size: 2.6rem;
+  margin: 0 2rem;
+  color: rgba(219, 219, 219, 0.827);
+}
+
+.header .icon-strategy:hover {
+  color: hsl(228, 6%, 16%);
+  color: hsla(234, 85%, 56%, 0.937);
+}
+
+.header .chess-pawn {
+  position: relative;
+  top: 0.3rem;
+  height: 2.5rem;
+  width: 2rem;
+  display: inline-block;
+  // background-color: rgba(255, 255, 0, 0.493);
+  background-image: url("/img/favicon/favicon-_5_grey.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  background-position: center;
+  // margin: 2rem 1rem 0 1.4rem;
+  z-index: 0;
+}
+
+.header .chess-pawn:hover {
+  background-image: url("/img/favicon/favicon-_4_blue.svg"); // Change on hover
+}
+
+.header .bloomio-logo {
+  display: inline-block;
+  // background-color: rgba(255, 255, 0, 0.493);
+  background-image: url("/img/favicon/bloomio-graphic-grey.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  height: 2.5rem;
+  width: 2.5rem;
+  z-index: 0;
+  background-position: center;
+  position: relative;
+  top: 0.4rem;
+}
+
+.header .bloomio-logo:hover {
+  background-image: url("/img/favicon/bloomio-graphic-blue.svg"); // Change on hover
+  z-index: 0;
+}
+
+.header .notion-logo {
+  position: relative;
+  top: 0.4rem;
+  display: inline-block;
+  // background-color: rgba(255, 255, 0, 0.493);
+  background-image: url("/img/notion-logo-grey.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  height: 2.5rem;
+  width: 2.5rem;
+  z-index: 0;
+  background-position: center;
+  // padding-top: 2rem;
+}
+
+.header .notion-logo:hover {
+  background-image: url("/img/favicon/notion-logo-blue.svg"); // Change on hover
+  z-index: 0;
+}
+
+.header .fa-github:hover {
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
+.header .fa-microsoft:hover {
+  // color: rgba(0, 174, 237, 0.986);
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
+.header .fa-x-twitter:hover {
+  // color: rgba(33, 49, 63, 0.966);
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
+.header .fa-envelope:hover {
+  // color: rgba(29, 110, 181, 0.992);
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
+.header .fa-mobile-alt:hover {
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
+/* ==== Grouped left and right margins ==== */
+
+/* 
+.header .fa-brands,
+.header .fa-linkedin-in,
+.header .fa-meetup,
+.header .fa-twitter,
+.header .fa-x-twitter,
+.header .fa-microsoft,
+.header .fa-whatsapp,
+.header .fa-envelope,
+.header .fa-mobile-alt,
+.header .fa-github,
+.header .fa-globe,
+.header .fa-signal-messenger {
+  margin: 0 2rem;
+}
+
+.header .icon-strategy,
+.header .credly-logo,
+.header .chess-pawn,
+.header .notion-logo,
+.header .bloomio-logo {
+  margin: 0 2rem;
+}
+  
+*/
+
+/* ==== Grouped hover color ==== */
+.header .fa-linkedin-in:hover,
+.header .fa-meetup:hover,
+.header .fa-twitter:hover,
+.header .fa-x-twitter:hover,
+.header .fa-microsoft:hover,
+.header .fa-whatsapp:hover,
+.header .fa-github:hover,
+.header .fa-globe:hover,
+.header .fa-signal-messenger:hover {
+  color: #2f43eeef;
+}
+
+/* ==== Header Buttons Logos ====*/
+
+.services-section .fa-arrow-right {
+  color: rgba(248, 248, 248, 0.808);
+  font-size: 1.2rem;
+}
+
+.services-section .fa-arrow-right:hover {
+  color: rgba(248, 248, 248, 0.959);
+}
+
+/* ================== ICONS NOT USED ==================== START === */
+/* 
+
+.header .fa-signal-messenger:hover {
+  color: rgba(13, 81, 218, 0.98);
+}
+
+.header .fa-whatsapp:hover {
+  color: rgba(32, 196, 26, 0.973);
+}
+
+.header .fa-meetup:hover {
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
+.header .fa-globe:hover {
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
+*/
+/* ================== ICONS NOT USED ==================== END === */

@@ -1,0 +1,71 @@
+// Import of all sub SCSS files
+/* == bootstrap == */
+// @import url("/css/plugins/bootstrap.min.css");
+/*
+@font-face {
+  font-family: "et-line";
+  src: url("fonts/et-line.eot");
+  src: url("fonts/et-line.eot?#iefix") format("embedded-opentype"),
+    url("fonts/et-line.woff") format("woff"),
+    url("fonts/et-line.ttf") format("truetype"),
+    url("fonts/et-line.svg#et-line") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+@import "abstracts/theme";
+/* @import "abstracts/plugins"; */
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/animations-wordwrapper";
+@import "base/animations-animate";
+@import "base/fonts-awesomefonts";
+@import "base/magnific-popup-portfolio";
+@import "base/magnific-popup-services";
+/* @import "base/fonts-icon-linea-fonts"; */
+@import "base/fonts-et-line";
+@import "base/fonts-iconfont";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/bg-video";
+@import "components/buttons";
+@import "components/card";
+@import "components/carousel";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/grid";
+@import "components/hover-zoom";
+@import "components/loader";
+@import "components/logo-certifications";
+@import "components/logo-prostudies";
+@import "components/mailform";
+@import "components/mockups";
+@import "components/parallax";
+@import "components/popup";
+@import "components/carousel";
+@import "components/wordwrapper";
+@import "components/stars";
+
+@import "layout/00-navigation";
+@import "layout/01-header";
+@import "layout/02-services";
+@import "layout/03-testimonials";
+@import "layout/04-experience";
+// @import "layout/02-services-details";
+@import "layout/02-about";
+// @import "layout/03-team";
+@import "layout/05-education";
+@import "layout/06-certifications";
+
+@import "layout/07-projects";
+@import "layout/08-resources";
+@import "layout/09-contact";
+@import "layout/10-footer";
+
+@import "pages/home";

@@ -1,0 +1,32 @@
+/* MOCKUPS  -------------------------------------------------------- */
+
+/* MOCKUPS BUNDLE ----------------------------------------------- */
+
+.mockup-scene {
+  position: relative;
+}
+
+.bundle-ipad,
+.bundle-iphone,
+.bundle-macbookpro {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// .bundle-macbookpro {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+// }
+
+/* MOCKUPS iPhone ----------------------------------------------- */
+
+.mockup-iphone {
+  display: block;
+  margin-right: 0px;
+  padding-right: 0px;
+  position: relative;
+  right: -15.5px;
+}

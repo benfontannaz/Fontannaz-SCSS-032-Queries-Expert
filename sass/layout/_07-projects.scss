@@ -1,0 +1,191 @@
+.portfolio {
+  overflow: hidden;
+  z-index: 100;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.items {
+  margin: 0 10px;
+  height: 400px;
+  width: 400px;
+}
+/*
+.projects {
+  top: -80dvh;
+  padding: 40dvh 0 20dvh 0;
+  height: 150dvh;
+  background-color: white;
+  background-color: #dddddd;
+  z-index: 10;
+}
+*/
+
+/* -------------------- MEDIA-QUERY max-width 767px END --------------------*/
+
+.portfolio .filtering span {
+  margin-right: 8px;
+  color: #333;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #d5d5d5;
+  border-radius: 30px;
+  padding: 5px 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.portfolio .filtering span:last-child {
+  margin: 0;
+}
+
+.portfolio .filtering span:hover {
+  border-color: #232323;
+  background: #232323;
+  color: #fff;
+}
+
+.portfolio .filtering .active {
+  border-color: #232323;
+  background: #232323;
+  color: #fff;
+}
+
+.portfolio .items {
+  margin-top: 30px;
+}
+
+.portfolio .item-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio .item-img img {
+  width: 100%;
+}
+
+.portfolio .item-img:hover .item-img-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio .item-img:hover h6 {
+  transform: translateY(0);
+}
+
+.portfolio .item-img h6 {
+  font-weight: 300;
+  position: relative;
+  font-size: 16px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  transform: translateY(15px);
+  transition: all 0.5s;
+  color: #e9e7e7e7;
+}
+
+.portfolio .item-img .fa {
+  background: #232323;
+  border: 1px solid #232323;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 30px;
+  line-height: 28px;
+  width: 30px;
+  margin-bottom: 5px;
+  transition: all 0.5s;
+}
+
+.portfolio .item-img .fa:hover {
+  background: #fff;
+  color: #232323;
+}
+
+/*
+.portfolio .item-img-overlay {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #35424c;
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 2;
+  transform: translateY(10px);
+}
+*/
+
+.portfolio .item-img-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(3, 3, 3, 0.795);
+  color: #d4d9ddf5;
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 2;
+  transform: translateY(10px);
+  clip-path: polygon($clip-path-polygon-5);
+}
+
+.bg-extra-medium-gray.portfolio .filtering span {
+  color: #fff;
+}
+
+.valign {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.bg-extra-medium-gray.portfolio .filtering span {
+  color: #fff;
+}
+.numbers .item .icon {
+  font-size: 36px;
+  display: inline-block;
+  color: #232323;
+}
+.numbers .item h6 {
+  font-weight: 500;
+}
+.numbers .item p {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #232323;
+  margin-bottom: 0;
+}
+
+/* ------------  START ------------ My Projects Gallery Items animation ------------  START ------------ */
+.items {
+  position: relative;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
+}
+
+.items.is-showing {
+  opacity: 1;
+  transform: translateX(0px);
+}
+/* -------------  END ------------ My Projects Gallery Items animation ------------  END ------------ */
+
+/* ------------------------------ MEDIA QUERY max-width 767px SCREEN ------------------------------ */
+@media screen and (max-width: 767px) {
+  .portfolio .items {
+    margin-top: 20px;
+  }
+}

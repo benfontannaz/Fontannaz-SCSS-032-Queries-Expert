@@ -1,0 +1,441 @@
+/* ======= SECTION EDUCATION  ======= START === */
+/* SECTION EDUCATION TITLE */
+.heading-2-education {
+  margin-top: 7dvh;
+}
+
+.heading-3-education h3 {
+  margin: 2dvh 0 1dvh 0;
+  font-size: 3rem;
+}
+
+.heading-3-education-certifications {
+  margin: 2dvh 0 2dvh 0;
+}
+
+.education-container-4 h3,
+.education-container-5 h3 {
+  margin-top: 4dvh;
+}
+
+/* ======= SECTION EDUCATION - DEGREES ======= START === */
+/* ======= SECTION EDUCATION - DEGREES === BUSINESS SCHOOLS ======= START === */
+
+.education-container {
+  // background-color: rgba(240, 240, 17, 0.858);
+  margin-left: 0dvw; //Marge pour recentrer les
+  margin: auto; // pour centrer les containers éducation
+}
+
+.education-container-0 {
+  height: 3dvh;
+  margin-top: 5dvh;
+  margin-bottom: 1.5dvh;
+  // background-color: rgba(245, 245, 220, 0.858);
+}
+
+.education-container-1 {
+  height: 20dvh;
+  margin-top: 7dvh;
+  margin-bottom: 1.5dvh;
+  // background-color: rgba(245, 245, 220, 0.858);
+}
+
+.education-container-2,
+.education-container-3 {
+  height: 20dvh;
+  margin-top: 4dvh;
+  margin-bottom: 1.5dvh;
+  // background-color: rgba(245, 245, 220, 0.858);
+}
+
+/*
+.education-container-3 {
+  height: 20dvh;
+  margin-top: 3dvh;
+  margin-bottom: 1.5dvh;
+  background-color: rgba(245, 245, 220, 0.858);
+}
+*/
+
+/*
+.education-container-4 {
+  background-color: rgba(245, 245, 220, 0.858);
+}
+*/
+
+.education-row {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.education-row-1,
+.education-row-2 {
+  height: 20dvh;
+  // background-color: rgba(63, 63, 186, 0.709);
+  margin-bottom: 2dvh;
+}
+
+.education-row-title {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    $header-secondary-color-top,
+    $header-secondary-color-bottom
+  );
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+  text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  margin-bottom: 0.5dvh; // margin bottom below Business School Name
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 2.2rem;
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 2.2rem;
+  }
+
+  &:hover {
+    // transform: skewY(2deg) skewX(15deg) scale(1.1);
+    // text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+
+    // transform: skewY(0deg) skewX(0deg) scale(1.1);
+    text-shadow: 0rem 0rem 0rem rgba($color-black, 0);
+  }
+}
+
+.education-row-title {
+  height: 4dvh;
+}
+
+.education-row-studies {
+  height: 10dvh;
+  flex-direction: left;
+  padding: 0 0;
+}
+
+.education-box-studies-1,
+.education-box-studies-2,
+.education-box-studies-3 {
+  padding: 0 0;
+}
+
+.business-school-imd,
+.business-school-eu {
+  margin-right: 1.5dvh; // margin to make space @ the right og the degree logo
+}
+
+.education-row-studies-1,
+.education-row-studies-2,
+.education-row-studies-3 {
+  display: inline-flex;
+  margin: 0 0;
+}
+
+.education-box-studies-1,
+.education-box-studies-2,
+.education-box-studies-3 {
+  display: flex;
+  height: 11dvh;
+  margin: 0;
+}
+
+.education-degree-skills-box,
+.education-degree-expeditions-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.education-degree-skills {
+  margin: 0.2dvh 0.3dvw;
+  font-size: 1.2rem;
+  font-weight: 300;
+  // line-height: 1.7rem;
+  color: white;
+  padding: 0.2rem 1.5rem;
+  border-radius: 100px; /* used to round the left and right extremities of the button*/
+  // background-color: rgba(37, 56, 112, 0.907);
+  // background-color: rgba(9, 15, 33, 0.907);
+}
+
+.education-degree-skills-1 {
+  background-color: rgba(37, 56, 112, 0.907);
+}
+.education-degree-skills-2,
+.education-degree-skills-3 {
+  background-color: rgba(15, 140, 119, 0.901);
+}
+
+.business-school-imd {
+  // background-color: rgba(255, 60, 0, 0.493);
+  background-image: url("/img/LogoStudies/IMD-logo-transparent.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 0;
+  // padding-top: 2rem;
+}
+
+.business-school-imd:hover {
+  background-image: url("/img/LogoStudies/IMD-logo-transparent.png"); // Change on hover
+}
+
+.business-school-eu {
+  // background-color: rgba(255, 60, 0, 0.493);
+  background-image: url("/img/LogoStudies/EU-University-Cropped.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 0;
+  // padding-top: 2rem;
+}
+
+.business-school-eu:hover {
+  background-image: url("/img/LogoStudies/EU-University-Cropped.png"); // Change on hover
+}
+
+.education-row-studies {
+  // background-color: rgb(38, 245, 245);
+  margin-bottom: 5dvh;
+}
+
+.business-school {
+  height: 10dvh; // photo container size for business-school-imd & -eu
+  width: 10dvh; // photo container size for business-school-imd & -eu
+}
+
+.business-school-imd,
+.business-school-eu {
+  height: 7dvh;
+  width: 7dvh;
+}
+
+/* ====== EDUCATION DEGREES - Left of LOGO - 3 lignes */
+.education-degree-lignes {
+  display: block;
+  // background-color: rgba(153, 205, 50, 0.762);
+}
+
+.education-degree-ligne-0 {
+  display: block;
+  margin: 0.5dvh 0.3dvw 0.8dvh 0.3dvw;
+}
+
+.education-degree-ligne-1 {
+  display: block;
+  margin: 0.5dvh 0.3dvw 0.8dvh 0.3dvw;
+}
+
+/*
+.education-degree-ligne-2,
+.education-degree-ligne-3 {
+  display: inline-flex;
+}
+  */
+
+.education-degree-skills-box,
+.education-degree-expeditions-box {
+  display: inline-flex;
+}
+
+.education-degree-ligne-3 {
+  margin-top: 1dvh;
+  margin-bottom: 4dvh;
+}
+
+.education-degree-title,
+.education-degree-dates,
+.education-degree-periods {
+  font-size: 2.2rem;
+  line-height: 2rem;
+  margin-bottom: 0dvh;
+  margin-right: 2dvw;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+.education-degree-title {
+  font-weight: 900;
+  color: rgba(19, 17, 17, 0.819);
+}
+
+.education-degree-title-3 {
+  margin-top: 5dvh;
+}
+
+.education-degree-dates,
+.education-degree-periods {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.education-degree-periods {
+  font-weight: 300;
+}
+
+.discovery-expeditions {
+  font-size: 1.7rem;
+  line-height: 1.7rem;
+  margin-bottom: 0.2dvh;
+  margin-left: 0.3dvw;
+  margin-right: 0.3dvw;
+  // background-color: rgba(50, 192, 205, 0.762);
+}
+
+.discovery-expeditions-1 {
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.discovery-expeditions-2 {
+  font-weight: 300;
+}
+/* ======= SUB-SECTION DEGREES ======= END === */
+
+/* ======= SUB-SECTION CERTIFICATIONS ======= START === */
+
+/* ======= SUB-SECTION CERTIFICATIONS ======= END === */
+
+/* ======= SUB-SECTION PROFESSIONAL STUDIES ======= START === */
+.about-para {
+  margin: 15px 0px 0px 0px;
+  text-align: justify;
+  font-weight: 300;
+}
+
+.pro-fes {
+  margin: 15px 0px 0px 0px;
+  font-weight: 300;
+}
+
+.para1 {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0px 0px 15px 0px;
+}
+
+.xs-para1 {
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0px 0px 15px 0px;
+}
+
+.para2 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.pro-fes2 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.pro-fes3 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.para3 {
+  margin: 30px 0px 10px 0px;
+  padding: 0px 120px;
+  /* margin-top: 0px;
+    margin-bottom: 10px; */
+  font-weight: 100;
+  text-align: center;
+}
+
+.para4 {
+  font-weight: 500;
+}
+
+.certifs {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.pro-certifications-img {
+  height: 12dvh;
+  width: auto;
+}
+
+.education-scroll-7 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.pro-certifications-box {
+  margin: 0 auto 4dvh auto;
+}
+
+.pro-certifications-box:first-of-type {
+  margin-left: 0;
+}
+
+.pro-certifications-box:last-of-type {
+  margin-right: 0;
+}
+
+.pro-certifications-box a {
+  &:link,
+  &:visited {
+    filter: grayscale(100%);
+    text-decoration: none;
+  }
+
+  &:hover {
+    filter: none;
+    text-decoration: none;
+  }
+}
+
+.education-scroll-7 img {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    transition: all 0.2s; /* we define the animation parameters on the link & visited stated of the button*/
+    position: relative;
+  }
+}
+
+.education-scroll-7 img:hover {
+  transform: translateY(-0.3rem);
+  // text-shadow: 0 1rem 2rem $boutton-color-shadow;
+  filter: drop-shadow(
+    0 1rem 2rem $boutton-color-shadow
+  ); /* Ombre = X Y blur color&transparency png image transparente hovered*/
+  filter: none;
+  text-decoration: none;
+}
+
+.education-scroll-7 img:active {
+  transform: translateY(-0.1rem);
+  filter: drop-shadow(
+    0 0.5rem 1rem $boutton-color-shadow
+  ); /* Ombre = X Y blur color&transparency png image transparente pressed*/
+}
+
+.education-scroll-7 img::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}

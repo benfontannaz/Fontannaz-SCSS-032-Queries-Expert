@@ -1,0 +1,1242 @@
+/* 
+HEADER ------------------------------------------------------------------------ */
+.header {
+  height: 108dvh;
+  width: 100%;
+  /*
+  background-image: linear-gradient(
+      to right bottom,
+      $header-color-background-image-top,
+      $header-color-background-image-bottom
+    ),
+    url(../img/header/officeEmpty/LYCS_BLUR_1920x1080_003_BLUR-EMPTY@0.5x.png);
+    */
+  background-image: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05)
+    ),
+    url(../img/header/officeEmpty/LYCS_BLUR_1920x1080_003_BLUR-EMPTY@0.5x.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  clip-path: polygon($clip-path-polygon-1);
+  z-index: 100;
+
+  &__ben-only {
+    background-color: yellow;
+    height: 1200px;
+    width: 700px;
+    background-image: url(../img/header/BenOnly@700x1200.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: -12dvw;
+    overflow: hidden;
+    animation: fadeInLeftBig 1.6s ease-out 1s; // animation - name / duration / function / delay
+    animation-fill-mode: backwards; // set the opacity to zero prior the animation starts with a delay when configured
+    animation-iteration-count: 1;
+    z-index: 0;
+  }
+}
+
+.header__header-box {
+  position: absolute;
+  top: 80%; /* realtive position from the top where the upper left corner of the taxt-box starts within the header */
+  left: 50%; /* relative position from the left where the upper left corner of the taxt-box starts within the headerr */
+  background-color: rgba(
+    255,
+    255,
+    0,
+    0.507
+  ); /* color to use to view the text-box*/
+  transform: translate(
+    -50%,
+    -50%
+  ); /* tansform-transloate allows up to place the center of the text-box at the relative position indicated above here the center of the header */
+  text-align: center; /* This configuration allows to center the boutton at the center of the text-box*/
+  z-index: 102;
+}
+
+.header__box-title {
+  // width: 60dvw;
+  // height: 15dvw;
+  display: inline-block;
+  background-color: rgba(0, 132, 255, 0.494);
+  /*background-position: top center;
+    position: absolute; */
+  /* top: 10vh;*/
+  /* right: -5vw; */
+  z-index: 101;
+  /* overflow: hidden; */
+
+  /* backface-visibility: hidden; /* to be used on an element where the animation flickers of blicks at the end of the animation */
+  /* margin-bottom: 40px; /* This margin provides spaces between the heading-primary-main and heading-primary-sub and the button inline block below*/
+  margin-bottom: 4rem; /* This margin provides spaces between the heading-primary-main and heading-primary-sub and the button inline block below*/
+}
+
+.header-primary {
+  color: $header-primary-color;
+  text-transform: uppercase;
+
+  backface-visibility: hidden; /* animation Flickering correction */
+  /* to be used on an element where the animation flickers of blicks at the end of the animation */
+  /* margin-bottom: 40px; /* This margin provides spaces between the heading-primary-main and heading-primary-sub and the button inline block below*/
+}
+
+.header-primary--sub {
+  display: block;
+  text-transform: capitalize;
+  font-size: 2.6rem;
+  font-weight: 400;
+  // letter-spacing:1rem;
+  line-height: 4rem;
+  text-align: justify;
+  // animation
+  animation: moveInBottom 0.5s ease-out 0.4s; /* same as writing the 3 lines */
+  animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+}
+
+.header__text-box {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  left: 50%;
+  // background-color: rgba(255, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 5;
+}
+
+.home__logo-strategy {
+  font-size: 4rem;
+}
+
+.boutton--white-animated-header {
+  padding: 1.7rem 10rem;
+
+  animation: moveInBottom 1s ease-in-out 2.6s; // .75s here indicates the start delay of the animation
+  animation-fill-mode: backwards; // set the opacity to zero prior the animation starts with a delay when configured
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 1.4rem;
+  left: 2.5rem;
+  z-index: 101;
+}
+
+.header__logo {
+  height: 3.5rem; /* height of the logo */
+}
+
+.header__logo {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s; /* we define the animation parameters on the link & visited stated of the button*/
+    position: relative;
+  }
+}
+
+.header__logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px $header-logo-box-color-shadow; /* Ombre X Y blur color&transparency button hovered*/
+}
+
+.header__logo:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px $header-logo-box-color-shadow; /* Ombre X Y blur color&transparency button pressed*/
+}
+
+// Wordwrapper
+
+.banner-box {
+  display: block;
+  position: relative;
+  top: 30dvh;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  max-width: 1270px;
+  // margin-left: 20%;
+  // margin-right: 20%;
+}
+
+.banner-words-wrapper {
+  display: block;
+  text-align: center;
+  position: relative;
+  text-align: justify;
+}
+
+.banner-words-wrapper b {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+}
+
+.banner-words-wrapper b.is-visible {
+  position: relative;
+}
+.no-js .banner-words-wrapper b {
+  opacity: 1;
+}
+.no-js .banner-words-wrapper b.is-visible {
+  opacity: 1;
+}
+
+.banner-headline.clip span {
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+.banner-headline.clip .banner-words-wrapper {
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.banner-headline.clip .banner-words-wrapper:after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.banner-headline.clip b {
+  opacity: 0;
+}
+
+.banner-headline b.is-visible {
+  opacity: 1;
+}
+
+.banner-headline {
+  font-size: 4rem;
+  line-height: 2.5rem;
+  margin-bottom: 3.5rem !important;
+}
+
+.banner-headline.medium {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#introduction-1,
+#introduction-2 {
+  display: block;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 36px;
+  width: 100%;
+  color: rgba(238, 238, 238, 0.8);
+}
+
+.header__boutton-box {
+  display: block;
+  position: relative;
+  margin-top: 10rem;
+}
+
+.home__logo-box {
+  /*
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: url("../img/header/officeempty/LYCS_BLUR_1920x1080_003_BLUR-EMPTY.png");
+  }
+
+  @include respond(phone) {
+    // width < 600?
+    height: 110vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%);
+  }
+   */
+
+  position: fixed;
+  top: -0.6rem;
+  left: 1.5rem;
+  z-index: 101;
+
+  @include respond(tab-port) {
+    // width < 900?
+    top: -0.6rem;
+    left: 1.5rem;
+  }
+
+  @include respond(phone) {
+    // width < 600?
+    top: -0.6rem;
+    left: 1rem;
+  }
+}
+
+/*
+.home__logo-box {
+  position: absolute;
+  top: 1.4rem;
+  left: 2.5rem;
+  z-index: 101;
+}
+*/
+
+.home__logo {
+  font-size: 4rem;
+  color: $color-white;
+  height: 3.5dvh; /* height of the logo */
+  width: auto;
+  text-shadow: none10px 20px $header-logo-box-color-shadow;
+}
+
+.home__logo {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s; /* we define the animation parameters on the link & visited stated of the button*/
+    position: relative;
+  }
+}
+
+.home__logo:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 10px 20px $header-logo-box-color-shadow; /* Ombre X Y blur color&transparency button hovered*/
+}
+
+.home__logo:active {
+  transform: translateY(-1px);
+  text-shadow: 0 5px 10px $header-logo-box-color-shadow; /* Ombre X Y blur color&transparency button pressed*/
+}
+
+.shortcut-icon {
+  color: blue;
+}
+
+/* ========= MEDIA QUERIES ======= START ===== */
+/* ========= MEDIA QUERIES ======= START ===== */
+/* ========= MEDIA QUERIES ======= START ===== */
+
+@include respond(mobile) {
+  /* Breakpoint = mobile | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = portrait | Hover = none  */
+  .header__ben-only {
+    // background-color: olive;
+    scale: 1.2;
+    top: 10dvh;
+    left: -25dvw;
+  }
+
+  .banner-box {
+    width: 90%;
+  }
+  .banner-headline {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: justify;
+    margin-bottom: 2.2rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 5px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 1.8rem;
+  }
+
+  .header .credly-logo {
+    height: 1.8rem;
+    width: 3.456rem;
+    top: 0.35rem;
+  }
+
+  .header .icon-strategy {
+    font-size: 1.8rem;
+    top: 0.1rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.15rem;
+    height: 1.8rem;
+    width: 1.44rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 4rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 6dvw;
+  }
+}
+
+@include respond(mobile-land) {
+  /* Breakpoint = mobile-land | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = landscape | Hover = none  */
+  .header__ben-only {
+    // background-color: lightgreen;
+    scale: 0.6;
+    top: -60dvh;
+    left: 40dvw;
+  }
+
+  .banner-box {
+    width: 70%;
+  }
+
+  .banner-headline {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 5px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 1.8rem;
+  }
+
+  .header .credly-logo {
+    height: 1.8rem;
+    width: 3.456rem;
+    top: 0.35rem;
+  }
+
+  .header .icon-strategy {
+    font-size: 1.8rem;
+    top: 0.1rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.15rem;
+    height: 1.8rem;
+    width: 1.44rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 2rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 2.5dvw;
+  }
+}
+
+@include respond(tab-s) {
+  /* Breakpoint = tablet-s | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = portrait | Hover = none  */
+  .header__ben-only {
+    background-color: orangered;
+    scale: 1.2;
+    top: 10dvh;
+    left: -5dvw;
+  }
+
+  .banner-box {
+    width: 80%;
+  }
+
+  .banner-headline {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    text-align: justify;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 5px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 1.8rem;
+  }
+
+  .header .credly-logo {
+    height: 1.8rem;
+    width: 3.456rem;
+    top: 0.35rem;
+  }
+
+  .header .icon-strategy {
+    font-size: 1.8rem;
+    top: 0.1rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.15rem;
+    height: 1.8rem;
+    width: 1.44rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 3rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 6dvw;
+  }
+}
+
+@include respond(tab-s-land) {
+  /* Breakpoint = tablet-s-land | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = landscape | Hover = none  */
+  .header__ben-only {
+    background-color: rgba(226, 73, 17, 0.767);
+    scale: 0.8;
+    top: -25dvh;
+    left: 28dvw;
+  }
+
+  .banner-box {
+    width: 70%;
+  }
+
+  .banner-headline {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    text-align: justify;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 5px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 1.8rem;
+  }
+
+  .header .credly-logo {
+    height: 1.8rem;
+    width: 3.456rem;
+    top: 0.35rem;
+  }
+
+  .header .icon-strategy {
+    font-size: 1.8rem;
+    top: 0.1rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.15rem;
+    height: 1.8rem;
+    width: 1.44rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 2rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 2.5dvw;
+  }
+}
+
+@include respond(tab-m) {
+  /* Breakpoint = tablet-m | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = portrait | Hover = none  */
+  .header__ben-only {
+    background-color: violet;
+    scale: 1.2;
+    top: 10dvh;
+    left: 10dvw;
+  }
+
+  .banner-box {
+    width: 80%;
+  }
+
+  .banner-headline {
+    font-size: 2.88rem;
+    line-height: 1.8rem;
+    margin-bottom: 2.5rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 2rem;
+    line-height: 3.2rem;
+    text-align: justify;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 10px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 2.2rem;
+  }
+
+  .header .credly-logo {
+    height: 2.5rem;
+    width: 4.8rem;
+    top: 0.7rem;
+  }
+
+  .header .icon-strategy {
+    top: 0.4rem;
+    font-size: 2.6rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.4rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 4rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1.3rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 4dvw;
+  }
+}
+
+@include respond(tab-m-land) {
+  /* Breakpoint = tablet-m-land | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = landscape | Hover = none  */
+  .header__ben-only {
+    background-color: rgba(238, 130, 238, 0.61);
+    scale: 1.1;
+    top: 7vh;
+    left: 42dvw;
+  }
+  .banner-box {
+    width: 70%;
+  }
+
+  .banner-headline {
+    font-size: 2.88rem;
+    line-height: 1.8rem;
+    margin-bottom: 2.5rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 2rem;
+    line-height: 3.2rem;
+    text-align: justify;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 10px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 2.2rem;
+  }
+
+  .header .credly-logo {
+    height: 2.5rem;
+    width: 4.8rem;
+    top: 0.7rem;
+  }
+
+  .header .icon-strategy {
+    top: 0.4rem;
+    font-size: 2.6rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.4rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 4rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1.3rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 4dvw;
+  }
+}
+
+@include respond(tab-l) {
+  /* Breakpoint = tablet-l | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = portrait | Hover = none  */
+  .header__ben-only {
+    background-color: red;
+    scale: 1.7;
+    top: 30dvh;
+    left: 25dvw;
+  }
+
+  .banner-box {
+    width: 80%;
+  }
+
+  .banner-headline {
+    font-size: 3.6rem;
+    line-height: 2.25rem;
+    margin-bottom: 3.15rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: justify;
+    margin-bottom: 4rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 15px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 2.2rem;
+  }
+
+  .header .credly-logo {
+    height: 2.5rem;
+    width: 4.8rem;
+    top: 0.7rem;
+  }
+
+  .header .icon-strategy {
+    top: 0.4rem;
+    font-size: 2.6rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.4rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 8rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1.8rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 4dvw;
+  }
+}
+
+@include respond(tab-l-land) {
+  /* Breakpoint = tablet-l-land | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = landscape | Hover = none  */
+  .header__ben-only {
+    background-color: rgba(255, 0, 0, 0.808);
+    scale: 1.2;
+    top: 12vh;
+    left: 48dvw;
+  }
+
+  .banner-box {
+    width: 65%;
+  }
+
+  .banner-headline {
+    font-size: 3.6rem;
+    line-height: 2.25rem;
+    margin-bottom: 3.15rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: justify;
+    margin-bottom: 4rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 15px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 2.2rem;
+  }
+
+  .header .credly-logo {
+    height: 2.5rem;
+    width: 4.8rem;
+    top: 0.7rem;
+  }
+
+  .header .icon-strategy {
+    top: 0.4rem;
+    font-size: 2.6rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.4rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 8rem;
+  }
+
+  .header__boutton-box a,
+  .header__boutton-box i {
+    font-size: 1.8rem !important;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 0.3dvh 4dvw;
+  }
+}
+
+@include respond(pc-xs) {
+  /* Breakpoint = pc-s | min-Width= 992px or 62em | Hover = hover */
+  .header__ben-only {
+    background-color: rgb(255, 224, 245);
+    scale: 1.4;
+    top: 20dvh;
+    right: -15%;
+  }
+  .banner-box {
+    width: 90%;
+  }
+  .banner-headline {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    text-align: center;
+    margin-bottom: 2.2rem !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 1.8rem;
+  }
+
+  .header .credly-logo {
+    height: 1.8rem;
+    width: 3.456rem;
+    top: 0.35rem;
+  }
+
+  .header .icon-strategy {
+    font-size: 1.8rem;
+    top: 0.1rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.15rem;
+    height: 1.8rem;
+    width: 1.44rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 4rem;
+  }
+}
+
+@include respond(pc-s) {
+  /* Breakpoint = pc-s | min-Width= 992px or 62em | Hover = hover */
+  .header__ben-only {
+    background-color: lightcyan;
+    scale: 1.4;
+    top: 20dvh;
+    left: 25dvw;
+  }
+
+  .banner-box {
+    width: 90%;
+  }
+  .banner-headline {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    text-align: center;
+    margin-bottom: 2.2rem !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 1.8rem;
+  }
+
+  .header .credly-logo {
+    height: 1.8rem;
+    width: 3.456rem;
+    top: 0.35rem;
+  }
+
+  .header .icon-strategy {
+    font-size: 1.8rem;
+    top: 0.1rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.15rem;
+    height: 1.8rem;
+    width: 1.44rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 4rem;
+  }
+}
+
+@include respond(pc-m) {
+  /* Breakpoint = pc-m | min-Width= 1025px or 64.063em | Hover = hover */
+  .header__ben-only {
+    background-color: cyan;
+    scale: 1.25;
+    top: 25vh;
+    left: 50vw;
+  }
+
+  .banner-box {
+    width: 80%;
+  }
+
+  .banner-headline {
+    font-size: 4rem;
+    line-height: 2.5rem;
+    margin-bottom: 3.5rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    margin-bottom: 4rem !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 2.2rem;
+  }
+
+  .header .credly-logo {
+    height: 2.5rem;
+    width: 4.8rem;
+    top: 0.7rem;
+  }
+
+  .header .icon-strategy {
+    top: 0.4rem;
+    font-size: 2.6rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.4rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 8rem;
+  }
+}
+
+@include respond(pc-l) {
+  /* Breakpoint = pc-l | min-Width= 1281px or 80.063em | Hover = hover */
+  .header__ben-only {
+    background-color: mediumaquamarine;
+    scale: 1.35;
+    top: 25vh;
+    left: 60vw;
+  }
+
+  .banner-box {
+    width: 70%;
+  }
+
+  .banner-headline {
+    font-size: 4rem;
+    line-height: 2.5rem;
+    margin-bottom: 3.5rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    margin-bottom: 4rem !important;
+  }
+
+  .fab-box i,
+  .fab-box div,
+  .fab-box span {
+    margin: 0 10px !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 2.2rem;
+  }
+
+  .header .credly-logo {
+    height: 2.5rem;
+    width: 4.8rem;
+    top: 0.7rem;
+  }
+
+  .header .icon-strategy {
+    top: 0.4rem;
+    font-size: 2.6rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.4rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 8rem;
+  }
+}
+
+@include respond(pc-xl) {
+  /* Breakpoint = pc-xl | min-Width= 2560px or 160em | Hover = hover */
+  .header__ben-only {
+    background-color: darkcyan;
+    scale: 1.65;
+    top: 35dvh;
+    left: 65dvw;
+  }
+
+  .banner-box {
+    width: 60%;
+    max-width: 1400px;
+  }
+
+  .banner-headline {
+    font-size: 4rem;
+    line-height: 2.5rem;
+    margin-bottom: 3.5rem !important;
+  }
+
+  #introduction-2 {
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    margin-bottom: 4rem !important;
+  }
+
+  .header .fab,
+  .header .fas {
+    font-size: 2.2rem;
+  }
+
+  .header .credly-logo {
+    height: 2.5rem;
+    width: 4.8rem;
+    top: 0.7rem;
+  }
+
+  .header .icon-strategy {
+    top: 0.4rem;
+    font-size: 2.6rem;
+  }
+
+  .header .chess-pawn {
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  .header .bloomio-logo,
+  .header .notion-logo {
+    top: 0.4rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .header__boutton-box {
+    margin-top: 8rem;
+  }
+
+  .boutton:link,
+  .boutton:visited {
+    padding: 10.2px 76.5px;
+  }
+}

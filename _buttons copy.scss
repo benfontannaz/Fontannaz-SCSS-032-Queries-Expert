@@ -1,0 +1,93 @@
+/* .btn:link,.btn:visited are put together so that the state of the button remain the same as before once visited (clicked) */
+.btn {
+  &,
+  &:link,
+  &:visited {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-transform: uppercase;
+    text-decoration: none;
+    /* padding: 0.7dvw 1.6dvw; */
+    padding: 0.4dvw 3dvw;
+    display: inline-block;
+    border-radius: 100px; /* used to round the left and right extremities of the button*/
+    transition: all 0.2s; /* we define the animation parameters on the link & visited stated of the button*/
+    position: relative;
+
+    &:hover {
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* defines the position of elements when they are one on another */
+    transition: all 0.4s;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgb(0, 0, 0, 0.2); /* Ombre X Y blur color&transparency button hovered*/
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* defines the position of elements when they are one on another */
+    transition: all 0.4s;
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgb(0, 0, 0, 0.2); /* Ombre X Y blur color&transparency button pressed*/
+  }
+
+  &--white {
+    background-color: #f8f7f7e1;
+    color: #777;
+    margin-right: 5dvw;
+    animation: moveInBottom 0.45s ease-out 0.75s;
+    animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+
+    &:active {
+      background-color: rgb(255, 255, 255);
+      color: rgba(24, 23, 23, 0.925);
+
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &--transparent {
+    background-color: #ffffff14;
+    color: rgba(211, 211, 211, 0.75);
+    border: 0.15rem solid rgba(255, 255, 255, 0.572); /* White border defintion of the transparent button */
+    animation: moveInBottom 0.65s ease-out 0.75s;
+    animation-fill-mode: backwards; /* Makes the button invisible prior the animation starts*/
+
+    &:active {
+      background-color: rgba(41, 40, 40, 0.622);
+      color: rgba(253, 252, 252, 0.9);
+      border: 0.15rem solid rgba(222, 220, 220, 0.574); /* White border defintion of the transparent button */
+    }
+  }
+}

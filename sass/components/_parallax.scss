@@ -1,0 +1,24 @@
+/* -- Parallax Window Section--- */
+/* requires sources to Jquery and Parallax.js in the HTML doc */
+
+.parallax {
+  min-height: 50px;
+  padding: 35px 35px 80px 35px;
+  background: transparent;
+}
+
+.parallax p {
+  z-index: 1;
+}
+
+.parallax-info {
+  position: relative;
+  z-index: 1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* -- Parallax Window Section END --- */
