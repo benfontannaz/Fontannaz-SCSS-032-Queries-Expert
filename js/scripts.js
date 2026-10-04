@@ -146,7 +146,8 @@ $(function () {
   $(window).on("load", function () {
     var wind = $(window);
     wind.stellar();
-    $(".gallery").isotope({ itemSelector: ".items" });
+    // fitWidth (isotope v3) / isFitWidth (isotope v2): the grid is as wide as its columns, so it can be centred (_07-projects.scss, tablet sizes)
+    $(".gallery").isotope({ itemSelector: ".items", masonry: { fitWidth: true, isFitWidth: true } });
     var $gallery = $(".gallery").isotope({});
     $(".filtering").on("click", "span", function () {
       var filterValue = $(this).attr("data-filter");
@@ -155,6 +156,10 @@ $(function () {
     $(".filtering").on("click", "span", function () {
       $(this).addClass("active").siblings().removeClass("active");
     });
+    // default Projects view = the filter marked "active" in index.html (Business Strategy).
+    // Native click so the filter handlers of both jQuery copies (this file and js/preloader.js) run.
+    var defaultFilter = document.querySelector(".section-projects .filtering span.active");
+    if (defaultFilter) defaultFilter.click();
   });
 
   $(window).resize(function (event) {

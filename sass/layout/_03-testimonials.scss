@@ -8,6 +8,19 @@
   margin-bottom: 0;
   line-height: 28px;
 }
+
+// Testimonials text 1.5x bigger (overrides the font-size16 / xs-font-size14 utility classes)
+.testimonials p.font-size16 {
+  font-size: 24px; // 1.5 x 16px
+  line-height: 42px; // 1.5 x 28px
+}
+
+@media (max-width: 767px) {
+  .testimonials p.xs-font-size14 {
+    font-size: 21px; // 1.5 x 14px
+    line-height: 42px; // 1.5 x 28px
+  }
+}
 .testimonials h6 {
   font-size: 12px;
   margin: 0;
@@ -23,6 +36,14 @@
   padding-left: 9rem;
   /* transform: skewX(-12deg); */
   z-index: 11;
+
+  // tablet portrait (481px - 900px wide): space left and right of the testimonials divided by 2
+  // (e.g. 768px: 247px / 216px -> 116px / 116px); the testimonial text keeps its own 85% width
+  @media only screen and (min-width: 30.0625em) and (max-width: 56.25em) and (orientation: portrait) {
+    width: 100%; // was 75%
+    padding-left: 2.6rem; // was 9rem
+    padding-right: 2.6rem; // was 6rem
+  }
 
   @include respond(tab-port) {
     // width < 900?

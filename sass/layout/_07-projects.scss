@@ -183,9 +183,95 @@
 }
 /* -------------  END ------------ My Projects Gallery Items animation ------------  END ------------ */
 
+/* ---- Projects grid centred on tablet sizes (481px - 1366px, the tab-s ... tab-l widths) ----
+   isotope's fitWidth option (js/scripts.js, js/preloader.js) makes the grid as wide as its columns */
+@media only screen and (min-width: 30.0625em) and (max-width: 85.375em) {
+  .section-projects .gallery {
+    margin-left: auto; // overrides the negative .row margins
+    margin-right: auto;
+  }
+}
+
 /* ------------------------------ MEDIA QUERY max-width 767px SCREEN ------------------------------ */
 @media screen and (max-width: 767px) {
   .portfolio .items {
     margin-top: 20px;
   }
 }
+
+/* ==== Projects gallery popup: grey overlay with the project details (see js/magnific.js) ==== START */
+.mfp-figure figure {
+  position: relative; // reference for the overlay
+}
+
+// all zoomed project pictures shown at the same size as the first one (800 x 800px),
+// also the smaller files (ILO / TUI 510 x 510px); magnific's max-height still fits them to the window height
+.mfp-projects img.mfp-img {
+  height: 800px;
+  width: auto; // keeps each picture's proportions
+}
+
+.mfp-project-details {
+  position: absolute;
+  // lower half of the image: the image sits between the 40px top / bottom paddings of .mfp-img
+  top: calc(40px + (100% - 80px) / 2);
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  // same angled top line as the gallery thumbnails overlay ($clip-path-polygon-5: 58% -> 50% of the image height):
+  // a rise of 8% of the image height = 16% of this overlay (half the image height)
+  clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  gap: 3rem;
+  // top padding keeps the text below the angled line (8% of the width = 8% of the height for the square images)
+  padding: calc(8% + 2.5rem) 3.5rem 2.5rem 3.5rem;
+  background-color: rgba(30, 30, 30, 0.72); // transparent grey over the image
+  color: white;
+  text-align: left;
+  overflow-y: auto; // long texts stay readable on small screens
+}
+
+.mfp-project-details--empty {
+  display: none; // gallery item without a .project-details block
+}
+
+.mfp-project-col {
+  flex: 1 1 0;
+}
+
+.mfp-project-heading {
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.3; // the site heading line-height is too tall when the heading wraps
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mfp-challenges ul,
+.mfp-results ul {
+  margin: 0;
+  padding-left: 1.8rem;
+}
+
+.mfp-challenges li,
+.mfp-results li {
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: white;
+  list-style-type: disc;
+}
+
+// narrow screens: the two text sections stack
+@media only screen and (max-width: 47.9375em) {
+  .mfp-project-details {
+    flex-direction: column;
+    gap: 2rem;
+    padding: calc(8% + 1.5rem) 2rem 2rem 2rem;
+  }
+}
+/* ==== Projects gallery popup: grey overlay with the project details ==== END */

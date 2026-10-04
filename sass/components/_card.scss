@@ -2,10 +2,10 @@
   // FUNCTIONALITY (flip card animation)
   perspective: 150rem;
   position: relative;
-  height: 52rem;
+  height: 60rem; // taller so the Enterprise Architecture text fits with some space (was 52rem)
 
   &__side {
-    height: 52rem;
+    height: 60rem; // same as .carte (was 52rem)
     transition: all 0.8s ease;
     position: absolute;
     top: 0;
@@ -158,7 +158,7 @@
   }
 
   &__details {
-    padding: 3rem;
+    padding: 3rem 1.5rem 1.5rem; // top doubled, sides and bottom divided by 2 (was 3rem)
 
     ul {
       list-style: none;
@@ -231,7 +231,7 @@
     }
 
     &__details {
-      padding: 1rem 3rem;
+      padding: 1rem 1.5rem 0.5rem; // top doubled, sides and bottom divided by 2 (was 1rem 3rem)
     }
 
     // FRONT SIDE STYLING

@@ -32,7 +32,7 @@
 }
 
 .resources-container-2 {
-  height: 90dvh;
+  height: auto; // follows the books grid below (was 90dvh)
   margin-top: 7dvh;
   margin-bottom: 1.5dvh;
   // background-color: rgba(245, 245, 220, 0.858);
@@ -140,14 +140,15 @@
 
 .resources-book-skills {
   margin: 0.2dvh 0.3dvw;
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.3rem; // more readable, same as .education-degree-skills (was 1.2rem)
+  font-weight: 500; // more readable, same as .education-degree-skills (was 300)
+  letter-spacing: 0.03em;
   // line-height: 1.7rem;
   color: white;
   padding: 0.2rem 1.5rem;
   border-radius: 100px; /* used to round the left and right extremities of the button*/
   // background-color: rgba(37, 56, 112, 0.907);
-  background-color: rgba(9, 15, 33, 0.907);
+  background-color: rgb(9, 15, 33); // solid (was rgba(9, 15, 33, 0.907))
 }
 
 .resources-book-skills:first-of-type {
@@ -531,6 +532,37 @@
   // background-color: rgba(50, 192, 205, 0.762);
 }
 
+// Recommended books: one centred flex row for all the books that wraps (3 per line, then 2, then 1 as the
+// screen width diminishes). The row wrappers of index.html (.resources-row-2 ... -6, .resources-row-book)
+// are ignored for the layout so the books of a line share the width equally: the covers stay aligned.
+.resources-container-2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 2rem;
+
+  > .resources-row-title {
+    flex: 0 0 100%; // the title stays on its own line, above the books
+    text-align: center; // "Recommended Books" centred
+  }
+
+  .resources-row,
+  .resources-row-book {
+    display: contents; // were one fixed-height row of 3 books each (20dvh)
+  }
+
+  .resources-box-book-2 {
+    // a book needs 34rem: 3 fit on a desktop line, 2 on a tablet, 1 below; they then grow to share the line (max 44rem)
+    flex: 1 1 34rem;
+    max-width: 44rem;
+    width: auto; // (was 33.33%)
+    height: auto;
+    min-height: 11dvh;
+    margin-bottom: 7.7dvh; // space between two lines of books: 11dvh -30% (was given by the 20dvh + 2dvh rows)
+  }
+}
+
 /* ============= SECTION RECOMMENDED BOOKS ===> END */
 
 /* ============= SECTION MY TOOLS ===> START */
@@ -539,6 +571,15 @@
   height: 20dvh;
   margin-bottom: 2dvh;
   // background-color: rgba(63, 63, 186, 0.709);
+}
+
+// My Tools: the logos row is centred
+.resources-row-6 .d-flex.flex-wrap {
+  justify-content: center; // was justify-content-left (class not defined: left aligned)
+
+  .tools {
+    margin: 10px 5px 0 5px; // same space left and right of each logo (was 10px right only) -> really centred
+  }
 }
 
 /* ============= SECTION MY TOOLS ===> END */

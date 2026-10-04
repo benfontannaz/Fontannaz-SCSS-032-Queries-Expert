@@ -42,3 +42,15 @@
     transform: translate(0);
   }
 }
+
+// Header binary pattern: the 0/1 tile scrolls up by exactly one tile height for a seamless loop
+// (1st layer = digits move / 2nd layer = grey tint stays in place)
+@keyframes binaryScrollUp {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 0 (-1 * nth($header-binary-pattern-size, 2)), 0 0; // = 0 -300px
+  }
+}

@@ -84,9 +84,21 @@ jQuery(document).ready(function ($) {
       hideLetter($word.find("i").eq(0), $word, bool, lettersDelay);
       showLetter(nextWord.find("i").eq(0), nextWord, bool, lettersDelay);
     } else if ($word.parents(".banner-headline").hasClass("clip")) {
+      // "I'm" (.blc) is hidden only while the last sentence is shown
+      var prefix = $word.parents(".banner-headline").find(".blc"),
+        nextIsLast = nextWord.is(":last-child");
+      if (nextIsLast) prefix.addClass("blc--fade"); // fade out while the current sentence is clipped
       $word
         .parents(".banner-words-wrapper")
         .animate({ width: "2px" }, revealDuration, function () {
+          if (nextIsLast) {
+            prefix.addClass("blc--hidden");
+          } else if (prefix.hasClass("blc--hidden")) {
+            prefix.removeClass("blc--hidden");
+            setTimeout(function () {
+              prefix.removeClass("blc--fade"); // fade back in with the next sentence
+            }, 20);
+          }
           switchWord($word, nextWord);
           showWord(nextWord);
         });

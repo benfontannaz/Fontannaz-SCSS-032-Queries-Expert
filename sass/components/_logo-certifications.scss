@@ -12,7 +12,7 @@
 }
 
 .pro-certifications {
-  height: 10dvh;
+  height: auto; // fits the logo: the link has overflow: hidden and was 10dvh for a 12dvh logo, cutting its bottom (was 10dvh)
   width: auto;
   margin: 2dvh auto 2dvh 0px;
 }

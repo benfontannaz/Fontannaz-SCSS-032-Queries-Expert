@@ -16,14 +16,14 @@
 .header .fa-globe,
 .header .fa-signal-messenger {
   font-size: 2.2rem;
-  margin: 0 2rem;
+  margin: 0 3.38rem; // +30% +30% icon spacing (was 2rem)
   color: rgba(219, 219, 219, 0.945);
 }
 
 /* ==== Individual additional parameters & color on hover ==== */
 .header .fa-linkedin-in {
   position: relative;
-  top: -0.1rem;
+  top: 0.1rem; // vertically centred with the other icons (was -0.1rem)
   // margin: 0 2.5rem !important;
 }
 
@@ -55,10 +55,11 @@
 
 .header .icon-strategy {
   position: relative;
-  top: 0.4rem;
-  font-size: 2.6rem;
-  margin: 0 2rem;
+  top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+  font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
+  margin: 0 3.38rem; // +30% +30% icon spacing (was 2rem)
   color: rgba(219, 219, 219, 0.827);
+  -webkit-text-stroke: 0.5px currentColor; // thicker line (thin Linea glyph) - same line width as the chess pawn
 }
 
 .header .icon-strategy:hover {
@@ -68,12 +69,12 @@
 
 .header .chess-pawn {
   position: relative;
-  top: 0.3rem;
+  top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
   height: 2.5rem;
   width: 2rem;
   display: inline-block;
   // background-color: rgba(255, 255, 0, 0.493);
-  background-image: url("/img/favicon/favicon-_5_grey.svg");
+  background-image: url("/img/favicon/chess-pawn-line-grey.svg"); // line version, same line width as the strategy icon (was favicon-_5_grey.svg)
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
@@ -83,7 +84,7 @@
 }
 
 .header .chess-pawn:hover {
-  background-image: url("/img/favicon/favicon-_4_blue.svg"); // Change on hover
+  background-image: url("/img/favicon/chess-pawn-line-blue.svg"); // Change on hover (was favicon-_4_blue.svg)
 }
 
 .header .bloomio-logo {

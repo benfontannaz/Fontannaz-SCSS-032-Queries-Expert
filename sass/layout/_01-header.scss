@@ -24,8 +24,25 @@ HEADER ------------------------------------------------------------------------ 
   clip-path: polygon($clip-path-polygon-1);
   z-index: 100;
 
+  // Binary 0/1 pattern (like the LinkedIn banner), in a trapeze on the right side of the header
+  // z-index -1: above the header photo, below the dark overlay (::before) and the .header__ben-only picture
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: $header-binary-pattern,
+      linear-gradient($header-binary-pattern-tint, $header-binary-pattern-tint);
+    background-size: $header-binary-pattern-size, cover;
+    background-repeat: repeat, no-repeat;
+    clip-path: $header-binary-pattern-shape;
+    -webkit-mask-image: $header-binary-pattern-fade;
+    mask-image: $header-binary-pattern-fade;
+    animation: binaryScrollUp $header-binary-pattern-speed linear infinite; // digits move from bottom to top in a continuous loop
+    pointer-events: none;
+    z-index: -1;
+  }
+
   &__ben-only {
-    background-color: yellow;
     height: 1200px;
     width: 700px;
     background-image: url(../img/header/BenOnly@700x1200.png);
@@ -196,6 +213,19 @@ HEADER ------------------------------------------------------------------------ 
   padding: 0.2em 0;
 }
 
+// "I'm" is removed for the last sentence of the banner (see js/animated-headline.js)
+.banner-headline .blc {
+  transition: opacity 0.6s ease; // same duration as the clip animation (revealDuration)
+}
+
+.banner-headline .blc.blc--fade {
+  opacity: 0;
+}
+
+.banner-headline .blc.blc--hidden {
+  display: none;
+}
+
 .banner-headline.clip .banner-words-wrapper {
   overflow: hidden;
   vertical-align: top;
@@ -318,6 +348,24 @@ HEADER ------------------------------------------------------------------------ 
   text-shadow: 0 5px 10px $header-logo-box-color-shadow; /* Ombre X Y blur color&transparency button pressed*/
 }
 
+// Home logo turns blue on hover (like the header icons): the blue pawn sits exactly on top of the grey one
+.home__logo-box img.home__logo {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.home__logo-box .home__logo--hover {
+  margin-left: -2.8dvh; // = logo width (3.5dvh high x 20/25 ratio) -> overlaps the grey pawn
+  opacity: 0;
+}
+
+.home__logo-box a:hover img.home__logo:not(.home__logo--hover) {
+  opacity: 0;
+}
+
+.home__logo-box a:hover .home__logo--hover {
+  opacity: 1;
+}
+
 .shortcut-icon {
   color: blue;
 }
@@ -329,7 +377,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(mobile) {
   /* Breakpoint = mobile | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = portrait | Hover = none  */
   .header__ben-only {
-    // background-color: olive;
     scale: 1.2;
     top: 10dvh;
     left: -25dvw;
@@ -354,7 +401,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 5px !important;
+    margin: 0 8.45px !important; // +30% +30% icon spacing (was 5px)
   }
 
   .header .fab,
@@ -369,12 +416,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    font-size: 1.8rem;
-    top: 0.1rem;
+    font-size: 1.58rem; // +5% vs the other icons' height (was 1.8rem)
+    top: 0.13rem; // stays vertically centred
   }
 
   .header .chess-pawn {
-    top: 0.15rem;
+    top: 0.25rem; // vertically centred with the other icons (was 0.15rem)
     height: 1.8rem;
     width: 1.44rem;
   }
@@ -404,7 +451,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(mobile-land) {
   /* Breakpoint = mobile-land | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = landscape | Hover = none  */
   .header__ben-only {
-    // background-color: lightgreen;
     scale: 0.6;
     top: -60dvh;
     left: 40dvw;
@@ -430,7 +476,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 5px !important;
+    margin: 0 8.45px !important; // +30% +30% icon spacing (was 5px)
   }
 
   .header .fab,
@@ -445,12 +491,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    font-size: 1.8rem;
-    top: 0.1rem;
+    font-size: 1.58rem; // +5% vs the other icons' height (was 1.8rem)
+    top: 0.13rem; // stays vertically centred
   }
 
   .header .chess-pawn {
-    top: 0.15rem;
+    top: 0.25rem; // vertically centred with the other icons (was 0.15rem)
     height: 1.8rem;
     width: 1.44rem;
   }
@@ -480,7 +526,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(tab-s) {
   /* Breakpoint = tablet-s | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = portrait | Hover = none  */
   .header__ben-only {
-    background-color: orangered;
     scale: 1.2;
     top: 10dvh;
     left: -5dvw;
@@ -506,7 +551,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 5px !important;
+    margin: 0 8.45px !important; // +30% +30% icon spacing (was 5px)
   }
 
   .header .fab,
@@ -521,12 +566,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    font-size: 1.8rem;
-    top: 0.1rem;
+    font-size: 1.58rem; // +5% vs the other icons' height (was 1.8rem)
+    top: 0.13rem; // stays vertically centred
   }
 
   .header .chess-pawn {
-    top: 0.15rem;
+    top: 0.25rem; // vertically centred with the other icons (was 0.15rem)
     height: 1.8rem;
     width: 1.44rem;
   }
@@ -556,7 +601,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(tab-s-land) {
   /* Breakpoint = tablet-s-land | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = landscape | Hover = none  */
   .header__ben-only {
-    background-color: rgba(226, 73, 17, 0.767);
     scale: 0.8;
     top: -25dvh;
     left: 28dvw;
@@ -582,7 +626,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 5px !important;
+    margin: 0 8.45px !important; // +30% +30% icon spacing (was 5px)
   }
 
   .header .fab,
@@ -597,12 +641,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    font-size: 1.8rem;
-    top: 0.1rem;
+    font-size: 1.58rem; // +5% vs the other icons' height (was 1.8rem)
+    top: 0.13rem; // stays vertically centred
   }
 
   .header .chess-pawn {
-    top: 0.15rem;
+    top: 0.25rem; // vertically centred with the other icons (was 0.15rem)
     height: 1.8rem;
     width: 1.44rem;
   }
@@ -632,7 +676,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(tab-m) {
   /* Breakpoint = tablet-m | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = portrait | Hover = none  */
   .header__ben-only {
-    background-color: violet;
     scale: 1.2;
     top: 10dvh;
     left: 10dvw;
@@ -658,7 +701,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 10px !important;
+    margin: 0 16.9px !important; // +30% +30% icon spacing (was 10px)
   }
 
   .header .fab,
@@ -673,12 +716,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    top: 0.4rem;
-    font-size: 2.6rem;
+    top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+    font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
   }
 
   .header .chess-pawn {
-    top: 0.3rem;
+    top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
     height: 2.5rem;
     width: 2rem;
   }
@@ -708,7 +751,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(tab-m-land) {
   /* Breakpoint = tablet-m-land | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = landscape | Hover = none  */
   .header__ben-only {
-    background-color: rgba(238, 130, 238, 0.61);
     scale: 1.1;
     top: 7vh;
     left: 42dvw;
@@ -733,7 +775,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 10px !important;
+    margin: 0 16.9px !important; // +30% +30% icon spacing (was 10px)
   }
 
   .header .fab,
@@ -748,12 +790,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    top: 0.4rem;
-    font-size: 2.6rem;
+    top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+    font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
   }
 
   .header .chess-pawn {
-    top: 0.3rem;
+    top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
     height: 2.5rem;
     width: 2rem;
   }
@@ -783,7 +825,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(tab-l) {
   /* Breakpoint = tablet-l | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = portrait | Hover = none  */
   .header__ben-only {
-    background-color: red;
     scale: 1.7;
     top: 30dvh;
     left: 25dvw;
@@ -809,7 +850,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 15px !important;
+    margin: 0 25.35px !important; // +30% +30% icon spacing (was 15px)
   }
 
   .header .fab,
@@ -824,12 +865,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    top: 0.4rem;
-    font-size: 2.6rem;
+    top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+    font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
   }
 
   .header .chess-pawn {
-    top: 0.3rem;
+    top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
     height: 2.5rem;
     width: 2rem;
   }
@@ -859,7 +900,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(tab-l-land) {
   /* Breakpoint = tablet-l-land | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = landscape | Hover = none  */
   .header__ben-only {
-    background-color: rgba(255, 0, 0, 0.808);
     scale: 1.2;
     top: 12vh;
     left: 48dvw;
@@ -885,7 +925,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 15px !important;
+    margin: 0 25.35px !important; // +30% +30% icon spacing (was 15px)
   }
 
   .header .fab,
@@ -900,12 +940,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    top: 0.4rem;
-    font-size: 2.6rem;
+    top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+    font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
   }
 
   .header .chess-pawn {
-    top: 0.3rem;
+    top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
     height: 2.5rem;
     width: 2rem;
   }
@@ -935,7 +975,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(pc-xs) {
   /* Breakpoint = pc-s | min-Width= 992px or 62em | Hover = hover */
   .header__ben-only {
-    background-color: rgb(255, 224, 245);
     scale: 1.4;
     top: 20dvh;
     right: -15%;
@@ -968,12 +1007,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    font-size: 1.8rem;
-    top: 0.1rem;
+    font-size: 1.58rem; // +5% vs the other icons' height (was 1.8rem)
+    top: 0.13rem; // stays vertically centred
   }
 
   .header .chess-pawn {
-    top: 0.15rem;
+    top: 0.25rem; // vertically centred with the other icons (was 0.15rem)
     height: 1.8rem;
     width: 1.44rem;
   }
@@ -993,7 +1032,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(pc-s) {
   /* Breakpoint = pc-s | min-Width= 992px or 62em | Hover = hover */
   .header__ben-only {
-    background-color: lightcyan;
     scale: 1.4;
     top: 20dvh;
     left: 25dvw;
@@ -1027,12 +1065,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    font-size: 1.8rem;
-    top: 0.1rem;
+    font-size: 1.58rem; // +5% vs the other icons' height (was 1.8rem)
+    top: 0.13rem; // stays vertically centred
   }
 
   .header .chess-pawn {
-    top: 0.15rem;
+    top: 0.25rem; // vertically centred with the other icons (was 0.15rem)
     height: 1.8rem;
     width: 1.44rem;
   }
@@ -1052,7 +1090,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(pc-m) {
   /* Breakpoint = pc-m | min-Width= 1025px or 64.063em | Hover = hover */
   .header__ben-only {
-    background-color: cyan;
     scale: 1.25;
     top: 25vh;
     left: 50vw;
@@ -1087,12 +1124,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    top: 0.4rem;
-    font-size: 2.6rem;
+    top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+    font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
   }
 
   .header .chess-pawn {
-    top: 0.3rem;
+    top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
     height: 2.5rem;
     width: 2rem;
   }
@@ -1112,7 +1149,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(pc-l) {
   /* Breakpoint = pc-l | min-Width= 1281px or 80.063em | Hover = hover */
   .header__ben-only {
-    background-color: mediumaquamarine;
     scale: 1.35;
     top: 25vh;
     left: 60vw;
@@ -1138,7 +1174,7 @@ HEADER ------------------------------------------------------------------------ 
   .fab-box i,
   .fab-box div,
   .fab-box span {
-    margin: 0 10px !important;
+    margin: 0 16.9px !important; // +30% +30% icon spacing (was 10px)
   }
 
   .header .fab,
@@ -1153,12 +1189,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    top: 0.4rem;
-    font-size: 2.6rem;
+    top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+    font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
   }
 
   .header .chess-pawn {
-    top: 0.3rem;
+    top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
     height: 2.5rem;
     width: 2rem;
   }
@@ -1178,7 +1214,6 @@ HEADER ------------------------------------------------------------------------ 
 @include respond(pc-xl) {
   /* Breakpoint = pc-xl | min-Width= 2560px or 160em | Hover = hover */
   .header__ben-only {
-    background-color: darkcyan;
     scale: 1.65;
     top: 35dvh;
     left: 65dvw;
@@ -1214,12 +1249,12 @@ HEADER ------------------------------------------------------------------------ 
   }
 
   .header .icon-strategy {
-    top: 0.4rem;
-    font-size: 2.6rem;
+    top: 0.2rem; // vertically centred with the other icons (was 0.4rem)
+    font-size: 2.2rem; // +5% vs the other icons' height (was 2.6rem)
   }
 
   .header .chess-pawn {
-    top: 0.3rem;
+    top: 0.43rem; // vertically centred with the other icons (was 0.3rem)
     height: 2.5rem;
     width: 2rem;
   }

@@ -21,7 +21,7 @@
 }
 
 .main-timeline .timeline {
-  margin-bottom: 40px;
+  margin-bottom: 20px; // divided by 2 (was 40px)
   position: relative;
 }
 .main-timeline .timeline:after {
@@ -172,12 +172,17 @@
 .experiences-skills-box {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; // tags that don't fit move to a new line below
+  row-gap: 0.6rem; // space between two lines of tags
 }
 
 .experiences-skills {
   margin: 0dvh 0.3dvw 0.3dvw 0.3dvw;
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.3rem; // more readable (was 1.2rem)
+  font-weight: 500; // more readable (was 300)
+  letter-spacing: 0.03em;
+  white-space: nowrap; // the text of a tag always stays on one line
+  flex: 0 0 auto; // a tag never shrinks (it wraps to the next line instead)
   // line-height: 1.7rem;
   color: white;
   padding: 0.2rem 1.5rem;
@@ -187,27 +192,27 @@
 }
 
 .experiences-skills-1 {
-  background-color: rgba(227, 43, 6, 0.907);
+  background-color: rgb(196, 36, 4); // darker red: white text contrast 5.8:1 (was rgba(227, 43, 6, 0.907) = 4.2:1)
 }
 
 .experiences-skills-2 {
-  background-color: rgba(14, 20, 37, 0.907);
+  background-color: rgb(14, 20, 37); // solid (was 0.907 opacity)
 }
 
 .experiences-skills-3 {
-  background-color: rgba(19, 93, 62, 0.907);
+  background-color: rgb(19, 93, 62); // solid (was 0.907 opacity)
 }
 
 .experiences-skills-4 {
-  background-color: rgba(14, 20, 37, 0.907);
+  background-color: rgb(14, 20, 37); // solid (was 0.907 opacity)
 }
 
 .experiences-skills-5 {
-  background-color: rgba(70, 143, 195, 0.907);
+  background-color: rgb(36, 104, 153); // darker blue: white text contrast 6:1 (was rgba(70, 143, 195, 0.907) = 3.1:1)
 }
 
 .experiences-skills-6 {
-  background-color: rgba(14, 20, 37, 0.907);
+  background-color: rgb(14, 20, 37); // solid (was 0.907 opacity)
 }
 
 .timeline .title {
@@ -249,7 +254,7 @@
   }
 
   .main-timeline .timeline {
-    margin-bottom: 20px;
+    margin-bottom: 10px; // divided by 2 (was 20px)
   }
   .main-timeline .timeline:last-child {
     margin-bottom: 0;
@@ -362,4 +367,12 @@ ul .section-experiences-list {
   text-align: justify;
   color: rgb(119, 119, 119);
   list-style-type: disc;
+}
+
+/* Experience section - hidden content: all descriptions (left and right) and bullet lists (both experience sections) */
+.section-experiences .description,
+.section-experiences .section-experiences-list,
+.section-experiences-sm .description,
+.section-experiences-sm .section-experiences-list {
+  display: none;
 }

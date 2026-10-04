@@ -4,12 +4,36 @@
   margin-top: 7dvh;
 }
 
+// "Certifications" title: more space from the skills of the last degree above
+.heading-2-education--certifications {
+  margin-top: 14dvh; // was 7dvh (like the "Degrees" title)
+
+  .heading-2 {
+    margin-bottom: 4rem; // divided by 2 (was 8rem, from .heading-2 in _typography.scss)
+  }
+}
+
+.heading-3-education {
+  text-align: center; // the sub-headings (.heading-3: Certificates, Professional Studies ...) are centred
+}
+
 .heading-3-education h3 {
   margin: 2dvh 0 1dvh 0;
   font-size: 3rem;
 }
 
+// Certificates and Professional Studies: their logos rows are centred
+// (.d-flex rows; .education-scroll-5 is also the class of the Certificates container itself)
+.d-flex.education-scroll-5 {
+  justify-content: center;
+}
+
+.heading-3-education-pro-studies {
+  display: none; // hidden ("Professional Studies" sub-heading)
+}
+
 .heading-3-education-certifications {
+  display: none; // hidden ("Certifications" sub-heading)
   margin: 2dvh 0 2dvh 0;
 }
 
@@ -28,6 +52,7 @@
 }
 
 .education-container-0 {
+  display: none; // hidden ("Degrees" sub-heading)
   height: 3dvh;
   margin-top: 5dvh;
   margin-bottom: 1.5dvh;
@@ -43,10 +68,14 @@
 
 .education-container-2,
 .education-container-3 {
-  height: 20dvh;
+  height: auto; // fits its content (was 20dvh)
   margin-top: 4dvh;
   margin-bottom: 1.5dvh;
   // background-color: rgba(245, 245, 220, 0.858);
+}
+
+.education-container-3 {
+  display: none; // hidden (European University Business School container)
 }
 
 /*
@@ -74,6 +103,20 @@
   height: 20dvh;
   // background-color: rgba(63, 63, 186, 0.709);
   margin-bottom: 2dvh;
+}
+
+.education-row-2 {
+  height: auto; // fits its content: the two Bachelor degrees (was 20dvh)
+
+  // the studies block and the logo + degrees box also fit their content (were fixed at 10dvh / 11dvh)
+  .education-row-studies-2,
+  .education-box-studies-2 {
+    height: auto;
+  }
+}
+
+.education-row-3 {
+  display: none; // hidden (European University Business School)
 }
 
 .education-row-title {
@@ -116,6 +159,14 @@
   height: 4dvh;
 }
 
+// IMD and second school names centred (shrink-to-fit block: the text gradient keeps the width of the text)
+.education-row-title-1,
+.education-row-title-2 {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .education-row-studies {
   height: 10dvh;
   flex-direction: left;
@@ -156,8 +207,9 @@
 
 .education-degree-skills {
   margin: 0.2dvh 0.3dvw;
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.3rem; // more readable, same as .experiences-skills (was 1.2rem)
+  font-weight: 500; // more readable, same as .experiences-skills (was 300)
+  letter-spacing: 0.03em;
   // line-height: 1.7rem;
   color: white;
   padding: 0.2rem 1.5rem;
@@ -167,11 +219,11 @@
 }
 
 .education-degree-skills-1 {
-  background-color: rgba(37, 56, 112, 0.907);
+  background-color: rgb(37, 56, 112); // solid: white text contrast 11.2:1 (was rgba(37, 56, 112, 0.907))
 }
 .education-degree-skills-2,
 .education-degree-skills-3 {
-  background-color: rgba(15, 140, 119, 0.901);
+  background-color: rgb(11, 110, 94); // darker teal: white text contrast 6.2:1 (was rgba(15, 140, 119, 0.901) = 3.6:1)
 }
 
 .business-school-imd {
@@ -232,12 +284,12 @@
 
 .education-degree-ligne-0 {
   display: block;
-  margin: 0.5dvh 0.3dvw 0.8dvh 0.3dvw;
+  margin: 0.5dvh 0.3dvw 0 0.3dvw; // no bottom margin (was 0.8dvh)
 }
 
 .education-degree-ligne-1 {
   display: block;
-  margin: 0.5dvh 0.3dvw 0.8dvh 0.3dvw;
+  margin: 0 0.3dvw; // no top / bottom margin (was 0.5dvh top, 0.8dvh bottom)
 }
 
 /*
@@ -252,7 +304,13 @@
   display: inline-flex;
 }
 
+// space between two degrees (was given by .education-degree-ligne-3, now hidden)
+.education-degree-ligne-2 {
+  margin-bottom: 4dvh;
+}
+
 .education-degree-ligne-3 {
+  display: none; // hidden ("Discovery Expeditions" line of each degree)
   margin-top: 1dvh;
   margin-bottom: 4dvh;
 }
@@ -375,25 +433,34 @@
 }
 
 .pro-certifications-img {
+  display: block; // no baseline gap under the logo
   height: 12dvh;
   width: auto;
 }
 
-.education-scroll-7 {
+// Certifications: the 12 logos are split in 2 groups of 6 (.education-scroll-7) in index.html.
+// The groups are ignored for the layout (display: contents) so the 12 logos flow as one flex row that wraps:
+// 2 lines of 6 on wide screens, 3 lines or more as the width diminishes.
+.education-scroll-4 .certifs > div {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  column-gap: 2rem;
 }
+
+.education-scroll-7 {
+  display: contents; // was a flex row (nowrap) per group of 6
+}
+
 .pro-certifications-box {
-  margin: 0 auto 4dvh auto;
-}
-
-.pro-certifications-box:first-of-type {
-  margin-left: 0;
-}
-
-.pro-certifications-box:last-of-type {
-  margin-right: 0;
+  // 6 logos per line (= 2 lines for the 12 certifications) ...
+  flex: 0 0 calc((100% - 5 * 2rem) / 6);
+  // ... but never narrower than a logo (12dvh high badge): below that width the logos wrap to more lines
+  min-width: calc(12dvh + 1rem);
+  display: flex;
+  justify-content: center;
+  margin: 0 0 4dvh 0; // the left / right space is given by the column-gap (was 0 auto 4dvh auto)
 }
 
 .pro-certifications-box a {
@@ -438,4 +505,113 @@
 .education-scroll-7 img::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
+}
+
+/* ---- Tablet view (481px - 1024px wide): Certifications shown, Certificates and Professional Studies hidden ----
+   (the section height then follows the remaining content, see js/services-height.js) */
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+  // the certification logos column is "d-none d-lg-block" (hidden below 992px): shown on tablets
+  .education-container-4.education-scroll-4 .col-12.d-none.d-lg-block {
+    display: block !important;
+  }
+
+  .education-container-4.education-scroll-5, // Certificates
+  .education-container-4.education-scroll-6 {
+    // Professional Studies
+    display: none;
+  }
+}
+
+// (at the end of the file: these rules must come after the generic .education-row-studies / -box-studies rules)
+// IMD degree: the skills line (.education-degree-ligne-2) is placed in index.html outside and below
+// .education-row-studies-1 (logo + degree title + dates), on its own row.
+.education-row-1,
+.education-row-studies-1,
+.education-box-studies-1 {
+  height: auto; // fit the content (were fixed at 20dvh / 10dvh / 11dvh)
+}
+
+// IMD logo + degree title + dates block centred (shrink-to-fit flex box)
+.education-row-studies-1 {
+  display: flex; // was inline-flex
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-row-1 > .education-degree-ligne-2 {
+  margin-top: -3.5dvh; // closer to the degree above (.education-row-studies has a 5dvh bottom margin)
+
+  // skills centred, like the logo + degree block above
+  .education-degree-skills-box {
+    display: flex; // was inline-flex
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+// European University (EU) row: same layout as the IMD row. In index.html each degree's skills line
+// (.education-degree-ligne-2) is outside and below its degree: logo + BBA (title, dates) / BBA skills /
+// BPR (title, dates: .education-degree-lignes-2nd) / BPR skills.
+.education-row-2,
+.education-row-studies-2,
+.education-box-studies-2 {
+  height: auto; // fit the content
+}
+
+// BBA title + dates (the EU logo is now next to the school name), and the BPR title + dates: centred (shrink-to-fit blocks)
+.education-row-studies-2,
+.education-row-2 > .education-degree-lignes-2nd {
+  display: flex; // was inline-flex
+  flex-direction: column;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-row-studies-2 {
+  flex-direction: row;
+}
+
+// BBA skills: closer to the degree above (.education-row-studies has a 5dvh bottom margin)
+.education-row-2 > .education-row-studies-2 + .education-degree-ligne-2 {
+  margin-top: -3.5dvh;
+}
+
+// BPR skills: same space above them as the other degrees' skills (dates -> skills: 14px on a 813px high window)
+.education-row-2 > .education-degree-lignes-2nd + .education-degree-ligne-2 {
+  margin-top: 1.6dvh;
+}
+
+// skills centred
+.education-row-2 > .education-degree-ligne-2 .education-degree-skills-box {
+  display: flex; // was inline-flex
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+// School logo (IMD, EU) before the school name, on the same row (both centred together)
+.education-school-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5dvh;
+
+  .business-school {
+    margin-right: 0; // the gap gives the space (was 1.5dvh right margin)
+  }
+
+  .education-row-title {
+    margin-left: 0; // centred by the flex container (was auto)
+    margin-right: 0;
+    margin-bottom: 0; // no bottom margin: logo and name are vertically centred on each other (was 0.5dvh)
+  }
+
+  // IMD: the name is centred on the "IMD" letters of the logo, not on the whole image (crown above the letters).
+  // Measured in IMD-logo-transparent.png (2822 x 1928): letters = rows 794-1891 -> centre at 69.6% of the image
+  // height; the image is drawn 4.78dvh high (7dvh box, background-size: contain) -> 0.94dvh below the box centre.
+  .education-row-title-1 {
+    position: relative;
+    top: 0.94dvh;
+  }
 }

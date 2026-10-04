@@ -29,6 +29,11 @@ section ABOUT ---------------------------------------- */
   max-width: 1270px !important;
   margin: 0 auto !important;
   margin-bottom: 0 !important;
+
+  // tablet portrait (481px - 900px wide): left and right margins divided by 2 (20% -> 10% each side)
+  @media only screen and (min-width: 30.0625em) and (max-width: 56.25em) and (orientation: portrait) {
+    width: 80% !important; // was 60%
+  }
 }
 
 .about-para {
@@ -60,7 +65,7 @@ section ABOUT ---------------------------------------- */
 }
 
 .certified-logo {
-  margin-top: 1dvh;
+  margin-top: 6dvh; // tripled then doubled (was 1dvh)
 }
 
 .signature-box {

@@ -162,4 +162,67 @@ $("a.hinge").magnificPopup({
   midClick: true,
 });
 
+// Services popups - "Contact Enquiry" button: close the popup, then scroll to the contact form
+$(document).on("click", ".boutton-popup-close", function (e) {
+  e.preventDefault();
+  var target = $(this).attr("href");
+  $.magnificPopup.close();
+  // wait for the removalDelay (500ms) so the popup has gone and the page can scroll again
+  setTimeout(function () {
+    $("html, body").animate({ scrollTop: $(target).offset().top }, 600);
+  }, 550);
+});
+
 // ==== Magnific Popup CSS3-based animation effects ==== END
+
+// ==== Projects gallery popup: grey overlay with the project details ==== START
+// js/scripts.js and js/preloader.js (another jQuery copy) also initialise .gallery; their options are stored on the
+// element itself, so this initialisation runs on document ready AND on window load to be the last one applied.
+// The texts come from the hidden .project-details block of each gallery item (index.html, Projects section).
+function initProjectsPopup() {
+  $(".section-projects .gallery").magnificPopup({
+    delegate: ".popimg",
+    type: "image",
+    mainClass: "mfp-projects", // scopes the projects popup styles (_07-projects.scss)
+    gallery: { enabled: true },
+    image: {
+      markup:
+        '<div class="mfp-figure">' +
+        '<div class="mfp-close"></div>' +
+        "<figure>" +
+        '<div class="mfp-img"></div>' +
+        '<div class="mfp-project-details">' +
+        '<div class="mfp-project-col">' +
+        '<h4 class="mfp-project-heading">Challenges &amp; Pains</h4>' +
+        '<div class="mfp-challenges"></div>' +
+        "</div>" +
+        '<div class="mfp-project-col">' +
+        '<h4 class="mfp-project-heading">Accomplishments &amp; Results</h4>' +
+        '<div class="mfp-results"></div>' +
+        "</div>" +
+        "</div>" +
+        "<figcaption>" +
+        '<div class="mfp-bottom-bar">' +
+        '<div class="mfp-title"></div>' +
+        '<div class="mfp-counter"></div>' +
+        "</div>" +
+        "</figcaption>" +
+        "</figure>" +
+        "</div>",
+    },
+    callbacks: {
+      markupParse: function (template, values, item) {
+        var details = item.el.siblings(".project-details");
+        values.challenges = details.find(".project-challenges").html() || "";
+        values.results = details.find(".project-results").html() || "";
+        // project name under the image, on one line ("Assura · Enterprise Architecture · ...")
+        values.title = (item.el.siblings("h6").html() || "").split(/<br\s*\/?>/i).map($.trim).join(" &middot; ");
+        // no details block -> no overlay (class, not .toggle(): .toggle() would force display: block over the flex layout)
+        template.find(".mfp-project-details").toggleClass("mfp-project-details--empty", details.length === 0);
+      },
+    },
+  });
+}
+$(initProjectsPopup);
+$(window).on("load", initProjectsPopup);
+// ==== Projects gallery popup: grey overlay with the project details ==== END

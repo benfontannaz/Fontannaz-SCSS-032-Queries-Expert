@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25" fill="none" stroke="#2f43ee" stroke-opacity="0.94" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Chess pawn, line version (header icon) - same line width as the other header icons -->
+  <circle cx="10" cy="6.2" r="4.2"/>
+  <rect x="4.6" y="11.6" width="10.8" height="2.6" rx="1.3"/>
+  <path d="M7.2 14.2 L5.9 20.2 M12.8 14.2 L14.1 20.2"/>
+  <rect x="2.6" y="20.2" width="14.8" height="3.6" rx="1.2"/>
+</svg>
