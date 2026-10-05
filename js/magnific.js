@@ -226,3 +226,13 @@ function initProjectsPopup() {
 $(initProjectsPopup);
 $(window).on("load", initProjectsPopup);
 // ==== Projects gallery popup: grey overlay with the project details ==== END
+
+// ==== Services detail popups: a click outside the card closes the popup ==== START
+// The popup content (.carte-details-section-row) is almost as wide as the window, with the card in the middle:
+// a click beside the card hits the popup content, not the dark background, so Magnific does not close by itself.
+$(document).on("click", ".mfp-content .carte-details-section-row", function (e) {
+  if (!$(e.target).closest(".carte-details__side").length) {
+    $.magnificPopup.close();
+  }
+});
+// ==== Services detail popups: a click outside the card closes the popup ==== END
