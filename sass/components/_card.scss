@@ -103,15 +103,19 @@
     }
 
     &--3 {
-      background-image: linear-gradient(
+      // 3 layers: AI chip logo, royal blue (top left, above the laptop) / colour gradient / devices mockup
+      background-image: url(/img/icons/ai-chip-blue.svg),
+        linear-gradient(
           to right bottom,
           $services-card3-front-color-background-image-top,
           $services-card3-front-color-background-image-bottom
         ),
         url(/img/Mockups/AppleDevicesBundleMockup_002_cropped@0.25x-top.png);
-      background-position: top;
-      background-size: contain;
+      background-position: 5% 8%, center, top;
+      background-size: 7rem, cover, contain;
       background-repeat: no-repeat;
+      // chip: normal (screen would wash out the royal blue); gradient screen-blended over the mockup as before
+      background-blend-mode: normal, screen, normal;
     }
   }
 
@@ -288,6 +292,21 @@
 .icon-laptop,
 .icon-mobile {
   font-size: 3rem;
+}
+
+// AI chip icon (back of the "AI & Modern Workplace" card): the ai-chip.svg drawing used as a mask,
+// filled with the text colour (white) like the line icons next to it
+.icon-ai-chip {
+  display: inline-block;
+  width: 4.4rem;
+  height: 4.4rem;
+  margin: 0 1rem 3rem 0;
+  vertical-align: bottom;
+  position: relative;
+  top: 0.7rem; // same bottom line as the laptop / desktop / mobile icons
+  background-color: currentColor;
+  -webkit-mask: url(/img/icons/ai-chip.svg) center / contain no-repeat;
+  mask: url(/img/icons/ai-chip.svg) center / contain no-repeat;
 }
 
 .services-row-1 {

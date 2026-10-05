@@ -25,7 +25,7 @@ HEADER ------------------------------------------------------------------------ 
   z-index: 100;
 
   // Binary 0/1 pattern (like the LinkedIn banner), in a trapeze on the right side of the header
-  // z-index -1: above the header photo, below the dark overlay (::before) and the .header__ben-only picture
+  // z-index 2: above the header photo and the dark overlay ([data-overlay-dark]::before, z-index 1), below the .header__ben-only picture (z-index 3)
   &::after {
     content: "";
     position: absolute;
@@ -39,7 +39,7 @@ HEADER ------------------------------------------------------------------------ 
     mask-image: $header-binary-pattern-fade;
     animation: binaryScrollUp $header-binary-pattern-speed linear infinite; // digits move from bottom to top in a continuous loop
     pointer-events: none;
-    z-index: -1;
+    z-index: 2; // above the grey overlay (was -1)
   }
 
   &__ben-only {
@@ -55,7 +55,10 @@ HEADER ------------------------------------------------------------------------ 
     animation: fadeInLeftBig 1.6s ease-out 1s; // animation - name / duration / function / delay
     animation-fill-mode: backwards; // set the opacity to zero prior the animation starts with a delay when configured
     animation-iteration-count: 1;
-    z-index: 0;
+    z-index: 3; // above the 0/1 pattern and the grey overlay (was 0)
+    // same darkening as the grey overlay (data-overlay-dark="4": black 40%) it was under before, so the white
+    // header text and icons that cross the picture stay readable
+    filter: brightness(0.6);
   }
 }
 

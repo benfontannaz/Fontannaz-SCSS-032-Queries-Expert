@@ -615,3 +615,12 @@
     top: 0.94dvh;
   }
 }
+
+// IMD and European University degree rows: 10% more space left and right (of the container width).
+// Set on the rows, not on .education-container-2 itself: in index.html that container also wraps the
+// Certifications / Certificates blocks, which would be narrowed too.
+.education-row-1,
+.education-row-2 {
+  margin-left: 10%;
+  margin-right: 10%;
+}

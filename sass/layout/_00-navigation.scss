@@ -4,7 +4,7 @@
   }
 
   &__button {
-    background-color: $nav-boutton-color-background;
+    background-color: rgba($nav-boutton-color-background, 0.8); // 20% transparent (was solid white)
     height: 4.5rem;
     width: 4.5rem;
     position: fixed;

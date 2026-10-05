@@ -183,15 +183,21 @@
     }
 
     &--3 {
-      background-image: linear-gradient(
+      // 3 layers (top to bottom): devices mockup (opaque, above everything) /
+      // circuitry connected to the AI chip, light royal blue (img/icons/ai-circuit-bg.svg) / colour gradient
+      background-image: url(/img/Mockups/AppleDevicesBundleMockup_005_cropped@0.25x-Expanded.png),
+        url(/img/icons/ai-circuit-bg.svg),
+        linear-gradient(
           to right bottom,
           $services-card3-front-color-background-image-top,
           $services-card3-front-color-background-image-bottom
-        ),
-        url(/img/Mockups/AppleDevicesBundleMockup_005_cropped@0.25x-Expanded.png);
-      background-position: center;
-      background-size: contain;
+        );
+      // mockup: centred then moved 10% of the picture width to the right
+      // (10cqw = 10% of the width of .carte-details__front, the size container, as wide as the picture)
+      background-position: calc(50% + 10cqw) center, left center, center;
+      background-size: contain, cover, cover;
       background-repeat: no-repeat;
+      background-blend-mode: normal; // opaque mockup above the dark blue circuitry (no screen blend: was screen, normal, normal)
     }
   }
 
@@ -300,6 +306,19 @@
 .carte-details__box-icons-3-3 {
   font-size: 4rem;
   text-align: center;
+}
+
+// the popup front side is a size container: "cqw" units in its picture are % of its width (see &__picture--3)
+.carte-details__front {
+  container-type: inline-size;
+}
+
+// AI chip in the "AI & Modern Workplace" popup (.icon-ai-chip in _card.scss: grey here, the colour of the icons)
+.carte-details__box-icons .icon-ai-chip {
+  width: 5.5rem; // as large as the desktop icon (5rem glyph)
+  height: 5.5rem;
+  margin: 0 1rem 3rem 0;
+  top: 0.9rem; // same bottom line as the laptop / desktop / mobile icons
 }
 
 .carte-details__box-p1 p,
