@@ -34,9 +34,20 @@ HEADER ------------------------------------------------------------------------ 
       linear-gradient($header-binary-pattern-tint, $header-binary-pattern-tint);
     background-size: $header-binary-pattern-size, cover;
     background-repeat: repeat, no-repeat;
-    clip-path: $header-binary-pattern-shape;
-    -webkit-mask-image: $header-binary-pattern-fade;
-    mask-image: $header-binary-pattern-fade;
+    // 2 masks, intersected: the top-to-bottom fade / the soft diagonal edge.
+    // The diagonal gradient layer is 2 x 4 times the header (200% x 400%) and centred on the middle of the diagonal
+    // (calc(28% - 186px) 50%): its corner-to-corner direction then has exactly the slope of the diagonal
+    // (50% of the width over the full height), so the fading band follows the diagonal at any screen size.
+    -webkit-mask-image: $header-binary-pattern-fade, $header-binary-pattern-diagonal;
+    mask-image: $header-binary-pattern-fade, $header-binary-pattern-diagonal;
+    -webkit-mask-size: 100% 100%, 200% 400%;
+    mask-size: 100% 100%, 200% 400%;
+    -webkit-mask-position: 0 0, calc(28% - 186px) 50%;
+    mask-position: 0 0, calc(28% - 186px) 50%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
     animation: binaryScrollUp $header-binary-pattern-speed linear infinite; // digits move from bottom to top in a continuous loop
     pointer-events: none;
     z-index: 2; // above the grey overlay (was -1)
