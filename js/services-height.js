@@ -156,19 +156,20 @@
     document.documentElement.style.setProperty("--resources-extra", extra + "px");
   }
 
-  // Phones (up to 480px wide): the contact form is taller (full-width fields), so the SEND button reached the
-  // angled bottom edge of the Contact section. --contact-extra makes the section taller so the space below the
-  // button = the end space of the other sections (the logos' margin-top). 0 on larger screens.
+  // All screens: the Contact section ends a fixed space below the SEND button (the end space of the other
+  // sections, the logos' margin-top: 6dvh). Its height is in dvh but the form in rem, so the space below the
+  // button went from 18px to 200px depending on the screen. --contact-extra (negative: shorter) adjusts the
+  // section height; <main> (the page) changes by the same amount, so at the end of the page the angled edge
+  // stays at the same place above the map: only the space above the edge changes.
+  // On phones, the section also goes --contact-cover (dvh) further down over the map.
   function updateContact(vh) {
     var contact = document.querySelector(".section-contact");
     var button = contact && contact.querySelector(".boutton-contact");
+    if (!button) return;
     var root = document.documentElement;
-    if (!button || window.innerWidth > 480) {
-      root.style.setProperty("--contact-extra", "0px");
-      return;
-    }
+    var cover = (parseFloat(getComputedStyle(root).getPropertyValue("--contact-cover")) || 0) * vh / 100;
     var buttonBottom = button.getBoundingClientRect().bottom + window.scrollY - pageTop(contact);
-    var extra = Math.max(0, Math.ceil(buttonBottom + sectionEndSpace() - CONTACT_CLIP_SIDE * vh));
+    var extra = Math.ceil(buttonBottom + sectionEndSpace() - CONTACT_CLIP_SIDE * vh - cover);
     root.style.setProperty("--contact-extra", extra + "px");
   }
 

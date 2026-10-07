@@ -28028,9 +28028,6 @@ body {
     line-height: 4.8rem;
     top: 12.7rem;
   }
-  .carte__heading-span--3 {
-    font-size: min(2.7rem, 6.1vw - 7.3px);
-  }
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
   .carte__heading-span--1,

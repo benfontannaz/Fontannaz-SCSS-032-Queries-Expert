@@ -59,8 +59,8 @@ $clip-path-polygon-resources: 0 0, 50% #{$section-sep}, 100% 0,
   0 calc(222dvh + #{$resources-extra});
 
 // Contact: 8dvh taller than before (sides 75dvh -> 83dvh) for more space below the SEND button (pages/_home.scss)
-// $contact-extra: height added on phones by js/services-height.js when the form (taller on phones) reaches the
-// angled bottom edge (0px on larger screens or without JavaScript)
+// $contact-extra: height added (or removed, if negative) by js/services-height.js so the section ends 6dvh below
+// the SEND button on every screen (0px without JavaScript)
 $contact-extra: var(--contact-extra, 0px);
 // $contact-cover: the Contact section goes further down over the footer map (5dvh on phones, see pages/_home.scss).
 // Not added to the <main> height: the end of the page does not move, so the section covers more of the map
