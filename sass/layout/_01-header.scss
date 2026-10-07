@@ -691,7 +691,8 @@ HEADER ------------------------------------------------------------------------ 
   /* Breakpoint = tablet-m | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = portrait | Hover = none  */
   .header__ben-only {
     scale: 1.2;
-    top: 10dvh;
+    top: 23dvh; // lower (was 10dvh): the picture always reaches below the header bottom, even after the
+    // scroll parallax (js/scripts.js moves it up while scrolling) - iPad Air / Pro 11" portrait showed its bottom edge
     left: 10dvw;
   }
 

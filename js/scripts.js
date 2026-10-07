@@ -143,6 +143,17 @@ $(function () {
     });
   }
 
+  // Projects filter: the items that are not in the selected filter are hidden (.is-filtered-out, _07-projects.scss),
+  // so the visible ones are laid out and centred by the browser (3, 2 or 1 per line)
+  document.addEventListener("click", function (e) {
+    var span = e.target.closest && e.target.closest(".section-projects .filtering span");
+    if (!span) return;
+    var filter = span.getAttribute("data-filter");
+    document.querySelectorAll(".section-projects .gallery .items").forEach(function (item) {
+      item.classList.toggle("is-filtered-out", filter !== "*" && !item.matches(filter));
+    });
+  });
+
   $(window).on("load", function () {
     var wind = $(window);
     wind.stellar();

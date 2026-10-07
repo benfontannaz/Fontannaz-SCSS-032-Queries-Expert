@@ -4,6 +4,12 @@
   margin-top: 7dvh;
 }
 
+// "Education" title: no bottom margin (was 8rem, from .heading-2 in _typography.scss).
+// The "Certifications" title keeps its own 4rem below
+.heading-2-education:not(.heading-2-education--certifications) .heading-2 {
+  margin-bottom: 0;
+}
+
 // "Certifications" title: more space from the skills of the last degree above
 .heading-2-education--certifications {
   margin-top: 14dvh; // was 7dvh (like the "Degrees" title)
@@ -623,4 +629,66 @@
 .education-row-2 {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+// Tablet and mobile (up to 1024px wide, the tablet view and below): the degree skills and the school names
+// (IMD, European University) are hidden; the school logos stay
+@media only screen and (max-width: 64em) {
+  .education-school-head .education-row-title-1,
+  .education-school-head .education-row-title-2 {
+    display: none;
+  }
+
+  .education-degree-skills-box {
+    display: none !important; // overrides the display: flex of the centred IMD / EU skills rows
+  }
+
+  // without the skills, the second EU degree (BPR) keeps some space from the first one (BBA)
+  .education-row-2 > .education-degree-lignes-2nd {
+    padding-top: 4dvh; // padding, not margin: a margin would collapse with the empty skills line margins above
+  }
+}
+
+// Tablet and mobile (up to 1024px wide): the degree titles and dates (.education-degree-ligne-0 / -1) are
+// left justified, all starting at the same left edge (the degree blocks are not centred one by one)
+@media only screen and (max-width: 64em) {
+  .education-row-studies-1,
+  .education-row-studies-2,
+  .education-row-2 > .education-degree-lignes-2nd {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .education-degree-ligne-0,
+  .education-degree-ligne-1 {
+    text-align: left;
+  }
+}
+
+// Tablet and mobile (up to 1024px wide): school logo closer to its degrees.
+// The logos are drawn centred ("contain") in a 7dvh square, leaving empty space below them: the box is lower
+// and the logo sits at its bottom, followed by a small, even gap.
+@media only screen and (max-width: 64em) {
+  .education-school-head {
+    margin-bottom: 1.5dvh;
+  }
+
+  .education-school-head .business-school {
+    height: 5dvh; // was 7dvh
+    width: 7dvh;
+    background-position: center bottom;
+  }
+
+  .education-row-1 .education-degree-ligne-0 {
+    margin-top: 0; // was 0.5dvh
+  }
+}
+
+// Mobile (up to 480px wide): the "Certifications" title and the "Certificates" sub-title are hidden
+// (their logos are not shown on mobile: .d-none .d-lg-block columns)
+@media only screen and (max-width: 30em) {
+  .heading-2-education--certifications,
+  .heading-3-education-certificates {
+    display: none;
+  }
 }

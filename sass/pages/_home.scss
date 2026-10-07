@@ -1,6 +1,16 @@
+// Depth of the V separators between the sections ($section-sep in abstracts/_variables.scss)
+:root {
+  --section-sep: 8dvh;
+
+  // mobile (up to 480px wide): half as deep, a flatter angle
+  @media only screen and (max-width: 30em) {
+    --section-sep: 4dvh;
+  }
+}
+
 // ========== SECTION SERVICES START
 main {
-  height: calc(1253dvh + #{$services-extra} + #{$experiences-extra} + #{$education-extra} + #{$projects-extra} + #{$resources-extra}); /* provibe the bottom length after all absolute sections to view the fixed footer */
+  height: calc(1261dvh + #{$services-extra} + #{$experiences-extra} + #{$education-extra} + #{$projects-extra} + #{$resources-extra}); /* provibe the bottom length after all absolute sections to view the fixed footer */
   background-color: #000;
 }
 
@@ -201,7 +211,7 @@ main {
   position: absolute;
   top: calc(1240dvh + #{$services-extra} + #{$experiences-extra} + #{$education-extra} + #{$projects-extra} + #{$resources-extra});
   width: 100%;
-  height: 83dvh;
+  height: 91dvh; // 8dvh more space between the SEND button and the end of the section (was 83dvh)
   padding: 16dvh 0 30dvh 0;
 
   // background-color: white;

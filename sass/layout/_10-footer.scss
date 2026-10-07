@@ -137,12 +137,12 @@ footer #it-crowd {
   position: relative;
   overflow: hidden;
   height: 70dvh;
-  bottom: -1dvh;
+  // no downward shift (was bottom: -1dvh): the map ends exactly above the contact / icons rows
 }
 
 .map-responsive iframe {
   left: 0;
-  bottom: -20dvh;
+  bottom: 0; // the map fills its box (was -20dvh: black band above the map, its bottom cut off)
   height: 100%;
   width: 100%;
   position: absolute;
@@ -157,6 +157,7 @@ footer #it-crowd {
 
 .fab-box-footer {
   margin: 0 0 !important;
+  padding-top: 1rem; // a little space below the map (or the contact row)
   text-align: center;
 }
 
@@ -402,5 +403,12 @@ footer #it-crowd {
 @include respond(pc-l) {
   .fab-box-footer a > * {
     margin: 0 16.9px !important; // as the header (pc-l)
+  }
+}
+
+// Tablet and mobile (up to 1024px wide): the footer contact information row is hidden
+@media only screen and (max-width: 64em) {
+  #footer-row {
+    display: none;
   }
 }

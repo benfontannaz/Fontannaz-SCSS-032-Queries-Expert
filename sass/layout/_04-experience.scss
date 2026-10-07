@@ -6,6 +6,11 @@
   margin-bottom: 7dvh;
 }
 
+// "Experiences" title: no bottom margin (was 7dvh above, 8rem in .heading-2)
+.heading-2.time-scroll-0 {
+  margin-bottom: 0;
+}
+
 /* Center line of the timeline */
 .main-timeline:before {
   content: "";
@@ -369,10 +374,27 @@ ul .section-experiences-list {
   list-style-type: disc;
 }
 
-/* Experience section - hidden content: all descriptions (left and right) and bullet lists (both experience sections) */
-.section-experiences .description,
+/* Experience section - hidden content: the bullet lists and the skills (both experience sections).
+   All the descriptions (.description, .description.descrip-right) are shown. */
 .section-experiences .section-experiences-list,
-.section-experiences-sm .description,
-.section-experiences-sm .section-experiences-list {
+.section-experiences-sm .section-experiences-list,
+.section-experiences .experiences-skills-box,
+.section-experiences-sm .experiences-skills-box {
   display: none;
+}
+
+/* Experience section - skills below the description, with the same space for every experience.
+   Some descriptions contain a bullet list inside the <p> (not allowed in HTML): the browser closes the <p> before
+   the list and creates an extra empty <p> after it, whose margins added a gap to some experiences only. */
+.timeline-content p:empty {
+  display: none;
+}
+
+.timeline-content .description {
+  margin-bottom: 0;
+}
+
+.timeline-content .description + .experiences-skills-box,
+.timeline-content .experiences-skills-box {
+  margin-top: 1.5rem;
 }

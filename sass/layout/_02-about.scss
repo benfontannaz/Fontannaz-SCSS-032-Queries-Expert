@@ -34,6 +34,11 @@ section ABOUT ---------------------------------------- */
   @media only screen and (min-width: 30.0625em) and (max-width: 56.25em) and (orientation: portrait) {
     width: 80% !important; // was 60%
   }
+
+  // mobile (up to 480px wide): left and right margins divided by 2 (20% -> 10% each side)
+  @media only screen and (max-width: 30em) {
+    width: 80% !important; // was 60%
+  }
 }
 
 .about-para {

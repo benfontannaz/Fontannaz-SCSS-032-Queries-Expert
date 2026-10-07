@@ -12,7 +12,11 @@ $color-white: rgba(255, 255, 255, 0.906);
 $color-black: #000;
 
 // $clip-path-polygon-1: 100% 0, 100% 100vh, 50% 100%, 0 100vh, 0 0; // center arrow
-$clip-path-polygon-1: 100% 0, 100% 100dvh, 50% 108dvh, 0 100dvh, 0 0; // center arrow
+// $section-sep: depth of the V separators between the sections (8dvh; 4dvh on mobile, see pages/_home.scss).
+// Only the tips of the V move: the sides of each clip-path stay where they are, so the section heights and the
+// js/services-height.js computations do not change.
+$section-sep: var(--section-sep, 8dvh);
+$clip-path-polygon-1: 100% 0, 100% 100dvh, 50% calc(100dvh + #{$section-sep}), 0 100dvh, 0 0; // center arrow
 $clip-path-polygon-2: 100% 0, 100% 126dvh, 50% 134dvh, 0 126dvh, 0 0; // center arrow
 $clip-path-polygon-2b: 100% 0, 100% 222dvh, 50% 230dvh, 0 222dvh, 0 0; // center arrow
 $clip-path-polygon-2c: 0 0, 50% 10%, 100% 0, 100% 90%, 50% 100%, 0 90%;
@@ -26,36 +30,37 @@ $clip-path-polygon-5: 0 58%, 100% 50%, 100% 100%, 0% 100%; //up rihgt line
 // $services-extra: extra height added by js/services-height.js when the Services / About content is taller than 220dvh
 // (0px without JavaScript). Every section below the Services is moved down by the same amount.
 $services-extra: var(--services-extra, 0px);
-$clip-path-polygon-services: 0 0, 50% 8dvh, 100% 0,
-  100% calc(212dvh + #{$services-extra}), 50% calc(220dvh + #{$services-extra}),
+$clip-path-polygon-services: 0 0, 50% #{$section-sep}, 100% 0,
+  100% calc(212dvh + #{$services-extra}), 50% calc(212dvh + #{$section-sep} + #{$services-extra}),
   0 calc(212dvh + #{$services-extra});
 // $experiences-extra: height added (or removed, if negative) by js/services-height.js so the Experiences section
 // follows its content (0px without JavaScript). Every section below the Experiences moves by the same amount.
 $experiences-extra: var(--experiences-extra, 0px);
-$clip-path-polygon-experiences: 0 0, 50% 8dvh, 100% 0,
-  100% calc(292dvh + #{$experiences-extra}), 50% calc(300dvh + #{$experiences-extra}),
+$clip-path-polygon-experiences: 0 0, 50% #{$section-sep}, 100% 0,
+  100% calc(292dvh + #{$experiences-extra}), 50% calc(292dvh + #{$section-sep} + #{$experiences-extra}),
   0 calc(292dvh + #{$experiences-extra});
 // $education-extra: height added (or removed) by js/services-height.js so the Education section follows its
 // content (0px without JavaScript). The sections below move by the same amount.
 $education-extra: var(--education-extra, 0px);
-$clip-path-polygon-education: 0 0, 50% 8dvh, 100% 0,
-  100% calc(222dvh + #{$education-extra}), 50% calc(230dvh + #{$education-extra}),
+$clip-path-polygon-education: 0 0, 50% #{$section-sep}, 100% 0,
+  100% calc(222dvh + #{$education-extra}), 50% calc(222dvh + #{$section-sep} + #{$education-extra}),
   0 calc(222dvh + #{$education-extra});
 // $projects-extra: height added (or removed, if negative) by js/services-height.js so the Projects section
 // follows its grid (0px without JavaScript). Every section below the Projects moves by the same amount.
 $projects-extra: var(--projects-extra, 0px);
-$clip-path-polygon-projects: 0 0, 50% 8dvh, 100% 0,
-  100% calc(202dvh + #{$projects-extra}), 50% calc(210dvh + #{$projects-extra}),
+$clip-path-polygon-projects: 0 0, 50% #{$section-sep}, 100% 0,
+  100% calc(202dvh + #{$projects-extra}), 50% calc(202dvh + #{$section-sep} + #{$projects-extra}),
   0 calc(202dvh + #{$projects-extra});
 // $resources-extra: height added (or removed) by js/services-height.js so the Resources section follows its
 // content (0px without JavaScript). The Contact section moves by the same amount.
 $resources-extra: var(--resources-extra, 0px);
-$clip-path-polygon-resources: 0 0, 50% 8dvh, 100% 0,
-  100% calc(222dvh + #{$resources-extra}), 50% calc(230dvh + #{$resources-extra}),
+$clip-path-polygon-resources: 0 0, 50% #{$section-sep}, 100% 0,
+  100% calc(222dvh + #{$resources-extra}), 50% calc(222dvh + #{$section-sep} + #{$resources-extra}),
   0 calc(222dvh + #{$resources-extra});
 
-$clip-path-polygon-contact: 0 0, 50% 8dvh, 100% 0, 100% 75dvh, 50% 83dvh,
-  0 75dvh;
+// Contact: 8dvh taller than before (sides 75dvh -> 83dvh) for more space below the SEND button (pages/_home.scss)
+$clip-path-polygon-contact: 0 0, 50% #{$section-sep}, 100% 0, 100% 83dvh, 50% calc(83dvh + #{$section-sep}),
+  0 83dvh;
 
 // ======= BODY COLORS  =========
 $color-body-light-theme: #777;

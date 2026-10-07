@@ -45,6 +45,20 @@
     padding-right: 2.6rem; // was 6rem
   }
 
+  // mobile (up to 480px wide): no left / right padding (was 9rem / 6rem)
+  @media only screen and (max-width: 30em) {
+    padding-left: 0;
+    padding-right: 0;
+
+    // the carousel (and its .owl-stage-outer) uses 90% of the screen width, centred on the screen
+    // (its column is narrower: 75% of the screen minus the Bootstrap paddings). Set on .owl-carousel and not
+    // on .owl-stage-outer only: Owl Carousel sizes the slides from the .owl-carousel width
+    .owl-carousel {
+      width: 90vw;
+      margin-left: calc(50% - 45vw);
+    }
+  }
+
   @include respond(tab-port) {
     // width < 900?
     width: 100%;

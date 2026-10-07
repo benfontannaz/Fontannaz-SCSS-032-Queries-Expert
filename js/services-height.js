@@ -82,7 +82,10 @@
     var experiences = document.querySelector(".section-experiences");
     var education = document.querySelector(".section-education");
     if (!experiences || !education) return;
-    if (getComputedStyle(experiences).display === "none") return; // small screens use .section-experiences-sm
+    if (getComputedStyle(experiences).display === "none") {
+      updateEducationTopMobile(vh, education); // mobile: no Experiences at all
+      return; // small screens use .section-experiences-sm
+    }
 
     // Experiences content end (last visible element, or the end of the timeline centre line drawn by
     // .main-timeline:before, whichever is lower), relative to the Experiences top
@@ -95,6 +98,25 @@
     // Education top edge without --experiences-extra = Experiences top + 290dvh
     var extra = Math.round(expContentBottom + sectionEndSpace() - EDUCATION_OFFSET * vh);
     document.documentElement.style.setProperty("--experiences-extra", extra + "px");
+  }
+
+  // Mobile (below 576px wide): both Experiences sections are hidden (.section-experiences and
+  // .section-experiences-sm), which left the empty Experiences space between the Testimonials and the
+  // Education. --experiences-extra (negative) then brings the Education right below the Testimonials:
+  // the tip of its angled top edge (--section-sep) on the bottom of the Testimonials parallax picture,
+  // so the picture fills the V and no space is visible between the two sections.
+  function updateEducationTopMobile(vh, education) {
+    var small = document.querySelector(".section-experiences-sm");
+    var parallax = document.querySelector(".section-parallax");
+    if (small && getComputedStyle(small).display !== "none") return; // 576px - 767px: Experiences shown
+    if (!parallax || getComputedStyle(parallax).display === "none") return;
+
+    var root = document.documentElement;
+    var current = parseFloat(getComputedStyle(root).getPropertyValue("--experiences-extra")) || 0;
+    var sep = (parseFloat(getComputedStyle(root).getPropertyValue("--section-sep")) || 8) * vh / 100;
+    var target = parallax.getBoundingClientRect().bottom + window.scrollY - sep;
+    var extra = Math.round(current + target - pageTop(education));
+    root.style.setProperty("--experiences-extra", extra + "px");
   }
 
   function updateEducation(vh) {
