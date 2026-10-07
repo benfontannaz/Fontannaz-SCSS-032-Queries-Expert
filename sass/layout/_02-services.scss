@@ -209,7 +209,9 @@
     text-align: right;
     color: $color-white;
     position: absolute;
-    top: 19dvh;
+    // raised by half the font size (0.5em = half the heading font size, also when it is smaller for
+    // "AI & Modern Workplace" on touch devices) (was 19dvh)
+    top: calc(19dvh - 0.5em);
     right: 2rem;
     width: 60%;
   }
@@ -242,6 +244,27 @@
         rgba($services-card3-front-color-headingspan-bottom, 0.85)
       );
     }
+  }
+
+  // mobile and tablets (touch devices): "AI & Modern / Workplace" (heading-span--3) stays on 2 lines.
+  // The font follows the card width (cqw = % of .carte-details__front, the size container),
+  // so "AI & MODERN" always fits in the 60% wide heading; never larger than the desktop 5rem.
+  // Set on the heading (the span inherits it) so the line height shrinks with the font.
+  @media only screen and (hover: none) {
+    &__heading:has(.carte-details__heading-span--3) {
+      font-size: min(5rem, 7cqw);
+      line-height: 1.4; // = 7rem / 5rem on desktop
+    }
+  }
+
+  // all screens: "Enterprise Architecture" (heading-span--2) right-aligned and inside the popup card.
+  // "ARCHITECTURE" is 7.89 times the font size wide (Montserrat 300, uppercase): wider than the 60% heading
+  // on narrower cards, so it overflowed (not right-aligned, past the card edge). The font follows the card
+  // width (cqw, see above): 60cqw - 2 x 15px band padding = 7.89 x font -> 7.4cqw - 4px with a small margin.
+  &__heading:has(.carte-details__heading-span--2) {
+    font-size: min(5rem, calc(7.4cqw - 4px));
+    line-height: 1.4; // = 7rem / 5rem on desktop: the line spacing shrinks with the font
+    text-align: right;
   }
 
   &__box {
@@ -378,4 +401,31 @@
 .boutton--grey-about {
   font-size: 1.2rem !important;
   padding: 0.5dvw 2dvw !important;
+}
+
+// Tablets (481px - 1024px wide): Services popups vertically centred, without the space below the card.
+// The space below the card (inside .col-1-of-1) came from .carte-details (5dvh bottom padding + 10dvh bottom
+// margin) and the fixed 89dvh popup row: the popup was taller than the window, so Magnific Popup put it at the
+// top instead of centring it. Magnific Popup centres the content (vertical-align: middle) when it fits the window
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+  .carte-details-section-row {
+    height: auto; // follows the card (was 89dvh)
+    margin-bottom: 0; // was 5dvh
+  }
+
+  .carte-details-section-row .col-1-of-1 {
+    padding-bottom: 0;
+  }
+
+  .carte-details-section-row .carte-details {
+    padding-bottom: 0; // was 5dvh
+    margin-bottom: 0; // was 10dvh
+    height: auto; // 901px - 1024px wide: follows the card (was 65dvh, the card overflowed it)
+  }
+
+  // 901px - 1024px wide (landscape tablets): the card is in the normal flow, as below 900px (was absolute:
+  // the popup box kept 65dvh and was centred, while the card ran far below the window)
+  .carte-details-section-row .carte-details__front {
+    position: relative;
+  }
 }

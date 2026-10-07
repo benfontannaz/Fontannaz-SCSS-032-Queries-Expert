@@ -28028,6 +28028,9 @@ body {
     line-height: 4.8rem;
     top: 12.7rem;
   }
+  .carte__heading-span--3 {
+    font-size: min(2.7rem, 6.1vw - 7.3px);
+  }
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
   .carte__heading-span--1,
@@ -28225,6 +28228,11 @@ carousel configuration  ------------------------------------ */
 .col-1-of-1 {
   width: 100%;
   padding: 0 17%;
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+  .col-1-of-1 {
+    padding: 0 8.5%;
+  }
 }
 
 .col-1-of-2 {
@@ -31114,7 +31122,7 @@ HEADER ------------------------------------------------------------------------ 
   text-align: right;
   color: rgba(255, 255, 255, 0.906);
   position: absolute;
-  top: 19dvh;
+  top: calc(19dvh - 0.5em);
   right: 2rem;
   width: 60%;
 }
@@ -31130,6 +31138,17 @@ HEADER ------------------------------------------------------------------------ 
 }
 .carte-details__heading-span--3 {
   background-image: linear-gradient(to right bottom, rgba(108, 172, 233, 0.85), rgba(12, 72, 236, 0.85));
+}
+@media only screen and (hover: none) {
+  .carte-details__heading:has(.carte-details__heading-span--3) {
+    font-size: min(5rem, 7cqw);
+    line-height: 1.4;
+  }
+}
+.carte-details__heading:has(.carte-details__heading-span--2) {
+  font-size: min(5rem, 7.4cqw - 4px);
+  line-height: 1.4;
+  text-align: right;
 }
 .carte-details__box {
   padding: 5rem;
@@ -31251,6 +31270,23 @@ HEADER ------------------------------------------------------------------------ 
   padding: 0.5dvw 2dvw !important;
 }
 
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+  .carte-details-section-row {
+    height: auto;
+    margin-bottom: 0;
+  }
+  .carte-details-section-row .col-1-of-1 {
+    padding-bottom: 0;
+  }
+  .carte-details-section-row .carte-details {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    height: auto;
+  }
+  .carte-details-section-row .carte-details__front {
+    position: relative;
+  }
+}
 .testimonials h4 {
   font-size: 16px;
   margin: 0;
@@ -31305,6 +31341,9 @@ HEADER ------------------------------------------------------------------------ 
   .testimonials .owl-carousel {
     width: 90vw;
     margin-left: calc(50% - 45vw);
+  }
+  .testimonials h3.xs-font-size20 {
+    font-size: 30px;
   }
 }
 .testimonials__shape {
@@ -32010,6 +32049,11 @@ section ABOUT ---------------------------------------- */
   margin-right: auto;
 }
 
+.education-row-title-1,
+.education-row-title-2 {
+  font-size: 3.25rem;
+}
+
 .education-row-studies {
   height: 10dvh;
   flex-direction: left;
@@ -32445,6 +32489,11 @@ section ABOUT ---------------------------------------- */
   }
   .education-row-1 .education-degree-ligne-0 {
     margin-top: 0;
+  }
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+  .education-row-studies-1 {
+    margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 30em) {
@@ -33765,15 +33814,22 @@ footer #it-crowd {
 }
 :root {
   --section-sep: 8dvh;
+  --map-extra: 10dvh;
+}
+@media only screen and (max-width: 64em) {
+  :root {
+    --map-extra: -5dvh;
+  }
 }
 @media only screen and (max-width: 30em) {
   :root {
     --section-sep: 4dvh;
+    --contact-cover: 10dvh;
   }
 }
 
 main {
-  height: calc(1261dvh + var(--services-extra, 0px) + var(--experiences-extra, 0px) + var(--education-extra, 0px) + var(--projects-extra, 0px) + var(--resources-extra, 0px)); /* provibe the bottom length after all absolute sections to view the fixed footer */
+  height: calc(1261dvh + var(--services-extra, 0px) + var(--experiences-extra, 0px) + var(--education-extra, 0px) + var(--projects-extra, 0px) + var(--resources-extra, 0px) + var(--contact-extra, 0px) + var(--map-extra, 0px)); /* provibe the bottom length after all absolute sections to view the fixed footer */
   background-color: #000;
 }
 
@@ -33913,7 +33969,7 @@ main {
   position: absolute;
   top: calc(1240dvh + var(--services-extra, 0px) + var(--experiences-extra, 0px) + var(--education-extra, 0px) + var(--projects-extra, 0px) + var(--resources-extra, 0px));
   width: 100%;
-  height: 91dvh;
+  height: calc(91dvh + var(--contact-extra, 0px) + var(--contact-cover, 0px));
   padding: 16dvh 0 30dvh 0;
   background-color: rgb(247, 247, 247);
   background-color: rgb(255, 255, 255);
@@ -33921,7 +33977,7 @@ main {
   background-color: rgb(247, 247, 247);
   box-shadow: none;
   overflow: hidden;
-  clip-path: polygon(0 0, 50% var(--section-sep, 8dvh), 100% 0, 100% 83dvh, 50% calc(83dvh + var(--section-sep, 8dvh)), 0 83dvh);
+  clip-path: polygon(0 0, 50% var(--section-sep, 8dvh), 100% 0, 100% calc(83dvh + var(--contact-extra, 0px) + var(--contact-cover, 0px)), 50% calc(83dvh + var(--section-sep, 8dvh) + var(--contact-extra, 0px) + var(--contact-cover, 0px)), 0 calc(83dvh + var(--contact-extra, 0px) + var(--contact-cover, 0px)));
   z-index: 11;
 }
 

@@ -504,6 +504,13 @@
     line-height: 4.8rem; // was 3rem
     top: 12.7rem; // raised by the extra line spacing (1.8rem), so the 2nd band stays above the card details (was 14.5rem)
   }
+
+  // "AI & Modern Workplace" title: smaller so that "Modern Workplace" stays on one line. The title box is 75% of the
+  // card (75% of the screen minus 79px); "MODERN WORKPLACE" is 11.8 times the font size wide, plus the 2 x 15px
+  // band padding: 6.1vw - 7.3px fits with a small margin (390px wide: 16.5px; 320px: 12.2px), 27px at most
+  .carte__heading-span--3 {
+    font-size: min(2.7rem, calc(6.1vw - 7.3px));
+  }
 }
 
 // Tablets (481px - 1024px wide): the 3 card titles (Business Strategy / Enterprise Architecture /

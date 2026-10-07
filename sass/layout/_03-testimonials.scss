@@ -57,6 +57,11 @@
       width: 90vw;
       margin-left: calc(50% - 45vw);
     }
+
+    // "Testimonials" title 1.5 times larger (was 20px, from the .xs-font-size20 utility class)
+    h3.xs-font-size20 {
+      font-size: 30px;
+    }
   }
 
   @include respond(tab-port) {

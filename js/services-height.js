@@ -31,6 +31,7 @@
   var RESOURCES_OFFSET = 1.59; // 159dvh: Resources top - Projects top (1040dvh - 881dvh)
   var EDUCATION_CLIP_SIDE = 2.22; // 222dvh: Education visible bottom (sides of its clip-path) without extra
   var CONTACT_OFFSET = 2.0; // 200dvh: Contact top - Resources top (1240dvh - 1040dvh)
+  var CONTACT_CLIP_SIDE = 0.83; // 83dvh: sides of the Contact angled bottom edge ($clip-path-polygon-contact)
 
   // top / bottom (page coordinates) of the visible content of an element
   function contentSpan(el) {
@@ -155,6 +156,53 @@
     document.documentElement.style.setProperty("--resources-extra", extra + "px");
   }
 
+  // Phones (up to 480px wide): the contact form is taller (full-width fields), so the SEND button reached the
+  // angled bottom edge of the Contact section. --contact-extra makes the section taller so the space below the
+  // button = the end space of the other sections (the logos' margin-top). 0 on larger screens.
+  function updateContact(vh) {
+    var contact = document.querySelector(".section-contact");
+    var button = contact && contact.querySelector(".boutton-contact");
+    var root = document.documentElement;
+    if (!button || window.innerWidth > 480) {
+      root.style.setProperty("--contact-extra", "0px");
+      return;
+    }
+    var buttonBottom = button.getBoundingClientRect().bottom + window.scrollY - pageTop(contact);
+    var extra = Math.max(0, Math.ceil(buttonBottom + sectionEndSpace() - CONTACT_CLIP_SIDE * vh));
+    root.style.setProperty("--contact-extra", extra + "px");
+  }
+
+  // All screens: the footer map is fixed at the bottom of the window, below the page.
+  // At the end of the page, the bottom of the Contact section still covers its upper part, so the location
+  // (always in the middle of the Google map) was hidden. The map gets the height of its visible part: from the
+  // tip of the Contact angled bottom edge (in the middle of the width, above the location) to the icons row.
+  function updateMap(vh) {
+    var map = document.querySelector(".map-responsive");
+    var contact = document.querySelector(".section-contact");
+    if (!map || !contact) return;
+
+    var footer = map.closest("footer") || map.parentNode;
+    var belowMap = footer.getBoundingClientRect().bottom - map.getBoundingClientRect().bottom; // icons row
+    var sep = (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--section-sep")) || 8) * vh / 100;
+    var contactExtra = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--contact-extra")) || 0;
+    // phones: the Contact section goes further down over the map (--contact-cover, in dvh)
+    var cover = (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--contact-cover")) || 0) * vh / 100;
+    var contactTip = pageTop(contact) + CONTACT_CLIP_SIDE * vh + contactExtra + cover + sep; // page coordinates
+    // at the end of the page, the bottom of the window is the bottom of the document
+    var visible = document.documentElement.scrollHeight - contactTip - belowMap; // below the tip of the V
+    // the map box starts at the sides of the V (no black triangles beside it): sep higher than the tip.
+    // The Google map inside is sep taller, from the top of the box (its bottom part hidden below the box), so its
+    // middle (the address) is in the middle of the part visible below the tip
+    var box = Math.max(80, Math.round(visible + sep)); // 80px minimum (very short phones)
+    map.style.height = box + "px";
+    var iframe = map.querySelector("iframe");
+    if (iframe) {
+      iframe.style.top = "0";
+      iframe.style.bottom = "auto";
+      iframe.style.height = Math.round(box + sep) + "px";
+    }
+  }
+
   function update() {
     var vh = window.innerHeight;
     updateServices(vh);
@@ -162,6 +210,8 @@
     updateEducation(vh);
     updateProjects(vh);
     updateResources(vh);
+    updateContact(vh);
+    updateMap(vh);
   }
 
   var timer;

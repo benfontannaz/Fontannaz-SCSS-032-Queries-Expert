@@ -173,6 +173,12 @@
   margin-right: auto;
 }
 
+// IMD and European University school names 30% larger (2.5rem -> 3.25rem)
+.education-row-title-1,
+.education-row-title-2 {
+  font-size: calc(2.5rem * 1.3);
+}
+
 .education-row-studies {
   height: 10dvh;
   flex-direction: left;
@@ -681,6 +687,13 @@
 
   .education-row-1 .education-degree-ligne-0 {
     margin-top: 0; // was 0.5dvh
+  }
+}
+
+// Tablet only (481px to 1024px wide): no bottom margin under the IMD degree block (was 5dvh, .education-row-studies)
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+  .education-row-studies-1 {
+    margin-bottom: 0;
   }
 }
 

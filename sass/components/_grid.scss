@@ -1,6 +1,11 @@
 .col-1-of-1 {
   width: 100%;
   padding: 0 17%;
+
+  // tablets (481px - 1024px wide): padding divided by 2 (Services popups: wider card)
+  @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+    padding: 0 8.5%;
+  }
 }
 
 .col-1-of-2 {

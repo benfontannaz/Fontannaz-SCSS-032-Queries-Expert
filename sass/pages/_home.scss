@@ -1,16 +1,28 @@
 // Depth of the V separators between the sections ($section-sep in abstracts/_variables.scss)
 :root {
   --section-sep: 8dvh;
+  // --map-extra: extra scroll at the end of the page (added to the <main> height = the overall site height).
+  // The Contact section (unchanged) scrolls further up (positive) or less (negative) over the footer map;
+  // the map height follows its visible part, so the address stays in its middle (js/services-height.js).
+  // Desktop (more than 1024px wide): scrolls 10% of the screen height further up, more of the map visible
+  --map-extra: 10dvh;
+
+  // tablets and mobile (up to 1024px wide): scrolls 5% of the screen height less, the Contact section hides
+  // the top of the map
+  @media only screen and (max-width: 64em) {
+    --map-extra: -5dvh;
+  }
 
   // mobile (up to 480px wide): half as deep, a flatter angle
   @media only screen and (max-width: 30em) {
     --section-sep: 4dvh;
+    --contact-cover: 10dvh; // the Contact section goes 10% of the screen height lower, over the footer map (was 15dvh)
   }
 }
 
 // ========== SECTION SERVICES START
 main {
-  height: calc(1261dvh + #{$services-extra} + #{$experiences-extra} + #{$education-extra} + #{$projects-extra} + #{$resources-extra}); /* provibe the bottom length after all absolute sections to view the fixed footer */
+  height: calc(1261dvh + #{$services-extra} + #{$experiences-extra} + #{$education-extra} + #{$projects-extra} + #{$resources-extra} + #{$contact-extra} + var(--map-extra, 0px)); /* provibe the bottom length after all absolute sections to view the fixed footer */
   background-color: #000;
 }
 
@@ -211,7 +223,7 @@ main {
   position: absolute;
   top: calc(1240dvh + #{$services-extra} + #{$experiences-extra} + #{$education-extra} + #{$projects-extra} + #{$resources-extra});
   width: 100%;
-  height: 91dvh; // 8dvh more space between the SEND button and the end of the section (was 83dvh)
+  height: calc(91dvh + #{$contact-extra} + #{$contact-cover}); // + phones: $contact-cover; 8dvh more space below the SEND button (was 83dvh); + phones: js/services-height.js
   padding: 16dvh 0 30dvh 0;
 
   // background-color: white;

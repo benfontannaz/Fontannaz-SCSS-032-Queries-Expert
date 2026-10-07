@@ -59,8 +59,15 @@ $clip-path-polygon-resources: 0 0, 50% #{$section-sep}, 100% 0,
   0 calc(222dvh + #{$resources-extra});
 
 // Contact: 8dvh taller than before (sides 75dvh -> 83dvh) for more space below the SEND button (pages/_home.scss)
-$clip-path-polygon-contact: 0 0, 50% #{$section-sep}, 100% 0, 100% 83dvh, 50% calc(83dvh + #{$section-sep}),
-  0 83dvh;
+// $contact-extra: height added on phones by js/services-height.js when the form (taller on phones) reaches the
+// angled bottom edge (0px on larger screens or without JavaScript)
+$contact-extra: var(--contact-extra, 0px);
+// $contact-cover: the Contact section goes further down over the footer map (5dvh on phones, see pages/_home.scss).
+// Not added to the <main> height: the end of the page does not move, so the section covers more of the map
+$contact-cover: var(--contact-cover, 0px);
+$clip-path-polygon-contact: 0 0, 50% #{$section-sep}, 100% 0, 100% calc(83dvh + #{$contact-extra} + #{$contact-cover}),
+  50% calc(83dvh + #{$section-sep} + #{$contact-extra} + #{$contact-cover}),
+  0 calc(83dvh + #{$contact-extra} + #{$contact-cover});
 
 // ======= BODY COLORS  =========
 $color-body-light-theme: #777;
