@@ -21,6 +21,7 @@
 .mailform select,
 .mailform textarea {
   padding: 14px 18px;
+  border-radius: 0.8rem; // slightly rounded corners (were square)
 }
 .mailform input:-moz-placeholder,
 .mailform select:-moz-placeholder,

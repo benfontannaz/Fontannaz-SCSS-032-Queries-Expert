@@ -18255,16 +18255,7 @@ uncomment this part if you haven't added this code anywhere else
 #popup-services-1 .mfp-close,
 #popup-services-2 .mfp-close,
 #popup-services-3 .mfp-close {
-  position: fixed;
-  top: -1.25%;
-  right: 13.5%;
   z-index: 2500;
-}
-
-#popup-services-1 .mfp-close,
-#popup-services-2 .mfp-close,
-#popup-services-3 .mfp-close {
-  font-size: 3.5rem;
   color: rgba(244, 242, 242, 0.831) !important;
 }
 
@@ -27699,7 +27690,8 @@ body {
   left: 0;
   width: 100%;
   backface-visibility: hidden;
-  border-radius: 0.3rem;
+  border-radius: 2rem;
+  overflow: hidden;
   box-shadow: 1.5rem 1.5rem 4rem rgba(0, 0, 0, 0.15);
 }
 .carte__side--front {
@@ -27817,7 +27809,8 @@ body {
 @media only screen and (max-width: 56.25em) {
   .carte {
     height: auto;
-    border-radius: 0.3rem;
+    border-radius: 2rem;
+    overflow: hidden;
     background-color: rgba(255, 255, 255, 0.906);
     box-shadow: 1.5rem 1.5rem 4rem rgba(0, 0, 0, 0.15);
   }
@@ -27825,6 +27818,7 @@ body {
     height: auto;
     position: relative;
     box-shadow: none;
+    border-radius: 0;
   }
   .carte__side--back {
     transform: rotateY(0deg);
@@ -28231,6 +28225,12 @@ carousel configuration  ------------------------------------ */
     padding: 0 8.5%;
   }
 }
+@media only screen and (max-width: 30em) {
+  .col-1-of-1 {
+    width: 95vw;
+    padding: 0;
+  }
+}
 
 .col-1-of-2 {
   width: calc((100% - 6rem) / 2);
@@ -28481,6 +28481,7 @@ carousel configuration  ------------------------------------ */
 .mailform select,
 .mailform textarea {
   padding: 14px 18px;
+  border-radius: 0.8rem;
 }
 
 .mailform input:-moz-placeholder,
@@ -31083,7 +31084,8 @@ HEADER ------------------------------------------------------------------------ 
   left: 0;
   width: 100%;
   backface-visibility: hidden;
-  border-radius: 0.3rem;
+  border-radius: 2rem;
+  overflow: hidden;
   background-color: rgba(255, 255, 255, 0.986);
   box-shadow: 1.5rem 1.5rem 4rem rgba(0, 0, 0, 0.15);
 }
@@ -31147,6 +31149,11 @@ HEADER ------------------------------------------------------------------------ 
   line-height: 1.4;
   text-align: right;
 }
+.carte-details__heading:has(.carte-details__heading-span--1) {
+  font-size: min(5rem, 11.2cqw - 6px);
+  line-height: 1.4;
+  text-align: right;
+}
 .carte-details__box {
   padding: 5rem;
   text-align: justify;
@@ -31157,7 +31164,8 @@ HEADER ------------------------------------------------------------------------ 
 @media only screen and (max-width: 56.25em) {
   .carte-details {
     height: auto;
-    border-radius: 0.3rem;
+    border-radius: 2rem;
+    overflow: hidden;
     background-color: rgba(255, 255, 255, 0.906);
     box-shadow: 1.5rem 1.5rem 4rem rgba(0, 0, 0, 0.15);
     /*
@@ -31267,23 +31275,69 @@ HEADER ------------------------------------------------------------------------ 
   padding: 0.5dvw 2dvw !important;
 }
 
-@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
-  .carte-details-section-row {
-    height: auto;
-    margin-bottom: 0;
-  }
-  .carte-details-section-row .col-1-of-1 {
-    padding-bottom: 0;
-  }
-  .carte-details-section-row .carte-details {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    height: auto;
-  }
-  .carte-details-section-row .carte-details__front {
-    position: relative;
+.carte-details-section-row {
+  height: auto;
+  margin-bottom: 0;
+}
+
+.carte-details-section-row .col-1-of-1 {
+  padding-bottom: 0;
+}
+
+.carte-details-section-row .carte-details {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  height: auto;
+}
+
+.carte-details-section-row .carte-details__front {
+  position: relative;
+}
+
+@media only screen and (max-width: 30em) {
+  .ligne.carte-details-section-row [class^=col-].col-1-of-1 {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+#popup-services-1 .mfp-close,
+#popup-services-2 .mfp-close,
+#popup-services-3 .mfp-close {
+  position: absolute;
+  top: 1.2rem;
+  right: calc(17% + 1.2rem);
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  opacity: 0.9;
+  font-size: 2.8rem;
+  text-align: center;
+}
+#popup-services-1 .mfp-close:hover,
+#popup-services-2 .mfp-close:hover,
+#popup-services-3 .mfp-close:hover {
+  opacity: 1;
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+  #popup-services-1 .mfp-close,
+  #popup-services-2 .mfp-close,
+  #popup-services-3 .mfp-close {
+    right: calc(8.5% + 1.2rem);
+  }
+}
+@media only screen and (max-width: 30em) {
+  #popup-services-1 .mfp-close,
+  #popup-services-2 .mfp-close,
+  #popup-services-3 .mfp-close {
+    right: calc((100% - 95vw) / 2 + 1.2rem);
+  }
+}
+
 .testimonials h4 {
   font-size: 16px;
   margin: 0;
@@ -32596,9 +32650,10 @@ section ABOUT ---------------------------------------- */
   border-radius: 50%;
   color: #fff;
   display: inline-block;
-  height: 30px;
-  line-height: 28px;
-  width: 30px;
+  font-size: 24px;
+  height: 45px;
+  line-height: 43px;
+  width: 45px;
   margin-bottom: 5px;
   transition: all 0.5s;
 }
@@ -32702,6 +32757,22 @@ section ABOUT ---------------------------------------- */
   display: none !important;
 }
 
+.section-projects .gallery .item-img {
+  border-radius: 2rem;
+}
+
+.mfp-projects img.mfp-img {
+  clip-path: inset(40px 0 40px 0 round 2rem);
+}
+
+.mfp-projects .mfp-figure:after {
+  border-radius: 2rem;
+}
+
+.mfp-projects .mfp-project-details {
+  border-radius: 0 0 2rem 2rem;
+}
+
 /* ------------------------------ MEDIA QUERY max-width 767px SCREEN ------------------------------ */
 @media screen and (max-width: 767px) {
   .portfolio .items {
@@ -32713,24 +32784,34 @@ section ABOUT ---------------------------------------- */
   position: relative;
 }
 
+.mfp-projects {
+  --project-popup-size: min(800px, calc(100vw - 16px), calc(100dvh - 170px));
+}
+.mfp-projects .mfp-content {
+  width: var(--project-popup-size);
+  max-width: none;
+}
 .mfp-projects img.mfp-img {
-  width: min(800px, 100%, 100dvh - 170px);
-  height: auto;
+  width: 100%;
+  max-width: none;
+  height: calc(var(--project-popup-size) + 80px);
+  object-fit: cover;
 }
 
 .mfp-project-details {
   position: absolute;
-  top: calc(40px + (100% - 80px) / 2);
+  top: calc(40px + (100% - 80px) * 0.3);
   bottom: 40px;
   left: 0;
   right: 0;
-  clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 11.4285714286%, 100% 0, 100% 100%, 0 100%);
   display: flex;
   gap: 3rem;
   padding: calc(8% + 2.5rem) 3.5rem 2.5rem 3.5rem;
   background-color: rgba(30, 30, 30, 0.72);
   color: white;
   text-align: left;
+  cursor: pointer;
   overflow-y: auto;
 }
 
@@ -32778,8 +32859,6 @@ section ABOUT ---------------------------------------- */
 }
 @media only screen and (max-width: 30em) {
   .mfp-project-details {
-    top: calc(40px + (100% - 80px) / 3);
-    clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
     gap: 0.8rem;
     padding: calc(8% + 0.6rem) 1.4rem 0.8rem 1.4rem;
   }
@@ -32818,6 +32897,24 @@ section ABOUT ---------------------------------------- */
     margin-right: 20px;
   }
 }
+.mfp-projects .mfp-close {
+  top: calc(40px + 1.2rem);
+  right: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  opacity: 0.9;
+  font-size: 2.8rem;
+  text-align: center;
+}
+.mfp-projects .mfp-close:hover {
+  opacity: 1;
+}
+
 /* ======= SECTION RESOURCES  ======= START === */
 /* SECTION RESOURCES TITLE H2 */
 .heading-2-resources {
@@ -33549,6 +33646,13 @@ footer #it-crowd {
   border-right-color: white;
 }
 
+@media only screen and (max-width: 30em) {
+  .it-crowd-bubble {
+    box-sizing: border-box;
+    width: 66.6666666667vw;
+    white-space: normal;
+  }
+}
 .it-crowd-img:hover ~ .it-crowd-bubble {
   opacity: 1;
   transform: translateY(0);
@@ -33804,11 +33908,10 @@ footer #it-crowd {
     margin: 0 16.9px !important;
   }
 }
-@media only screen and (max-width: 64em) {
-  #footer-row {
-    display: none;
-  }
+#footer-row {
+  display: none;
 }
+
 :root {
   --section-sep: 8dvh;
   --map-extra: 10dvh;
@@ -33816,6 +33919,11 @@ footer #it-crowd {
 @media only screen and (max-width: 64em) {
   :root {
     --map-extra: -5dvh;
+  }
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 64em) and (orientation: portrait) {
+  :root {
+    --map-extra: -13dvh;
   }
 }
 @media only screen and (max-width: 30em) {

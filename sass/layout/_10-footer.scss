@@ -128,6 +128,16 @@ footer #it-crowd {
   }
 }
 
+// mobile (up to 480px wide): the bubble is 2/3 of the screen width, the text wraps on several lines
+// (on one line it was wider than the screen)
+@media only screen and (max-width: 30em) {
+  .it-crowd-bubble {
+    box-sizing: border-box;
+    width: calc(100vw * 2 / 3);
+    white-space: normal;
+  }
+}
+
 .it-crowd-img:hover ~ .it-crowd-bubble {
   opacity: 1;
   transform: translateY(0);
@@ -406,9 +416,7 @@ footer #it-crowd {
   }
 }
 
-// Tablet and mobile (up to 1024px wide): the footer contact information row is hidden
-@media only screen and (max-width: 64em) {
-  #footer-row {
-    display: none;
-  }
+// Footer contact information row (phone / address / email) hidden in all views (was tablet and mobile only)
+#footer-row {
+  display: none;
 }

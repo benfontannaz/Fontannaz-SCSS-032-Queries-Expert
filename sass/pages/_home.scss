@@ -13,6 +13,12 @@
     --map-extra: -5dvh;
   }
 
+  // tablets in portrait (481px - 1024px wide, e.g. iPad 10 820 x 1180): 75% of the map visible below the Contact
+  // section at the end of the page (iPad 10: 377px -> 283px = 8dvh less scroll)
+  @media only screen and (min-width: 30.0625em) and (max-width: 64em) and (orientation: portrait) {
+    --map-extra: -13dvh;
+  }
+
   // mobile (up to 480px wide): half as deep, a flatter angle
   @media only screen and (max-width: 30em) {
     --section-sep: 4dvh;

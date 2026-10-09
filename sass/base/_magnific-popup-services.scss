@@ -519,19 +519,12 @@ uncomment this part if you haven't added this code anywhere else
   z-index: 2001;
 }
 
+// Services popups close button: placed inside the card, top right (layout/_02-services.scss)
+// (was position: fixed; top: -1.25%; right: 13.5%; font-size: 3.5rem)
 #popup-services-1 .mfp-close,
 #popup-services-2 .mfp-close,
 #popup-services-3 .mfp-close {
-  position: fixed;
-  top: -1.25%;
-  right: 13.5%;
   z-index: 2500;
-}
-
-#popup-services-1 .mfp-close,
-#popup-services-2 .mfp-close,
-#popup-services-3 .mfp-close {
-  font-size: 3.5rem;
   color: rgba(244, 242, 242, 0.831) !important;
 }
 

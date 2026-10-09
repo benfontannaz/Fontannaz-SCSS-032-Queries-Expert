@@ -225,6 +225,14 @@ function initProjectsPopup() {
 }
 $(initProjectsPopup);
 $(window).on("load", initProjectsPopup);
+
+// a click on the details overlay goes to the next project, like a click on the picture (gallery
+// navigateByImgClick): the overlay covers the lower part of the picture and caught the clicks
+$(document).on("click", ".mfp-projects .mfp-project-details", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+  $.magnificPopup.instance.next();
+});
 // ==== Projects gallery popup: grey overlay with the project details ==== END
 
 // ==== Services detail popups: a click outside the card closes the popup ==== START

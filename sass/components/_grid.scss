@@ -6,6 +6,12 @@
   @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
     padding: 0 8.5%;
   }
+
+  // mobile (up to 480px wide): 95% of the screen width, centred, without side padding (Services popups card)
+  @media only screen and (max-width: 30em) {
+    width: 95vw; // centred in layout/_02-services.scss
+    padding: 0;
+  }
 }
 
 .col-1-of-2 {

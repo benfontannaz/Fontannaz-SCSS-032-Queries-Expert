@@ -143,8 +143,8 @@
     left: 0;
     width: 100%;
     backface-visibility: hidden;
-    border-radius: 0.3rem;
-    // overflow: hidden; // to hide ouside card rounded defined corners coming from background-blend-mode: screen;
+    border-radius: 2rem; // rounded corners, as the Services cards (was 0.3rem)
+    overflow: hidden; // the picture (square corners, clip-path) follows the rounded corners
     background-color: $services-cards-front-background-color;
     box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
   }
@@ -267,6 +267,15 @@
     text-align: right;
   }
 
+  // all screens: "Business Strategy" (heading-span--1) entirely visible (on phones the 5rem words were wider than
+  // the 60% heading and cut by the rounded card). Same principle: "STRATEGY", the longest word, is 5.18 times the
+  // font size wide: 60cqw - 2 x 15px band padding = 5.18 x font -> 11.2cqw - 6px with a small margin
+  &__heading:has(.carte-details__heading-span--1) {
+    font-size: min(5rem, calc(11.2cqw - 6px));
+    line-height: 1.4;
+    text-align: right;
+  }
+
   &__box {
     padding: 5rem;
     text-align: justify;
@@ -283,7 +292,8 @@
     // for touch devices that can't hover
 
     height: auto;
-    border-radius: 0.3rem;
+    border-radius: 2rem; // rounded corners, as the Services cards (was 0.3rem)
+    overflow: hidden; // the card content follows the rounded corners
     background-color: $color-white;
     box-shadow: 1.5rem 1.5rem 4rem rgba($color-black, 0.15);
 
@@ -403,29 +413,73 @@
   padding: 0.5dvw 2dvw !important;
 }
 
-// Tablets (481px - 1024px wide): Services popups vertically centred, without the space below the card.
-// The space below the card (inside .col-1-of-1) came from .carte-details (5dvh bottom padding + 10dvh bottom
-// margin) and the fixed 89dvh popup row: the popup was taller than the window, so Magnific Popup put it at the
-// top instead of centring it. Magnific Popup centres the content (vertical-align: middle) when it fits the window
-@media only screen and (min-width: 30.0625em) and (max-width: 64em) {
-  .carte-details-section-row {
-    height: auto; // follows the card (was 89dvh)
-    margin-bottom: 0; // was 5dvh
+// All screens: Services popups vertically centred, without the space below the card (was tablets only).
+// The popup box was a fixed 89dvh row (+ 5dvh margin) with a 65dvh .carte-details (+ 5dvh padding, 10dvh margin)
+// and the card absolutely positioned at its top: Magnific Popup centred the box, while the card ran below it or
+// below the window. The box now follows the card: Magnific Popup centres it (vertical-align: middle) when it fits
+// the window, and puts it at the top, scrollable, when the card is taller than the window
+.carte-details-section-row {
+  height: auto; // follows the card (was 89dvh)
+  margin-bottom: 0; // was 5dvh
+}
+
+.carte-details-section-row .col-1-of-1 {
+  padding-bottom: 0;
+}
+
+.carte-details-section-row .carte-details {
+  padding-bottom: 0; // was 5dvh
+  margin-bottom: 0; // was 10dvh
+  height: auto; // follows the card (was 65dvh, the card overflowed it)
+}
+
+// the card is in the normal flow (was absolute at the top of the 65dvh box)
+.carte-details-section-row .carte-details__front {
+  position: relative;
+}
+
+// Mobile (up to 480px wide): the Services popup column (.col-1-of-1, 95% of the screen width, components/_grid.scss)
+// centred. More specific than the .ligne [class^="col-"] float: left and :not(:last-child) right margin (6rem,
+// applied because Magnific Popup adds its close button after the column)
+@media only screen and (max-width: 30em) {
+  .ligne.carte-details-section-row [class^="col-"].col-1-of-1 {
+    float: none; // not floated (.ligne [class^="col-"] float: left): auto margins centre it
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Services popups: close button (×) inside the card, at its top right corner, white on a dark round background
+// (over the picture). Magnific Popup adds it to the popup box (#popup-services-x); the card is narrower than the box
+// (the .col-1-of-1 side paddings: 17%, 8.5% on tablets; 95vw wide on phones), so the right offset includes them
+#popup-services-1 .mfp-close,
+#popup-services-2 .mfp-close,
+#popup-services-3 .mfp-close {
+  position: absolute; // in the popup box (.carte-details-section-row)
+  top: 1.2rem;
+  right: calc(17% + 1.2rem);
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  opacity: 0.9;
+  font-size: 2.8rem;
+  text-align: center;
+
+  &:hover {
+    opacity: 1;
   }
 
-  .carte-details-section-row .col-1-of-1 {
-    padding-bottom: 0;
+  // tablets (481px - 1024px wide): .col-1-of-1 side paddings 8.5%
+  @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
+    right: calc(8.5% + 1.2rem);
   }
 
-  .carte-details-section-row .carte-details {
-    padding-bottom: 0; // was 5dvh
-    margin-bottom: 0; // was 10dvh
-    height: auto; // 901px - 1024px wide: follows the card (was 65dvh, the card overflowed it)
-  }
-
-  // 901px - 1024px wide (landscape tablets): the card is in the normal flow, as below 900px (was absolute:
-  // the popup box kept 65dvh and was centred, while the card ran far below the window)
-  .carte-details-section-row .carte-details__front {
-    position: relative;
+  // mobile (up to 480px wide): the card is 95vw wide, centred in the popup box
+  @media only screen and (max-width: 30em) {
+    right: calc((100% - 95vw) / 2 + 1.2rem);
   }
 }

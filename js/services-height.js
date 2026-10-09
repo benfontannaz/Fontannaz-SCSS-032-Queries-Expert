@@ -32,6 +32,7 @@
   var EDUCATION_CLIP_SIDE = 2.22; // 222dvh: Education visible bottom (sides of its clip-path) without extra
   var CONTACT_OFFSET = 2.0; // 200dvh: Contact top - Resources top (1240dvh - 1040dvh)
   var CONTACT_CLIP_SIDE = 0.83; // 83dvh: sides of the Contact angled bottom edge ($clip-path-polygon-contact)
+  var PIN_FROM_TOP = 0.3; // map address at 30% of the visible map height, from its top (0.5 = centred)
 
   // top / bottom (page coordinates) of the visible content of an element
   function contentSpan(el) {
@@ -84,7 +85,7 @@
     var education = document.querySelector(".section-education");
     if (!experiences || !education) return;
     if (getComputedStyle(experiences).display === "none") {
-      updateEducationTopMobile(vh, education); // mobile: no Experiences at all
+      updateEducationTopMobile(vh, education); // below 768px wide: no visible Experiences
       return; // small screens use .section-experiences-sm
     }
 
@@ -101,15 +102,14 @@
     document.documentElement.style.setProperty("--experiences-extra", extra + "px");
   }
 
-  // Mobile (below 576px wide): both Experiences sections are hidden (.section-experiences and
-  // .section-experiences-sm), which left the empty Experiences space between the Testimonials and the
-  // Education. --experiences-extra (negative) then brings the Education right below the Testimonials:
+  // Below 768px wide: the Experiences section (.section-experiences) is hidden (.section-experiences-sm, shown
+  // from 576px to 767px, is in the normal flow at the top of the page, behind the Services: not visible either),
+  // which left the empty Experiences space between the Testimonials and the Education.
+  // --experiences-extra (negative) then brings the Education right below the Testimonials:
   // the tip of its angled top edge (--section-sep) on the bottom of the Testimonials parallax picture,
   // so the picture fills the V and no space is visible between the two sections.
   function updateEducationTopMobile(vh, education) {
-    var small = document.querySelector(".section-experiences-sm");
     var parallax = document.querySelector(".section-parallax");
-    if (small && getComputedStyle(small).display !== "none") return; // 576px - 767px: Experiences shown
     if (!parallax || getComputedStyle(parallax).display === "none") return;
 
     var root = document.documentElement;
@@ -191,16 +191,27 @@
     var contactTip = pageTop(contact) + CONTACT_CLIP_SIDE * vh + contactExtra + cover + sep; // page coordinates
     // at the end of the page, the bottom of the window is the bottom of the document
     var visible = document.documentElement.scrollHeight - contactTip - belowMap; // below the tip of the V
-    // the map box starts at the sides of the V (no black triangles beside it): sep higher than the tip.
-    // The Google map inside is sep taller, from the top of the box (its bottom part hidden below the box), so its
-    // middle (the address) is in the middle of the part visible below the tip
+    // the map box starts at the sides of the V (no black triangles beside it): sep higher than the tip
     var box = Math.max(80, Math.round(visible + sep)); // 80px minimum (very short phones)
     map.style.height = box + "px";
+
+    // The address (always in the middle of the Google map) is 30% down the visible map: 30% of the visible
+    // height below the tip of the V (in the middle of the width, right above the address), 70% below it
+    var above = Math.max(0, visible) * PIN_FROM_TOP;
+    var pinY = sep + above; // address position in the map box
     var iframe = map.querySelector("iframe");
     if (iframe) {
-      iframe.style.top = "0";
-      iframe.style.bottom = "auto";
-      iframe.style.height = Math.round(box + sep) + "px";
+      if (2 * (box - pinY) >= box) {
+        // Google map ending at the bottom of the box, twice as high as the space below the address
+        iframe.style.top = "auto";
+        iframe.style.bottom = "0";
+        iframe.style.height = Math.round(2 * (box - pinY)) + "px";
+      } else {
+        // small map: Google map starting at the top of the box (its lower part hidden below the box)
+        iframe.style.top = "0";
+        iframe.style.bottom = "auto";
+        iframe.style.height = Math.round(2 * pinY) + "px";
+      }
     }
   }
 

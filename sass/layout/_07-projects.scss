@@ -96,9 +96,11 @@
   border-radius: 50%;
   color: #fff;
   display: inline-block;
-  height: 30px;
-  line-height: 28px;
-  width: 30px;
+  // zoom button 1.5 times larger: the icon (was 16px) and its round background (was 30px)
+  font-size: 24px;
+  height: 45px;
+  line-height: 43px;
+  width: 45px;
   margin-bottom: 5px;
   transition: all 0.5s;
 }
@@ -202,6 +204,27 @@
   }
 }
 
+// Project tiles: rounded corners, as the Services cards. Set on the picture box (.item-img, which already hides
+// what overflows it, also the dark hover overlay): the tile itself has the Bootstrap column paddings around it
+.section-projects .gallery .item-img {
+  border-radius: 2rem;
+}
+
+// Project popup: the picture, its shadow and the details overlay with the same rounded corners.
+// The picture is drawn inside 40px top / bottom paddings (Magnific Popup): border-radius would round the padding
+// box, so the picture itself is clipped to its content area with rounded corners
+.mfp-projects img.mfp-img {
+  clip-path: inset(40px 0 40px 0 round 2rem);
+}
+
+.mfp-projects .mfp-figure:after {
+  border-radius: 2rem; // shadow behind the picture
+}
+
+.mfp-projects .mfp-project-details {
+  border-radius: 0 0 2rem 2rem; // bottom corners of the picture (the top line is the angled clip-path)
+}
+
 /* ------------------------------ MEDIA QUERY max-width 767px SCREEN ------------------------------ */
 @media screen and (max-width: 767px) {
   .portfolio .items {
@@ -214,25 +237,39 @@
   position: relative; // reference for the overlay
 }
 
-// all zoomed project pictures shown at the same size (square pictures, also the smaller ILO / TUI 510 x 510px files):
-// the smallest of 800px, the available width and the window height (minus the 40px top / bottom paddings and the
-// title bar). Set by the width with an automatic height: the picture keeps its proportions on narrow screens too
-// (with a fixed height, phones stretched it vertically)
-.mfp-projects img.mfp-img {
-  width: min(800px, 100%, calc(100dvh - 170px));
-  height: auto;
+// all zoomed project pictures shown at exactly the same size, whatever the size of the file (800 x 800px, the
+// smaller ILO / TUI 510 x 510px, 800 x 801px...): a square of the smallest of 800px, the window width (minus the
+// 2 x 8px Magnific Popup side paddings) and the window height (minus the 40px top / bottom paddings and the title
+// bar). The popup box (.mfp-content) has the same width, so the picture fills it: no dark band of the shadow box
+// (.mfp-figure:after) left and right of the picture (the box was 800px wide around a 730px picture).
+// object-fit: cover fills the square without stretching a picture that is not exactly square
+.mfp-projects {
+  --project-popup-size: min(800px, calc(100vw - 16px), calc(100dvh - 170px));
+
+  .mfp-content {
+    width: var(--project-popup-size);
+    max-width: none;
+  }
+
+  img.mfp-img {
+    width: 100%;
+    max-width: none;
+    height: calc(var(--project-popup-size) + 80px); // + the 40px top / bottom paddings (box-sizing: border-box)
+    object-fit: cover;
+  }
 }
 
 .mfp-project-details {
   position: absolute;
-  // lower half of the image: the image sits between the 40px top / bottom paddings of .mfp-img
-  top: calc(40px + (100% - 80px) / 2);
+  // lower 70% of the image (starts 30% from its top), so that all the text is visible without scrolling:
+  // the image sits between the 40px top / bottom paddings of .mfp-img (was the lower half)
+  top: calc(40px + (100% - 80px) * 0.3);
   bottom: 40px;
   left: 0;
   right: 0;
   // same angled top line as the gallery thumbnails overlay ($clip-path-polygon-5: 58% -> 50% of the image height):
-  // a rise of 8% of the image height = 16% of this overlay (half the image height)
-  clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%);
+  // a rise of 8% of the image height = 11.43% of this overlay (70% of the image height)
+  clip-path: polygon(0 calc(8% / 0.7), 100% 0, 100% 100%, 0 100%);
   display: flex;
   gap: 3rem;
   // top padding keeps the text below the angled line (8% of the width = 8% of the height for the square images)
@@ -240,6 +277,7 @@
   background-color: rgba(30, 30, 30, 0.72); // transparent grey over the image
   color: white;
   text-align: left;
+  cursor: pointer; // a click goes to the next project, like a click on the picture (js/magnific.js)
   overflow-y: auto; // long texts stay readable on small screens
 }
 
@@ -287,12 +325,9 @@
   }
 }
 
-// mobile (up to 480px wide): the overlay covers the lower 2/3 of the image (was 1/2) so that the details text
-// is entirely visible; same angle of the top line: 8% of the image height = 12% of an overlay 2/3 of the image high
+// mobile (up to 480px wide): more compact text (the overlay covers the lower 70% of the image, as on larger screens)
 @media only screen and (max-width: 30em) {
   .mfp-project-details {
-    top: calc(40px + (100% - 80px) / 3); // the image sits between the 40px top / bottom paddings of .mfp-img
-    clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
     gap: 0.8rem; // more compact text on phones
     padding: calc(8% + 0.6rem) 1.4rem 0.8rem 1.4rem;
   }
@@ -337,5 +372,26 @@
     aspect-ratio: 1 / 1;
     margin-left: 20px;
     margin-right: 20px;
+  }
+}
+
+// Projects popup: close button (×) inside the picture, at its top right corner, white on a dark round background,
+// as in the Services popups. The picture starts 40px below the top of the popup box (.mfp-img top padding)
+.mfp-projects .mfp-close {
+  top: calc(40px + 1.2rem);
+  right: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  opacity: 0.9;
+  font-size: 2.8rem;
+  text-align: center;
+
+  &:hover {
+    opacity: 1;
   }
 }
