@@ -380,6 +380,21 @@ HEADER ------------------------------------------------------------------------ 
   opacity: 1;
 }
 
+// Mobile (up to 480px wide): home logo 30% smaller (3.5dvh -> 2.45dvh high), 15px from the top as from the left
+// edge. The logo is vertically centred on its line (vertical-align: middle), 33px from the top: its top is at
+// 33px - 1.225dvh, moved up to 15px
+@media only screen and (max-width: 30em) {
+  .home__logo-box img.home__logo {
+    height: calc(3.5dvh * 0.7);
+    position: relative;
+    top: calc(15px - 33px + 3.5dvh * 0.35);
+  }
+
+  .home__logo-box .home__logo--hover {
+    margin-left: calc(-2.8dvh * 0.7); // = the smaller logo width
+  }
+}
+
 .shortcut-icon {
   color: blue;
 }

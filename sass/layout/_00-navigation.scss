@@ -4,7 +4,7 @@
   }
 
   &__button {
-    background-color: rgba($nav-boutton-color-background, 0.8); // 20% transparent (was solid white)
+    background-color: rgba($nav-boutton-color-background, 0.6); // 40% transparent (was solid white, then 20%, 30%)
     height: 4.5rem;
     width: 4.5rem;
     position: fixed;
@@ -278,4 +278,32 @@
 
 @include respond(pc-xl) {
   /* Breakpoint = pc-xl | min-Width= 2560px or 160em | Hover = hover */
+}
+
+// All screens and devices: the navigation button at the same height and the same distance from its corner as the
+// home logo in the opposite corner (logo: 15px from the left edge, centre 33px from the top). The 4.5rem (45px)
+// button: centre 33px from the top -> top 10.5px; 15px from the right edge. Placed after the media queries above
+// (2rem / 3rem on touch devices), which it replaces. The menu background circle starts from the same place
+.navigation__button,
+.navigation__background {
+  top: calc(33px - 2.25rem);
+  right: 15px;
+}
+
+// Mobile (up to 480px wide): navigation button 30% smaller (4.5rem -> 3.15rem), scaled from its top right corner,
+// 15px from the right edge, vertically centred on the home logo in the other corner (logo: top 15px, 2.45dvh
+// high -> centre 15px + 1.225dvh; button centre = its top + 1.575rem)
+@media only screen and (max-width: 30em) {
+  .navigation__button {
+    top: calc(15px + 3.5dvh * 0.35 - 4.5rem * 0.35);
+    transform: scale(0.7);
+    transform-origin: right top;
+  }
+
+  // menu background circle: same size and place as the smaller button (it grows from there when the menu opens)
+  .navigation__background {
+    width: calc(4.5rem * 0.7);
+    height: calc(4.5rem * 0.7);
+    top: calc(15px + 3.5dvh * 0.35 - 4.5rem * 0.35);
+  }
 }

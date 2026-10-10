@@ -395,3 +395,23 @@
     opacity: 1;
   }
 }
+
+// Tablets and phones (touch devices, no hover): the tile overlay (dark band with the magnifier and the project
+// name) is always visible. Desktops and laptops (with a mouse): it still appears on hover
+@media (hover: none) {
+  .portfolio .item-img .item-img-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .portfolio .item-img h6 {
+    transform: translateY(0);
+  }
+}
+
+// Mobile (up to 480px wide): project tile texts (name / domain / topic in the overlay) 30% smaller (16px -> 11.2px)
+@media only screen and (max-width: 30em) {
+  .portfolio .item-img h6 {
+    font-size: calc(16px * 0.7);
+  }
+}

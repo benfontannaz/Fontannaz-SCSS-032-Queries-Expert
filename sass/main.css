@@ -29674,7 +29674,7 @@ body {
   display: none;
 }
 .navigation__button {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
   height: 4.5rem;
   width: 4.5rem;
   position: fixed;
@@ -29889,6 +29889,24 @@ body {
 }
 @media only screen and (min-width: 160em) and (hover: hover) {
   /* Breakpoint = pc-xl | min-Width= 2560px or 160em | Hover = hover */
+}
+.navigation__button,
+.navigation__background {
+  top: calc(33px - 2.25rem);
+  right: 15px;
+}
+
+@media only screen and (max-width: 30em) {
+  .navigation__button {
+    top: calc(15px + 1.225dvh - 1.575rem);
+    transform: scale(0.7);
+    transform-origin: right top;
+  }
+  .navigation__background {
+    width: 3.15rem;
+    height: 3.15rem;
+    top: calc(15px + 1.225dvh - 1.575rem);
+  }
 }
 /* 
 HEADER ------------------------------------------------------------------------ */
@@ -30216,6 +30234,16 @@ HEADER ------------------------------------------------------------------------ 
   opacity: 1;
 }
 
+@media only screen and (max-width: 30em) {
+  .home__logo-box img.home__logo {
+    height: 2.45dvh;
+    position: relative;
+    top: calc(-18px + 1.225dvh);
+  }
+  .home__logo-box .home__logo--hover {
+    margin-left: -1.96dvh;
+  }
+}
 .shortcut-icon {
   color: blue;
 }
@@ -32915,6 +32943,20 @@ section ABOUT ---------------------------------------- */
   opacity: 1;
 }
 
+@media (hover: none) {
+  .portfolio .item-img .item-img-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .portfolio .item-img h6 {
+    transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 30em) {
+  .portfolio .item-img h6 {
+    font-size: 11.2px;
+  }
+}
 /* ======= SECTION RESOURCES  ======= START === */
 /* SECTION RESOURCES TITLE H2 */
 .heading-2-resources {
