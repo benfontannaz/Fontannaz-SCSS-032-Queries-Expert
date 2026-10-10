@@ -1305,3 +1305,18 @@ HEADER ------------------------------------------------------------------------ 
     padding: 10.2px 76.5px;
   }
 }
+
+// Mobile (up to 480px wide): header title and introduction more readable (were 1.5rem / 1.2rem on phones).
+// The title phrases cannot wrap (one line for the typing animation): the longest one, "I'm an AI & Modern Workplace
+// Architect", is 20.3 times the font size wide and must fit the 90% wide banner box -> 4.3vw (390px: 16.8px)
+@media only screen and (max-width: 30em) {
+  .banner-headline {
+    font-size: min(2.2rem, 4.3vw);
+    line-height: 1.4;
+  }
+
+  #introduction-2 {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+}

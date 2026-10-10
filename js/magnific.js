@@ -98,6 +98,12 @@ $("#inline-popups").magnificPopup({
 $("#inline-popups-1").magnificPopup({
   delegate: "a",
   removalDelay: 500, //delay removal by X to allow out-animation
+  // fixed popup on every device, also phones and tablets (Magnific Popup's default "auto" places it in the page
+  // on mobile devices, where the page could then be scrolled above and below the card): the page behind is locked
+  // and only the popup scrolls, from the top to the bottom of the card
+  fixedContentPos: true,
+  fixedBgPos: true,
+  overflowY: "auto",
   callbacks: {
     beforeOpen: function () {
       this.st.mainClass = this.st.el.attr("data-effect");
@@ -109,6 +115,12 @@ $("#inline-popups-1").magnificPopup({
 $("#inline-popups-2").magnificPopup({
   delegate: "a",
   removalDelay: 500, //delay removal by X to allow out-animation
+  // fixed popup on every device, also phones and tablets (Magnific Popup's default "auto" places it in the page
+  // on mobile devices, where the page could then be scrolled above and below the card): the page behind is locked
+  // and only the popup scrolls, from the top to the bottom of the card
+  fixedContentPos: true,
+  fixedBgPos: true,
+  overflowY: "auto",
   callbacks: {
     beforeOpen: function () {
       this.st.mainClass = this.st.el.attr("data-effect");
@@ -120,6 +132,12 @@ $("#inline-popups-2").magnificPopup({
 $("#inline-popups-3").magnificPopup({
   delegate: "a",
   removalDelay: 500, //delay removal by X to allow out-animation
+  // fixed popup on every device, also phones and tablets (Magnific Popup's default "auto" places it in the page
+  // on mobile devices, where the page could then be scrolled above and below the card): the page behind is locked
+  // and only the popup scrolls, from the top to the bottom of the card
+  fixedContentPos: true,
+  fixedBgPos: true,
+  overflowY: "auto",
   callbacks: {
     beforeOpen: function () {
       this.st.mainClass = this.st.el.attr("data-effect");

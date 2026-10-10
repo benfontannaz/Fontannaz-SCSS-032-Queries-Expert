@@ -163,7 +163,7 @@
           $services-card1-front-color-background-image-top,
           $services-card1-front-color-background-image-bottom
         ),
-        url(/img/chess/Chess-07-flipped.jpeg);
+        url(/img/Chess/Chess-07-flipped.jpeg);
       background-position: 50% 75%;
       // background-position: center;
       // configuration without the use of the background-blend-mode on the parent
@@ -471,4 +471,10 @@
   @media only screen and (max-width: 30em) {
     right: calc((100% - 95vw) / 2 + 1.2rem);
   }
+}
+
+// Services popups: the scroll stays inside the popup (no scroll of the page behind when the top or bottom of the
+// card is reached, e.g. iOS / Android "scroll chaining"), see js/magnific.js (fixedContentPos)
+.mfp-wrap:has(.carte-details-section-row) {
+  overscroll-behavior: contain;
 }

@@ -1,10 +1,53 @@
 $(function () {
     "use strict";
     var wind = $(window);
-    $("#preloader").fadeOut("normall", function () {
-      $(this).remove();
-    });
-  
+
+    // The page stays behind the preloader until the header is complete: its background picture, the photo,
+    // the images inside it (logo, icons) and the fonts. 8 seconds at most, so a slow or failed file never
+    // blocks the site.
+    var header = document.querySelector(".header");
+    var MAX_WAIT = 8000;
+    var revealed = false;
+
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      $("#preloader").fadeOut("normall", function () {
+        $(this).remove();
+      });
+    }
+
+    function loadImage(url) {
+      return new Promise(function (resolve) {
+        var img = new Image();
+        img.onload = img.onerror = resolve; // a missing file must not block the page
+        img.src = url;
+        if (img.complete) resolve();
+      });
+    }
+
+    var waits = [];
+    if (header) {
+      // background pictures (CSS) of the header and of the photo element (not the data: pattern)
+      [header, header.querySelector(".header__ben-only")].forEach(function (el) {
+        if (!el) return;
+        var bg = getComputedStyle(el).backgroundImage || "";
+        var re = /url\(["']?([^"')]+)["']?\)/g;
+        var m;
+        while ((m = re.exec(bg))) {
+          if (m[1].indexOf("data:") !== 0) waits.push(loadImage(m[1]));
+        }
+      });
+      // images in the header, and the home logo at the top of the page
+      document.querySelectorAll(".header img, .home__logo-box img").forEach(function (img) {
+        if (img.currentSrc || img.src) waits.push(loadImage(img.currentSrc || img.src));
+      });
+    }
+    if (document.fonts && document.fonts.ready) waits.push(document.fonts.ready);
+
+    Promise.all(waits).then(reveal);
+    setTimeout(reveal, MAX_WAIT);
+
     $.scrollIt({
       upKey: 38,
       downKey: 40,

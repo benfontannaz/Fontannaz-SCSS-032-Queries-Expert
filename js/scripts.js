@@ -7,10 +7,7 @@
         
 ---------------------------------- */
 /* ============ Preloader FUNCTION ============ START === */
-var loader = document.getElementById("preloader");
-window.addEventListener("load", function () {
-  loader.style.display = "none";
-});
+// The preloader is removed by js/preloader.js once the header is fully loaded (images and fonts)
 /* ============ Preloader FUNCTION ============ END === */
 
 
@@ -19,9 +16,7 @@ window.addEventListener("load", function () {
 $(function () {
   "use strict";
   var wind = $(window);
-  $("#preloader").fadeOut("normall", function () {
-    $(this).remove();
-  });
+  // (preloader: removed by js/preloader.js once the header is fully loaded)
 
   $.scrollIt({
     upKey: 38,

@@ -27704,7 +27704,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: linear-gradient(to right bottom, rgba(150, 153, 161, 0.855), rgba(34, 41, 48, 0.507)), url(/img/chess/Chess-07-centered.jpeg);
+  background-image: linear-gradient(to right bottom, rgba(150, 153, 161, 0.855), rgba(34, 41, 48, 0.507)), url(/img/Chess/Chess-07-centered.jpeg);
 }
 .carte__side--back-2 {
   background-image: linear-gradient(to right bottom, rgba(141, 183, 208, 0.37), rgba(53, 75, 87, 0.965)), url(/img/Chess/wall-of-gears.jpg);
@@ -27730,7 +27730,7 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 .carte__picture--1 {
-  background-image: linear-gradient(to right bottom, rgba(127, 127, 129, 0.855), rgba(88, 89, 92, 0.773)), url(/img/chess/Chess-07-flipped.jpeg);
+  background-image: linear-gradient(to right bottom, rgba(127, 127, 129, 0.855), rgba(88, 89, 92, 0.773)), url(/img/Chess/Chess-07-flipped.jpeg);
 }
 .carte__picture--2 {
   background-image: linear-gradient(to right bottom, rgba(141, 183, 208, 0.91), rgba(53, 75, 87, 0.965)), url(/img/Chess/wall-of-gears.jpg);
@@ -31169,6 +31169,16 @@ HEADER ------------------------------------------------------------------------ 
     padding: 10.2px 76.5px;
   }
 }
+@media only screen and (max-width: 30em) {
+  .banner-headline {
+    font-size: min(2.2rem, 4.3vw);
+    line-height: 1.4;
+  }
+  #introduction-2 {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+}
 #popup-services-1,
 #popup-services-2,
 #popup-services-3 {
@@ -31292,7 +31302,7 @@ HEADER ------------------------------------------------------------------------ 
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 .carte-details__picture--1 {
-  background-image: linear-gradient(to right bottom, rgba(127, 127, 129, 0.855), rgba(88, 89, 92, 0.773)), url(/img/chess/Chess-07-flipped.jpeg);
+  background-image: linear-gradient(to right bottom, rgba(127, 127, 129, 0.855), rgba(88, 89, 92, 0.773)), url(/img/Chess/Chess-07-flipped.jpeg);
   background-position: 50% 75%;
 }
 .carte-details__picture--2 {
@@ -31523,6 +31533,10 @@ HEADER ------------------------------------------------------------------------ 
   #popup-services-3 .mfp-close {
     right: calc((100% - 95vw) / 2 + 1.2rem);
   }
+}
+
+.mfp-wrap:has(.carte-details-section-row) {
+  overscroll-behavior: contain;
 }
 
 .testimonials h4 {
