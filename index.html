@@ -4,6 +4,10 @@
   <!-- HEAD ===> START  -->
   <head>
     <meta charset="UTF-8" />
+    <!-- header animations wait for the loader (js/preloader.js removes this class once the loader has faded out) -->
+    <script>
+      document.documentElement.classList.add("is-loading");
+    </script>
     <meta name="author" content="Benjamin Fontannaz" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

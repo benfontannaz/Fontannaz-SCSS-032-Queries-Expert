@@ -86,9 +86,7 @@ input[type=search],
 input[type=password],
 textarea,
 input[type=submit] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   outline: none;
 }
 
@@ -146,11 +144,6 @@ ul li {
 
 .height-100-vh {
   height: 100vh;
-}
-
-::-moz-selection {
-  color: #000;
-  background: #dbdbdb;
 }
 
 ::selection {
@@ -512,16 +505,24 @@ h6 {
 
 .bg-transparent-white {
   background-color: rgba(255, 255, 255, 0.3);
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 37%, #fff 96%, #fff 100%);
   background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(37%, rgba(255, 255, 255, 0)), color-stop(96%, #fff), color-stop(100%, #fff));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 37%, #fff 96%, #fff 100%);
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 37%, #fff 96%, #fff 100%);
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 37%, #fff 96%, #fff 100%);
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 37%, #fff 96%, #fff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1 );
 }
 
 .bg-transparent-black {
   background-color: transparent;
+  background: -moz-linear-gradient(left, transparent 0%, transparent 37%, #000 96%, #000 100%);
   background: -webkit-gradient(left top, right top, color-stop(0%, transparent), color-stop(37%, transparent), color-stop(96%, #000), color-stop(100%, #000));
+  background: -webkit-linear-gradient(left, transparent 0%, transparent 37%, #000 96%, #000 100%);
+  background: -o-linear-gradient(left, transparent 0%, transparent 37%, #000 96%, #000 100%);
+  background: -ms-linear-gradient(left, transparent 0%, transparent 37%, #000 96%, #000 100%);
   background: linear-gradient(to right, transparent 0%, transparent 37%, #000 96%, #000 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
 }
 
 .bg-white-opacity {
@@ -942,6 +943,8 @@ section {
 }
 
 .vertical-middle {
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
@@ -976,6 +979,9 @@ section {
   left: 50%;
   top: 50%;
   position: absolute;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
 }
@@ -1306,6 +1312,7 @@ section {
   -o-animation-timing-function: linear;
   -o-animation-delay: 0.7s;
   -o-animation-iteration-count: infinite;
+  -o-animation-direction: alternate;
   animation-direction: alternate;
   animation-name: up-down-animation;
   animation-duration: 0.7s;
@@ -6080,6 +6087,9 @@ section {
     left: 0;
     top: 0;
     position: relative;
+    -ms-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
     -o-transform: translateX(0) translateY(0);
   }
@@ -9732,6 +9742,9 @@ section {
     left: 0;
     top: 0;
     position: relative;
+    -ms-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
     -o-transform: translateX(0) translateY(0);
   }
@@ -13192,6 +13205,9 @@ section {
     display: inherit;
     display: inherit;
     flex-flow: inherit;
+    -webkit-flex-flow: inherit;
+    -moz-flex-flow: inherit;
+    -ms-flex-flow: inherit;
     -o-flex-flow: inherit;
   }
   .sm-clear-both {
@@ -13455,6 +13471,9 @@ section {
     left: 0;
     top: 0;
     position: relative;
+    -ms-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
     -o-transform: translateX(0) translateY(0);
   }
@@ -17403,11 +17422,15 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
 
 .mfp-zoom-out-cur,
 .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+  cursor: -moz-zoom-out;
+  cursor: -webkit-zoom-out;
   cursor: zoom-out;
 }
 
 .mfp-zoom {
   cursor: pointer;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
   cursor: zoom-in;
 }
 
@@ -17466,9 +17489,7 @@ button.mfp-arrow {
   cursor: pointer;
   background: transparent;
   border: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   display: block;
   outline: none;
   padding: 0;
@@ -17755,12 +17776,15 @@ img.mfp-img {
 }
 @media all and (max-width: 900px) {
   .mfp-arrow {
+    -webkit-transform: scale(0.75);
     transform: scale(0.75);
   }
   .mfp-arrow-left {
+    -webkit-transform-origin: 0;
     transform-origin: 0;
   }
   .mfp-arrow-right {
+    -webkit-transform-origin: 100%;
     transform-origin: 100%;
   }
   .mfp-container {
@@ -17830,18 +17854,33 @@ uncomment this part if you haven't added this code anywhere else
 /* start state */
 .my-mfp-zoom-in .zoom-anim-dialog {
   opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
   transform: scale(0.8);
 }
 
 /* animate in */
 .my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
   opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
   transform: scale(1);
 }
 
 /* animate out */
 .my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
   transform: scale(0.8);
   opacity: 0;
 }
@@ -17849,6 +17888,9 @@ uncomment this part if you haven't added this code anywhere else
 /* Dark overlay, start state */
 .my-mfp-zoom-in.mfp-bg {
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
 
@@ -17868,25 +17910,43 @@ uncomment this part if you haven't added this code anywhere else
 /* at start */
 .my-mfp-slide-bottom .zoom-anim-dialog {
   opacity: 0;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  -webkit-transform: translateY(-20px) perspective(600px) rotateX(10deg);
+  -moz-transform: translateY(-20px) perspective(600px) rotateX(10deg);
+  -ms-transform: translateY(-20px) perspective(600px) rotateX(10deg);
+  -o-transform: translateY(-20px) perspective(600px) rotateX(10deg);
   transform: translateY(-20px) perspective(600px) rotateX(10deg);
 }
 
 /* animate in */
 .my-mfp-slide-bottom.mfp-ready .zoom-anim-dialog {
   opacity: 1;
+  -webkit-transform: translateY(0) perspective(600px) rotateX(0);
+  -moz-transform: translateY(0) perspective(600px) rotateX(0);
+  -ms-transform: translateY(0) perspective(600px) rotateX(0);
+  -o-transform: translateY(0) perspective(600px) rotateX(0);
   transform: translateY(0) perspective(600px) rotateX(0);
 }
 
 /* animate out */
 .my-mfp-slide-bottom.mfp-removing .zoom-anim-dialog {
   opacity: 0;
+  -webkit-transform: translateY(-10px) perspective(600px) rotateX(10deg);
+  -moz-transform: translateY(-10px) perspective(600px) rotateX(10deg);
+  -ms-transform: translateY(-10px) perspective(600px) rotateX(10deg);
+  -o-transform: translateY(-10px) perspective(600px) rotateX(10deg);
   transform: translateY(-10px) perspective(600px) rotateX(10deg);
 }
 
 /* Dark overlay, start state */
 .my-mfp-slide-bottom.mfp-bg {
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
 
@@ -17910,6 +17970,8 @@ uncomment this part if you haven't added this code anywhere else
 */
 .mfp-zoom-in {
   /* start state */
+  /* animate in */
+  /* animate out */
 }
 .mfp-zoom-in .mfp-with-anim {
   opacity: 0;
@@ -17920,18 +17982,12 @@ uncomment this part if you haven't added this code anywhere else
   opacity: 0;
   transition: all 0.3s ease-out;
 }
-.mfp-zoom-in {
-  /* animate in */
-}
 .mfp-zoom-in.mfp-ready .mfp-with-anim {
   opacity: 1;
   transform: scale(1);
 }
 .mfp-zoom-in.mfp-ready.mfp-bg {
   opacity: 0.8;
-}
-.mfp-zoom-in {
-  /* animate out */
 }
 .mfp-zoom-in.mfp-removing .mfp-with-anim {
   transform: scale(0.8);
@@ -17948,9 +18004,12 @@ uncomment this part if you haven't added this code anywhere else
 */
 .mfp-newspaper {
   /* start state */
+  /* animate in */
+  /* animate out */
 }
 .mfp-newspaper .mfp-with-anim {
   opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.5s;
   transform: scale(0) rotate(500deg);
 }
@@ -17958,18 +18017,12 @@ uncomment this part if you haven't added this code anywhere else
   opacity: 0;
   transition: all 0.5s;
 }
-.mfp-newspaper {
-  /* animate in */
-}
 .mfp-newspaper.mfp-ready .mfp-with-anim {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
 .mfp-newspaper.mfp-ready.mfp-bg {
   opacity: 0.8;
-}
-.mfp-newspaper {
-  /* animate out */
 }
 .mfp-newspaper.mfp-removing .mfp-with-anim {
   transform: scale(0) rotate(500deg);
@@ -17986,6 +18039,8 @@ uncomment this part if you haven't added this code anywhere else
 */
 .mfp-move-horizontal {
   /* start state */
+  /* animate in */
+  /* animate out */
 }
 .mfp-move-horizontal .mfp-with-anim {
   opacity: 0;
@@ -17996,18 +18051,12 @@ uncomment this part if you haven't added this code anywhere else
   opacity: 0;
   transition: all 0.3s;
 }
-.mfp-move-horizontal {
-  /* animate in */
-}
 .mfp-move-horizontal.mfp-ready .mfp-with-anim {
   opacity: 1;
   transform: translateX(0);
 }
 .mfp-move-horizontal.mfp-ready.mfp-bg {
   opacity: 0.8;
-}
-.mfp-move-horizontal {
-  /* animate out */
 }
 .mfp-move-horizontal.mfp-removing .mfp-with-anim {
   transform: translateX(50px);
@@ -18022,11 +18071,13 @@ uncomment this part if you haven't added this code anywhere else
 ====== Move-from-top effect ======
 
 */
-.mfp-move-from-top .mfp-content {
-  vertical-align: top;
-}
 .mfp-move-from-top {
   /* start state */
+  /* animate in */
+  /* animate out */
+}
+.mfp-move-from-top .mfp-content {
+  vertical-align: top;
 }
 .mfp-move-from-top .mfp-with-anim {
   opacity: 0;
@@ -18037,18 +18088,12 @@ uncomment this part if you haven't added this code anywhere else
   opacity: 0;
   transition: all 0.2s;
 }
-.mfp-move-from-top {
-  /* animate in */
-}
 .mfp-move-from-top.mfp-ready .mfp-with-anim {
   opacity: 1;
   transform: translateY(0);
 }
 .mfp-move-from-top.mfp-ready.mfp-bg {
   opacity: 0.8;
-}
-.mfp-move-from-top {
-  /* animate out */
 }
 .mfp-move-from-top.mfp-removing .mfp-with-anim {
   transform: translateY(-50px);
@@ -18065,14 +18110,18 @@ uncomment this part if you haven't added this code anywhere else
 */
 .mfp-zoom-out-cur,
 .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+  cursor: -moz-zoom-out;
+  cursor: -webkit-zoom-out;
   cursor: zoom-out;
 }
 
-.mfp-3d-unfold .mfp-content {
-  perspective: 2000px;
-}
 .mfp-3d-unfold {
   /* start state */
+  /* animate in */
+  /* animate out */
+}
+.mfp-3d-unfold .mfp-content {
+  perspective: 2000px;
 }
 .mfp-3d-unfold .mfp-with-anim {
   opacity: 0;
@@ -18084,18 +18133,12 @@ uncomment this part if you haven't added this code anywhere else
   opacity: 0;
   transition: all 0.5s;
 }
-.mfp-3d-unfold {
-  /* animate in */
-}
 .mfp-3d-unfold.mfp-ready .mfp-with-anim {
   opacity: 1;
   transform: rotateY(0deg);
 }
 .mfp-3d-unfold.mfp-ready.mfp-bg {
   opacity: 0.8;
-}
-.mfp-3d-unfold {
-  /* animate out */
 }
 .mfp-3d-unfold.mfp-removing .mfp-with-anim {
   transform: rotateY(60deg);
@@ -18112,6 +18155,8 @@ uncomment this part if you haven't added this code anywhere else
 */
 .mfp-zoom-out {
   /* start state */
+  /* animate in */
+  /* animate out */
 }
 .mfp-zoom-out .mfp-with-anim {
   opacity: 0;
@@ -18122,18 +18167,12 @@ uncomment this part if you haven't added this code anywhere else
   opacity: 0;
   transition: all 0.3s ease-out;
 }
-.mfp-zoom-out {
-  /* animate in */
-}
 .mfp-zoom-out.mfp-ready .mfp-with-anim {
   opacity: 1;
   transform: scale(1);
 }
 .mfp-zoom-out.mfp-ready.mfp-bg {
   opacity: 0.8;
-}
-.mfp-zoom-out {
-  /* animate out */
 }
 .mfp-zoom-out.mfp-removing .mfp-with-anim {
   transform: scale(1.3);
@@ -18182,22 +18221,18 @@ uncomment this part if you haven't added this code anywhere else
 
 .mfp-with-fade {
   /* before-open state */
+  /* open state */
+  /* closed state */
 }
 .mfp-with-fade .mfp-content, .mfp-with-fade.mfp-bg {
   opacity: 0;
   transition: opacity 0.5s ease-out;
-}
-.mfp-with-fade {
-  /* open state */
 }
 .mfp-with-fade.mfp-ready .mfp-content {
   opacity: 1;
 }
 .mfp-with-fade.mfp-ready.mfp-bg {
   opacity: 0.8; /* background opacity */
-}
-.mfp-with-fade {
-  /* closed state */
 }
 .mfp-with-fade.mfp-removing.mfp-bg {
   opacity: 0;
@@ -27277,13 +27312,27 @@ you can use the generic selector below, but it's slower:
 /*Animation*/
 .icofont-rotate {
   display: inline-block;
+  -webkit-animation: icofont-rotate 2s infinite linear;
   animation: icofont-rotate 2s infinite linear;
 }
-@keyframes icofont-rotate {
+
+@-webkit-keyframes icofont-rotate {
   0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes icofont-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
 }
@@ -27328,8 +27377,7 @@ body {
   display: block;
   margin: 0 auto 8rem auto;
   background-image: linear-gradient(to right, #777, #354b57);
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   color: transparent;
   text-align: center;
   letter-spacing: 0.2rem;
@@ -27350,8 +27398,7 @@ body {
   font-weight: 700;
   display: inline-block;
   background-image: linear-gradient(to right, #777, #354b57);
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
@@ -27457,8 +27504,7 @@ body {
 .bg-video__content {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* .boutton:link,.boutton:visited are put together so that the state of the button remain the same as before once visited (clicked) */
@@ -27711,8 +27757,7 @@ body {
 }
 .carte__heading-span {
   padding: 1rem 1.5rem;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .carte__heading-span--1 {
   background-image: linear-gradient(to right bottom, rgba(150, 153, 161, 0.85), rgba(34, 41, 48, 0.85));
@@ -27919,8 +27964,7 @@ body {
 }
 .services-details-head__heading-span {
   padding: 1rem 1.5rem;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .services-details-head__heading-span--1 {
   background-image: linear-gradient(to right bottom, rgba(150, 153, 161, 0.85), rgba(34, 41, 48, 0.85));
@@ -27945,8 +27989,7 @@ body {
 }
 .services-details-head-2__heading-span {
   padding: 1rem 1.5rem;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .services-details-head-2__heading-span--1 {
   background-image: linear-gradient(to right bottom, rgba(150, 153, 161, 0.85), rgba(34, 41, 48, 0.85));
@@ -28082,8 +28125,7 @@ carousel configuration  ------------------------------------ */
   margin-bottom: 0.5rem;
   display: inline-block;
   background-image: linear-gradient(to right, rgb(141, 183, 208), rgb(53, 75, 87));
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 .feature-box:hover {
@@ -28124,11 +28166,6 @@ carousel configuration  ------------------------------------ */
   margin-top: 0.4rem;
   display: block;
   transition: all 0.5s;
-}
-.form__input:-moz-placeholder + .form__label {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-4rem);
 }
 .form__input:placeholder-shown + .form__label {
   opacity: 0;
@@ -28497,6 +28534,9 @@ carousel configuration  ------------------------------------ */
   font-family: inherit;
   font-size: 17px;
   letter-spacing: -0.5px;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
 }
 
@@ -28508,6 +28548,9 @@ carousel configuration  ------------------------------------ */
 /* Mail Form PlaceHolder
 ========================================================*/
 .mfPlaceHolder {
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
   font: inherit;
   cursor: text;
@@ -28522,12 +28565,20 @@ carousel configuration  ------------------------------------ */
 
 *:-webkit-autofill ~ .mfPlaceHolder {
   opacity: 1;
+  -moz-transform: translateY(-30%);
+  -ms-transform: translateY(-30%);
+  -o-transform: translateY(-30%);
+  -webkit-transform: translateY(-30%);
   transform: translateY(-30%);
   font-size: 14px;
 }
 
 .mfPlaceHolder.state-1 {
   opacity: 1;
+  -moz-transform: translateY(-30%);
+  -ms-transform: translateY(-30%);
+  -o-transform: translateY(-30%);
+  -webkit-transform: translateY(-30%);
   transform: translateY(-30%);
   font-size: 14px;
 }
@@ -28535,9 +28586,22 @@ carousel configuration  ------------------------------------ */
 /* Mail Form Validation
   ========================================================*/
 .mfValidation {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
   transform-origin: 0% 50%;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
+  -webkit-animation: notifanim-fo 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  -moz-animation: notifanim-fo 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  -ms-animation: notifanim-fo 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  -o-animation: notifanim-fo 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
   animation: notifanim-fo 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
   background: #888;
   position: absolute;
@@ -28582,9 +28646,17 @@ carousel configuration  ------------------------------------ */
 }
 
 .mfValidation.error {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transform: scale(1);
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+  -webkit-animation: notifanim 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  -moz-animation: notifanim 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  -ms-animation: notifanim 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  -o-animation: notifanim 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
   animation: notifanim 0.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
 }
 
@@ -28600,6 +28672,8 @@ carousel configuration  ------------------------------------ */
     margin: 0 0 3px;
     min-height: 0;
     color: #da7b77;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
     box-shadow: none;
   }
   .mfValidation:before {
@@ -28608,6 +28682,82 @@ carousel configuration  ------------------------------------ */
   .mfValidation:hover {
     background: none;
     right: 5px;
+  }
+}
+@-ms-keyframes notifanim-fo {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
+@-o-keyframes notifanim-fo {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes notifanim-fo {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
+@-moz-keyframes notifanim-fo {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+    transform: scale(0.3);
+    opacity: 0;
   }
 }
 @keyframes notifanim-fo {
@@ -28627,6 +28777,86 @@ carousel configuration  ------------------------------------ */
     visibility: hidden;
     transform: scale(0.3);
     opacity: 0;
+  }
+}
+@-ms-keyframes notifanim {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.3);
+  }
+  1% {
+    visibility: visible;
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-o-keyframes notifanim {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.3);
+  }
+  1% {
+    visibility: visible;
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes notifanim {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.3);
+  }
+  1% {
+    visibility: visible;
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-moz-keyframes notifanim {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.3);
+  }
+  1% {
+    visibility: visible;
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 @keyframes notifanim {
@@ -28661,6 +28891,9 @@ carousel configuration  ------------------------------------ */
 
 .mfProgress .cnt,
 .mfProgress .loader {
+  -moz-transition: 0.4s all ease-in-out;
+  -o-transition: 0.4s all ease-in-out;
+  -webkit-transition: 0.4s all ease-in-out;
   transition: 0.4s all ease-in-out;
 }
 
@@ -28668,6 +28901,10 @@ carousel configuration  ------------------------------------ */
   opacity: 0;
   text-align: center;
   letter-spacing: 10px;
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
 
@@ -28698,13 +28935,24 @@ carousel configuration  ------------------------------------ */
   color: #fff;
   font: 400 30px "FontAwesome";
   line-height: 50px;
+  -moz-transition: 0.4s all ease-in-out;
+  -o-transition: 0.4s all ease-in-out;
+  -webkit-transition: 0.4s all ease-in-out;
   transition: 0.4s all ease-in-out;
+  -moz-transform: scale(0) rotate(-60deg);
+  -ms-transform: scale(0) rotate(-60deg);
+  -o-transform: scale(0) rotate(-60deg);
+  -webkit-transform: scale(0) rotate(-60deg);
   transform: scale(0) rotate(-60deg);
 }
 
 .mfProgress.sending .cnt,
 .mfProgress.fail .cnt,
 .mfProgress.success .cnt {
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
   transform: scale(1.2);
   opacity: 0;
 }
@@ -28713,21 +28961,37 @@ carousel configuration  ------------------------------------ */
 .mfProgress.fail .loader,
 .mfProgress.success .loader {
   opacity: 1;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transform: scale(1);
   transform: scale(1);
 }
 
 .mfProgress.fail .loader:before,
 .mfProgress.success .loader:before {
+  -webkit-animation: fout 0.4s ease-in-out 1 forwards;
+  -moz-animation: fout 0.4s ease-in-out 1 forwards;
+  -ms-animation: fout 0.4s ease-in-out 1 forwards;
+  -o-animation: fout 0.4s ease-in-out 1 forwards;
   animation: fout 0.4s ease-in-out 1 forwards;
   opacity: 0;
 }
 
 .mfProgress.fail .loader:after,
 .mfProgress.success .loader:after {
+  -moz-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  -o-transform: scale(1) rotate(0deg);
+  -webkit-transform: scale(1) rotate(0deg);
   transform: scale(1) rotate(0deg);
 }
 
 .mfProgress.sending .loader:before {
+  -webkit-animation: motion 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  -moz-animation: motion 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  -ms-animation: motion 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  -o-animation: motion 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
   animation: motion 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
 }
 
@@ -28740,10 +29004,25 @@ carousel configuration  ------------------------------------ */
 }
 
 .mfProgress .msg {
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  -webkit-transform-origin: 0% 50%;
   transform-origin: 0% 50%;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
+  -webkit-animation: notifanim-fo 0.4s ease-in-out forwards;
+  -moz-animation: notifanim-fo 0.4s ease-in-out forwards;
+  -ms-animation: notifanim-fo 0.4s ease-in-out forwards;
+  -o-animation: notifanim-fo 0.4s ease-in-out forwards;
   animation: notifanim-fo 0.4s ease-in-out forwards;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
   position: absolute;
   padding: 15px;
@@ -28756,6 +29035,10 @@ carousel configuration  ------------------------------------ */
   width: 400px;
   margin-left: 20px;
   margin-top: 0;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
   background: #da7b77;
   color: #fff;
@@ -28772,6 +29055,9 @@ carousel configuration  ------------------------------------ */
   border-style: solid;
   border-width: 6px 6px 6px 0;
   border-color: transparent #111 transparent transparent;
+  -moz-transition: 0.4s all ease-in-out;
+  -o-transition: 0.4s all ease-in-out;
+  -webkit-transition: 0.4s all ease-in-out;
   transition: 0.4s all ease-in-out;
 }
 
@@ -28800,6 +29086,10 @@ carousel configuration  ------------------------------------ */
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+  -webkit-animation: notifanim 0.4s ease-in-out forwards;
+  -moz-animation: notifanim 0.4s ease-in-out forwards;
+  -ms-animation: notifanim 0.4s ease-in-out forwards;
+  -o-animation: notifanim 0.4s ease-in-out forwards;
   animation: notifanim 0.4s ease-in-out forwards;
 }
 
@@ -28845,12 +29135,112 @@ carousel configuration  ------------------------------------ */
     border-color: transparent transparent #2e7d32 transparent;
   }
 }
+@-ms-keyframes fout {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    transform: scale(0) translateX(0);
+  }
+}
+@-o-keyframes fout {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    transform: scale(0) translateX(0);
+  }
+}
+@-webkit-keyframes fout {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    transform: scale(0) translateX(0);
+  }
+}
+@-moz-keyframes fout {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  100% {
+    transform: scale(0) translateX(0);
+  }
+}
 @keyframes fout {
   0% {
     transform: scale(1) translateX(0);
   }
   100% {
     transform: scale(0) translateX(0);
+  }
+}
+@-ms-keyframes motion {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-50px) scale(0.3);
+  }
+  50% {
+    transform: translateX(0) scale(1);
+  }
+  75% {
+    transform: translateX(50px) scale(0.3);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+@-o-keyframes motion {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-50px) scale(0.3);
+  }
+  50% {
+    transform: translateX(0) scale(1);
+  }
+  75% {
+    transform: translateX(50px) scale(0.3);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+@-webkit-keyframes motion {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-50px) scale(0.3);
+  }
+  50% {
+    transform: translateX(0) scale(1);
+  }
+  75% {
+    transform: translateX(50px) scale(0.3);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+@-moz-keyframes motion {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-50px) scale(0.3);
+  }
+  50% {
+    transform: translateX(0) scale(1);
+  }
+  75% {
+    transform: translateX(50px) scale(0.3);
+  }
+  100% {
+    transform: translateX(0) scale(1);
   }
 }
 @keyframes motion {
@@ -28872,6 +29262,62 @@ carousel configuration  ------------------------------------ */
 }
 /* Mail Form Select
 ========================================================*/
+@-ms-keyframes dropd-anim-fo {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
+@-o-keyframes dropd-anim-fo {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes dropd-anim-fo {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
+@-moz-keyframes dropd-anim-fo {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
 @keyframes dropd-anim-fo {
   0% {
     opacity: 1;
@@ -28884,6 +29330,70 @@ carousel configuration  ------------------------------------ */
   100% {
     transform: translateY(30px);
     opacity: 0;
+  }
+}
+@-ms-keyframes dropd-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-o-keyframes dropd-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes dropd-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-moz-keyframes dropd-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 @keyframes dropd-anim {
@@ -28993,12 +29503,12 @@ carousel configuration  ------------------------------------ */
 .popup__text {
   font-size: 1.4rem;
   margin-bottom: 4rem;
-  -moz-column-count: 2;
-       column-count: 2;
-  -moz-column-gap: 4rem;
-       column-gap: 4rem;
-  -moz-column-rule: 0.1rem solid #eee;
-       column-rule: 0.1rem solid #eee;
+  column-count: 2;
+  column-gap: 4rem;
+  column-rule: 0.1rem solid #eee;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
   hyphens: auto;
 }
 .popup:target {
@@ -29447,7 +29957,7 @@ body {
 }
 
 /* ========= MEDIA QUERIES ======= START */
-@media only screen and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = mobile | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = portrait | Hover = none  */
   .navigation__button {
     top: 2rem;
@@ -29458,7 +29968,7 @@ body {
     right: 2rem;
   }
 }
-@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = mobile-land | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = landscape | Hover = none  */
   .navigation__button {
     top: 2rem;
@@ -29469,7 +29979,7 @@ body {
     right: 2rem;
   }
 }
-@media only screen and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = tablet-s | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = portrait | Hover = none  */
   .navigation__button {
     top: 3rem;
@@ -29480,7 +29990,7 @@ body {
     right: 3rem;
   }
 }
-@media only screen and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = tablet-s-land | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = landscape | Hover = none  */
   .navigation__button {
     top: 3rem;
@@ -29491,7 +30001,7 @@ body {
     right: 3rem;
   }
 }
-@media only screen and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = tablet-m | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = portrait | Hover = none  */
   .navigation__button {
     top: 3rem;
@@ -29502,7 +30012,7 @@ body {
     right: 3rem;
   }
 }
-@media only screen and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = tablet-m-land | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = landscape | Hover = none  */
   .navigation__button {
     top: 3rem;
@@ -29513,7 +30023,7 @@ body {
     right: 3rem;
   }
 }
-@media only screen and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = tablet-l | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = portrait | Hover = none  */
   .navigation__button {
     top: 3rem;
@@ -29524,7 +30034,7 @@ body {
     right: 3rem;
   }
 }
-@media only screen and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = tablet-l-land | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = landscape | Hover = none  */
   .navigation__button {
     top: 3rem;
@@ -29913,7 +30423,7 @@ HEADER ------------------------------------------------------------------------ 
 /* ========= MEDIA QUERIES ======= START ===== */
 /* ========= MEDIA QUERIES ======= START ===== */
 /* ========= MEDIA QUERIES ======= START ===== */
-@media only screen and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = mobile | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = portrait | Hover = none  */
   .header__ben-only {
     scale: 1.2;
@@ -29975,7 +30485,7 @@ HEADER ------------------------------------------------------------------------ 
     padding: 0.3dvh 6dvw;
   }
 }
-@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = mobile-land | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = landscape | Hover = none  */
   .header__ben-only {
     scale: 0.6;
@@ -30037,7 +30547,7 @@ HEADER ------------------------------------------------------------------------ 
     padding: 0.3dvh 2.5dvw;
   }
 }
-@media only screen and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = tablet-s | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = portrait | Hover = none  */
   .header__ben-only {
     scale: 1.2;
@@ -30099,7 +30609,7 @@ HEADER ------------------------------------------------------------------------ 
     padding: 0.3dvh 6dvw;
   }
 }
-@media only screen and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = tablet-s-land | min-Width= 481px or 30.063em | max-width = 767px or 47.938em | Orientation = landscape | Hover = none  */
   .header__ben-only {
     scale: 0.8;
@@ -30161,7 +30671,7 @@ HEADER ------------------------------------------------------------------------ 
     padding: 0.3dvh 2.5dvw;
   }
 }
-@media only screen and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = tablet-m | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = portrait | Hover = none  */
   .header__ben-only {
     scale: 1.2;
@@ -30223,7 +30733,7 @@ HEADER ------------------------------------------------------------------------ 
     padding: 0.3dvh 4dvw;
   }
 }
-@media only screen and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = tablet-m-land | min-Width= 768px or 48em | max-width = 1112px or 69.5em | Orientation = landscape | Hover = none  */
   .header__ben-only {
     scale: 1.1;
@@ -30285,7 +30795,7 @@ HEADER ------------------------------------------------------------------------ 
     padding: 0.3dvh 4dvw;
   }
 }
-@media only screen and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none) {
   /* Breakpoint = tablet-l | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = portrait | Hover = none  */
   .header__ben-only {
     scale: 1.7;
@@ -30347,7 +30857,7 @@ HEADER ------------------------------------------------------------------------ 
     padding: 0.3dvh 4dvw;
   }
 }
-@media only screen and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = tablet-l-land | min-Width= 834px or 52.125em | max-width = 1366px or 85.375em | Orientation = landscape | Hover = none  */
   .header__ben-only {
     scale: 1.2;
@@ -30674,6 +31184,17 @@ HEADER ------------------------------------------------------------------------ 
     line-height: 2.5rem;
   }
 }
+html.is-loading .header,
+html.is-loading .header *,
+html.is-loading .header::before,
+html.is-loading .header::after,
+html.is-loading .header *::before,
+html.is-loading .header *::after,
+html.is-loading .home__logo-box,
+html.is-loading .home__logo-box * {
+  animation-play-state: paused !important;
+}
+
 #popup-services-1,
 #popup-services-2,
 #popup-services-3 {
@@ -30827,8 +31348,7 @@ HEADER ------------------------------------------------------------------------ 
 }
 .carte-details__heading-span {
   padding: 1rem 1.5rem;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .carte-details__heading-span--1 {
   background-image: linear-gradient(to right bottom, rgba(150, 153, 161, 0.85), rgba(34, 41, 48, 0.85));
@@ -30861,18 +31381,16 @@ HEADER ------------------------------------------------------------------------ 
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.906);
     box-shadow: 1.5rem 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  }
-  .carte-details__side {
-    height: auto;
-    position: relative;
-    box-shadow: none;
-  }
-  .carte-details {
     /*
     &:hover &__side--front {
       transform: rotateY(0deg);
     }
     */
+  }
+  .carte-details__side {
+    height: auto;
+    position: relative;
+    box-shadow: none;
   }
   .carte-details__details {
     padding: 1rem 3rem;
@@ -31585,6 +32103,7 @@ section ABOUT ---------------------------------------- */
 /* -------------------- ABOUT ME SECTION --------------------*/
 .about-box {
   border-radius: 5px;
+  -webkit-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2) inset;
   display: block;
   margin-right: 0;
@@ -31594,6 +32113,7 @@ section ABOUT ---------------------------------------- */
 
 .bg-extra-medium-gray .about-box,
 .bg-dark-gray .about-box {
+  -webkit-box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
 }
 
@@ -31775,8 +32295,7 @@ section ABOUT ---------------------------------------- */
   font-weight: 700;
   display: inline-block;
   background-image: linear-gradient(to right, #777, #354b57);
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
@@ -32065,8 +32584,7 @@ section ABOUT ---------------------------------------- */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
+  column-gap: 2rem;
 }
 
 .education-scroll-7 {
@@ -32131,7 +32649,6 @@ section ABOUT ---------------------------------------- */
 
 .education-row-studies-1 {
   display: flex;
-  width: -moz-fit-content;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -32156,7 +32673,6 @@ section ABOUT ---------------------------------------- */
 .education-row-2 > .education-degree-lignes-2nd {
   display: flex;
   flex-direction: column;
-  width: -moz-fit-content;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -32495,8 +33011,7 @@ section ABOUT ---------------------------------------- */
   width: 100%;
   max-width: none;
   height: calc(var(--project-popup-size) + 80px);
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .mfp-project-details {
@@ -32683,8 +33198,7 @@ section ABOUT ---------------------------------------- */
   font-weight: 700;
   display: inline-block;
   background-image: linear-gradient(to right, #777, #354b57);
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
@@ -33114,8 +33628,7 @@ section ABOUT ---------------------------------------- */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
+  column-gap: 2rem;
 }
 .resources-container-2 > .resources-row-title {
   flex: 0 0 100%;
@@ -33428,10 +33941,8 @@ footer #it-crowd {
 .map-responsive .map-image {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   filter: invert(90%) grayscale(1);
   transition: filter 0.3s;
 }
@@ -33685,42 +34196,42 @@ footer #it-crowd {
 
 /* ==== Footer icons: same space between the icons as in the header, breakpoint by breakpoint ====
    (the header sets it on .fab-box i / div / span in each respond() block of _01-header.scss) */
-@media only screen and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (min-height: 41em) and (orientation: portrait) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 8.45px !important;
   }
 }
-@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 8.45px !important;
   }
 }
-@media only screen and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 8.45px !important;
   }
 }
-@media only screen and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 43.75em) and (min-height: 30em) and (orientation: landscape) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 8.45px !important;
   }
 }
-@media only screen and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 48em) and (min-height: 64em) and (orientation: portrait) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 16.9px !important;
   }
 }
-@media only screen and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 48em) and (orientation: landscape) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 16.9px !important;
   }
 }
-@media only screen and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none) {
+@media only screen and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 64em) and (min-height: 69.5em) and (orientation: portrait) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 25.35px !important;
   }
 }
-@media only screen and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 69.5em) and (min-height: 64em) and (orientation: landscape) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 25.35px !important;
   }
@@ -34029,4 +34540,6 @@ main {
     display: block;
     overflow-x: auto;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

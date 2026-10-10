@@ -14,6 +14,9 @@ $(function () {
       revealed = true;
       $("#preloader").fadeOut("normall", function () {
         $(this).remove();
+        // the header animations (CSS, paused until now, and the headline) start once the loader has disappeared
+        document.documentElement.classList.remove("is-loading");
+        document.dispatchEvent(new Event("fc:loader-gone"));
       });
     }
 

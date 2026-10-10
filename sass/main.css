@@ -31184,6 +31184,17 @@ HEADER ------------------------------------------------------------------------ 
     line-height: 2.5rem;
   }
 }
+html.is-loading .header,
+html.is-loading .header *,
+html.is-loading .header::before,
+html.is-loading .header::after,
+html.is-loading .header *::before,
+html.is-loading .header *::after,
+html.is-loading .home__logo-box,
+html.is-loading .home__logo-box * {
+  animation-play-state: paused !important;
+}
+
 #popup-services-1,
 #popup-services-2,
 #popup-services-3 {

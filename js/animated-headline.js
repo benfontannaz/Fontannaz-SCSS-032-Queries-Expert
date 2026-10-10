@@ -11,7 +11,12 @@ jQuery(document).ready(function ($) {
     typeAnimationDelay = selectionDuration + 800,
     revealDuration = 600,
     revealAnimationDelay = 1500;
-  initHeadline();
+  // start once the loader has disappeared (js/preloader.js), not behind it
+  if (document.documentElement.classList.contains("is-loading")) {
+    document.addEventListener("fc:loader-gone", initHeadline, { once: true });
+  } else {
+    initHeadline();
+  }
   function initHeadline() {
     singleLetters($(".banner-headline.letters").find("b"));
     animateHeadline($(".banner-headline"));

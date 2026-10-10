@@ -1320,3 +1320,18 @@ HEADER ------------------------------------------------------------------------ 
     line-height: 2.5rem;
   }
 }
+
+// Header animations (photo slide-in, logo, icons, buttons, binary pattern) paused while the loader is shown:
+// they start when it has disappeared (html.is-loading removed by js/preloader.js; without JavaScript they run)
+html.is-loading {
+  .header,
+  .header *,
+  .header::before,
+  .header::after,
+  .header *::before,
+  .header *::after,
+  .home__logo-box,
+  .home__logo-box * {
+    animation-play-state: paused !important;
+  }
+}
