@@ -499,11 +499,8 @@
 
 .education-scroll-7 img:hover {
   transform: translateY(-0.3rem);
-  // text-shadow: 0 1rem 2rem $boutton-color-shadow;
-  filter: drop-shadow(
-    0 1rem 2rem $boutton-color-shadow
-  ); /* Ombre = X Y blur color&transparency png image transparente hovered*/
-  filter: none;
+  // shadow following the badge outline (transparent png), clearly visible (was cancelled by a later filter: none)
+  filter: drop-shadow(0 0.8rem 1.2rem rgba(0, 0, 0, 0.35));
   text-decoration: none;
 }
 

@@ -266,38 +266,37 @@ $(window).scroll(function () {
   //  About Me Apple Bundle Mockup animation MEDIUM and UP [WORKING]
   // ------------------------------------------
 
-  if (wScroll > $(".services-scroll-1").offset().top - $(window).height()) {
-    //  -860
-    var offset = Math.min(
-      0,
-      wScroll - $(".services-scroll-1").offset().top + $(window).height() - 1360
-    );
+  // The 3 devices fly in while the mockup crosses the screen: the animation starts when the top of the mockup is
+  // 15% of the screen height above the bottom of the screen, and ends when the middle of the mockup is in the
+  // middle of the screen (was a fixed distance in px from the Services cards, the same on every screen).
+  // The MacBook lands first, then the iPad and the iPhone (20px of scroll later each), as before.
+  var bundle = $(".mockup-applebundle");
+  if (bundle.length && bundle.is(":visible")) {
+    var vh = $(window).height();
+    var bundleTop = bundle.offset().top;
+    var bundleMiddle = bundleTop + bundle.outerHeight() / 2;
+    var start = bundleTop - vh * 0.85; // scroll position: mockup top at 85% of the screen height
+    var end = bundleMiddle - vh / 2; // scroll position: mockup middle at the middle of the screen
+    var DISTANCE = 500; // px of travel of the offset (the devices start outside the mockup)
 
-    // $('bundle-macbookpro').css({'transform': 'translate('+ offset +'px, '+ Math.abs(offset * 0.5) + 'px)'});
+    // offset of a device: -DISTANCE before the start, 0 at its end (end - lateness), linear in between
+    var deviceOffset = function (lateness) {
+      var last = end - lateness;
+      var progress = Math.min(1, Math.max(0, (wScroll - start) / Math.max(1, last - start)));
+      return -DISTANCE * (1 - progress);
+    };
+
+    var offset = deviceOffset(40);
     $(".bundle-macbookpro").css({
-      transform: "translate(" + offset * 1.4 + "px, " + offset * 0 + "px)",
+      transform: "translate(" + offset * 1.4 + "px, 0px)",
     });
-  }
 
-  if (wScroll > $(".services-scroll-1").offset().top - $(window).height()) {
-    //  -880
-    var offset = Math.min(
-      0,
-      wScroll - $(".services-scroll-1").offset().top + $(window).height() - 1380
-    );
-
+    offset = deviceOffset(20);
     $(".bundle-ipad").css({
       transform: "translate(" + offset * -1.4 + "px, " + offset * 0.44 + "px)",
     });
-  }
 
-  if (wScroll > $(".services-scroll-1").offset().top - $(window).height()) {
-    //  -900
-    var offset = Math.min(
-      0,
-      wScroll - $(".services-scroll-1").offset().top + $(window).height() - 1400
-    );
-
+    offset = deviceOffset(0);
     $(".bundle-iphone").css({
       transform: "translate(" + offset * -1.5 + "px, " + offset * 1 + "px)",
     });
@@ -307,28 +306,41 @@ $(window).scroll(function () {
   //  About Me hand with iPhone Mockup animation
   // ------------------------------------------
 
-  if (wScroll > $(".services-scroll-1").offset().top - $(window).height()) {
-    var offset = Math.min(
-      0,
-      wScroll - $(".services-scroll-1").offset().top + $(window).height() - 640
-    );
+  // Mobile (the mockup is shown below 576px wide): the phone slides in while the mockup crosses the screen, from
+  // when its top enters the screen to when its middle is in the middle of the screen (was a fixed distance in px
+  // from the Services cards, far above the mockup on phones)
+  var phone = $(".mockup-iphone");
+  if (phone.length && phone.is(":visible")) {
+    var vhPhone = $(window).height();
+    var phoneTop = phone.offset().top;
+    var phoneStart = phoneTop - vhPhone; // scroll position: mockup top at the bottom of the screen
+    var phoneEnd = phoneTop + phone.outerHeight() / 2 - vhPhone / 2; // mockup middle at the middle of the screen
+    var phoneProgress = Math.min(1, Math.max(0, (wScroll - phoneStart) / Math.max(1, phoneEnd - phoneStart)));
+    var offset = -400 * (1 - phoneProgress); // 240px from the right (3 x 80px), 40px from below
 
     $(".services-scroll-3").css({
-      transform: "translate(" + offset * -0.2 + "px, " + offset * -0.1 + "px)",
+      transform: "translate(" + offset * -0.6 + "px, " + offset * -0.1 + "px)", // horizontal travel x3 (was -0.2)
     });
   }
 
   // ------------------------------------------
   //   Services - About Me  - Certified logos Up Animation [WORKING]
   // ------------------------------------------
-  // start counting scrolling when class ".about-scroll-5" reaches the top of the viewport - (vh / 1.2)
-  // starting to count scrolls when 20% of class ".about-scroll-5" is visible in the viewport
+  // starts when the Citrix logo (the last of the row) is entirely visible in the screen (or above it)
+  // (was when ".services-scroll-7" reached the bottom of the screen minus 1/6 of its height)
   // ------------------------------------------
 
-  if (
-    wScroll >
-    $(".services-scroll-7").offset().top - $(window).height() / 1.2
-  ) {
+  var citrix = $('.certified-logo img[alt="citrix logo"]')[0];
+  var citrixVisible = false;
+  if (citrix) {
+    var citrixRect = citrix.getBoundingClientRect();
+    // position without the 50px slide-in offset of the logos (transform: translateY) not yet animated
+    var citrixShift = new DOMMatrix(getComputedStyle(citrix).transform).m42;
+    // its bottom inside the screen (also true once scrolled past it, so a fast scroll does not skip the animation)
+    citrixVisible = citrixRect.height > 0 && citrixRect.bottom - citrixShift <= window.innerHeight;
+  }
+
+  if (citrixVisible) {
     //Starts counting scrolls with a the Hi log (to check it in the viewer) can be commented after successfully working
     // console.log("Hi");
 
@@ -509,13 +521,14 @@ $(window).scroll(function () {
   // ------------------------------------------
   //   EDUCATION - Professional Studies Animation [WORKING]
   // ------------------------------------------
-  // start counting scrolling when class ".education-scroll-0" reaches the top of the viewport - (vh / 1.2)
-  // starting to count scrolls when 20% of class ".education-scroll-0" is visible in the viewport
+  // starts when the top of the Certificates / Pro Studies logos row (the flex row ".d-flex.education-scroll-5")
+  // is at 66% of the screen height from the top of the screen (or higher)
+  // (was ".education-scroll-3" at the bottom minus 1/6 of the screen)
 
-  if (
-    wScroll >
-    $(".education-scroll-3").offset().top - $(window).height() / 1.2
-  ) {
+  var studiesRow = $(".d-flex.education-scroll-5")[0];
+  var studiesTop = studiesRow ? studiesRow.getBoundingClientRect() : null;
+
+  if (studiesTop && studiesTop.height > 0 && studiesTop.top <= window.innerHeight * 0.66) {
     //Starts counting scrolls with a the Hi log (to check it in the viewer) can be commented after successfully working
     // console.log("Hi");
 
@@ -532,13 +545,14 @@ $(window).scroll(function () {
   // ------------------------------------------
   //   EDUCATION - Certifications Animation [WORKING]
   // ------------------------------------------
-  // start counting scrolling when class ".portfolio" reaches the top of the viewport - (vh / 1.2)
-  // starting to count scrolls when 20% of class ".portfolio" is visible in the viewport
+  // starts when the top of the certification logos (".education-scroll-7") is at 66% of the screen height from
+  // the top of the screen (or higher). The ".education-scroll-7" groups have no box of their own (display:
+  // contents), so their first logo box is measured (was ".education-scroll-5" at the bottom minus 1/6 of the screen)
 
-  if (
-    wScroll >
-    $(".education-scroll-5").offset().top - $(window).height() / 1.2
-  ) {
+  var certifsFirst = $(".education-scroll-7 .pro-certifications-box")[0];
+  var certifsTop = certifsFirst ? certifsFirst.getBoundingClientRect() : null;
+
+  if (certifsTop && certifsTop.height > 0 && certifsTop.top <= window.innerHeight * 0.66) {
     //Starts counting scrolls with a the Hi log (to check it in the viewer) can be commented after successfully working
     // console.log("Hi");
 
@@ -580,13 +594,13 @@ $(window).scroll(function () {
   // ------------------------------------------
   //   RESOURCES - Tools Animation
   // ------------------------------------------
-  // start counting scrolling when class ".portfolio" reaches the top of the viewport - (vh / 1.2)
-  // starting to count scrolls when 20% of class ".portfolio" is visible in the viewport
+  // starts when the top of the "Tools" title (".heading-3-resources--tools") is at 75% of the screen height from
+  // the top of the screen (or higher) (was ".resources-scroll-0" at the bottom minus 1/6 of the screen)
 
-  if (
-    wScroll >
-    $(".resources-scroll-0").offset().top - $(window).height() / 1.2
-  ) {
+  var toolsTitle = $(".heading-3-resources--tools")[0];
+  var toolsTop = toolsTitle ? toolsTitle.getBoundingClientRect() : null;
+
+  if (toolsTop && toolsTop.height > 0 && toolsTop.top <= window.innerHeight * 0.75) {
     //Starts counting scrolls with a the Hi log (to check it in the viewer) can be commented after successfully working
     // console.log("Hi");
 

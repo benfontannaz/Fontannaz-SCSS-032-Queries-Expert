@@ -52,3 +52,22 @@
   font-size: 1.3rem !important;
   padding: 0.5dvw 2dvw !important;
 }
+
+// Contact form sending result (js/contact-form.js): under the SEND button
+.contact-form-status {
+  width: 100%;
+  margin: 1rem 0 0 0;
+  min-height: 2rem;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #2e7d32; // sent: green
+
+  &--error {
+    color: #c62828; // missing field / not sent: red
+  }
+}
+
+.boutton--grey-contact[aria-disabled="true"] {
+  opacity: 0.6; // sending
+  pointer-events: none;
+}

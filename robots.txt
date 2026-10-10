@@ -1,0 +1,5 @@
+# All search engines may index the site
+User-agent: *
+Allow: /
+
+Sitemap: https://benjamin-fontannaz.ch/sitemap.xml

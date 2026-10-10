@@ -163,6 +163,97 @@ footer #it-crowd {
   filter: none;
 }
 
+// Still map picture (replaces the Google Maps embed: no cookies). Same place and look as the former map: the
+// frame is sized and placed by js/services-height.js; the picture fills it with its centre (the address) in the
+// middle of the frame, darkened like the former map (in colour on hover)
+.map-responsive .map-frame {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-responsive .map-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.map-responsive .map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: invert(90%) grayscale(1);
+  transition: filter 0.3s;
+}
+
+.map-responsive .map-link:hover .map-image,
+.map-responsive .map-link:focus-visible .map-image {
+  filter: none;
+}
+
+// pin: its point at the centre of the picture (the address), red in both looks
+.map-responsive .map-frame::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2.6rem;
+  height: 2.6rem;
+  // the rotated square's lower corner (half a diagonal, 1.84rem, below its centre) on the centre of the frame
+  margin: calc(-1.3rem - 1.84rem) 0 0 -1.3rem;
+  border-radius: 50% 50% 50% 0;
+  background: radial-gradient(circle at 50% 50%, #fff 0 0.45rem, #c81e1e 0.5rem);
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.4);
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
+// map picture, its attribution and button hidden while the live Google Maps is shown (js/consent.js)
+.map-responsive [data-consent-placeholder][hidden] {
+  display: none;
+}
+
+// "Interactive Google map" button, bottom left of the map picture: allows External media (live Google Maps)
+.map-live-button {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.4rem;
+  z-index: 1;
+  padding: 0.3rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+// OpenStreetMap attribution (licence), bottom right of the map
+.map-attribution {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.4rem;
+  z-index: 1;
+  padding: 0.1rem 0.6rem;
+  border-radius: 0.4rem;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: #ddd;
+  font-size: 1.1rem;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
 /* =========== FOOTER - SOCIAL MEDIA LOGO ====== START */
 
 .fab-box-footer {
@@ -185,6 +276,7 @@ footer #it-crowd {
 .footer .fa-mobile-alt,
 .footer .fa-github,
 .footer .fa-globe,
+.footer .fa-cookie-bite,
 .footer .fa-signal-messenger {
   font-size: 2.2rem;
   margin: 0 3.38rem; // same icon spacing as the header (was 2rem)
@@ -201,6 +293,11 @@ footer #it-crowd {
 
 .footer .fa-linkedin-in:hover {
   color: #2f43eeef;
+}
+
+// cookie icon: reopens the cookie choices banner (js/consent.js)
+.footer .fa-cookie-bite:hover {
+  color: #c8a165; // cookie colour
 }
 
 .footer .credly-logo {
@@ -335,6 +432,7 @@ footer #it-crowd {
 .footer .fa-mobile-alt,
 .footer .fa-github,
 .footer .fa-globe,
+.footer .fa-cookie-bite,
 .footer .fa-signal-messenger {
   margin: 0 3.38rem; // same icon spacing as the header (was 2rem)
 }
@@ -419,4 +517,12 @@ footer #it-crowd {
 // Footer contact information row (phone / address / email) hidden in all views (was tablet and mobile only)
 #footer-row {
   display: none;
+}
+
+// Mobile (up to 480px wide): Microsoft Learn and Notion icons hidden in the footer (their links with them)
+@media only screen and (max-width: 30em) {
+  .fab-box-footer a:has(.fa-microsoft),
+  .fab-box-footer a:has(.notion-logo) {
+    display: none;
+  }
 }

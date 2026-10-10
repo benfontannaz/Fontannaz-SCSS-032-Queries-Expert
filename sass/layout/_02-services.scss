@@ -246,34 +246,23 @@
     }
   }
 
-  // mobile and tablets (touch devices): "AI & Modern / Workplace" (heading-span--3) stays on 2 lines.
-  // The font follows the card width (cqw = % of .carte-details__front, the size container),
-  // so "AI & MODERN" always fits in the 60% wide heading; never larger than the desktop 5rem.
-  // Set on the heading (the span inherits it) so the line height shrinks with the font.
-  @media only screen and (hover: none) {
-    &__heading:has(.carte-details__heading-span--3) {
-      font-size: min(5rem, 7cqw);
-      line-height: 1.4; // = 7rem / 5rem on desktop
-    }
-  }
-
-  // all screens: "Enterprise Architecture" (heading-span--2) right-aligned and inside the popup card.
-  // "ARCHITECTURE" is 7.89 times the font size wide (Montserrat 300, uppercase): wider than the 60% heading
-  // on narrower cards, so it overflowed (not right-aligned, past the card edge). The font follows the card
-  // width (cqw, see above): 60cqw - 2 x 15px band padding = 7.89 x font -> 7.4cqw - 4px with a small margin.
-  &__heading:has(.carte-details__heading-span--2) {
-    font-size: min(5rem, calc(7.4cqw - 4px));
+  // all screens: the 3 popup titles at the same font size, the one of "Business Strategy" (heading-span--1),
+  // entirely visible (on phones the 5rem words were wider than the 60% heading and cut by the rounded card).
+  // The font follows the card width (cqw = % of .carte-details__front, the size container): "STRATEGY" is 5.18
+  // times the font size wide: 60cqw - 2 x 15px band padding = 5.18 x font -> 11.2cqw - 6px with a small margin
+  &__heading:has(.carte-details__heading-span--1),
+  &__heading:has(.carte-details__heading-span--2),
+  &__heading:has(.carte-details__heading-span--3) {
+    font-size: min(5rem, calc(11.2cqw - 6px));
     line-height: 1.4; // = 7rem / 5rem on desktop: the line spacing shrinks with the font
     text-align: right;
   }
 
-  // all screens: "Business Strategy" (heading-span--1) entirely visible (on phones the 5rem words were wider than
-  // the 60% heading and cut by the rounded card). Same principle: "STRATEGY", the longest word, is 5.18 times the
-  // font size wide: 60cqw - 2 x 15px band padding = 5.18 x font -> 11.2cqw - 6px with a small margin
-  &__heading:has(.carte-details__heading-span--1) {
-    font-size: min(5rem, calc(11.2cqw - 6px));
-    line-height: 1.4;
-    text-align: right;
+  // "Enterprise Architecture" and "AI & Modern Workplace": at this size, "ARCHITECTURE" (7.89 times the font size)
+  // is wider than the 60% heading: these 2 headings use the card width minus 2rem on each side (still right-aligned)
+  &__heading:has(.carte-details__heading-span--2),
+  &__heading:has(.carte-details__heading-span--3) {
+    width: calc(100% - 4rem);
   }
 
   &__box {

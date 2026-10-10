@@ -1,0 +1,143 @@
+// ==== Legal pages (privacy-policy.html, cookie-policy.html, legal-notice.html, terms-of-use.html) ==== START
+// The pages do not use the <main> / section layout of the home page: everything is under .legal-page
+.legal-page {
+  min-height: 100vh;
+  background-color: rgb(247, 247, 247);
+  color: #444;
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.7;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background-color: #1e2328;
+
+    a {
+      color: #f2f2f2;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.5rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__home {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      height: 3rem;
+      width: auto;
+    }
+  }
+
+  &__content {
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem 2rem;
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-family: "Montserrat", sans-serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #354b57;
+    }
+
+    h2 {
+      margin: 4rem 0 1rem 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #354b57;
+    }
+
+    h3 {
+      margin: 2.5rem 0 0.8rem 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #354b57;
+    }
+
+    p,
+    li {
+      font-size: 1.6rem;
+    }
+
+    ul {
+      padding-left: 2.2rem;
+
+      li {
+        list-style: disc;
+        margin-bottom: 0.4rem;
+      }
+    }
+
+    a {
+      color: #1565c0;
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+      margin: 1rem 0 2rem 0;
+      border-collapse: collapse;
+      font-size: 1.4rem;
+    }
+
+    th,
+    td {
+      padding: 0.8rem 1rem;
+      border: 1px solid #ccc;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #e8ecef;
+    }
+  }
+
+  &__updated {
+    color: #777;
+    font-size: 1.4rem;
+  }
+
+  &__footer {
+    padding: 2rem;
+    background-color: #1e2328;
+    text-align: center;
+
+    .footer-legal {
+      padding-bottom: 0;
+    }
+
+    .footer-legal__us {
+      display: none;
+    }
+  }
+
+  // phones: tables scroll sideways instead of overflowing the page
+  @media only screen and (max-width: 30em) {
+    &__content {
+      padding-top: 3rem;
+
+      h1 {
+        font-size: 2.6rem;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  }
+}
+// ==== Legal pages ==== END

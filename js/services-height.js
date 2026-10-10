@@ -199,20 +199,20 @@
     // height below the tip of the V (in the middle of the width, right above the address), 70% below it
     var above = Math.max(0, visible) * PIN_FROM_TOP;
     var pinY = sep + above; // address position in the map box
-    var iframe = map.querySelector("iframe");
-    if (iframe) {
+    // the live Google Maps (with consent) and the map picture (without) are placed the same way
+    map.querySelectorAll("iframe, .map-frame").forEach(function (frame) {
       if (2 * (box - pinY) >= box) {
-        // Google map ending at the bottom of the box, twice as high as the space below the address
-        iframe.style.top = "auto";
-        iframe.style.bottom = "0";
-        iframe.style.height = Math.round(2 * (box - pinY)) + "px";
+        // map ending at the bottom of the box, twice as high as the space below the address
+        frame.style.top = "auto";
+        frame.style.bottom = "0";
+        frame.style.height = Math.round(2 * (box - pinY)) + "px";
       } else {
-        // small map: Google map starting at the top of the box (its lower part hidden below the box)
-        iframe.style.top = "0";
-        iframe.style.bottom = "auto";
-        iframe.style.height = Math.round(2 * pinY) + "px";
+        // small map: starting at the top of the box (its lower part hidden below the box)
+        frame.style.top = "0";
+        frame.style.bottom = "auto";
+        frame.style.height = Math.round(2 * pinY) + "px";
       }
-    }
+    });
   }
 
   function update() {
@@ -238,6 +238,18 @@
     setTimeout(update, 1000); // and once isotope has laid out the Projects grid
   });
   window.addEventListener("resize", onResize);
+
+  // Link to a section from another page (e.g. /#07-contact from the legal pages): the browser jumps to it before
+  // the sections have their final heights and places. Once they are set, the page goes to the section again
+  window.addEventListener("load", function () {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var target = id && document.getElementById(id);
+    if (!target) return;
+    setTimeout(function () {
+      update();
+      target.scrollIntoView({ block: "start", behavior: "instant" }); // no smooth scroll across the whole page
+    }, 1100);
+  });
 
   // Projects filter (All / Business Strategy / ...): isotope animates the grid to its new height,
   // then the sections below are resized. While this happens, the filter bar is kept at the same
