@@ -307,3 +307,11 @@
     top: calc(15px + 3.5dvh * 0.35 - 4.5rem * 0.35);
   }
 }
+
+// Below 768px wide (phones and small tablets): the Experiences section is not shown (.section-experiences:
+// d-none d-md-block), so its link is hidden from the navigation menu
+@media only screen and (max-width: 47.9375em) {
+  .navigation__item:has(> a[href="#03-experiences"]) {
+    display: none;
+  }
+}

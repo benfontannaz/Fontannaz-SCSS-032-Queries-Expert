@@ -30075,6 +30075,11 @@ body {
     top: calc(15px + 1.225dvh - 1.575rem);
   }
 }
+@media only screen and (max-width: 47.9375em) {
+  .navigation__item:has(> a[href="#03-experiences"]) {
+    display: none;
+  }
+}
 /* 
 HEADER ------------------------------------------------------------------------ */
 .header {
