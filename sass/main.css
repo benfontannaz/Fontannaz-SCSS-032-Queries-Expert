@@ -16987,6 +16987,14 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
     background-position: 0 -360px, 0 0;
   }
 }
+@keyframes binaryScrollUpLand {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 -234px, 0 0;
+  }
+}
 /* --------------------- Banner-words-wrapper -------------------- */
 .banner-words-wrapper {
   display: inline-block;
@@ -31371,6 +31379,11 @@ html.is-loading .home__logo-box * {
     top: calc(33px - 2.25rem);
     left: 15px;
   }
+  .header::after {
+    background-size: 312.936px 234px, cover;
+    animation-name: binaryScrollUpLand;
+    animation-duration: 13s;
+  }
   .home__logo-box a.home__logo {
     display: flex;
     align-items: flex-start;
@@ -33365,6 +33378,11 @@ section ABOUT ---------------------------------------- */
   border-radius: 2rem;
 }
 
+.mfp-wrap.mfp-projects,
+.mfp-projects .mfp-project-details {
+  overscroll-behavior: contain;
+}
+
 .mfp-projects img.mfp-img {
   clip-path: inset(40px 0 40px 0 round 2rem);
 }
@@ -33539,6 +33557,20 @@ section ABOUT ---------------------------------------- */
   }
   .portfolio .item-img h6 {
     transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 30em) {
+  .portfolio .item-img .item-img-overlay {
+    justify-content: center;
+    padding-top: 54%;
+    padding-bottom: 0;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .portfolio .item-img .item-img-overlay {
+    justify-content: center;
+    padding-top: 54%;
+    padding-bottom: 0;
   }
 }
 @media only screen and (max-width: 30em) {

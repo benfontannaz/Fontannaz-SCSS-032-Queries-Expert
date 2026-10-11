@@ -1426,6 +1426,17 @@ html.is-loading {
       left: 15px;
     }
 
+    // header 0/1 pattern: digits at 0.65 times their size (half size, then 1.3 times bigger): the repeated SVG
+    // tile 481.44 x 360px -> 312.94 x 234px. Its own loop (binaryScrollUpLand, base/_animations) moves it up by one
+    // tile (234px: the 360px of binaryScrollUp would jump), in 0.65 x the time: same scrolling speed
+    .header::after {
+      background-size: nth($header-binary-pattern-size, 1) * $header-binary-pattern-land-scale
+          nth($header-binary-pattern-size, 2) * $header-binary-pattern-land-scale,
+        cover;
+      animation-name: binaryScrollUpLand;
+      animation-duration: $header-binary-pattern-speed * $header-binary-pattern-land-scale;
+    }
+
     // 70% of the button size (4.5rem -> 3.15rem), as the navigation button (_00-navigation)
     .home__logo-box a.home__logo {
       display: flex;

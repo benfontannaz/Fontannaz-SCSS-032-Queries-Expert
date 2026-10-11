@@ -202,6 +202,12 @@ function initProjectsPopup() {
     delegate: ".popimg",
     type: "image",
     mainClass: "mfp-projects", // scopes the projects popup styles (_07-projects.scss)
+    // fixed popup on every device, as the Services popups (Magnific Popup's default "auto" places it in the page
+    // on phones and tablets, where the page could then be scrolled and the popup moved out of the Projects
+    // section): the page behind is locked. Desktops were already fixed ("auto")
+    fixedContentPos: true,
+    fixedBgPos: true,
+    overflowY: "auto",
     gallery: { enabled: true },
     image: {
       markup:

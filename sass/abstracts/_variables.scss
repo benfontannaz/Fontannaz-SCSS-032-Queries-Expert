@@ -87,6 +87,7 @@ $header-binary-pattern-color: rgba(255, 255, 255, 0.801); // white digits. For a
 $header-binary-pattern-opacity: 0.6; // 0 = invisible / 1 = solid (brighter digits, was 0.3)
 $header-binary-pattern-size: 481.44px 360px; // size of one repeated tile (must match the SVG width / height)
 $header-binary-pattern-speed: 20s; // time for the digits to move up by one tile (300px): lower = faster
+$header-binary-pattern-land-scale: 0.65; // phones in landscape: digits (tile) 0.65 times their size (layout/_01-header)
 // trapeze on the right: the bottom of the left diagonal starts left of the centre of the header "Call" button
 // (measured: Call button centre = 126px left of the page centre, line moved 60px + 3% further left) - same angle as before: the top point is 50% of the width further right
 // former hard-edged trapeze (no longer used: the diagonal is now a soft edge, see $header-binary-pattern-diagonal)

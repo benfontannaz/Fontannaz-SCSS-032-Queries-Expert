@@ -54,3 +54,14 @@
     background-position: 0 (-1 * nth($header-binary-pattern-size, 2)), 0 0; // = 0 -300px
   }
 }
+
+// Same loop for the smaller tile of phones in landscape (layout/_01-header): up by one smaller tile height
+@keyframes binaryScrollUpLand {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 0 (-1 * nth($header-binary-pattern-size, 2) * $header-binary-pattern-land-scale), 0 0;
+  }
+}

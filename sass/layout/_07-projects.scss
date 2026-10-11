@@ -210,6 +210,14 @@
   border-radius: 2rem;
 }
 
+// Projects popup: the scroll stays inside the popup (no scroll of the page behind when its top or bottom is
+// reached, e.g. iOS / Android "scroll chaining"), as the Services popups; also the details overlay (overflow-y: auto
+// on small screens). See js/magnific.js (fixedContentPos)
+.mfp-wrap.mfp-projects,
+.mfp-projects .mfp-project-details {
+  overscroll-behavior: contain;
+}
+
 // Project popup: the picture, its shadow and the details overlay with the same rounded corners.
 // The picture is drawn inside 40px top / bottom paddings (Magnific Popup): border-radius would round the padding
 // box, so the picture itself is clipped to its content area with rounded corners
@@ -430,6 +438,29 @@
 
   .portfolio .item-img h6 {
     transform: translateY(0);
+  }
+}
+
+// Mobile (up to 480px wide) and mobile landscape (touch, up to 480px high): the zoom button and the project name
+// centred vertically in the visible part of the tile overlay (they were stacked at its bottom: .valign). The
+// overlay covers the whole square picture, but only its part below the angled top line shows ($clip-path-polygon-5:
+// 58% on the left, 50% on the right, so 54% in the middle, below the zoom button): the content area starts there.
+// Padding in % is a % of the width: the tiles are square, so 54% of the width = 54% of the height
+@mixin project-tile-overlay-centred {
+  .portfolio .item-img .item-img-overlay {
+    justify-content: center;
+    padding-top: 54%;
+    padding-bottom: 0; // was 20px (.valign)
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  @include project-tile-overlay-centred;
+}
+
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    @include project-tile-overlay-centred;
   }
 }
 
