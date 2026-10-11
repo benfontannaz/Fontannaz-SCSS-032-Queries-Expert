@@ -121,11 +121,7 @@ $(function () {
     smartSpeed: 500,
   });
 
-  $(".gallery").magnificPopup({
-    delegate: ".popimg",
-    type: "image",
-    gallery: { enabled: true },
-  });
+  // (Projects gallery popup: set up only in js/magnific.js, with the project details overlay)
   if ($(".numbers").length !== 0) {
     $(".numbers").appear(function () {
       $(".count").countTo({

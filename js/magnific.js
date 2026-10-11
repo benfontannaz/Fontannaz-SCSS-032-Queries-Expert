@@ -194,8 +194,8 @@ $(document).on("click", ".boutton-popup-close", function (e) {
 // ==== Magnific Popup CSS3-based animation effects ==== END
 
 // ==== Projects gallery popup: grey overlay with the project details ==== START
-// js/scripts.js and js/preloader.js (another jQuery copy) also initialise .gallery; their options are stored on the
-// element itself, so this initialisation runs on document ready AND on window load to be the last one applied.
+// The only setup of the Projects popup (js/scripts.js and js/preloader.js no longer set up .gallery: with another
+// jQuery copy they also answered the clicks, sometimes opening a plain popup). Run on document ready and window load.
 // The texts come from the hidden .project-details block of each gallery item (index.html, Projects section).
 function initProjectsPopup() {
   $(".section-projects .gallery").magnificPopup({

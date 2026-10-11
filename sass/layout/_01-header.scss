@@ -1307,18 +1307,55 @@ HEADER ------------------------------------------------------------------------ 
 }
 
 // Mobile (up to 480px wide): header title and introduction more readable (were 1.5rem / 1.2rem on phones).
-// The title phrases cannot wrap (one line for the typing animation): the longest one, "I'm an AI & Modern Workplace
-// Architect", is 20.3 times the font size wide and must fit the 90% wide banner box -> 4.3vw (390px: 16.8px)
+// The title stays on one line (typing animation): the longest phrase, "I'm an AI & Modern Workplace Architect", is
+// 20.3 times the font size wide, plus the 10px the animation adds to the words box, in the 90% wide banner box.
+// 4vw keeps a margin on every phone (iPhone 14, 390px: 15.6px -> 327px for 351px); "I'm" and the words never
+// split onto 2 lines (nowrap)
 @media only screen and (max-width: 30em) {
   .banner-headline {
-    font-size: min(2.2rem, 4.3vw);
+    font-size: min(2.2rem, 4vw);
     line-height: 1.4;
+    white-space: nowrap;
   }
 
+  // introduction never bigger than the title (4vw): 3.6vw (iPhone 14: 14px), slightly heavier for small sizes
   #introduction-2 {
-    font-size: 1.6rem;
-    line-height: 2.5rem;
+    font-size: min(1.5rem, 3.6vw);
+    font-weight: 400;
+    line-height: 1.6;
   }
+}
+
+// Header introduction more contrasted on the busy picture (all screens): brighter, with a soft dark shadow
+// (was rgba(238, 238, 238, 0.8) without shadow)
+#introduction-2 {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.55);
+}
+
+// The 2 header buttons (Call / Contact) more readable (all screens): bigger and bolder text (was 1.2rem, 400)
+// and more contrast when not hovered
+.header .boutton--header:link,
+.header .boutton--header:visited {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+// "Call" (white button): dark text (was #777 grey on white)
+.header .boutton--white.boutton--header,
+.header .boutton--white.boutton--header:visited {
+  color: #2b2b2b;
+}
+
+// "Contact" (transparent button): white text and border, on a slightly darkened background (was light grey text
+// and a 57% white border on an almost transparent background)
+.header .boutton--white-trans.boutton--header,
+.header .boutton--white-trans.boutton--header:visited {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.28);
+  text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.4);
 }
 
 // Header animations (photo slide-in, logo, icons, buttons, binary pattern) paused while the loader is shown:
@@ -1333,5 +1370,14 @@ html.is-loading {
   .home__logo-box,
   .home__logo-box * {
     animation-play-state: paused !important;
+  }
+}
+
+// Phones (up to 480px wide): the 2 header buttons at 1.2rem, as the Services cards "For More Details" buttons.
+// The touch-device rules above force 1rem !important on the header buttons (respond(mobile) ...): this more
+// specific !important rule replaces it on phones (the icons keep their size)
+@media only screen and (max-width: 30em) {
+  .header .header__boutton-box a.boutton--header {
+    font-size: 1.2rem !important;
   }
 }

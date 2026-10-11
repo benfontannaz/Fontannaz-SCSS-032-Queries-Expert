@@ -269,6 +269,11 @@
     padding: 5rem;
     text-align: justify;
 
+    // mobile (up to 480px wide): half the padding
+    @media only screen and (max-width: 30em) {
+      padding: calc(5rem / 2); // 2.5rem (was 5rem)
+    }
+
     &-icons {
       text-align: center;
     }
@@ -343,10 +348,41 @@
   top: 0.9rem; // same bottom line as the laptop / desktop / mobile icons
 }
 
+// Mobile (up to 480px wide): popup icons at 75% of their size
+$popup-icons-mobile-scale: 0.75;
+
+@media only screen and (max-width: 30em) {
+  .carte-details__box-icons-1-1,
+  .carte-details__box-icons-1-2,
+  .carte-details__box-icons-2-1,
+  .carte-details__box-icons-2-2,
+  .carte-details__box-icons-3-2 {
+    font-size: calc(5rem * #{$popup-icons-mobile-scale}); // 3.75rem (was 5rem)
+  }
+
+  .carte-details__box-icons-3-1,
+  .carte-details__box-icons-3-3 {
+    font-size: calc(4rem * #{$popup-icons-mobile-scale}); // 3rem (was 4rem)
+  }
+
+  .carte-details__box-icons .icon-ai-chip {
+    width: calc(5.5rem * #{$popup-icons-mobile-scale}); // 4.125rem (was 5.5rem)
+    height: calc(5.5rem * #{$popup-icons-mobile-scale});
+    top: calc(0.9rem * #{$popup-icons-mobile-scale}); // keeps the same bottom line as the smaller glyph icons
+  }
+}
+
 .carte-details__box-p1 p,
 .carte-details__box-p2 p,
 .carte-details__box-p3 p {
   font-size: 1.8rem;
+
+  // mobile (below 576px, the Bootstrap sm breakpoint that swaps in the short mobile texts):
+  // slightly smaller text with a tighter line height, still readable (16px minimum)
+  @media only screen and (max-width: 35.99875em) {
+    font-size: 1.6rem; // was 1.8rem
+    line-height: 1.6; // was 1.7 (from the p rule in abstracts/_theme)
+  }
 }
 
 .cartes-details-box-boutton {
@@ -383,6 +419,12 @@
   display: block;
   text-align: center;
   margin: 16dvh auto 5dvh auto;
+
+  // mobile (up to 480px wide): top and bottom margins divided by 2
+  @media only screen and (max-width: 30em) {
+    margin-top: 8dvh;
+    margin-bottom: 2.5dvh;
+  }
   // text-transform: capitalize;
   // align-items: center;
 }
@@ -477,4 +519,23 @@
 // card is reached, e.g. iOS / Android "scroll chaining"), see js/magnific.js (fixedContentPos)
 .mfp-wrap:has(.carte-details-section-row) {
   overscroll-behavior: contain;
+}
+
+// Mobile (up to 480px wide): popup picture and title in proportion to the Services front cards (components/_card.scss:
+// 13.8rem picture, 2.7rem title on 2 lines of 4.8rem, bands ending 0.7rem above the picture bottom).
+// The popup card (95vw) is about 20% wider than a front card (100% - 2 x 4rem): every value x 1.2
+// (the picture was 32dvh, so it followed the screen height and not the card width)
+$popup-mobile-scale: 1.2;
+
+@media only screen and (max-width: 30em) {
+  .carte-details .carte-details__picture {
+    height: calc(23rem * 0.6 * #{$popup-mobile-scale}); // 16.56rem (front card: 13.8rem)
+  }
+
+  // more specific than the &__heading:has(...) rules above (all screens), so the 3 titles are covered
+  .carte-details .carte-details__front .carte-details__heading {
+    font-size: calc(2.7rem * #{$popup-mobile-scale}); // 3.24rem (front card: 2.7rem)
+    line-height: calc(4.8rem * #{$popup-mobile-scale}); // 5.76rem (front card: 4.8rem)
+    top: calc((23rem * 0.6 - 10.3rem) * #{$popup-mobile-scale}); // 4.2rem (front card: 3.5rem)
+  }
 }

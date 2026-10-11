@@ -166,8 +166,8 @@
 /* ====== RESOURCES - BOOK CARD - SIDE Left -  BOOK COVER Logo */
 .book-cover-currently {
   margin-right: 2.5dvh !important; // margin to make space between the cover and the book details on the right
-  height: 21dvh !important;
-  width: 14dvh !important;
+  height: calc(21dvh * 1.5) !important; // 1.5 times bigger (was 21dvh)
+  width: calc(14dvh * 1.5) !important; // (was 14dvh)
 }
 
 .book-cover-currently,
@@ -278,6 +278,7 @@
 .resources-book-title {
   font-weight: 700;
   color: rgba(19, 17, 17, 0.819);
+  text-align: left; // the "Last Read" title inherited the centring of its block
 }
 
 .resources-book-author,
@@ -628,5 +629,15 @@
   .heading-3-resources--tools,
   .resources-container-2 .resources-row-6 {
     display: none !important; // .resources-row-6 is otherwise display: contents (books grid)
+  }
+}
+
+// Mobile (up to 480px wide): "Last Read" title at 75% of its size (2.8rem -> 2.1rem) and half its top / bottom
+// margins (6dvh -> 3dvh)
+@media only screen and (max-width: 30em) {
+  #resources-row-title-1 {
+    font-size: calc(2.8rem * 0.75);
+    margin-top: 3dvh;
+    margin-bottom: 3dvh;
   }
 }

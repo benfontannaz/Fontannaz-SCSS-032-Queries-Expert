@@ -702,3 +702,18 @@
     display: none;
   }
 }
+
+// Mobile (up to 480px wide): degree texts at 80% of their size (titles 2.2rem -> 1.76rem, dates and durations
+// 2rem -> 1.6rem), with a line height proportional to the font (was a fixed 2rem)
+@media only screen and (max-width: 30em) {
+  .education-degree-lignes .education-degree-title {
+    font-size: calc(2.2rem * 0.8);
+    line-height: 1.3;
+  }
+
+  .education-degree-lignes .education-degree-dates,
+  .education-degree-lignes .education-degree-periods {
+    font-size: calc(2rem * 0.8);
+    line-height: 1.3;
+  }
+}

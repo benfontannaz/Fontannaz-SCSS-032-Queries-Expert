@@ -50,6 +50,26 @@ section ABOUT ---------------------------------------- */
   line-height: 1.4;
   word-spacing: 1px;
 }
+
+// About Me text: darker and heavier than the shared .about-para (grey, weight 300 from _05-education)
+// so the regular text reads well on the light background. The bold questions stay darker still.
+.about-para-box-1 .about-para {
+  color: #4a4a4a; // was grey (#808080): contrast ~8.9:1 instead of ~3.9:1
+  font-weight: 400; // was 300
+
+  // mobile (below 576px, the Bootstrap sm breakpoint that swaps in the short mobile texts): smaller text, in line
+  // with the rest of the site and the Services popups, still readable (16px minimum)
+  @media only screen and (max-width: 35.99875em) {
+    font-size: 1.6rem; // was 1.8rem
+    line-height: 1.45; // was 1.4 (1.6 tried, too airy)
+  }
+
+  .para4 {
+    color: #2b2b2b;
+    font-weight: 600; // was 500: keeps the questions distinct from the darker text
+  }
+}
+
 .about-h4 {
   text-align: center !important;
   margin: 10px 0px 5px 0px;

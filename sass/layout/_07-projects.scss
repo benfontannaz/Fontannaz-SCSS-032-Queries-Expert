@@ -325,24 +325,48 @@
   }
 }
 
-// mobile (up to 480px wide): more compact text (the overlay covers the lower 70% of the image, as on larger screens)
+// mobile (up to 480px wide): bigger, more readable text (headings 1.25rem -> 1.5rem, lists 1.15rem -> 1.4rem).
+// The overlay has the height of the longest text (measured: 288px to 320px from 430px to 360px wide phones) + 5px,
+// anchored at the bottom of the picture, so more of the picture shows above it (it covered 94% of the picture).
+// Its angled top line rises by 8% of the picture width (same angle as before), as a length (the overlay height no
+// longer is a % of the picture)
 @media only screen and (max-width: 30em) {
   .mfp-project-details {
-    gap: 0.8rem; // more compact text on phones
-    padding: calc(8% + 0.6rem) 1.4rem 0.8rem 1.4rem;
+    top: auto;
+    height: min(325px, calc(100% - 80px)); // never higher than the picture (between the 40px paddings of .mfp-img)
+    clip-path: polygon(0 calc(var(--project-popup-size) * 0.08), 100% 0, 100% 100%, 0 100%);
+    gap: 1rem;
+    padding: calc(8% + 0.8rem) 1.4rem 0.8rem 1.4rem;
   }
 
   .mfp-project-heading {
-    margin-bottom: 0.4rem;
-    padding-bottom: 0.3rem;
-    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    font-size: 1.5rem;
   }
 
   .mfp-challenges li,
   .mfp-results li {
-    margin-bottom: 0.2rem;
-    font-size: 1.15rem;
-    line-height: 1.3;
+    margin-bottom: 0.3rem;
+    font-size: 1.4rem;
+    line-height: 1.35;
+  }
+
+  // popup 90% of the window width on phones (was 100vw - 16px): the picture, its overlay and the close button follow
+  .mfp-projects {
+    --project-popup-size: 90vw;
+  }
+
+  // picture 25% taller than wide on phones (was square): same width, height x 1.25; object-fit: cover crops the
+  // sides of the (square) photos instead of stretching them. The overlay follows (positioned in % of the height)
+  .mfp-projects img.mfp-img {
+    height: calc(var(--project-popup-size) * 1.25 + 80px); // + the 40px top / bottom paddings
+  }
+
+  // project name under the image
+  .mfp-projects .mfp-title {
+    font-size: 1.4rem;
+    line-height: 1.4;
   }
 
   .mfp-challenges ul,
@@ -409,9 +433,11 @@
   }
 }
 
-// Mobile (up to 480px wide): project tile texts (name / domain / topic in the overlay) 30% smaller (16px -> 11.2px)
+// Mobile (up to 480px wide): project tile texts (name / domain / topic in the overlay): 14px, more readable
+// (was 11.2px, 30% smaller than the 16px of larger screens)
 @media only screen and (max-width: 30em) {
   .portfolio .item-img h6 {
-    font-size: calc(16px * 0.7);
+    font-size: 14px;
+    line-height: 1.35;
   }
 }

@@ -43,6 +43,15 @@ body {
   }
 }
 
+// Mobile (up to 480px wide): section titles at 75% of their size (3.5rem -> 2.625rem) and half their bottom
+// margin (8rem -> 4rem). Titles with their own margin (0 for Education / Experiences / Projects) keep it
+.heading-2 {
+  @media only screen and (max-width: 30em) {
+    font-size: calc(3.5rem * 0.75);
+    margin-bottom: 4rem;
+  }
+}
+
 .heading-2-services {
   margin: 0 auto;
 }

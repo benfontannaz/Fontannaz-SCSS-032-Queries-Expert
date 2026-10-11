@@ -541,3 +541,59 @@
     background-position: center 51%;
   }
 }
+
+// Mobile (up to 480px wide): the back of the 3 Services cards shows only the "For More Details" button
+// (icons and paragraph hidden: the popup gives the details); the card height follows this smaller content
+@media only screen and (max-width: 30em) {
+  .carte__cta > .cartes-box, // card 1 icons
+  .carte__cta > div.cartes-icons, // cards 2 and 3 icons
+  .carte__side--back-p1,
+  .carte__side--back-p2,
+  .carte__side--back-p3 {
+    display: none;
+  }
+
+  // button just below the angled top line of the back side (15% of the 13.8rem picture = 2.07rem lower on the
+  // left), small space below
+  .carte__cta {
+    padding: calc(13.8rem * 0.15 + 2rem) 2rem 2.5rem 2rem;
+  }
+
+  // card pictures 60% of their height (23rem -> 13.8rem)
+  .carte__picture {
+    height: calc(23rem * 0.6);
+  }
+
+  // Enterprise Architecture picture: the man's head (about 50% down the square picture) in the middle of the
+  // 13.8rem high frame (was aligned to the bottom of the picture, which hid the head)
+  .carte__picture--2 {
+    background-position: center 51%;
+  }
+
+  // titles at 80% of their size (2.7rem -> 2.16rem), line spacing too (4.8rem -> 3.84rem, the bands of the
+  // 2 lines still slightly overlap). Title bands: their bottom 0.7rem above the bottom of the picture, as before
+  // (2 lines of 3.84rem + 0.7rem; was 2 x 4.8rem + 0.7rem = 10.3rem)
+  .carte__heading {
+    font-size: calc(2.7rem * 0.8);
+    line-height: calc(4.8rem * 0.8);
+    top: calc(23rem * 0.6 - (2 * 4.8rem * 0.8 + 0.7rem));
+  }
+
+  // back side: same angle as the bottom of the smaller picture above it (15% of 13.8rem)
+  .carte__side--back {
+    clip-path: polygon(0 calc(13.8rem * 0.15), 100% 0, 100% 100%, 0 100%);
+  }
+
+  // "For More Details": same look as the header buttons on phones (1.2rem, bold, dark text on white; was #777)
+  .carte__cta .boutton--white:link,
+  .carte__cta .boutton--white:visited {
+    font-size: 1.2rem;
+    font-weight: 400; // not bold
+    letter-spacing: 0.05em;
+    color: #2b2b2b;
+  }
+
+  .carte__cta .boutton--white .fa-arrow-right-card-back {
+    color: #2b2b2b;
+  }
+}

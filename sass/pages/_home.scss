@@ -255,3 +255,22 @@ main {
 // ========== SECTION FOOTER START
 
 // ========== SECTION FOOTER END
+
+// Mobile (up to 480px wide): every section title at the same distance below the section above as the "Projects"
+// title: from the tip of the angled top edge of the section to the top of the title, 78.9px - 3.89dvh (iPhone 14:
+// 46px). Measured distances without this (0 + dvh only): Areas of Expertise 16dvh, Education 13.06dvh, Resources
+// and Contact 11.94dvh; each title is moved up by the difference
+@media only screen and (max-width: 30em) {
+  .section-services .services-heading-2-areas .heading-2 {
+    margin-top: calc(78.9px - 3.89dvh - 16dvh);
+  }
+
+  .section-education .heading-2-education:not(.heading-2-education--certifications) .heading-2 {
+    margin-top: calc(78.9px - 3.89dvh - 13.06dvh);
+  }
+
+  .section-resources .heading-2,
+  .section-contact .heading-2 {
+    margin-top: calc(78.9px - 3.89dvh - 11.94dvh);
+  }
+}
