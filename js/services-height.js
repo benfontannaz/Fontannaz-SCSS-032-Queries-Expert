@@ -33,6 +33,8 @@
   var CONTACT_OFFSET = 2.0; // 200dvh: Contact top - Resources top (1240dvh - 1040dvh)
   var CONTACT_CLIP_SIDE = 0.83; // 83dvh: sides of the Contact angled bottom edge ($clip-path-polygon-contact)
   var PIN_FROM_TOP = 0.3; // map address at 30% of the visible map height, from its top (0.5 = centred)
+  // phones in landscape: respond(mobile-land) + max-height 30em in the SCSS (touch, up to 480px high)
+  var LANDSCAPE_PHONE = "(hover: none) and (orientation: landscape) and (max-height: 30em)";
 
   // top / bottom (page coordinates) of the visible content of an element
   function contentSpan(el) {
@@ -168,7 +170,13 @@
     if (!button) return;
     var root = document.documentElement;
     var cover = (parseFloat(getComputedStyle(root).getPropertyValue("--contact-cover")) || 0) * vh / 100;
-    var buttonBottom = button.getBoundingClientRect().bottom + window.scrollY - pageTop(contact);
+    // phones in landscape: the end space (6dvh, ~23px) is measured below the privacy note under the button,
+    // which was cut by the angled bottom edge
+    var last = button;
+    if (window.matchMedia(LANDSCAPE_PHONE).matches) {
+      last = contact.querySelector(".contact-form-privacy") || button;
+    }
+    var buttonBottom = last.getBoundingClientRect().bottom + window.scrollY - pageTop(contact);
     var extra = Math.ceil(buttonBottom + sectionEndSpace() - CONTACT_CLIP_SIDE * vh - cover);
     root.style.setProperty("--contact-extra", extra + "px");
   }

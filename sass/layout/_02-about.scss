@@ -39,6 +39,14 @@ section ABOUT ---------------------------------------- */
   @media only screen and (max-width: 30em) {
     width: 80% !important; // was 60%
   }
+
+  // mobile landscape (touch, up to 480px high: phones, not tablets): left and right margins divided by 2
+  // (20% -> 10% each side)
+  @include respond(mobile-land) {
+    @media (max-height: 30em) {
+      width: 80% !important; // was 60%
+    }
+  }
 }
 
 .about-para {
@@ -62,6 +70,14 @@ section ABOUT ---------------------------------------- */
   @media only screen and (max-width: 35.99875em) {
     font-size: 1.6rem; // was 1.8rem
     line-height: 1.45; // was 1.4 (1.6 tried, too airy)
+  }
+
+  // mobile landscape (touch, up to 480px high: phones, not tablets): the same smaller text as on phones in portrait
+  @include respond(mobile-land) {
+    @media (max-height: 30em) {
+      font-size: 1.6rem; // was 1.8rem
+      line-height: 1.45; // was 1.4
+    }
   }
 
   .para4 {

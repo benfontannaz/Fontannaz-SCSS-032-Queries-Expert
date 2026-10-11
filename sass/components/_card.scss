@@ -597,3 +597,46 @@
     color: #2b2b2b;
   }
 }
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): the 3 card titles at 70% of their size
+// (tablet size above, 3.51rem -> 2.457rem), line spacing too (5.2rem -> 3.64rem)
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .carte__heading-span--1,
+    .carte__heading-span--2,
+    .carte__heading-span--3 {
+      font-size: calc(2.7rem * 1.3 * 0.7);
+      line-height: calc(3rem * 1.3 * 1.1 * 1.1 * 1.05 * 1.05 * 0.7);
+    }
+
+    // card back texts: same size as the header introduction (#introduction-2) on these screens (was 1.8rem)
+    .carte__side--back-p1,
+    .carte__side--back-p2,
+    .carte__side--back-p3 {
+      font-size: 1.5rem;
+    }
+
+    // card back texts: bottom margin divided by 2 (was 10rem)
+    .carte__side--back-p1,
+    .carte__side--back-p2,
+    .carte__side--back-p3 {
+      margin-bottom: calc(10rem / 2);
+    }
+
+    // card back icons at 70% of their size (card 1: .cartes-box, cards 2 and 3: div.cartes-icons)
+    .carte__cta .cartes-icons {
+      font-size: calc(4rem * 0.7); // 2.8rem (was 4rem)
+    }
+
+    .carte__cta .icon-laptop,
+    .carte__cta .icon-mobile {
+      font-size: calc(3rem * 0.7); // 2.1rem (was 3rem)
+    }
+
+    .carte__cta .icon-ai-chip {
+      width: calc(4.4rem * 0.7); // 3.08rem (was 4.4rem)
+      height: calc(4.4rem * 0.7);
+      top: calc(0.7rem * 0.7); // keeps the same bottom line as the smaller glyph icons
+    }
+  }
+}

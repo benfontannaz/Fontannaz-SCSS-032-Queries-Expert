@@ -9,6 +9,15 @@
   height: 4dvh;
   width: auto;
   margin: 1dvh 1.5dvh 1dvh 1.5dvh;
+
+  // mobile landscape (touch, up to 480px high: phones, not tablets): sized on the window width instead of its
+  // height, so the logos keep their portrait size when the phone turns (4dvh was ~16px high on a 390px high screen)
+  @include respond(mobile-land) {
+    @media (max-height: 30em) {
+      height: 4dvw;
+      margin: 1dvw 1.5dvw 1dvw 1.5dvw;
+    }
+  }
 }
 
 .pro-certifications {

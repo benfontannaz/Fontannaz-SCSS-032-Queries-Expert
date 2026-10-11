@@ -441,3 +441,99 @@
     line-height: 1.35;
   }
 }
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): project tile texts and zoom button slightly
+// smaller (~85%)
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    // texts in the overlay (name / domain / topic): as on phones in portrait (was 16px)
+    .portfolio .item-img h6 {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    // zoom button (.fa-search-plus): icon and round background (were 24px / 45px)
+    .portfolio .item-img .fa {
+      font-size: 20px;
+      height: 38px;
+      width: 38px;
+      line-height: 36px; // 38px - the 2 x 1px border
+    }
+  }
+}
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): Projects popup 80% of the screen width and
+// height (was a square of 100dvh - 170px: ~220 x 220px on a 390px high screen). The picture is 80vw wide; with
+// the project name bar below it (22px: 4px gap + 18px bar, in the 40px bottom padding of .mfp-img) it is 80dvh high
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .mfp-projects {
+      --project-popup-size: 80vw; // width of the popup box and the picture
+
+      img.mfp-img {
+        height: calc(80dvh - 22px + 80px); // picture 80dvh - 22px (name bar) + the 40px top / bottom paddings
+      }
+
+      // visually centred: Magnific Popup centres the box with its 40px transparent paddings, but only 22px of the
+      // bottom one is used (name bar): the picture + bar sat (40px - 22px) / 2 = 9px too low
+      .mfp-content {
+        top: -9px;
+      }
+    }
+
+    // details overlay: top padding under its angled top line, which rises by 8% of the picture height
+    // (the padding was 8% of the width: too much on the wide picture)
+    .mfp-project-details {
+      padding-top: calc((80dvh - 22px) * 0.08 + 1.5rem);
+    }
+
+    // details texts sized to stay entirely in the overlay, without scrolling (measured on the 16 projects:
+    // 844 x 390, 667 x 375 and 932 x 430 phones). The 2 sections side by side (were stacked up to 767px wide)
+    .mfp-project-details {
+      flex-direction: row;
+      gap: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 1.2rem;
+      padding-left: 2rem;
+    }
+
+    .mfp-project-heading {
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      font-size: 1.3rem; // was 1.8rem
+    }
+
+    .mfp-challenges li,
+    .mfp-results li {
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem; // was 1.5rem
+      line-height: 1.35;
+    }
+
+    .mfp-challenges ul,
+    .mfp-results ul {
+      padding-left: 1.4rem;
+    }
+
+    // very low phones (up to 340px high, e.g. 568 x 320): one size smaller
+    @media (max-height: 21.25em) {
+      .mfp-project-heading {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.3rem;
+        font-size: 1.2rem;
+      }
+
+      .mfp-challenges li,
+      .mfp-results li {
+        margin-bottom: 0.2rem;
+        font-size: 1.1rem;
+        line-height: 1.3;
+      }
+
+      .mfp-challenges ul,
+      .mfp-results ul {
+        padding-left: 1.3rem;
+      }
+    }
+  }
+}

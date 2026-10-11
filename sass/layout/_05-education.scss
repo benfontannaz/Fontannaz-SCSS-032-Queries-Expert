@@ -717,3 +717,68 @@
     line-height: 1.3;
   }
 }
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): the same 80% degree texts as on phones in
+// portrait (all 4 degrees, including the 2nd line of the BPR degree, .education-degree-lignes-2nd)
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .education-degree-lignes .education-degree-title {
+      font-size: calc(2.2rem * 0.8); // 1.76rem (was 2.2rem)
+      line-height: 1.15; // was a fixed 2rem
+    }
+
+    .education-degree-lignes .education-degree-dates,
+    .education-degree-lignes .education-degree-periods {
+      font-size: calc(2rem * 0.8); // 1.6rem (was 2rem)
+      line-height: 1.15;
+    }
+
+    // less space between the degree title line and the dates line: the lines were 27.2px high (the 1.7 body
+    // line height of their 16px div) for ~20px of text
+    .education-degree-ligne-0,
+    .education-degree-ligne-1 {
+      line-height: 1.15;
+    }
+
+    // European University logo (.education-school-head) as far below the IMD dates (.education-degree-ligne-1)
+    // as the IMD logo below the "Education" title (the 7dvh top margin of .education-container-1).
+    // The IMD container fits its content (was 20dvh: the IMD degree overflowed it and the EU logo overlapped
+    // the IMD dates)
+    .education-container-1 {
+      height: auto;
+    }
+
+    .education-container-2 {
+      margin-top: 7dvh; // was 4dvh
+    }
+
+    // the IMD skills line is hidden on these screens (empty): its -3.5dvh top margin collapsed with the 7dvh above
+    // and halved the space
+    .education-row-1 > .education-degree-ligne-2 {
+      margin-top: 0;
+    }
+
+    // certification badges twice as big (12dvh -> 24dvh: ~47px -> ~94px on a 390px high screen); their boxes
+    // are never narrower than a badge, so the badges wrap to more lines
+    .pro-certifications-img {
+      height: calc(12dvh * 2);
+    }
+
+    .pro-certifications-box {
+      min-width: calc(12dvh * 2 + 1rem);
+    }
+
+    // IMD and European University degree rows: left and right margins divided by 2 (10% -> 5%)
+    .education-row-1,
+    .education-row-2 {
+      margin-left: calc(10% / 2);
+      margin-right: calc(10% / 2);
+    }
+
+    // IMD and European University logos twice as big (were 5dvh x 7dvh: ~20 x 27px on a 390px high screen)
+    .education-school-head .business-school {
+      height: calc(5dvh * 2); // 10dvh
+      width: calc(7dvh * 2); // 14dvh
+    }
+  }
+}

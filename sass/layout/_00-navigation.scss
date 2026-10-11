@@ -315,3 +315,50 @@
     display: none;
   }
 }
+
+// Phones in landscape (only ~300-380px of height): the Experiences section is hidden (_04-experience), so is its
+// link, and the menu is made more compact vertically so that all the remaining links fit on the screen
+@include respond(mobile-land) {
+  // phones only: below 480px high (landscape tablets, which also match mobile-land, keep the full menu)
+  @media only screen and (max-height: 29.9375em) {
+    .navigation__item:has(> a[href="#03-experiences"]) {
+      display: none;
+    }
+
+    .navigation__list {
+      max-height: 100dvh;
+      overflow-y: auto; // safety net on the smallest phones: the menu scrolls rather than being cut off
+    }
+
+    .navigation__item {
+      margin: 0.4rem;
+    }
+
+    .navigation__link {
+      &:link,
+      &:visited {
+        font-size: 2rem;
+        line-height: 1.2;
+        padding: 0.6rem 2rem;
+      }
+    }
+  }
+}
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): navigation button 70% of its size
+// (4.5rem -> 3.15rem), scaled from its top right corner: still 10.5px from the top and 15px from the right edge.
+// The home pawn in the other corner gets the same size (_01-header)
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .navigation__button {
+      transform: scale(0.7);
+      transform-origin: right top;
+    }
+
+    // menu background circle: same size and place as the smaller button (it grows from there when the menu opens)
+    .navigation__background {
+      width: calc(4.5rem * 0.7);
+      height: calc(4.5rem * 0.7);
+    }
+  }
+}

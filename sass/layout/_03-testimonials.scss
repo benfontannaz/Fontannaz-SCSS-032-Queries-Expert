@@ -166,3 +166,43 @@
 .fa-quote-left {
   color: $color-white;
 }
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): testimonials centred and sized for the low
+// screen. Same left and right padding (was 9rem / 6rem: the text was off-centre) and a wider block (was 75%);
+// quotes, title and spacing smaller (they had their desktop size: 24px quotes on 42px lines)
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .testimonials {
+      width: 90%; // was 75%
+      padding: 2rem 0; // was 6rem, 9rem on the left
+      top: -5dvh; // moved up by 5% of the screen height (position: relative below)
+    }
+
+    .testimonials p.font-size16 {
+      font-size: 1.8rem; // was 24px
+      line-height: 1.5; // was 42px
+    }
+
+    // "Testimonials" title as the section titles on these screens (2.625rem, was 32px from .font-size32)
+    .testimonials h3 {
+      font-size: calc(3.5rem * 0.75);
+      margin-bottom: calc(25px * 2 / 1.5); // ~33px: doubled, then divided by 1.5 (was 25px, the h1 - h6 margin in abstracts/_theme)
+    }
+
+    // less space above the title (was 50px, .padding-50px-top) and above the carousel dots (was 40px)
+    .testimonials .padding-50px-top {
+      padding-top: 1rem !important;
+    }
+
+    .testimonials .owl-theme .owl-dots {
+      margin-top: 2rem !important;
+    }
+
+    // testimonial slides (.owl-stage) moved up by 10% of the screen height. Set on their frame, .owl-stage-outer
+    // (position: relative in owl.carousel.css): moving .owl-stage inside it would cut the top of the slides
+    // (overflow: hidden), and Owl Carousel slides the stage with an inline transform
+    .testimonials .owl-stage-outer {
+      top: -10dvh;
+    }
+  }
+}

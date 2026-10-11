@@ -641,3 +641,14 @@
     margin-bottom: 3dvh;
   }
 }
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): "Currently Reading" book cover twice as big
+// (31.5dvh x 21dvh -> 63dvh x 42dvh: ~123 x 82px -> ~246 x 164px on a 390px high screen; above the book details)
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .book-cover-currently {
+      height: calc(21dvh * 1.5 * 2) !important;
+      width: calc(14dvh * 1.5 * 2) !important;
+    }
+  }
+}

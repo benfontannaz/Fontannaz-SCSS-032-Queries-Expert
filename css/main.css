@@ -5914,11 +5914,11 @@ section {
     padding: 70px 0;
   }
   h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0 0 22px;
     padding: 0;
     letter-spacing: 0;
@@ -9559,11 +9559,11 @@ h6 {
 }
 @media (max-width: 991px) {
   h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0 0 18px;
     padding: 0;
     letter-spacing: 0;
@@ -13269,11 +13269,11 @@ h6 {
     line-height: 20px;
   }
   h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0 0 17px;
     padding: 0;
     letter-spacing: 0;
@@ -16891,7 +16891,7 @@ h6 {
     background-position: center;
   }
 }
-/*# sourceMappingURL=helper.css.map */
+
 /* @import "abstracts/plugins"; */
 /*
 0 - 600px:      Phone
@@ -17205,8 +17205,8 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
 }
 
 .header .icon-strategy:hover {
-  color: hsl(228deg, 6%, 16%);
-  color: hsla(234deg, 85%, 56%, 0.937);
+  color: hsl(228, 6%, 16%);
+  color: hsla(234, 85%, 56%, 0.937);
 }
 
 .header .chess-pawn {
@@ -17266,23 +17266,23 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
 }
 
 .header .fa-github:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .header .fa-microsoft:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .header .fa-x-twitter:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .header .fa-envelope:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .header .fa-mobile-alt:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 /* ==== Grouped left and right margins ==== */
@@ -27395,6 +27395,18 @@ body {
   }
 }
 
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .heading-2 {
+    font-size: 2.625rem;
+  }
+  .heading-3-services .heading-3 {
+    font-size: 2.4rem;
+  }
+  .heading-3-education .heading-3,
+  .heading-3-resources .heading-3 {
+    font-size: 2.25rem;
+  }
+}
 .heading-2-services {
   margin: 0 auto;
 }
@@ -28020,8 +28032,8 @@ body {
     padding-right: 2rem;
   }
   .carte__side--back-p1,
-.carte__side--back-p2,
-.carte__side--back-p3 {
+  .carte__side--back-p2,
+  .carte__side--back-p3 {
     margin-left: 1rem;
     margin-right: 1rem;
   }
@@ -28032,8 +28044,8 @@ body {
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
   .carte__heading-span--1,
-.carte__heading-span--2,
-.carte__heading-span--3 {
+  .carte__heading-span--2,
+  .carte__heading-span--3 {
     font-size: 3.51rem;
     line-height: 5.2026975rem;
     position: relative;
@@ -28052,10 +28064,10 @@ body {
 }
 @media only screen and (max-width: 30em) {
   .carte__cta > .cartes-box,
-.carte__cta > div.cartes-icons,
-.carte__side--back-p1,
-.carte__side--back-p2,
-.carte__side--back-p3 {
+  .carte__cta > div.cartes-icons,
+  .carte__side--back-p1,
+  .carte__side--back-p2,
+  .carte__side--back-p3 {
     display: none;
   }
   .carte__cta {
@@ -28076,7 +28088,7 @@ body {
     clip-path: polygon(0 2.07rem, 100% 0, 100% 100%, 0 100%);
   }
   .carte__cta .boutton--white:link,
-.carte__cta .boutton--white:visited {
+  .carte__cta .boutton--white:visited {
     font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -28084,6 +28096,36 @@ body {
   }
   .carte__cta .boutton--white .fa-arrow-right-card-back {
     color: #2b2b2b;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .carte__heading-span--1,
+  .carte__heading-span--2,
+  .carte__heading-span--3 {
+    font-size: 2.457rem;
+    line-height: 3.64188825rem;
+  }
+  .carte__side--back-p1,
+  .carte__side--back-p2,
+  .carte__side--back-p3 {
+    font-size: 1.5rem;
+  }
+  .carte__side--back-p1,
+  .carte__side--back-p2,
+  .carte__side--back-p3 {
+    margin-bottom: 5rem;
+  }
+  .carte__cta .cartes-icons {
+    font-size: 2.8rem;
+  }
+  .carte__cta .icon-laptop,
+  .carte__cta .icon-mobile {
+    font-size: 2.1rem;
+  }
+  .carte__cta .icon-ai-chip {
+    width: 3.08rem;
+    height: 3.08rem;
+    top: 0.49rem;
   }
 }
 /*
@@ -28280,27 +28322,23 @@ carousel configuration  ------------------------------------ */
 }
 
 .col-1-of-3 {
-  width: calc((100% - (2 * 6rem)) / 3);
+  width: calc((100% - 2 * 6rem) / 3);
 }
 
 .col-1-of-4 {
-  width: calc((100% - (3 * 6rem)) / 4);
+  width: calc((100% - 3 * 6rem) / 4);
 }
 
 .col-2-of-3 {
-  width: calc(
-    2 * ((100% - (2 * 6rem)) / 3) + 6rem
-  );
+  width: calc(2 * (100% - 2 * 6rem) / 3 + 6rem);
 }
 
 .col-2-of-4 {
-  width: calc(
-    2 * ((100% - (3 * 6rem)) / 4) + 6rem
-  );
+  width: calc(2 * (100% - 3 * 6rem) / 4 + 6rem);
 }
 
 .col-3-of-4 {
-  width: calc(3 * (100% - (3 * 6rem)) / 4 + (2 * 6rem));
+  width: calc(3 * (100% - 3 * 6rem) / 4 + 2 * 6rem);
 }
 
 /* body {
@@ -28472,6 +28510,12 @@ carousel configuration  ------------------------------------ */
   height: 4dvh;
   width: auto;
   margin: 1dvh 1.5dvh 1dvh 1.5dvh;
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .cert {
+    height: 4dvw;
+    margin: 1dvw 1.5dvw 1dvw 1.5dvw;
+  }
 }
 
 .pro-certifications {
@@ -30127,6 +30171,33 @@ body {
     display: none;
   }
 }
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) {
+  .navigation__item:has(> a[href="#03-experiences"]) {
+    display: none;
+  }
+  .navigation__list {
+    max-height: 100dvh;
+    overflow-y: auto;
+  }
+  .navigation__item {
+    margin: 0.4rem;
+  }
+  .navigation__link:link, .navigation__link:visited {
+    font-size: 2rem;
+    line-height: 1.2;
+    padding: 0.6rem 2rem;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .navigation__button {
+    transform: scale(0.7);
+    transform-origin: right top;
+  }
+  .navigation__background {
+    width: 3.15rem;
+    height: 3.15rem;
+  }
+}
 /* 
 HEADER ------------------------------------------------------------------------ */
 .header {
@@ -30492,12 +30563,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.2rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30515,7 +30586,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30524,11 +30595,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 4rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 6dvw;
   }
 }
@@ -30554,12 +30625,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 1.5rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30577,7 +30648,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30586,12 +30657,33 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 2rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 2.5dvw;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .banner-box {
+    top: 25dvh;
+  }
+  .banner-headline {
+    font-size: min(2rem, 3.2vw);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  #introduction-2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .boutton:link,
+  .boutton:visited,
+  .boutton--grey-about,
+  .boutton--grey-contact {
+    padding: 0.8rem 2.5rem !important;
   }
 }
 @media only screen and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 30em) and (min-height: 43.75em) and (orientation: portrait) and (hover: none) {
@@ -30616,12 +30708,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 1.8rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30639,7 +30731,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30648,11 +30740,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 3rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 6dvw;
   }
 }
@@ -30678,12 +30770,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 1.8rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30701,7 +30793,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30710,11 +30802,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 2rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 2.5dvw;
   }
 }
@@ -30740,12 +30832,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.5rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 16.9px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30763,7 +30855,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30772,11 +30864,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 4rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1.3rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30802,12 +30894,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.5rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 16.9px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30825,7 +30917,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30834,11 +30926,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 4rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1.3rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30864,12 +30956,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 25.35px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30887,7 +30979,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30896,11 +30988,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 8rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1.8rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30926,12 +31018,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 25.35px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30949,7 +31041,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30958,11 +31050,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 8rem;
   }
   .header__boutton-box a,
-.header__boutton-box i {
+  .header__boutton-box i {
     font-size: 1.8rem !important;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30988,7 +31080,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.2rem !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -31006,7 +31098,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -31037,7 +31129,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.2rem !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -31055,7 +31147,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -31086,7 +31178,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -31104,7 +31196,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -31135,12 +31227,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .fab-box i,
-.fab-box div,
-.fab-box span {
+  .fab-box div,
+  .fab-box span {
     margin: 0 16.9px !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -31158,7 +31250,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -31190,7 +31282,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .header .fab,
-.header .fas {
+  .header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -31208,7 +31300,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-.header .notion-logo {
+  .header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -31217,7 +31309,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 8rem;
   }
   .boutton:link,
-.boutton:visited {
+  .boutton:visited {
     padding: 10.2px 76.5px;
   }
 }
@@ -31272,6 +31364,27 @@ html.is-loading .home__logo-box * {
 @media only screen and (max-width: 30em) {
   .header .header__boutton-box a.boutton--header {
     font-size: 1.2rem !important;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .home__logo-box {
+    top: calc(33px - 2.25rem);
+    left: 15px;
+  }
+  .home__logo-box a.home__logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 3.15rem;
+    height: 3.15rem;
+  }
+  .home__logo-box img.home__logo {
+    height: 3.15rem;
+    margin-top: -0.1512rem;
+    margin-left: -0.2268rem;
+  }
+  .home__logo-box img.home__logo--hover {
+    margin-left: -2.52rem;
   }
 }
 #popup-services-1,
@@ -31518,14 +31631,14 @@ html.is-loading .home__logo-box * {
 
 @media only screen and (max-width: 30em) {
   .carte-details__box-icons-1-1,
-.carte-details__box-icons-1-2,
-.carte-details__box-icons-2-1,
-.carte-details__box-icons-2-2,
-.carte-details__box-icons-3-2 {
+  .carte-details__box-icons-1-2,
+  .carte-details__box-icons-2-1,
+  .carte-details__box-icons-2-2,
+  .carte-details__box-icons-3-2 {
     font-size: calc(5rem * 0.75);
   }
   .carte-details__box-icons-3-1,
-.carte-details__box-icons-3-3 {
+  .carte-details__box-icons-3-3 {
     font-size: calc(4rem * 0.75);
   }
   .carte-details__box-icons .icon-ai-chip {
@@ -31541,8 +31654,8 @@ html.is-loading .home__logo-box * {
 }
 @media only screen and (max-width: 35.99875em) {
   .carte-details__box-p1 p,
-.carte-details__box-p2 p,
-.carte-details__box-p3 p {
+  .carte-details__box-p2 p,
+  .carte-details__box-p3 p {
     font-size: 1.6rem;
     line-height: 1.6;
   }
@@ -31654,15 +31767,15 @@ html.is-loading .home__logo-box * {
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
   #popup-services-1 .mfp-close,
-#popup-services-2 .mfp-close,
-#popup-services-3 .mfp-close {
+  #popup-services-2 .mfp-close,
+  #popup-services-3 .mfp-close {
     right: calc(8.5% + 1.2rem);
   }
 }
 @media only screen and (max-width: 30em) {
   #popup-services-1 .mfp-close,
-#popup-services-2 .mfp-close,
-#popup-services-3 .mfp-close {
+  #popup-services-2 .mfp-close,
+  #popup-services-3 .mfp-close {
     right: calc((100% - 95vw) / 2 + 1.2rem);
   }
 }
@@ -31673,12 +31786,55 @@ html.is-loading .home__logo-box * {
 
 @media only screen and (max-width: 30em) {
   .carte-details .carte-details__picture {
-    height: calc(23rem * 0.6 * 1.2);
+    height: calc(13.8rem * 1.2);
   }
   .carte-details .carte-details__front .carte-details__heading {
     font-size: calc(2.7rem * 1.2);
     line-height: calc(4.8rem * 1.2);
-    top: calc((23rem * 0.6 - 10.3rem) * 1.2);
+    top: calc(3.5rem * 1.2);
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) {
+  .carte-details-section-row .col-1-of-1 {
+    padding: 0 22.5%;
+  }
+  #popup-services-1 .mfp-close,
+  #popup-services-2 .mfp-close,
+  #popup-services-3 .mfp-close {
+    right: calc(22.5% + 1.2rem);
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .carte-details .carte-details__front .carte-details__heading {
+    font-size: calc(min(5rem, 11.2cqw - 6px) * 0.7);
+  }
+  .carte-details .d-sm-none {
+    display: inline !important;
+  }
+  .carte-details .d-none.d-sm-inline,
+  .carte-details p.d-none.d-sm-block {
+    display: none !important;
+  }
+  .carte-details__box-p1 p,
+  .carte-details__box-p2 p,
+  .carte-details__box-p3 p {
+    font-size: 1.5rem;
+  }
+  .carte-details__box-icons-1-1,
+  .carte-details__box-icons-1-2,
+  .carte-details__box-icons-2-1,
+  .carte-details__box-icons-2-2,
+  .carte-details__box-icons-3-2 {
+    font-size: 3.5rem;
+  }
+  .carte-details__box-icons-3-1,
+  .carte-details__box-icons-3-3 {
+    font-size: 2.8rem;
+  }
+  .carte-details__box-icons .icon-ai-chip {
+    width: 3.85rem;
+    height: 3.85rem;
+    top: 0.63rem;
   }
 }
 .testimonials h4 {
@@ -31811,6 +31967,30 @@ html.is-loading .home__logo-box * {
   color: rgba(255, 255, 255, 0.906);
 }
 
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .testimonials {
+    width: 90%;
+    padding: 2rem 0;
+    top: -5dvh;
+  }
+  .testimonials p.font-size16 {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+  .testimonials h3 {
+    font-size: 2.625rem;
+    margin-bottom: 33.3333333333px;
+  }
+  .testimonials .padding-50px-top {
+    padding-top: 1rem !important;
+  }
+  .testimonials .owl-theme .owl-dots {
+    margin-top: 2rem !important;
+  }
+  .testimonials .owl-stage-outer {
+    top: -10dvh;
+  }
+}
 .main-timeline {
   position: relative;
 }
@@ -32109,7 +32289,7 @@ html.is-loading .home__logo-box * {
     height: 110px;
   }
   .main-timeline .date-outer:before,
-.main-timeline .date-outer:after {
+  .main-timeline .date-outer:after {
     width: 110px;
     height: 110px;
   }
@@ -32120,7 +32300,7 @@ html.is-loading .home__logo-box * {
     font-size: 24px;
   }
   .main-timeline .timeline-content,
-.main-timeline .timeline:nth-child(2n) .timeline-content {
+  .main-timeline .timeline:nth-child(2n) .timeline-content {
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -32219,6 +32399,12 @@ ul .section-experiences-list {
   margin-top: 1.5rem;
 }
 
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) {
+  .section-experiences,
+  .section-experiences-sm {
+    display: none !important;
+  }
+}
 /* 
 section ABOUT ---------------------------------------- */
 .about-h4 {
@@ -32260,6 +32446,11 @@ section ABOUT ---------------------------------------- */
     width: 80% !important;
   }
 }
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .about-para-box-1 {
+    width: 80% !important;
+  }
+}
 
 .about-para {
   font-family: "Lato", sans-serif;
@@ -32276,6 +32467,12 @@ section ABOUT ---------------------------------------- */
   font-weight: 400;
 }
 @media only screen and (max-width: 35.99875em) {
+  .about-para-box-1 .about-para {
+    font-size: 1.6rem;
+    line-height: 1.45;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
   .about-para-box-1 .about-para {
     font-size: 1.6rem;
     line-height: 1.45;
@@ -32778,7 +32975,7 @@ section ABOUT ---------------------------------------- */
     display: block !important;
   }
   .education-container-4.education-scroll-5,
-.education-container-4.education-scroll-6 {
+  .education-container-4.education-scroll-6 {
     display: none;
   }
 }
@@ -32864,7 +33061,7 @@ section ABOUT ---------------------------------------- */
 
 @media only screen and (max-width: 64em) {
   .education-school-head .education-row-title-1,
-.education-school-head .education-row-title-2 {
+  .education-school-head .education-row-title-2 {
     display: none;
   }
   .education-degree-skills-box {
@@ -32876,13 +33073,13 @@ section ABOUT ---------------------------------------- */
 }
 @media only screen and (max-width: 64em) {
   .education-row-studies-1,
-.education-row-studies-2,
-.education-row-2 > .education-degree-lignes-2nd {
+  .education-row-studies-2,
+  .education-row-2 > .education-degree-lignes-2nd {
     margin-left: 0;
     margin-right: auto;
   }
   .education-degree-ligne-0,
-.education-degree-ligne-1 {
+  .education-degree-ligne-1 {
     text-align: left;
   }
 }
@@ -32906,7 +33103,7 @@ section ABOUT ---------------------------------------- */
 }
 @media only screen and (max-width: 30em) {
   .heading-2-education--certifications,
-.heading-3-education-certificates {
+  .heading-3-education-certificates {
     display: none;
   }
 }
@@ -32916,9 +33113,48 @@ section ABOUT ---------------------------------------- */
     line-height: 1.3;
   }
   .education-degree-lignes .education-degree-dates,
-.education-degree-lignes .education-degree-periods {
+  .education-degree-lignes .education-degree-periods {
     font-size: 1.6rem;
     line-height: 1.3;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .education-degree-lignes .education-degree-title {
+    font-size: 1.76rem;
+    line-height: 1.15;
+  }
+  .education-degree-lignes .education-degree-dates,
+  .education-degree-lignes .education-degree-periods {
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+  .education-degree-ligne-0,
+  .education-degree-ligne-1 {
+    line-height: 1.15;
+  }
+  .education-container-1 {
+    height: auto;
+  }
+  .education-container-2 {
+    margin-top: 7dvh;
+  }
+  .education-row-1 > .education-degree-ligne-2 {
+    margin-top: 0;
+  }
+  .pro-certifications-img {
+    height: 24dvh;
+  }
+  .pro-certifications-box {
+    min-width: calc(24dvh + 1rem);
+  }
+  .education-row-1,
+  .education-row-2 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .education-school-head .business-school {
+    height: 10dvh;
+    width: 14dvh;
   }
 }
 .portfolio {
@@ -33239,7 +33475,7 @@ section ABOUT ---------------------------------------- */
     font-size: 1.5rem;
   }
   .mfp-challenges li,
-.mfp-results li {
+  .mfp-results li {
     margin-bottom: 0.3rem;
     font-size: 1.4rem;
     line-height: 1.35;
@@ -33255,7 +33491,7 @@ section ABOUT ---------------------------------------- */
     line-height: 1.4;
   }
   .mfp-challenges ul,
-.mfp-results ul {
+  .mfp-results ul {
     padding-left: 1.4rem;
   }
 }
@@ -33309,6 +33545,71 @@ section ABOUT ---------------------------------------- */
   .portfolio .item-img h6 {
     font-size: 14px;
     line-height: 1.35;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .portfolio .item-img h6 {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .portfolio .item-img .fa {
+    font-size: 20px;
+    height: 38px;
+    width: 38px;
+    line-height: 36px;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .mfp-projects {
+    --project-popup-size: 80vw;
+  }
+  .mfp-projects img.mfp-img {
+    height: calc(80dvh - 22px + 80px);
+  }
+  .mfp-projects .mfp-content {
+    top: -9px;
+  }
+  .mfp-project-details {
+    padding-top: calc((80dvh - 22px) * 0.08 + 1.5rem);
+  }
+  .mfp-project-details {
+    flex-direction: row;
+    gap: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1.2rem;
+    padding-left: 2rem;
+  }
+  .mfp-project-heading {
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+    font-size: 1.3rem;
+  }
+  .mfp-challenges li,
+  .mfp-results li {
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+  .mfp-challenges ul,
+  .mfp-results ul {
+    padding-left: 1.4rem;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) and (max-height: 21.25em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) and (max-height: 21.25em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) and (max-height: 21.25em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) and (max-height: 21.25em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) and (max-height: 21.25em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) and (max-height: 21.25em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) and (max-height: 21.25em) {
+  .mfp-project-heading {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.2rem;
+  }
+  .mfp-challenges li,
+  .mfp-results li {
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  .mfp-challenges ul,
+  .mfp-results ul {
+    padding-left: 1.3rem;
   }
 }
 /* ======= SECTION RESOURCES  ======= START === */
@@ -33832,9 +34133,9 @@ section ABOUT ---------------------------------------- */
 /* ============= SECTION MY TOOLS ===> END */
 @media only screen and (max-width: 64em) {
   .resources-container-1,
-.resources-row-1,
-.resources-row-book-1,
-.resources-box-book-1 {
+  .resources-row-1,
+  .resources-row-book-1,
+  .resources-box-book-1 {
     height: auto;
   }
   .resources-row-book-1 {
@@ -33852,13 +34153,13 @@ section ABOUT ---------------------------------------- */
 }
 @media only screen and (max-width: 30em) {
   #resources-row-title-2,
-.resources-container-2 .resources-box-book-2 {
+  .resources-container-2 .resources-box-book-2 {
     display: none;
   }
 }
 @media only screen and (max-width: 64em) {
   .heading-3-resources--tools,
-.resources-container-2 .resources-row-6 {
+  .resources-container-2 .resources-row-6 {
     display: none !important;
   }
 }
@@ -33867,6 +34168,12 @@ section ABOUT ---------------------------------------- */
     font-size: 2.1rem;
     margin-top: 3dvh;
     margin-bottom: 3dvh;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .book-cover-currently {
+    height: 63dvh !important;
+    width: 42dvh !important;
   }
 }
 /* ======== SECTION - CONTACT FORM =====> START */
@@ -34250,8 +34557,8 @@ footer #it-crowd {
 }
 
 .footer .icon-strategy:hover {
-  color: hsl(228deg, 6%, 16%);
-  color: hsla(234deg, 85%, 56%, 0.937);
+  color: hsl(228, 6%, 16%);
+  color: hsla(234, 85%, 56%, 0.937);
 }
 
 .footer .chess-pawn {
@@ -34311,23 +34618,23 @@ footer #it-crowd {
 }
 
 .footer .fa-github:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .footer .fa-microsoft:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .footer .fa-x-twitter:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .footer .fa-envelope:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 .footer .fa-mobile-alt:hover {
-  color: hsla(234deg, 85%, 56%, 0.938);
+  color: hsla(234, 85%, 56%, 0.938);
 }
 
 /* ==== Grouped left and right margins ==== */
@@ -34421,7 +34728,7 @@ footer #it-crowd {
 
 @media only screen and (max-width: 30em) {
   .fab-box-footer a:has(.fa-microsoft),
-.fab-box-footer a:has(.notion-logo) {
+  .fab-box-footer a:has(.notion-logo) {
     display: none;
   }
 }
@@ -34432,6 +34739,11 @@ footer #it-crowd {
 @media only screen and (max-width: 64em) {
   :root {
     --map-extra: -5dvh;
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  :root {
+    --map-extra: 22dvh;
   }
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 64em) and (orientation: portrait) {
@@ -34491,6 +34803,12 @@ main {
     padding-right: 10.4rem;
   }
 }
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) and (max-width: 56.25em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) and (max-width: 56.25em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) and (max-width: 56.25em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) and (max-width: 56.25em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) and (max-width: 56.25em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) and (max-width: 56.25em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 29.9375em) and (max-width: 56.25em) {
+  .section-services--row {
+    padding-left: 22.5%;
+    padding-right: 22.5%;
+  }
+}
 
 .section-parallax {
   position: relative;
@@ -34511,6 +34829,11 @@ main {
 @media only screen and (min-width: 80.063em) and (hover: hover) {
   .section-testimonials {
     top: calc(22.5dvh - 346px);
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .section-testimonials {
+    padding-top: 17dvh;
   }
 }
 
@@ -34607,8 +34930,13 @@ main {
     margin-top: calc(78.9px - 3.89dvh - 13.06dvh);
   }
   .section-resources .heading-2,
-.section-contact .heading-2 {
+  .section-contact .heading-2 {
     margin-top: calc(78.9px - 3.89dvh - 11.94dvh);
+  }
+}
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
+  .section-contact .heading-2 {
+    margin-bottom: 4rem;
   }
 }
 .legal-page {

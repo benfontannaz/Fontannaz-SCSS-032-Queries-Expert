@@ -398,3 +398,15 @@ ul .section-experiences-list {
 .timeline-content .experiences-skills-box {
   margin-top: 1.5rem;
 }
+
+// Phones in landscape: the Experiences section is not shown (both the small and the medium-and-up versions).
+// !important to win over Bootstrap's d-sm-block / d-md-block. Its link is hidden from the menu too (_00-navigation)
+@include respond(mobile-land) {
+  // phones only: below 480px high (landscape tablets, which also match mobile-land, keep the section)
+  @media only screen and (max-height: 29.9375em) {
+    .section-experiences,
+    .section-experiences-sm {
+      display: none !important;
+    }
+  }
+}

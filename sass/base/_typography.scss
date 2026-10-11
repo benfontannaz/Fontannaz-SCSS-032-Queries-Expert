@@ -52,6 +52,26 @@ body {
   }
 }
 
+// Mobile landscape (touch, up to 480px high: phones, not tablets): section titles and sub-titles at 75% of their
+// size, as the section titles in portrait (they had their desktop size on the low landscape screen).
+// The sub-titles get their size from their section (layout/ partials): each one is scaled here
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .heading-2 {
+      font-size: calc(3.5rem * 0.75); // 2.625rem (was 3.5rem)
+    }
+
+    .heading-3-services .heading-3 {
+      font-size: calc(3.2rem * 0.75); // 2.4rem (was 3.2rem): About Me
+    }
+
+    .heading-3-education .heading-3,
+    .heading-3-resources .heading-3 {
+      font-size: calc(3rem * 0.75); // 2.25rem (was 3rem): Degrees, Certificates, Books, Tools
+    }
+  }
+}
+
 .heading-2-services {
   margin: 0 auto;
 }

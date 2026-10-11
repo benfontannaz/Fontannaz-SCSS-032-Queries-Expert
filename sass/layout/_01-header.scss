@@ -550,6 +550,37 @@ HEADER ------------------------------------------------------------------------ 
   .boutton:visited {
     padding: 0.3dvh 2.5dvw;
   }
+
+  // phones (up to 480px high, not tablets): fixed padding, the buttons were flat (0.3dvh = ~1px top and bottom on
+  // a 390px high screen for ~21px left and right). Also the About / Contact buttons (own !important padding)
+  @media (max-height: 30em) {
+    // header texts and buttons moved up by 5% of the screen height (was 30dvh)
+    .banner-box {
+      top: 25dvh;
+    }
+
+    // header title and introduction bigger, in proportion to the buttons (were 1.5rem / 1.2rem).
+    // The title stays on one line (typing animation): the longest phrase is ~21.5 times the font size wide (with
+    // the 10px of the words box) in the 70% wide banner box: 3.2vw caps it on narrow phones (568px wide: 18px)
+    .banner-headline {
+      font-size: min(2rem, 3.2vw); // was 1.5rem
+      line-height: 1.4; // was 2rem
+      white-space: nowrap;
+    }
+
+    #introduction-2 {
+      font-size: 1.5rem; // was 1.2rem
+      font-weight: 400; // slightly heavier for the small size, as on phones in portrait
+      line-height: 1.6; // was 2rem
+    }
+
+    .boutton:link,
+    .boutton:visited,
+    .boutton--grey-about,
+    .boutton--grey-contact {
+      padding: 0.8rem 2.5rem !important; // ~36px high (was ~23px)
+    }
+  }
 }
 
 @include respond(tab-s) {
@@ -1379,5 +1410,40 @@ html.is-loading {
 @media only screen and (max-width: 30em) {
   .header .header__boutton-box a.boutton--header {
     font-size: 1.2rem !important;
+  }
+}
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): the home button placed and sized as the
+// navigation button in the opposite corner (_00-navigation: 4.5rem button, top calc(33px - 2.25rem), 15px from
+// the right edge): a 4.5rem box (no circle), same top, 15px from the left edge.
+// The pawn (was 3.5dvh, ~14px high) is as high as the button (4.5rem) and its drawing starts at the top left
+// corner of the box, like the button circle: the SVG (20 x 25) has a margin around the drawing of 1.8 / 20 of
+// its width on the left and 1.2 / 25 of its height at the top, removed with negative margins
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .home__logo-box {
+      top: calc(33px - 2.25rem);
+      left: 15px;
+    }
+
+    // 70% of the button size (4.5rem -> 3.15rem), as the navigation button (_00-navigation)
+    .home__logo-box a.home__logo {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: calc(4.5rem * 0.7);
+      height: calc(4.5rem * 0.7);
+    }
+
+    .home__logo-box img.home__logo {
+      height: calc(4.5rem * 0.7); // pawn 3.15rem high, 2.52rem wide (20 / 25 ratio)
+      margin-top: calc(-4.5rem * 0.7 * 1.2 / 25);
+      margin-left: calc(-3.6rem * 0.7 * 1.8 / 20);
+    }
+
+    // img.: more specific than the img.home__logo margin above (the blue pawn on top of the grey one)
+    .home__logo-box img.home__logo--hover {
+      margin-left: calc(-3.6rem * 0.7); // = the pawn width
+    }
   }
 }

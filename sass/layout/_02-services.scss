@@ -539,3 +539,69 @@ $popup-mobile-scale: 1.2;
     top: calc((23rem * 0.6 - 10.3rem) * #{$popup-mobile-scale}); // 4.2rem (front card: 3.5rem)
   }
 }
+
+// Phones in landscape (below 480px high): Services popup card 55% of the screen width, centred (.col-1-of-1 side
+// paddings 22.5%, was 8.5%: components/_grid.scss), and the close button (×) moved with the card's right edge
+@include respond(mobile-land) {
+  @media only screen and (max-height: 29.9375em) {
+    .carte-details-section-row .col-1-of-1 {
+      padding: 0 22.5%;
+    }
+
+    #popup-services-1 .mfp-close,
+    #popup-services-2 .mfp-close,
+    #popup-services-3 .mfp-close {
+      right: calc(22.5% + 1.2rem);
+    }
+  }
+}
+
+// Mobile landscape (touch, up to 480px high: phones, not tablets): the 3 popup titles at 70% of their size
+// (min(5rem, 11.2cqw - 6px): 5rem on these screens -> 3.5rem); the line spacing (1.4) follows the font
+@include respond(mobile-land) {
+  @media (max-height: 30em) {
+    .carte-details .carte-details__front .carte-details__heading {
+      font-size: calc(min(5rem, 11.2cqw - 6px) * 0.7);
+    }
+
+    // popup texts: the short mobile versions (index.html: .d-sm-none spans), as on phones in portrait. The
+    // Bootstrap classes switch at 576px wide, so phones in landscape had the long texts: reversed here, in the
+    // 3 popups only (!important as the Bootstrap display classes)
+    .carte-details .d-sm-none {
+      display: inline !important; // short mobile text shown
+    }
+
+    .carte-details .d-none.d-sm-inline, // long text hidden
+    .carte-details p.d-none.d-sm-block {
+      // paragraph merged into another one in the mobile text
+      display: none !important;
+    }
+
+    // popup texts: same size as the header introduction (#introduction-2) on these screens (was 1.8rem)
+    .carte-details__box-p1 p,
+    .carte-details__box-p2 p,
+    .carte-details__box-p3 p {
+      font-size: 1.5rem;
+    }
+
+    // popup icons at 70% of their size
+    .carte-details__box-icons-1-1,
+    .carte-details__box-icons-1-2,
+    .carte-details__box-icons-2-1,
+    .carte-details__box-icons-2-2,
+    .carte-details__box-icons-3-2 {
+      font-size: calc(5rem * 0.7); // 3.5rem (was 5rem)
+    }
+
+    .carte-details__box-icons-3-1,
+    .carte-details__box-icons-3-3 {
+      font-size: calc(4rem * 0.7); // 2.8rem (was 4rem)
+    }
+
+    .carte-details__box-icons .icon-ai-chip {
+      width: calc(5.5rem * 0.7); // 3.85rem (was 5.5rem)
+      height: calc(5.5rem * 0.7);
+      top: calc(0.9rem * 0.7); // keeps the same bottom line as the smaller glyph icons
+    }
+  }
+}
