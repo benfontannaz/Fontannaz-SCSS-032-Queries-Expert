@@ -49,7 +49,7 @@ pc-xl               2560px          160em                     -                 
 CORRECTED 
 Breakpoints         min-Width       min-Width (em)          min-height          min-width (em)          Orientation         Hover
 mobile              320px           20em                    656px               41em                    portrait            none
-mobile-land         320px           20em                    656px               41em                    landscape           none
+mobile-land         320px           20em                      -                   -                     landscape           none
 tablet-s            480px           30em                    700px               43.75em                 portrait            none
 tablet-s-land       480px           30em                    700px               43.75em                 landscape           none
 tablet-m            744px           48em                    1024px              64em                    portrait            none
@@ -84,14 +84,18 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
     }
   }
 
+  // No min-height here: on a real phone in landscape the browser bars and the notch letterboxing leave
+  // only ~300-380px of viewport height (less if Safari's text size is enlarged), so a min-height made this
+  // query fail on the device while it matched in the desktop emulator (full 430px, no browser bars).
+  // Landscape tablets are still told apart by tab-s-land and up (min-height 30em+), which come later.
   @if $breakpoint == mobile-land {
-    @media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none),
-      only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none),
-      only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none),
-      only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none),
-      only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none),
-      only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none),
-      only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
+    @media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none),
+      only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none),
+      only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none),
+      only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none),
+      only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none),
+      only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none),
+      only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) {
       @content;
     }
   }

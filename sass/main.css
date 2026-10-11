@@ -5914,11 +5914,11 @@ section {
     padding: 70px 0;
   }
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0 0 22px;
     padding: 0;
     letter-spacing: 0;
@@ -9559,11 +9559,11 @@ section {
 }
 @media (max-width: 991px) {
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0 0 18px;
     padding: 0;
     letter-spacing: 0;
@@ -13269,11 +13269,11 @@ section {
     line-height: 20px;
   }
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0 0 17px;
     padding: 0;
     letter-spacing: 0;
@@ -16891,7 +16891,7 @@ section {
     background-position: center;
   }
 }
-
+/*# sourceMappingURL=helper.css.map */
 /* @import "abstracts/plugins"; */
 /*
 0 - 600px:      Phone
@@ -16922,7 +16922,7 @@ pc-xl               2560px          160em                     -                 
 CORRECTED 
 Breakpoints         min-Width       min-Width (em)          min-height          min-width (em)          Orientation         Hover
 mobile              320px           20em                    656px               41em                    portrait            none
-mobile-land         320px           20em                    656px               41em                    landscape           none
+mobile-land         320px           20em                      -                   -                     landscape           none
 tablet-s            480px           30em                    700px               43.75em                 portrait            none
 tablet-s-land       480px           30em                    700px               43.75em                 landscape           none
 tablet-m            744px           48em                    1024px              64em                    portrait            none
@@ -17205,8 +17205,8 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
 }
 
 .header .icon-strategy:hover {
-  color: hsl(228, 6%, 16%);
-  color: hsla(234, 85%, 56%, 0.937);
+  color: hsl(228deg, 6%, 16%);
+  color: hsla(234deg, 85%, 56%, 0.937);
 }
 
 .header .chess-pawn {
@@ -17266,23 +17266,23 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
 }
 
 .header .fa-github:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .header .fa-microsoft:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .header .fa-x-twitter:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .header .fa-envelope:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .header .fa-mobile-alt:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 /* ==== Grouped left and right margins ==== */
@@ -28020,8 +28020,8 @@ body {
     padding-right: 2rem;
   }
   .carte__side--back-p1,
-  .carte__side--back-p2,
-  .carte__side--back-p3 {
+.carte__side--back-p2,
+.carte__side--back-p3 {
     margin-left: 1rem;
     margin-right: 1rem;
   }
@@ -28032,8 +28032,8 @@ body {
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
   .carte__heading-span--1,
-  .carte__heading-span--2,
-  .carte__heading-span--3 {
+.carte__heading-span--2,
+.carte__heading-span--3 {
     font-size: 3.51rem;
     line-height: 5.2026975rem;
     position: relative;
@@ -28052,10 +28052,10 @@ body {
 }
 @media only screen and (max-width: 30em) {
   .carte__cta > .cartes-box,
-  .carte__cta > div.cartes-icons,
-  .carte__side--back-p1,
-  .carte__side--back-p2,
-  .carte__side--back-p3 {
+.carte__cta > div.cartes-icons,
+.carte__side--back-p1,
+.carte__side--back-p2,
+.carte__side--back-p3 {
     display: none;
   }
   .carte__cta {
@@ -28076,7 +28076,7 @@ body {
     clip-path: polygon(0 2.07rem, 100% 0, 100% 100%, 0 100%);
   }
   .carte__cta .boutton--white:link,
-  .carte__cta .boutton--white:visited {
+.carte__cta .boutton--white:visited {
     font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -28280,23 +28280,27 @@ carousel configuration  ------------------------------------ */
 }
 
 .col-1-of-3 {
-  width: calc((100% - 2 * 6rem) / 3);
+  width: calc((100% - (2 * 6rem)) / 3);
 }
 
 .col-1-of-4 {
-  width: calc((100% - 3 * 6rem) / 4);
+  width: calc((100% - (3 * 6rem)) / 4);
 }
 
 .col-2-of-3 {
-  width: calc(2 * (100% - 2 * 6rem) / 3 + 6rem);
+  width: calc(
+    2 * ((100% - (2 * 6rem)) / 3) + 6rem
+  );
 }
 
 .col-2-of-4 {
-  width: calc(2 * (100% - 3 * 6rem) / 4 + 6rem);
+  width: calc(
+    2 * ((100% - (3 * 6rem)) / 4) + 6rem
+  );
 }
 
 .col-3-of-4 {
-  width: calc(3 * (100% - 3 * 6rem) / 4 + 2 * 6rem);
+  width: calc(3 * (100% - (3 * 6rem)) / 4 + (2 * 6rem));
 }
 
 /* body {
@@ -30011,7 +30015,7 @@ body {
     right: 2rem;
   }
 }
-@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = mobile-land | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = landscape | Hover = none  */
   .navigation__button {
     top: 2rem;
@@ -30488,12 +30492,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.2rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30511,7 +30515,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30520,15 +30524,15 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 4rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 6dvw;
   }
 }
-@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) {
   /* Breakpoint = mobile-land | min-Width= 320px or 20em | max-width = 956px or 59.75em | Orientation = landscape | Hover = none  */
   .header__ben-only {
     scale: 0.6;
@@ -30550,12 +30554,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 1.5rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30573,7 +30577,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30582,11 +30586,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 2rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 2.5dvw;
   }
 }
@@ -30612,12 +30616,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 1.8rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30635,7 +30639,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30644,11 +30648,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 3rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 6dvw;
   }
 }
@@ -30674,12 +30678,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 1.8rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 8.45px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -30697,7 +30701,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -30706,11 +30710,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 2rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 2.5dvw;
   }
 }
@@ -30736,12 +30740,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.5rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 16.9px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30759,7 +30763,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30768,11 +30772,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 4rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1.3rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30798,12 +30802,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.5rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 16.9px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30821,7 +30825,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30830,11 +30834,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 4rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1.3rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30860,12 +30864,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 25.35px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30883,7 +30887,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30892,11 +30896,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 8rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1.8rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30922,12 +30926,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 25.35px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -30945,7 +30949,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -30954,11 +30958,11 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 8rem;
   }
   .header__boutton-box a,
-  .header__boutton-box i {
+.header__boutton-box i {
     font-size: 1.8rem !important;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 0.3dvh 4dvw;
   }
 }
@@ -30984,7 +30988,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.2rem !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -31002,7 +31006,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -31033,7 +31037,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 2.2rem !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 1.8rem;
   }
   .header .credly-logo {
@@ -31051,7 +31055,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 1.44rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.2rem;
     height: 1.8rem;
     width: 1.8rem;
@@ -31082,7 +31086,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -31100,7 +31104,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -31131,12 +31135,12 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .fab-box i,
-  .fab-box div,
-  .fab-box span {
+.fab-box div,
+.fab-box span {
     margin: 0 16.9px !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -31154,7 +31158,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -31186,7 +31190,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-bottom: 4rem !important;
   }
   .header .fab,
-  .header .fas {
+.header .fas {
     font-size: 2.2rem;
   }
   .header .credly-logo {
@@ -31204,7 +31208,7 @@ HEADER ------------------------------------------------------------------------ 
     width: 2rem;
   }
   .header .bloomio-logo,
-  .header .notion-logo {
+.header .notion-logo {
     top: 0.4rem;
     height: 2.5rem;
     width: 2.5rem;
@@ -31213,7 +31217,7 @@ HEADER ------------------------------------------------------------------------ 
     margin-top: 8rem;
   }
   .boutton:link,
-  .boutton:visited {
+.boutton:visited {
     padding: 10.2px 76.5px;
   }
 }
@@ -31514,14 +31518,14 @@ html.is-loading .home__logo-box * {
 
 @media only screen and (max-width: 30em) {
   .carte-details__box-icons-1-1,
-  .carte-details__box-icons-1-2,
-  .carte-details__box-icons-2-1,
-  .carte-details__box-icons-2-2,
-  .carte-details__box-icons-3-2 {
+.carte-details__box-icons-1-2,
+.carte-details__box-icons-2-1,
+.carte-details__box-icons-2-2,
+.carte-details__box-icons-3-2 {
     font-size: calc(5rem * 0.75);
   }
   .carte-details__box-icons-3-1,
-  .carte-details__box-icons-3-3 {
+.carte-details__box-icons-3-3 {
     font-size: calc(4rem * 0.75);
   }
   .carte-details__box-icons .icon-ai-chip {
@@ -31537,8 +31541,8 @@ html.is-loading .home__logo-box * {
 }
 @media only screen and (max-width: 35.99875em) {
   .carte-details__box-p1 p,
-  .carte-details__box-p2 p,
-  .carte-details__box-p3 p {
+.carte-details__box-p2 p,
+.carte-details__box-p3 p {
     font-size: 1.6rem;
     line-height: 1.6;
   }
@@ -31650,15 +31654,15 @@ html.is-loading .home__logo-box * {
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 64em) {
   #popup-services-1 .mfp-close,
-  #popup-services-2 .mfp-close,
-  #popup-services-3 .mfp-close {
+#popup-services-2 .mfp-close,
+#popup-services-3 .mfp-close {
     right: calc(8.5% + 1.2rem);
   }
 }
 @media only screen and (max-width: 30em) {
   #popup-services-1 .mfp-close,
-  #popup-services-2 .mfp-close,
-  #popup-services-3 .mfp-close {
+#popup-services-2 .mfp-close,
+#popup-services-3 .mfp-close {
     right: calc((100% - 95vw) / 2 + 1.2rem);
   }
 }
@@ -31669,12 +31673,12 @@ html.is-loading .home__logo-box * {
 
 @media only screen and (max-width: 30em) {
   .carte-details .carte-details__picture {
-    height: calc(13.8rem * 1.2);
+    height: calc(23rem * 0.6 * 1.2);
   }
   .carte-details .carte-details__front .carte-details__heading {
     font-size: calc(2.7rem * 1.2);
     line-height: calc(4.8rem * 1.2);
-    top: calc(3.5rem * 1.2);
+    top: calc((23rem * 0.6 - 10.3rem) * 1.2);
   }
 }
 .testimonials h4 {
@@ -32105,7 +32109,7 @@ html.is-loading .home__logo-box * {
     height: 110px;
   }
   .main-timeline .date-outer:before,
-  .main-timeline .date-outer:after {
+.main-timeline .date-outer:after {
     width: 110px;
     height: 110px;
   }
@@ -32116,7 +32120,7 @@ html.is-loading .home__logo-box * {
     font-size: 24px;
   }
   .main-timeline .timeline-content,
-  .main-timeline .timeline:nth-child(2n) .timeline-content {
+.main-timeline .timeline:nth-child(2n) .timeline-content {
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -32774,7 +32778,7 @@ section ABOUT ---------------------------------------- */
     display: block !important;
   }
   .education-container-4.education-scroll-5,
-  .education-container-4.education-scroll-6 {
+.education-container-4.education-scroll-6 {
     display: none;
   }
 }
@@ -32860,7 +32864,7 @@ section ABOUT ---------------------------------------- */
 
 @media only screen and (max-width: 64em) {
   .education-school-head .education-row-title-1,
-  .education-school-head .education-row-title-2 {
+.education-school-head .education-row-title-2 {
     display: none;
   }
   .education-degree-skills-box {
@@ -32872,13 +32876,13 @@ section ABOUT ---------------------------------------- */
 }
 @media only screen and (max-width: 64em) {
   .education-row-studies-1,
-  .education-row-studies-2,
-  .education-row-2 > .education-degree-lignes-2nd {
+.education-row-studies-2,
+.education-row-2 > .education-degree-lignes-2nd {
     margin-left: 0;
     margin-right: auto;
   }
   .education-degree-ligne-0,
-  .education-degree-ligne-1 {
+.education-degree-ligne-1 {
     text-align: left;
   }
 }
@@ -32902,7 +32906,7 @@ section ABOUT ---------------------------------------- */
 }
 @media only screen and (max-width: 30em) {
   .heading-2-education--certifications,
-  .heading-3-education-certificates {
+.heading-3-education-certificates {
     display: none;
   }
 }
@@ -32912,7 +32916,7 @@ section ABOUT ---------------------------------------- */
     line-height: 1.3;
   }
   .education-degree-lignes .education-degree-dates,
-  .education-degree-lignes .education-degree-periods {
+.education-degree-lignes .education-degree-periods {
     font-size: 1.6rem;
     line-height: 1.3;
   }
@@ -33235,7 +33239,7 @@ section ABOUT ---------------------------------------- */
     font-size: 1.5rem;
   }
   .mfp-challenges li,
-  .mfp-results li {
+.mfp-results li {
     margin-bottom: 0.3rem;
     font-size: 1.4rem;
     line-height: 1.35;
@@ -33251,7 +33255,7 @@ section ABOUT ---------------------------------------- */
     line-height: 1.4;
   }
   .mfp-challenges ul,
-  .mfp-results ul {
+.mfp-results ul {
     padding-left: 1.4rem;
   }
 }
@@ -33828,9 +33832,9 @@ section ABOUT ---------------------------------------- */
 /* ============= SECTION MY TOOLS ===> END */
 @media only screen and (max-width: 64em) {
   .resources-container-1,
-  .resources-row-1,
-  .resources-row-book-1,
-  .resources-box-book-1 {
+.resources-row-1,
+.resources-row-book-1,
+.resources-box-book-1 {
     height: auto;
   }
   .resources-row-book-1 {
@@ -33848,13 +33852,13 @@ section ABOUT ---------------------------------------- */
 }
 @media only screen and (max-width: 30em) {
   #resources-row-title-2,
-  .resources-container-2 .resources-box-book-2 {
+.resources-container-2 .resources-box-book-2 {
     display: none;
   }
 }
 @media only screen and (max-width: 64em) {
   .heading-3-resources--tools,
-  .resources-container-2 .resources-row-6 {
+.resources-container-2 .resources-row-6 {
     display: none !important;
   }
 }
@@ -34246,8 +34250,8 @@ footer #it-crowd {
 }
 
 .footer .icon-strategy:hover {
-  color: hsl(228, 6%, 16%);
-  color: hsla(234, 85%, 56%, 0.937);
+  color: hsl(228deg, 6%, 16%);
+  color: hsla(234deg, 85%, 56%, 0.937);
 }
 
 .footer .chess-pawn {
@@ -34307,23 +34311,23 @@ footer #it-crowd {
 }
 
 .footer .fa-github:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .footer .fa-microsoft:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .footer .fa-x-twitter:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .footer .fa-envelope:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 .footer .fa-mobile-alt:hover {
-  color: hsla(234, 85%, 56%, 0.938);
+  color: hsla(234deg, 85%, 56%, 0.938);
 }
 
 /* ==== Grouped left and right margins ==== */
@@ -34371,7 +34375,7 @@ footer #it-crowd {
     margin: 0 8.45px !important;
   }
 }
-@media only screen and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 41em) and (min-height: 20em) and (orientation: landscape) and (hover: none) {
+@media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) {
   .fab-box-footer a > * {
     margin: 0 8.45px !important;
   }
@@ -34417,7 +34421,7 @@ footer #it-crowd {
 
 @media only screen and (max-width: 30em) {
   .fab-box-footer a:has(.fa-microsoft),
-  .fab-box-footer a:has(.notion-logo) {
+.fab-box-footer a:has(.notion-logo) {
     display: none;
   }
 }
@@ -34603,7 +34607,7 @@ main {
     margin-top: calc(78.9px - 3.89dvh - 13.06dvh);
   }
   .section-resources .heading-2,
-  .section-contact .heading-2 {
+.section-contact .heading-2 {
     margin-top: calc(78.9px - 3.89dvh - 11.94dvh);
   }
 }
