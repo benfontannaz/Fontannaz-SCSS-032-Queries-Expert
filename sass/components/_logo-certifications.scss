@@ -10,6 +10,11 @@
   width: auto;
   margin: 1dvh 1.5dvh 1dvh 1.5dvh;
 
+  // desktop (wider than 1024px): logos twice as big, then 80% of that (4dvh -> 8dvh -> 6.4dvh)
+  @media only screen and (min-width: 64.0625em) {
+    height: calc(4dvh * 2 * 0.8);
+  }
+
   // mobile landscape (touch, up to 480px high: phones, not tablets): sized on the window width instead of its
   // height, so the logos keep their portrait size when the phone turns (4dvh was ~16px high on a 390px high screen)
   @include respond(mobile-land) {

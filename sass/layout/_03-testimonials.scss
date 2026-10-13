@@ -21,6 +21,26 @@
     line-height: 42px; // 1.5 x 28px
   }
 }
+// Testimonial quotes: left and right margins divided by 2, in every view (the quote is centred in its column,
+// at the width of the .width-75 / .sm-width-85 / .xs-width-90 utility classes: 75% -> 87.5%, 85% -> 92.5%,
+// 90% -> 95% of the column)
+.testimonials p.width-75 {
+  width: calc(100% - 25% / 2); // 87.5% (was 75%)
+
+  @media (max-width: 991px) {
+    width: calc(100% - 15% / 2); // 92.5% (was 85%, .sm-width-85)
+  }
+
+  @media (max-width: 767px) {
+    width: calc(100% - 10% / 2); // 95% (was 90%, .xs-width-90)
+  }
+}
+
+// "Testimonials" title: no bottom margin, in every view (was 25px, the h1 - h6 margin in abstracts/_theme)
+.testimonials h3 {
+  margin-bottom: 0;
+}
+
 .testimonials h6 {
   font-size: 12px;
   margin: 0;
@@ -155,7 +175,7 @@
 }
 
 .testimonials .owl-theme .owl-dots {
-  margin-top: 40px !important;
+  margin-top: calc(40px / 3) !important; // divided by 3 (was 40px)
 }
 .testimonials .owl-theme .owl-dots .owl-dot span {
   border-color: 1px solid #fff;
@@ -165,6 +185,14 @@
 
 .fa-quote-left {
   color: $color-white;
+}
+
+// Desktop and tablet (wider than 480px): no space above the "Testimonials" title (was 50px, .padding-50px-top).
+// Phones in landscape (also wider than 480px) keep their 1rem: their rule below has the same selector and comes later
+@media only screen and (min-width: 30.0625em) {
+  .testimonials .padding-50px-top {
+    padding-top: 0 !important;
+  }
 }
 
 // Mobile landscape (touch, up to 480px high: phones, not tablets): testimonials centred and sized for the low
@@ -186,7 +214,6 @@
     // "Testimonials" title as the section titles on these screens (2.625rem, was 32px from .font-size32)
     .testimonials h3 {
       font-size: calc(3.5rem * 0.75);
-      margin-bottom: calc(25px * 2 / 1.5); // ~33px: doubled, then divided by 1.5 (was 25px, the h1 - h6 margin in abstracts/_theme)
     }
 
     // less space above the title (was 50px, .padding-50px-top) and above the carousel dots (was 40px)
@@ -195,7 +222,7 @@
     }
 
     .testimonials .owl-theme .owl-dots {
-      margin-top: 2rem !important;
+      margin-top: calc(2rem / 3) !important; // divided by 3 (was 2rem)
     }
 
     // testimonial slides (.owl-stage) moved up by 10% of the screen height. Set on their frame, .owl-stage-outer

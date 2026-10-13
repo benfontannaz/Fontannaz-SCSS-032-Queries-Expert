@@ -121,6 +121,9 @@ main {
 // ========== SECTION TESTIMONIALS SUITE
 .section-testimonials {
   position: relative;
+  // desktop and tablet: vertically centred in the visible band between the Services and Experiences sections
+  // (measured by js/services-height.js; 0 on phones and without JavaScript)
+  translate: 0 var(--testimonials-shift, 0px);
   top: -7dvh;
   padding-top: 20dvh;
   box-shadow: none;

@@ -17,6 +17,8 @@
  *                      the end space of the Services section after the last row (12dvh).
  * --projects-extra:    same for the Projects section and its grid, with the Resources section.
  *                      Measured again after a filter click (the grid height changes).
+ * --testimonials-shift: desktop and tablet: moves the Testimonials (title -> carousel dots) so they are
+ *                      vertically centred in the visible band between the Services and Experiences sections.
  * --resources-extra:   the Resources section follows its content (the books grid has 3, 2 or 1 books
  *                      per line depending on the width), with the same end space as the Services section.
  *
@@ -31,6 +33,7 @@
   var RESOURCES_OFFSET = 1.59; // 159dvh: Resources top - Projects top (1040dvh - 881dvh)
   var EDUCATION_CLIP_SIDE = 2.22; // 222dvh: Education visible bottom (sides of its clip-path) without extra
   var CONTACT_OFFSET = 2.0; // 200dvh: Contact top - Resources top (1240dvh - 1040dvh)
+  var SERVICES_CLIP_BOTTOM = 2.12; // 212dvh: sides of the Services angled bottom edge ($clip-path-polygon-services)
   var CONTACT_CLIP_SIDE = 0.83; // 83dvh: sides of the Contact angled bottom edge ($clip-path-polygon-contact)
   var PIN_FROM_TOP = 0.3; // map address at 30% of the visible map height, from its top (0.5 = centred)
   // phones in landscape: respond(mobile-land) + max-height 30em in the SCSS (touch, up to 480px high)
@@ -158,6 +161,40 @@
     document.documentElement.style.setProperty("--resources-extra", extra + "px");
   }
 
+  // Desktop and tablet: the Testimonials (from the title to the carousel dots) vertically centred in the visible
+  // band between the Services and the Experiences sections. Both angled edges point down by --section-sep in the
+  // middle of the width, so the band has the same height everywhere; it is measured in the middle: from the tip
+  // of the Services bottom edge (212dvh + sep + --services-extra below its top, $clip-path-polygon-services) to the
+  // tip of the Experiences top edge (sep below its top). The band is in dvh, the content in px: the shift is
+  // measured. Phones keep their own tuning (no shift)
+  function updateTestimonials(vh) {
+    var root = document.documentElement;
+    var section = document.querySelector(".section-testimonials");
+    var services = document.querySelector(".section-services");
+    // the band ends at the next visible section: the Experiences, or the Education below 768px wide (Experiences hidden)
+    var experiences = document.querySelector(".section-experiences");
+    if (experiences && getComputedStyle(experiences).display === "none") {
+      experiences = document.querySelector(".section-education");
+    }
+    var title = section && section.querySelector("h3");
+    var dots = section && section.querySelector(".owl-dots");
+    if (!title || !dots || !services || !experiences) return;
+    if (window.matchMedia("(max-width: 30em)").matches || window.matchMedia(LANDSCAPE_PHONE).matches) {
+      root.style.setProperty("--testimonials-shift", "0px");
+      return;
+    }
+    var cs = getComputedStyle(root);
+    var sep = (parseFloat(cs.getPropertyValue("--section-sep")) || 8) * vh / 100;
+    var servicesExtra = parseFloat(cs.getPropertyValue("--services-extra")) || 0;
+    var current = parseFloat(cs.getPropertyValue("--testimonials-shift")) || 0; // already applied
+    var bandTop = pageTop(services) + SERVICES_CLIP_BOTTOM * vh + servicesExtra + sep;
+    var bandBottom = pageTop(experiences) + sep;
+    var contentTop = pageTop(title) - current;
+    var contentBottom = dots.getBoundingClientRect().bottom + window.scrollY - current;
+    var shift = Math.round((bandTop + bandBottom) / 2 - (contentTop + contentBottom) / 2);
+    root.style.setProperty("--testimonials-shift", shift + "px");
+  }
+
   // All screens: the Contact section ends a fixed space below the SEND button (the end space of the other
   // sections, the logos' margin-top: 6dvh). Its height is in dvh but the form in rem, so the space below the
   // button went from 18px to 200px depending on the screen. --contact-extra (negative: shorter) adjusts the
@@ -226,12 +263,25 @@
   function update() {
     var vh = window.innerHeight;
     updateServices(vh);
+    updateTestimonials(vh); // after updateServices (--services-extra moves the band)
     updateExperiences(vh);
     updateEducation(vh);
     updateProjects(vh);
     updateResources(vh);
     updateContact(vh);
     updateMap(vh);
+    refreshParallax();
+  }
+
+  // The Testimonials picture is drawn by parallax.js in a fixed copy (.parallax-mirror) placed from the positions
+  // it measured on the last resize / load. The sections are moved here afterwards (150ms after a resize, 1s after
+  // the load): without a refresh, the picture stayed at the old place (shifted, or hidden as "off screen").
+  // parallax.js is attached to another jQuery copy than the global one (window.jQueryParallax, index.html):
+  // its own namespaced resize event refreshes it, without running the other resize handlers
+  function refreshParallax() {
+    if (window.jQueryParallax) {
+      window.jQueryParallax(window).trigger("resize.px.parallax");
+    }
   }
 
   var timer;

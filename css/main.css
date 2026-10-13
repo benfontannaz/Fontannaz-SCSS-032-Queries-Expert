@@ -28519,6 +28519,11 @@ carousel configuration  ------------------------------------ */
   width: auto;
   margin: 1dvh 1.5dvh 1dvh 1.5dvh;
 }
+@media only screen and (min-width: 64.0625em) {
+  .cert {
+    height: 6.4dvh;
+  }
+}
 @media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
   .cert {
     height: 4dvw;
@@ -31873,6 +31878,24 @@ html.is-loading .home__logo-box * {
     line-height: 42px;
   }
 }
+.testimonials p.width-75 {
+  width: 87.5%;
+}
+@media (max-width: 991px) {
+  .testimonials p.width-75 {
+    width: 92.5%;
+  }
+}
+@media (max-width: 767px) {
+  .testimonials p.width-75 {
+    width: 95%;
+  }
+}
+
+.testimonials h3 {
+  margin-bottom: 0;
+}
+
 .testimonials h6 {
   font-size: 12px;
   margin: 0;
@@ -31967,7 +31990,7 @@ html.is-loading .home__logo-box * {
 }
 
 .testimonials .owl-theme .owl-dots {
-  margin-top: 40px !important;
+  margin-top: 13.3333333333px !important;
 }
 
 .testimonials .owl-theme .owl-dots .owl-dot span {
@@ -31980,6 +32003,11 @@ html.is-loading .home__logo-box * {
   color: rgba(255, 255, 255, 0.906);
 }
 
+@media only screen and (min-width: 30.0625em) {
+  .testimonials .padding-50px-top {
+    padding-top: 0 !important;
+  }
+}
 @media only screen and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-device-pixel-ratio: 2) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 192dpi) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em), only screen and (min-resolution: 2dppx) and (min-width: 20em) and (orientation: landscape) and (hover: none) and (max-height: 30em) {
   .testimonials {
     width: 90%;
@@ -31992,13 +32020,12 @@ html.is-loading .home__logo-box * {
   }
   .testimonials h3 {
     font-size: 2.625rem;
-    margin-bottom: 33.3333333333px;
   }
   .testimonials .padding-50px-top {
     padding-top: 1rem !important;
   }
   .testimonials .owl-theme .owl-dots {
-    margin-top: 2rem !important;
+    margin-top: 0.6666666667rem !important;
   }
   .testimonials .owl-stage-outer {
     top: -10dvh;
@@ -32592,6 +32619,12 @@ section ABOUT ---------------------------------------- */
   margin-top: 7dvh;
   margin-bottom: 1.5dvh;
 }
+@media only screen and (min-width: 64.0625em) {
+  .education-container-1 {
+    height: auto;
+    min-height: 20dvh;
+  }
+}
 
 .education-container-2,
 .education-container-3 {
@@ -32929,6 +32962,11 @@ section ABOUT ---------------------------------------- */
   height: 12dvh;
   width: auto;
 }
+@media only screen and (min-width: 64.0625em) {
+  .pro-certifications-img {
+    height: 18dvh;
+  }
+}
 
 .education-scroll-4 .certifs > div {
   display: flex;
@@ -32948,6 +32986,11 @@ section ABOUT ---------------------------------------- */
   display: flex;
   justify-content: center;
   margin: 0 0 4dvh 0;
+}
+@media only screen and (min-width: 64.0625em) {
+  .pro-certifications-box {
+    min-width: calc(18dvh + 1rem);
+  }
 }
 
 .pro-certifications-box a:link, .pro-certifications-box a:visited {
@@ -34852,6 +34895,7 @@ main {
 
 .section-testimonials {
   position: relative;
+  translate: 0 var(--testimonials-shift, 0px);
   top: -7dvh;
   padding-top: 20dvh;
   box-shadow: none;

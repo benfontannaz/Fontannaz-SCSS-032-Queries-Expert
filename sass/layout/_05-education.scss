@@ -70,6 +70,14 @@
   margin-top: 7dvh;
   margin-bottom: 1.5dvh;
   // background-color: rgba(245, 245, 220, 0.858);
+
+  // desktop (wider than 1024px, the degree skills are shown): at least 20dvh high, but taller when the IMD degree
+  // needs it. On narrower windows the skills line (.education-degree-ligne-2) wraps to more lines and ran out of the
+  // fixed 20dvh: the European University block (.education-container-2) was drawn over it
+  @media only screen and (min-width: 64.0625em) {
+    height: auto;
+    min-height: 20dvh;
+  }
 }
 
 .education-container-2,
@@ -448,6 +456,11 @@
   display: block; // no baseline gap under the logo
   height: 12dvh;
   width: auto;
+
+  // desktop (wider than 1024px): badges 1.5 times bigger (12dvh -> 18dvh)
+  @media only screen and (min-width: 64.0625em) {
+    height: calc(12dvh * 1.5);
+  }
 }
 
 // Certifications: the 12 logos are split in 2 groups of 6 (.education-scroll-7) in index.html.
@@ -470,6 +483,11 @@
   flex: 0 0 calc((100% - 5 * 2rem) / 6);
   // ... but never narrower than a logo (12dvh high badge): below that width the logos wrap to more lines
   min-width: calc(12dvh + 1rem);
+
+  // desktop (wider than 1024px): never narrower than the 1.5 times bigger badge (18dvh)
+  @media only screen and (min-width: 64.0625em) {
+    min-width: calc(12dvh * 1.5 + 1rem);
+  }
   display: flex;
   justify-content: center;
   margin: 0 0 4dvh 0; // the left / right space is given by the column-gap (was 0 auto 4dvh auto)
