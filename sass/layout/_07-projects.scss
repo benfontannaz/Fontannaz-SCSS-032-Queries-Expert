@@ -441,26 +441,22 @@
   }
 }
 
-// Mobile (up to 480px wide) and mobile landscape (touch, up to 480px high): the zoom button and the project name
-// centred vertically in the visible part of the tile overlay (they were stacked at its bottom: .valign). The
-// overlay covers the whole square picture, but only its part below the angled top line shows ($clip-path-polygon-5:
-// 58% on the left, 50% on the right, so 54% in the middle, below the zoom button): the content area starts there.
-// Padding in % is a % of the width: the tiles are square, so 54% of the width = 54% of the height
-@mixin project-tile-overlay-centred {
-  .portfolio .item-img .item-img-overlay {
-    justify-content: center;
-    padding-top: 54%;
-    padding-bottom: 0; // was 20px (.valign)
-  }
-}
+// All views: the zoom button and the project name centred vertically in the visible part of the tile overlay
+// (they were stacked at its bottom by .valign: too low on desktops and tablets). The overlay covers the whole
+// picture, but only its part below the angled top line shows ($clip-path-polygon-5: 58% on the left, 50% on the
+// right, so 54% in the middle, below the zoom button) down to 100%: its centre is at (54% + 100%) / 2 = 77% of the
+// overlay height. The content block is centred there (% of the overlay height: does not depend on the tile shape)
+.portfolio .item-img .item-img-overlay .overlay-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 77%;
+  transform: translateY(-50%);
 
-@media only screen and (max-width: 30em) {
-  @include project-tile-overlay-centred;
-}
-
-@include respond(mobile-land) {
-  @media (max-height: 30em) {
-    @include project-tile-overlay-centred;
+  // the space of the line height below the last line of the project name is not counted in the centring (it made
+  // the visible content sit higher than the centre): negative bottom margin of half the line spacing (lh unit)
+  h6 {
+    margin-bottom: calc((1em - 1lh) / 2);
   }
 }
 

@@ -91,10 +91,16 @@ main {
     }
   }
 
-  // tablet portrait (481px - 900px wide): left and right padding doubled
+  // tablet portrait (481px - 900px wide): left and right padding doubled, +30%, then x 1.5 (4rem -> 10.4rem -> 15.6rem)
   @media only screen and (min-width: 30.0625em) and (max-width: 56.25em) and (orientation: portrait) {
-    padding-left: 10.4rem; // 8rem +30% (was 4rem)
-    padding-right: 10.4rem; // 8rem +30% (was 4rem)
+    padding-left: calc(10.4rem * 1.5);
+    padding-right: calc(10.4rem * 1.5);
+  }
+
+  // mobile (up to 480px wide): left and right padding doubled, then 66% of that (4rem -> 8rem -> 5.28rem)
+  @media only screen and (max-width: 30em) {
+    padding-left: calc(4rem * 2 * 0.66);
+    padding-right: calc(4rem * 2 * 0.66);
   }
 
   // Phones in landscape (below 480px high), stacked cards: 55% of the screen width, centred (22.5% on each side)
