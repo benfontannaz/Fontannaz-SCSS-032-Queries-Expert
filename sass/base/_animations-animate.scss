@@ -60,16 +60,21 @@
 /* -------------  END ------------ About Me - ProStudies Anim ------------  END ------------ */
 
 /* ------------  START ------------ Education - Degree Skills Anim ------------  START ------------ */
-// each skill of the degrees (Leadership, Strategy ...) slides in from the right, one after the other, as the
-// Professional Studies logos (.pro-studies above; is-showing added by js/scripts.js)
-.education-degree-skills-box > .education-degree-skills {
+// each skill of the degrees (Leadership, Strategy ...), of the experiences (Enterprise Architecture ...) and of the
+// "Currently Reading" book (Business ...) slides in from the right, one after the other, as the Professional Studies
+// logos (.pro-studies above; is-showing added by js/scripts.js)
+.education-degree-skills-box > .education-degree-skills,
+.experiences-skills-box > .experiences-skills,
+.resources-book-skills-box > .resources-book-skills {
   position: relative;
   opacity: 0;
   transform: translateX(30px);
   transition: all 0.5s ease-in-out;
 }
 
-.education-degree-skills-box > .education-degree-skills.is-showing {
+.education-degree-skills-box > .education-degree-skills.is-showing,
+.experiences-skills-box > .experiences-skills.is-showing,
+.resources-book-skills-box > .resources-book-skills.is-showing {
   opacity: 1;
   transform: translateX(0px);
 }

@@ -17110,14 +17110,18 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
 
 /* -------------  END ------------ About Me - ProStudies Anim ------------  END ------------ */
 /* ------------  START ------------ Education - Degree Skills Anim ------------  START ------------ */
-.education-degree-skills-box > .education-degree-skills {
+.education-degree-skills-box > .education-degree-skills,
+.experiences-skills-box > .experiences-skills,
+.resources-book-skills-box > .resources-book-skills {
   position: relative;
   opacity: 0;
   transform: translateX(30px);
   transition: all 0.5s ease-in-out;
 }
 
-.education-degree-skills-box > .education-degree-skills.is-showing {
+.education-degree-skills-box > .education-degree-skills.is-showing,
+.experiences-skills-box > .experiences-skills.is-showing,
+.resources-book-skills-box > .resources-book-skills.is-showing {
   opacity: 1;
   transform: translateX(0px);
 }

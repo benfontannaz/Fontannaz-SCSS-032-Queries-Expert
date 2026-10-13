@@ -534,21 +534,26 @@ $(window).scroll(function () {
   }
 
   // ------------------------------------------
-  //   EDUCATION - Degree Skills Animation
+  //   EDUCATION / EXPERIENCES / RESOURCES - Skills Animation
   // ------------------------------------------
-  // as the Professional Studies logos above: the skills of each degree (Leadership, Strategy ...) appear one after
-  // the other (50ms apart) when the top of their row (".education-degree-skills-box", one per degree) is at 66% of
-  // the screen height from the top of the screen (or higher). Each row only once (data flag); rows hidden on
-  // tablets and phones (display: none) are skipped
+  // as the Professional Studies logos above: the skills of each degree (Leadership, Strategy ...), of each
+  // experience (Enterprise Architecture ...) and of the "Currently Reading" book (Business ...) appear one after the
+  // other (50ms apart) when the top of their row (".education-degree-skills-box" / ".experiences-skills-box" /
+  // ".resources-book-skills-box") is at 66% of the
+  // screen height from the top of the screen (or higher). Each row only once (data flag); hidden rows
+  // (display: none: degree skills on tablets and phones, Experiences below 768px wide) are skipped
 
-  $(".section-education .education-degree-skills-box").each(function () {
+  $(
+    ".section-education .education-degree-skills-box, .section-experiences .experiences-skills-box, " +
+      ".section-resources .resources-book-skills-box"
+  ).each(function () {
     var box = this;
     if (box.getAttribute("data-skills-shown")) return;
     var rect = box.getBoundingClientRect();
     if (rect.height > 0 && rect.top <= window.innerHeight * 0.66) {
       box.setAttribute("data-skills-shown", "1");
       $(box)
-        .children(".education-degree-skills")
+        .children(".education-degree-skills, .experiences-skills, .resources-book-skills")
         .each(function (i, skill) {
           setTimeout(function () {
             $(skill).addClass("is-showing");
