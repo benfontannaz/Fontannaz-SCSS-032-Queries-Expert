@@ -17109,6 +17109,20 @@ ORDER:  01 Base + Typography > 02 General Layout + Grid > 03 Page Layout > 04 Co
 }
 
 /* -------------  END ------------ About Me - ProStudies Anim ------------  END ------------ */
+/* ------------  START ------------ Education - Degree Skills Anim ------------  START ------------ */
+.education-degree-skills-box > .education-degree-skills {
+  position: relative;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.5s ease-in-out;
+}
+
+.education-degree-skills-box > .education-degree-skills.is-showing {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+/* -------------  END ------------ Education - Degree Skills Anim ------------  END ------------ */
 /* ------------  START ------------ About Me - Tools Anim ------------  START ------------ */
 .tools {
   position: relative;
@@ -29919,9 +29933,13 @@ body {
   text-decoration: none;
 }
 .footer-legal a:hover, .footer-legal a:focus-visible {
-  color: #fff;
+  color: hsla(234, 85%, 56%, 0.938);
   text-decoration: underline;
 }
+nav.footer-legal a:hover, nav.footer-legal a:focus-visible {
+  color: hsla(234, 85%, 56%, 0.938);
+}
+
 .footer-legal__us {
   display: none;
 }
@@ -30209,6 +30227,17 @@ body {
   .navigation__background {
     width: 3.15rem;
     height: 3.15rem;
+  }
+}
+@supports (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px)) {
+  .navigation__button {
+    background-color: rgba(232, 229, 227, 0.5);
+    -webkit-backdrop-filter: blur(25px) brightness(170%);
+    backdrop-filter: blur(25px) brightness(170%);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.6), 1rem 1rem 3rem rgba(63, 63, 63, 0.2);
+  }
+  .navigation__background {
+    transform: scale(0);
   }
 }
 /* 
@@ -31423,6 +31452,31 @@ HEADER ------------------------------------------------------------------------ 
   text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.4);
 }
 
+@supports (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px)) {
+  .header .boutton--white.boutton--header,
+  .header .boutton--white-trans.boutton--header {
+    -webkit-backdrop-filter: blur(25px) brightness(170%);
+    backdrop-filter: blur(25px) brightness(170%);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.6);
+  }
+  .header .boutton--white.boutton--header,
+  .header .boutton--white.boutton--header:visited {
+    background-color: rgba(232, 229, 227, 0.3);
+  }
+  .header .boutton--white.boutton--header::after {
+    background-color: rgba(232, 229, 227, 0.3);
+  }
+  .header .boutton--white-trans.boutton--header,
+  .header .boutton--white-trans.boutton--header:visited {
+    -webkit-backdrop-filter: blur(25px) brightness(65%);
+    backdrop-filter: blur(25px) brightness(65%);
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+  }
+  .header .boutton--white-trans.boutton--header::after {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
 html.is-loading .header,
 html.is-loading .header *,
 html.is-loading .header::before,
@@ -33756,6 +33810,20 @@ section ABOUT ---------------------------------------- */
   .mfp-challenges ul,
   .mfp-results ul {
     padding-left: 1.3rem;
+  }
+}
+@supports (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px)) {
+  .portfolio .item-img-overlay {
+    background: rgba(3, 3, 3, 0.55);
+    -webkit-backdrop-filter: blur(25px) brightness(65%);
+    backdrop-filter: blur(25px) brightness(65%);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+  }
+  .mfp-project-details {
+    background-color: rgba(30, 30, 30, 0.5);
+    -webkit-backdrop-filter: blur(25px) brightness(65%);
+    backdrop-filter: blur(25px) brightness(65%);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
   }
 }
 /* ======= SECTION RESOURCES  ======= START === */

@@ -1469,6 +1469,43 @@ HEADER ------------------------------------------------------------------------ 
   text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.4);
 }
 
+// The 2 header buttons in frosted glass (glassmorphism, as Codepen/backdrop-filter-demo): "Call" (white button) in
+// light glass, as the demo (light tint, backdrop blurred and brightened), "Contact" (transparent button) in dark glass,
+// as the Projects overlays (dark tint, backdrop blurred and darkened); same thin light inset edge. Browsers without
+// backdrop-filter keep the solid white / darkened buttons above.
+// The tint is split between the button and its ::after (the "shock wave" layer of the hover animation, solid white
+// on the white button): backdrop-filter makes the button a stacking context, so its ::after (z-index -1) is drawn
+// above the glass and would hide it. Button + ::after give the tint at rest; on hover the ::after still grows and fades
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .header .boutton--white.boutton--header,
+  .header .boutton--white-trans.boutton--header {
+    -webkit-backdrop-filter: blur(25px) brightness(170%);
+    backdrop-filter: blur(25px) brightness(170%);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.6);
+  }
+
+  .header .boutton--white.boutton--header,
+  .header .boutton--white.boutton--header:visited {
+    background-color: rgba(232, 229, 227, 0.3); // + the ::after: about the 0.5 light tint of the demo
+  }
+
+  .header .boutton--white.boutton--header::after {
+    background-color: rgba(232, 229, 227, 0.3);
+  }
+
+  .header .boutton--white-trans.boutton--header,
+  .header .boutton--white-trans.boutton--header:visited {
+    -webkit-backdrop-filter: blur(25px) brightness(65%);
+    backdrop-filter: blur(25px) brightness(65%);
+    background-color: rgba(0, 0, 0, 0.15); // + the ::after: about a 0.3 dark tint
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+  }
+
+  .header .boutton--white-trans.boutton--header::after {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
 // Header animations (photo slide-in, logo, icons, buttons, binary pattern) paused while the loader is shown:
 // they start when it has disappeared (html.is-loading removed by js/preloader.js; without JavaScript they run)
 html.is-loading {

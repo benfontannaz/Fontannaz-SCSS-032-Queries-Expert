@@ -362,3 +362,22 @@
     }
   }
 }
+
+// Navigation button in light frosted glass, as the white "Call" header button (layout/_01-header, from
+// Codepen/backdrop-filter-demo): light tint, backdrop blurred and brightened, thin light inset edge (+ its shadow).
+// The menu background circle (.navigation__background, solid blue-grey gradient) sat right under the button and
+// would only be blurred: it is shrunk to nothing while the menu is closed, so the glass shows the page behind; it
+// still grows from the button when the menu opens (scale(250), more specific). Browsers without backdrop-filter
+// keep the 60% white button over the blue-grey circle
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .navigation__button {
+    background-color: rgba(232, 229, 227, 0.5);
+    -webkit-backdrop-filter: blur(25px) brightness(170%);
+    backdrop-filter: blur(25px) brightness(170%);
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.6), 1rem 1rem 3rem rgba($nav-boutton-color-shadow, 0.2);
+  }
+
+  .navigation__background {
+    transform: scale(0);
+  }
+}

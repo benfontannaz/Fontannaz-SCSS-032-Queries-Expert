@@ -174,8 +174,17 @@
 
     &:hover,
     &:focus-visible {
-      color: #fff;
+      color: hsla(234, 85%, 56%, 0.938); // blue, as the footer icons on hover (_10-footer; was white)
       text-decoration: underline;
+    }
+  }
+
+  // nav.: more specific than ".footer-bottom a:hover" (black, layout/_10-footer, compiled after this file), which
+  // applied instead on the home page footer (the legal links are inside .footer-bottom)
+  @at-root nav#{&} a {
+    &:hover,
+    &:focus-visible {
+      color: hsla(234, 85%, 56%, 0.938);
     }
   }
 

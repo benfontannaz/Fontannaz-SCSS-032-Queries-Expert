@@ -534,6 +534,30 @@ $(window).scroll(function () {
   }
 
   // ------------------------------------------
+  //   EDUCATION - Degree Skills Animation
+  // ------------------------------------------
+  // as the Professional Studies logos above: the skills of each degree (Leadership, Strategy ...) appear one after
+  // the other (50ms apart) when the top of their row (".education-degree-skills-box", one per degree) is at 66% of
+  // the screen height from the top of the screen (or higher). Each row only once (data flag); rows hidden on
+  // tablets and phones (display: none) are skipped
+
+  $(".section-education .education-degree-skills-box").each(function () {
+    var box = this;
+    if (box.getAttribute("data-skills-shown")) return;
+    var rect = box.getBoundingClientRect();
+    if (rect.height > 0 && rect.top <= window.innerHeight * 0.66) {
+      box.setAttribute("data-skills-shown", "1");
+      $(box)
+        .children(".education-degree-skills")
+        .each(function (i, skill) {
+          setTimeout(function () {
+            $(skill).addClass("is-showing");
+          }, 50 * (i + 1));
+        });
+    }
+  });
+
+  // ------------------------------------------
   //   EDUCATION - Certifications Animation [WORKING]
   // ------------------------------------------
   // starts when the top of the certification logos (".education-scroll-7") is at 66% of the screen height from
