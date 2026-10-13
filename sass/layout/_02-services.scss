@@ -322,8 +322,10 @@
 
 .carte-details__box-icons-1-1,
 .carte-details__box-icons-1-2,
+.carte-details__box-icons-1-3, // AI chip (Business Strategy): its size follows the font size (em, below)
 .carte-details__box-icons-2-1,
 .carte-details__box-icons-2-2,
+.carte-details__box-icons-2-3, // AI chip (Enterprise Architecture): its size follows the font size (em, below)
 .carte-details__box-icons-3-2 {
   font-size: 5rem;
   text-align: center;
@@ -348,14 +350,17 @@
   top: 0.9rem; // same bottom line as the laptop / desktop / mobile icons
 }
 
+
 // Mobile (up to 480px wide): popup icons at 75% of their size
 $popup-icons-mobile-scale: 0.75;
 
 @media only screen and (max-width: 30em) {
   .carte-details__box-icons-1-1,
   .carte-details__box-icons-1-2,
+  .carte-details__box-icons-1-3, // AI chip (Business Strategy): its size follows the font size (em, below)
   .carte-details__box-icons-2-1,
   .carte-details__box-icons-2-2,
+  .carte-details__box-icons-2-3, // AI chip (Enterprise Architecture): its size follows the font size (em, below)
   .carte-details__box-icons-3-2 {
     font-size: calc(5rem * #{$popup-icons-mobile-scale}); // 3.75rem (was 5rem)
   }
@@ -587,8 +592,10 @@ $popup-mobile-scale: 1.2;
     // popup icons at 70% of their size
     .carte-details__box-icons-1-1,
     .carte-details__box-icons-1-2,
+    .carte-details__box-icons-1-3, // AI chip (Business Strategy): its size follows the font size (em, below)
     .carte-details__box-icons-2-1,
     .carte-details__box-icons-2-2,
+    .carte-details__box-icons-2-3, // AI chip (Enterprise Architecture): its size follows the font size (em, below)
     .carte-details__box-icons-3-2 {
       font-size: calc(5rem * 0.7); // 3.5rem (was 5rem)
     }
@@ -604,4 +611,20 @@ $popup-mobile-scale: 1.2;
       top: calc(0.9rem * 0.7); // keeps the same bottom line as the smaller glyph icons
     }
   }
+}
+
+// AI chip in the "Business Strategy" and "Enterprise Architecture" popups, last after the strategy / presentation
+// and tools / gears icons: drawn as high as them
+// (50px glyphs for a 5rem font). The chip drawing fills 102 / 120 of its SVG box: box = 1em / 0.85 = 1.176em.
+// Its font size is the one of the other icons in every view (5rem, x 0.75 on phones, x 0.7 in landscape: the lists
+// above), so it follows their size. Same bottom line as them (the 0.9rem top of the 5.5rem chip, kept for the
+// bigger box: + 1/12 of the extra size, the drawing ends 110 / 120 down its box; - 0.08em measured, so the
+// bottom of the chip drawing is on the bottom of the tools / gears glyphs). Placed at the end of the file:
+// after the rem sizes of .carte-details__box-icons .icon-ai-chip (AI popup) and their media queries
+.carte-details__box-icons .carte-details__box-icons-1-3,
+.carte-details__box-icons .carte-details__box-icons-2-3 {
+  width: 1.176em;
+  height: 1.176em;
+  top: calc(0.18em + (1.176em - 1.1em) / 12 - 0.08em); // 0.9rem / 5rem = 0.18em, + 1/12 of the extra size (5.5rem = 1.1em)
+  margin-left: 1rem; // same space before it as between the 2 other icons (1rem margins on both sides)
 }
