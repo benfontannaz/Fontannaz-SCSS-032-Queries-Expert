@@ -1484,25 +1484,68 @@ HEADER ------------------------------------------------------------------------ 
     box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.6);
   }
 
+  // "Call": light glass in the 3 states of the "Contact" button (its model), with its light colour:
+  // - at rest: a lighter tint: 0.28 on the button + a faint 0.1 on its ::after (about 0.35), 160% brightness;
+  // - hovered: a stronger and brighter tint: 0.55, 190% brightness (its ::after fades out on hover);
+  // - pressed: brighter still with the glow: 240% brightness (rule further below)
   .header .boutton--white.boutton--header,
   .header .boutton--white.boutton--header:visited {
-    background-color: rgba(232, 229, 227, 0.3); // + the ::after: about the 0.5 light tint of the demo
+    -webkit-backdrop-filter: blur(25px) brightness(160%);
+    backdrop-filter: blur(25px) brightness(160%);
+    background-color: rgba(232, 229, 227, 0.28);
   }
 
   .header .boutton--white.boutton--header::after {
-    background-color: rgba(232, 229, 227, 0.3);
+    background-color: rgba(232, 229, 227, 0.1);
   }
 
+  .header .boutton--white.boutton--header:hover {
+    -webkit-backdrop-filter: blur(25px) brightness(190%);
+    backdrop-filter: blur(25px) brightness(190%);
+    background-color: rgba(232, 229, 227, 0.55);
+  }
+
+  // "Contact": dark glass (blur 8px, as the Projects tiles and popup), in 3 states:
+  // - at rest: light dark: 85% brightness, 0.2 dark tint (0.1 on the button + 0.1 on its ::after);
+  // - hovered: darker: 65% brightness, 0.45 tint on the button (its ::after fades out on hover: .boutton:hover::after);
+  // - pressed: as dark as hovered (0.45 tint) but brighter, as if the button received more light: 130% brightness
+  //   (65% when hovered) and a soft white glow, inside and around the button
+  // The white edge line (border, was 90% opaque) and the inset highlight are more transparent
+  // (was darker at rest and lighter when hovered: the ::after part of the tint faded out on hover)
   .header .boutton--white-trans.boutton--header,
   .header .boutton--white-trans.boutton--header:visited {
-    -webkit-backdrop-filter: blur(25px) brightness(65%);
-    backdrop-filter: blur(25px) brightness(65%);
-    background-color: rgba(0, 0, 0, 0.15); // + the ::after: about a 0.3 dark tint
-    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.25);
+    -webkit-backdrop-filter: blur(8px) brightness(85%);
+    backdrop-filter: blur(8px) brightness(85%);
+    background-color: rgba(3, 3, 3, 0.1);
+    border-color: rgba(255, 255, 255, 0.4); // was 0.9
+    box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.12); // was 0.25
   }
 
   .header .boutton--white-trans.boutton--header::after {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(3, 3, 3, 0.1);
+  }
+
+  .header .boutton--white-trans.boutton--header:hover {
+    -webkit-backdrop-filter: blur(8px) brightness(65%);
+    backdrop-filter: blur(8px) brightness(65%);
+    background-color: rgba(3, 3, 3, 0.45);
+  }
+
+  .header .boutton--white-trans.boutton--header:active {
+    -webkit-backdrop-filter: blur(8px) brightness(130%);
+    backdrop-filter: blur(8px) brightness(130%);
+    background-color: rgba(3, 3, 3, 0.45);
+    border-color: rgba(255, 255, 255, 0.55); // the edge catches some of the light
+    box-shadow: $boutton-pressed-glow; // glow inside and around the button (abstracts/_variables)
+  }
+
+  // "Call" (light glass) when pressed: as strong as hovered, brighter (240% backdrop brightness) with the same glow
+  // as every pressed button (its inset edge rule above is more specific than .boutton:active)
+  .header .boutton--white.boutton--header:active {
+    -webkit-backdrop-filter: blur(25px) brightness(240%);
+    backdrop-filter: blur(25px) brightness(240%);
+    background-color: rgba(232, 229, 227, 0.55);
+    box-shadow: $boutton-pressed-glow;
   }
 }
 

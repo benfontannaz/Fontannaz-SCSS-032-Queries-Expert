@@ -137,7 +137,7 @@ $boutton-color-shadow: rgb(
 // ======= boutton WHITE - background color
 $boutton-solid-white-background: #f8f7f7e1;
 $boutton-solid-white-background-active: rgb(255, 255, 255);
-$boutton-solid-white-background-after: #fff;
+$boutton-solid-white-background-after: rgba(255, 255, 255, 0.1); // faint hover "shock wave", as the header "Contact" button (was #fff)
 // ======= boutton WHITE - text color
 $boutton-solid-white: #777;
 $boutton-solid-white-visited: #777;
@@ -157,9 +157,12 @@ $boutton-transparent-white-border-active: rgba(222, 220, 220, 0.574);
 
 // ======= boutton GREY
 // ======= boutton GREY - background color
+// every button when pressed: a soft white glow inside and around it (components/_buttons, layout/_01-header)
+$boutton-pressed-glow: inset 0 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 0 1rem rgba(255, 255, 255, 0.25),
+  0 0 1.4rem rgba(255, 255, 255, 0.35);
 $boutton-solid-grey-background: rgba(114, 114, 114, 0.959);
 $boutton-solid-grey-background-active: rgba(20, 19, 19, 0.882);
-$boutton-solid-grey-background-after: rgba(114, 114, 114, 0.767);
+$boutton-solid-grey-background-after: rgba(114, 114, 114, 0.1); // faint hover "shock wave", as the header "Contact" button (was 0.767)
 // ======= boutton GREY - text color
 $boutton-solid-grey: rgba(247, 247, 247, 0.979);
 $boutton-solid-grey-visited: rgba(233, 231, 231, 0.952);

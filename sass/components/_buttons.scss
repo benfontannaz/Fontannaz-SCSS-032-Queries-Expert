@@ -15,9 +15,10 @@
   position: relative;
 }
 
+// hover: the button lifts (every button, as the header "Contact" button). No big text shadow any more (was
+// 0 1rem 2rem: a blurred copy of the label below it, as if the text jumped; the "Contact" button never had it)
 .boutton:hover {
   transform: translateY(-0.3rem);
-  text-shadow: 0 1rem 2rem $boutton-color-shadow; /* Ombre X Y blur color&transparency button hovered*/
 }
 
 .boutton:hover::after {
@@ -116,6 +117,56 @@
   background-color: $boutton-solid-grey-background-after;
 }
 //======== BUTTTON GREY - SOLILD === END
+
+//======== BUTTON STATES: at rest / hovered / pressed, as the header "Contact" button === START
+// The model: the header "Contact" button (layout/_01-header): a lighter colour at rest, a stronger and slightly
+// brighter colour when hovered, and brighter still with a glow when pressed. Every button keeps its base colour:
+// white for the white buttons, grey for the grey buttons (the header "Call" button: layout/_01-header)
+
+// every button when pressed: a soft white glow inside and around it (was a dark drop shadow, .boutton:active above)
+.boutton:active {
+  box-shadow: $boutton-pressed-glow;
+}
+
+// white buttons (Services cards "For More Details"): white at 70% at rest, 90% when hovered, solid white with the
+// glow when pressed. Dark label (was #777 grey: not readable on the more transparent white)
+.boutton--white:link,
+.boutton--white:visited {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #2b2b2b;
+}
+
+.boutton--white:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.boutton--white:active {
+  background-color: #fff;
+  color: #2b2b2b;
+}
+
+// grey buttons (About, Submit form, popups "Contact Enquiry"), as the header "Contact" button: a lighter grey at
+// rest (85%); darker and more luminous when hovered (deeper grey, light sheen from the top and a soft inner glow);
+// darker still and brighter when pressed (deepest grey, stronger sheen and the glow of every pressed button).
+// A soft shadow under the light label keeps it readable (as the "Contact" label)
+.boutton--grey:link,
+.boutton--grey:visited {
+  background-color: rgba(114, 114, 114, 0.85);
+  text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+}
+
+.boutton--grey:hover {
+  background-color: rgb(85, 85, 85);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02) 60%);
+  box-shadow: inset 0 0 0.8rem rgba(255, 255, 255, 0.15);
+}
+
+.boutton--grey:active {
+  background-color: rgb(60, 60, 60);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.06) 60%);
+  box-shadow: $boutton-pressed-glow;
+}
+//======== BUTTON STATES === END
 
 //======== BUTTTON GREY - TRANSPARENT === START
 .boutton--grey-trans {

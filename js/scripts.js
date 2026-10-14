@@ -148,18 +148,16 @@ $(function () {
   $(window).on("load", function () {
     var wind = $(window);
     wind.stellar();
-    // fitWidth (isotope v3) / isFitWidth (isotope v2): the grid is as wide as its columns, so it can be centred (_07-projects.scss, tablet sizes)
-    $(".gallery").isotope({ itemSelector: ".items", masonry: { fitWidth: true, isFitWidth: true } });
-    var $gallery = $(".gallery").isotope({});
-    $(".filtering").on("click", "span", function () {
-      var filterValue = $(this).attr("data-filter");
-      $gallery.isotope({ filter: filterValue });
-    });
+    // Projects grid: no isotope any more. The grid is laid out by the browser (flex, _07-projects.scss) and filtered
+    // with .is-filtered-out (click handler above). Isotope also filtered it: its inline transforms (move / scale
+    // animations to its own absolute positions) stayed on the tiles over the flex layout, which moved them out of
+    // the grid, on top of each other, after a change of filter
     $(".filtering").on("click", "span", function () {
       $(this).addClass("active").siblings().removeClass("active");
     });
     // default Projects view = the filter marked "active" in index.html (Business Strategy).
-    // Native click so the filter handlers of both jQuery copies (this file and js/preloader.js) run.
+    // Native click so the filter handlers run (the .is-filtered-out handler above and the active-class handlers of
+    // both jQuery copies, this file and js/preloader.js).
     var defaultFilter = document.querySelector(".section-projects .filtering span.active");
     if (defaultFilter) defaultFilter.click();
   });

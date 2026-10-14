@@ -180,13 +180,7 @@ $(function () {
       $(window).on("load", function () {
           var wind = $(window);
           wind.stellar();
-          // fitWidth (isotope v3) / isFitWidth (isotope v2): the grid is as wide as its columns, so it can be centred (_07-projects.scss, tablet sizes)
-          $(".gallery").isotope({ itemSelector: ".items", masonry: { fitWidth: true, isFitWidth: true } });
-          var $gallery = $(".gallery").isotope({});
-          $(".filtering").on("click", "span", function () {
-          var filterValue = $(this).attr("data-filter");
-          $gallery.isotope({ filter: filterValue });
-          });
+          // Projects grid: no isotope any more (laid out by the browser and filtered by js/scripts.js, see there)
           $(".filtering").on("click", "span", function () {
           $(this).addClass("active").siblings().removeClass("active");
           });

@@ -144,7 +144,7 @@
     // space at the top of Resources (its top edge -> its first content)
     var spaceAbove = contentSpan(resources).top - pageTop(resources);
 
-    // end of the grid (its height is set by isotope), relative to the Projects top
+    // end of the grid (laid out by the browser: flex, _07-projects.scss), relative to the Projects top
     var gridBottom = grid.getBoundingClientRect().bottom + window.scrollY - pageTop(projects);
 
     // Resources top edge without --projects-extra = Projects top + 159dvh
@@ -293,7 +293,7 @@
   document.addEventListener("DOMContentLoaded", update);
   window.addEventListener("load", update); // again once images (mockup, logos) have their real size
   window.addEventListener("load", function () {
-    setTimeout(update, 1000); // and once isotope has laid out the Projects grid
+    setTimeout(update, 1000); // and once the default Projects filter has been applied
   });
   window.addEventListener("resize", onResize);
 
@@ -309,7 +309,7 @@
     }, 1100);
   });
 
-  // Projects filter (All / Business Strategy / ...): isotope animates the grid to its new height,
+  // Projects filter (All / Business Strategy / ...): the grid changes height (the tiles of the other categories are hidden),
   // then the sections below are resized. While this happens, the filter bar is kept at the same
   // place on screen so the view stays on the Projects section.
   document.addEventListener("click", function (e) {
@@ -320,7 +320,7 @@
 
     var bar = span.parentNode;
     var barTop = bar.getBoundingClientRect().top;
-    var end = Date.now() + 1500; // isotope animation (0.4s) + update (0.9s) + margin
+    var end = Date.now() + 1500; // tiles laid out at once; kept for the tile transitions + update (0.9s) + margin
     (function keepView() {
       var shift = bar.getBoundingClientRect().top - barTop;
       if (Math.abs(shift) > 1) window.scrollBy(0, shift);
